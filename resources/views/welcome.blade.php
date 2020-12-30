@@ -71,7 +71,7 @@
                     <br>
                     <h1 class="typewriter display-6 p-2 font-weight-light">Welcome to NM Technology!</h1><div class=row-3></div>
                     <br>
-                    <p class="p-4">When you have a serious technology based project that needs to be installed right,
+                    <p class="p-4">When you have a serious technology based project that needs to be installed correctly,
                         look no further than NM Technology. NM Technology is a Southwest leader in technology
                         integration for professional commercial subcrontracting. We deliver structured cabling, network comm 
                         support and now full-stack web development!<br>
