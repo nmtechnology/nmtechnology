@@ -4,8 +4,8 @@
 }
 
 #background-image {
-	background-image: url(/images/background-long.jpg?1d9d1b6af7962234901c31ae0178407d);
-	background-size: 100em;
+	background-image: url(/images/nm-technology-bg.png?c3fb766526019f25039b4749a1d81fe9);
+	background-size: cover;
 	background-repeat:no-repeat;/*single image not repeated*/
 	background-attachment: fixed;
 }
@@ -94,7 +94,6 @@ footer, #footer {
 }
 
 nav {
-	background-image: url(/images/nmtis-banner.jpg?1254e7e6e002d236cd9ed19548669fbc);
 	font-family: 'Saira', sans-serif;
 	color: #adff00;
 	background-color: #373737;
