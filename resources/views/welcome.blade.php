@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="img/NM Technology-favicon.png">
-    <!--Bootstrap CSS-->
+    <!--Bootstrap CSS CDN-->
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
     <!--Google FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
     <!--Top banner with NM Technology logo fixed to top-->
     <header>
         <nav class="nav bg-transparent position-fixed">
-            <div id="top-banner" alt="nmtis-logo-banner" class="img-fluid position-fixed"></div>
+            <img src="/images/nmtis-banner.jpg" alt="nmtis-logo-banner" class="img-fluid position-fixed"> </img>
         </nav>
     </header>
 
@@ -65,11 +65,14 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         <div class="container p-0 box-back">
             <div class="row-5">
                 <div class="container">
                     <br>
-                    <h1 class="typewriter display-6 p-2 font-weight-light">Welcome to NM Technology!</h1><div class=row-3></div>
+                    <h1 class="typewriter display-6 p-2 font-weight-light">Welcome</h1><div class=row-3></div>
                     <br>
                     <p class="p-4">When you have a serious technology based project that needs to be installed correctly,
                         look no further than NM Technology. NM Technology is a Southwest leader in technology
@@ -102,8 +105,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="d-inline-flex justify-content-center container">
-                                <img src="/img/team2.jpg" height="200" width="210" class="img-rounded mb-2" alt="teamwork">
-                                <img src="/img/code.jpg" height="200" width="210" class="img-rounded mb-2" alt="php-code">
+                                <img src="/images/team2.jpg" height="200" width="210" class="img-rounded mb-2" alt="teamwork">
+                                <img src="/images/code.jpg" height="200" width="210" class="img-rounded mb-2" alt="php-code">
                             </div>
                         </div>
                     </div>
@@ -119,13 +122,13 @@
         <br>
         <br>
         <br>
-        <!-- 3rd section COMPANIONCLOUD-->
+        <!-- 3rd section COMPANIONCLOUD
         <div class="container aos-init aos-animate box-back" data-aos="fade-up">
             <div class="row-5">
                 <div class="container p-2">
                     <h2 class="display-4 p-2">NM Technology Projects</h2><img src="../img/CompanionCloudlogo.png" height="82" width="300" class="mb-2 float-center" alt="companion cloud logo">
                     <div>
-                        <img src="../img/CompanionCloud-ACP.png" height="435" width="157" class="d-block w-100 img-thumbnail" alt="companion cloud screenshot">
+                        <img src="../images/CompanionCloud-ACP.png" height="435" width="157" class="d-block w-100 img-thumbnail" alt="companion cloud screenshot">
                     </div>
                     <br>
                     <p class="p-2">CompanionCloud is a pet cremation tracking web application that enables a pet cremation establishment
@@ -143,6 +146,7 @@
             </div>
         </div>
     </section>
+    end section*****-->
 
     <!-- Contact form -->
     <section class="bg-dark mt-3 aos-init aos-animate" data-aos="fade-up">
@@ -198,6 +202,11 @@
             </div>
         </div>
 
+        <div>
+                <div id="output-area">
+                </div>
+            </div>
+
         <!--empty area for form error/success output-->
 
         <br>
@@ -205,10 +214,6 @@
         <br>
         <br>
         <div>
-            <div>
-                <div id="output-area">
-                </div>
-            </div>
         </div><!-- /.container-->
 
     </section>
