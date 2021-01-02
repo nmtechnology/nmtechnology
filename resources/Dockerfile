@@ -1,6 +1,6 @@
 FROM composer:1.7 as vendor
 
-COPY ../php/composer.json composer.json
+COPY ../composer.json composer.json
 
 RUN composer install \
     --ignore-platform-reqs \
