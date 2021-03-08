@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ecdf31486a3968a28a619b390161ff3",
+    "content-hash": "ac3bbe5a01ad2889e7bc71073dea6c96",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1570,16 +1570,16 @@
         },
         {
             "name": "mailgun/mailgun-php",
-            "version": "3.4.1",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mailgun/mailgun-php.git",
-                "reference": "196be9f833dded334865ad8090148deaa235318a"
+                "reference": "f109b4a2f7914548932a422b9cfc3c3607be1b03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/196be9f833dded334865ad8090148deaa235318a",
-                "reference": "196be9f833dded334865ad8090148deaa235318a",
+                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/f109b4a2f7914548932a422b9cfc3c3607be1b03",
+                "reference": "f109b4a2f7914548932a422b9cfc3c3607be1b03",
                 "shasum": ""
             },
             "require": {
@@ -1624,9 +1624,9 @@
             "description": "The Mailgun SDK provides methods for all API functions.",
             "support": {
                 "issues": "https://github.com/mailgun/mailgun-php/issues",
-                "source": "https://github.com/mailgun/mailgun-php/tree/3.4.1"
+                "source": "https://github.com/mailgun/mailgun-php/tree/3.5.0"
             },
-            "time": "2021-02-28T21:33:29+00:00"
+            "time": "2021-03-08T07:27:11+00:00"
         },
         {
             "name": "monolog/monolog",

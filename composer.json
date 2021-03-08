@@ -14,7 +14,7 @@
         "google/recaptcha": "^1.2",
         "guzzlehttp/guzzle": "^7.0.1",
         "kriswallsmith/buzz": "^1.2",
-        "laravel/framework": "^8.20.1",
+        "laravel/framework": "^v8.31.0",
         "laravel/tinker": "^2.5",
         "mailgun/mailgun-php": "^3.2",
         "nyholm/psr7": "^1.3",
