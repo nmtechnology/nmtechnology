@@ -1,10 +1,11 @@
 #top-banner {
 	background-image: url(/images/nmtis-banner.jpg?1254e7e6e002d236cd9ed19548669fbc);
 	background-attachment: fixed;
+	overflow: scroll;
 }
 
 #background-image {
-	background-image: url(/images/nm-technology-bg.png?c3fb766526019f25039b4749a1d81fe9);
+	background-image: url(/images/nm-technology-bg.png?310c0e4e7613be992c3e92d0764b8feb);
 	background-size: cover;
 	background-repeat:no-repeat;/*single image not repeated*/
 	background-attachment: fixed;
@@ -25,7 +26,12 @@
 	text-shadow:none;
 }
 
-h1, h2, h3, h4, h5, h6	{
+h1 {
+	color:white;
+	font-family: 'Saira', sans-serif;
+}
+
+h2, h3, h4, h5, h6	{
 	color: #adff00;
 	text-align: left;
 	font-family: 'Saira', sans-serif;
@@ -49,16 +55,17 @@ li {
 }
 
 #box-back, .box-back {
-	background-color: rgba(0,0,0,.45);
+	background-color: rgba(0,78,98,.70);
 	border-radius: 7px;
 	padding: 1em;
+	background-attachment: inherit;
 }
 
 footer, #footer {
-	background-color: #373737;
+	background-color: rgba(11,46,63,.85);
 }
 
-.typewriter {
+#typewriter {
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
 	border-right: .20em solid #6dff00; /* The typwriter cursor */
 	white-space: nowrap; /* Keeps the content on a single line */
@@ -97,6 +104,7 @@ nav {
 	font-family: 'Saira', sans-serif;
 	color: #adff00;
 	background-color: #373737;
+	background-size: contain;
 }
 
 input::-moz-placeholder {
@@ -119,11 +127,11 @@ input, label {
 	color: #adff00;
 }
 
-html, body {
-	background: rgb(0,0,1);
-	background-attachment: fixed;
-}
-
 #output-area {
 	font-family: 'Saira', sans-serif;
 }
+
+#form-section {
+	background-color: rgba(11,45,63,.70);
+}
+			
