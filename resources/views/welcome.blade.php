@@ -55,9 +55,10 @@
         </header>
 <br>
 <br>
-                <img src="/images/hazard-bar.png" alt="hazard-bar-banner" href="#" class="position-fixed mt-5 img-fluid" width="2040" height="75">
+                <img src="/images/hazard-bar.png" alt="hazard-bar-banner" href="#" class="position-fixed mt-5 img-fluid" width="2045" height="75">
 
          <!--**********1st section NM Technology Description-->
+
     <section>
         <br>
         <br>
@@ -70,12 +71,17 @@
                     <br>
                     <br>
                     <h2 class="display-4">Welcome</h2>
-                    <p class="p-4">When you have a serious technology based project that needs to be installed correctly,
-                        look no further than hiring NM Technology to help you finish it. NM Technology is a leader in technology
-                        integration within the Structured Cabling Industry. We deliver structured cabling, smarthand IT support
-                        and now full-stack web development to our clients! <br></p>
-
-                    <p class="p-4">Our technicians practice industry standards and safety practices and never cut corners. Our standards include most ANSI/TIA A-C class & 568-569 code standards and have the capability to install fiber and copper network backbones. Our toplogists can design and implement custom proprietary networks that are isolated or integrated within the existing network or into a brand new facility.<br></p>
+                    <p class="p-4">When you have a serious Low Voltage or Web Development project that needs to be installed correctly,
+                        look no further than NM Technology to help you finish it correctly. NM Technology is a leader in technology
+                        integration within the Structured Cabling Industry. We deliver structured cabling, IT support
+                        and now full-stack web development to our clients! NM Technology can create customized API for
+                        secure and convenient integration.<br></p>
+                    <h2 class="display-4">Low Voltage</h2>
+                    <p class="p-4">Our technicians practice industry standards and safety practices and never cut corners.
+                        Our standards include most ANSI/TIA A-C class & 568-569 code standards and have the capability
+                        to install fiber and copper network backbones. Our toplogists at NM Technology can design and implement custom
+                        proprietary networks that are isolated or integrated within the existing an network or into a brand
+                        new facility. We also provide professional on-site maintenance for network support and more!<br></p>
 
                     <img src="images/it-racks.jpeg" alt="rack" class="img-fluid">
                     <img src="images/cable-rack-blue.jpeg" alt="IT-rack" class="img-fluid">
@@ -83,9 +89,6 @@
                     <p class="p-4">We offer network testing after every network installation and can provide you with a full data report that gives you the inner aspect of the speed and security capabilities to ensure we have provided you with a reliable and scalable private network for your needs. We can lso troubleshoot internet speed issues or connections with your existing network if you are experienceing slow speeds or no data connection just call us today to book a technician! <br></p>
 
                     <img src="images/tester.jpg" alt="rack" class="img-fluid">
-                    <div class="m-5">
-                        <p>Call us Monday-Friday 9am-6pm to get local IT support from qualified NM Technology technicians.
-                    <h5>LOCAL IT SERVICE IN NEW MEXICO!</h5><h5>505-370-1900</h5></div>
         </div>
     </section>
      <section>
@@ -162,7 +165,6 @@
                                     <!--empty area for form error/success output-->
                                     <div>
                                     <div id="output-area"></div>
-                                    </div><h4 class="float-right p-4">Call Us! 505.370.9100</h4>
 
                                     <!--SUBMIT BUTTON-->
                                     <button value="Submit" type="submit" class="btn mt-4 container p-2 form-control" id="submit-button">Send</button>

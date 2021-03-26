@@ -18,7 +18,7 @@
 
 #submit-button {
 	font-family: 'Saira', sans-serif;
-	background: #c2ff00;
+	background: #adff00;
 	color: #000000;
 	height: 50px;
 	width: 75px;
@@ -134,4 +134,3 @@ input, label {
 #form-section {
 	background-color: rgba(11,45,63,.70);
 }
-			
