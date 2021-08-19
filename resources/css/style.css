@@ -4,7 +4,7 @@
 }
 
 #background-image {
-	background-image: url("../img/nm-technology-bg.png");
+	background-image: url("../img/nm-technology-bg.jpeg");
 	background-size: cover;
 	background-repeat:no-repeat;/*single image not repeated*/
 	background-attachment: fixed;
@@ -25,9 +25,19 @@
 	text-shadow:none;
 }
 
-h1, h2, h3, h4, h5, h6	{
+h1 {
+    color: #edf2f7;
+    font-family: 'Saira', sans-serif;
+    font-size: 102px;
+}
+
+h3, h6 {
+    color: #edf2f7;
+    font-family: 'Saira', sans-serif;
+}
+
+a, h2, h4, h6	{
 	color: #adff00;
-	text-align: left;
 	font-family: 'Saira', sans-serif;
 }
 
@@ -40,7 +50,7 @@ p {
 	color: aliceblue;
 	font-family: 'Saira', sans-serif;
 	text-align: left;
-	font-size: medium;
+	font-size: 18px;
 }
 
 li {
@@ -49,7 +59,7 @@ li {
 }
 
 #box-back, .box-back {
-	background-color: rgba(0,0,0,.45);
+	background-color: rgba(0,0,0,.65);
 	border-radius: 7px;
 	padding: 1em;
 }
@@ -60,7 +70,7 @@ footer, #footer {
 
 .typewriter {
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	border-right: .20em solid #6dff00; /* The typwriter cursor */
+	border-right: .20em solid #adff00; /* The typwriter cursor */
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	padding: 1vw;
@@ -79,13 +89,20 @@ footer, #footer {
 /* The typewriter cursor effect */
 @keyframes blink-caret {
 	from, to { border-color: transparent }
-	50% { border-color: #6dff00; }
+	50% { border-color: #adff00; }
 }
 
 nav {
 	font-family: 'Saira', sans-serif;
 	color: #adff00;
-	background-color: #373737;
+	background-color: #363636;
+    height: 119px;
+}
+
+@media only screen and (max-width: 1300px) {
+    nav {
+        height: 219px;
+    }
 }
 
 input::placeholder {
@@ -106,3 +123,14 @@ html, body {
 #output-area {
 	font-family: 'Saira', sans-serif;
 }
+
+button {
+    background-color: #adff00;
+}
+
+marquee {
+    font-size: 24px;
+    color: #ffffff;
+
+}
+

@@ -14,7 +14,7 @@ $(document).ready(function(){
 	 **/
 
 	/* begin validate function here */
-	$("#pwp-contact-form").validate({
+	$("#recap-button").validate({
 
 		// setup handling of form errors
 		debug: true,
@@ -25,40 +25,24 @@ $(document).ready(function(){
 		// rules here define what is good or bad input
 		// each rule starts with the form input element's NAME attribute
 		rules: {
-			name: {
+			button: {
 				required: true
 			},
-			email: {
-				email: true,
-				required: true
-			},
-			message: {
-				required: true,
-				maxlength: 2000
-			}
 		},
 
 		// error messages to display to the end user when rules above don't pass
 		messages: {
 			name: {
-				required: "Please enter your name!"
+				required: "Please complete recaptcha to proceed to NMTechnology.us site!"
 			},
-			email: {
-				email: "**Please enter a valid email address**",
-				required: "Please enter a valid email address."
-			},
-			message: {
-				required: "You need to enter a message!",
-				maxlength: "2000 characters max."
-			}
 		},
 
 		// AJAX submit the form data to back end if rules pass
 		submitHandler: function(form) {
-			$("#pwp-contact-form").ajaxSubmit({
+			$("#recap-button").ajaxSubmit({
 
 				type: "POST",
-				url: $("#pwp-contact-form").attr("action"),
+				url: $("#recap-button").attr("action"),
 
 				success: function(ajaxOutput) {
 					// clear the output area's formatting
@@ -69,7 +53,7 @@ $(document).ready(function(){
 
 					// reset the form if it was successful
 					if($(".alert-success").length >= 1) {
-						$("#pwp-contact-form")[0].reset();
+						$("#recap-button")[0].enable();
 					}
 				}
 			})

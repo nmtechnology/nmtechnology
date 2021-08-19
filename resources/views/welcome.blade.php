@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" class="html__responsive">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
@@ -24,173 +25,84 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
 
-    <!--Google reCAPTCHA-->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+{{--    <!--Google reCAPTCHA-->--}}
+    <script>
 
-    <!--load amimate.css from CDN-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-
-    <!--load WOW js from CDN-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        var onloadCallback = function () {
+            grecaptcha.render('submit', {
+                sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
+                callback: 'onClick',
+                theme: 'dark'
+            });
+            $(":submit").click(onloadCallback);
+        };
+        console.log(onLoadCallback)
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
 
     <title>NM Technology</title>
 </head>
 
 <body>
-    <!--/**background image**/-->
-    <div id="background-image">
-        <!--Top banner with NM Technology logo fixed to top-->
-        <header class="top-banner position-fixed">
-
-             <header class="top-banner position-fixed container-fluid">
-
-        <nav class="navbar row p-5">
-
-                <img src="/images/nmtechnology-logo.png" alt="nmtechnology-logo" class="img-fluid position-fixed justify-content-center bg-transparent" width="300" height="300">
-
-        </nav>
-
-    </header>
-
-        </header>
-<br>
-<br>
-                <img src="/images/hazard-bar.png" alt="hazard-bar-banner" href="#" class="position-fixed mt-5 img-fluid" width="2045" height="75">
-
-         <!--**********1st section NM Technology Description-->
-
-    <section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 class="p-5 text-center">Professional IT Technician Services & Affordable Structured Cabling Installation!</h1>
-        <br>
-        <br>
-        <div class="p-3 box-back container">
-                    <br>
-                    <br>
-                    <h2 class="display-4">Welcome</h2>
-                    <p class="p-4">When you have a serious Low Voltage or Web Development project that needs to be installed correctly,
-                        look no further than NM Technology to help you finish it correctly. NM Technology is a leader in technology
-                        integration within the Structured Cabling Industry. We deliver structured cabling, IT support
-                        and now full-stack web development to our clients! NM Technology can create customized API for
-                        secure and convenient integration.<br></p>
-                    <h2 class="display-4">Low Voltage</h2>
-                    <p class="p-4">Our technicians practice industry standards and safety practices and never cut corners.
-                        Our standards include most ANSI/TIA A-C class & 568-569 code standards and have the capability
-                        to install fiber and copper network backbones. Our toplogists at NM Technology can design and implement custom
-                        proprietary networks that are isolated or integrated within the existing an network or into a brand
-                        new facility. We also provide professional on-site maintenance for network support and more!<br></p>
-
-                    <img src="images/it-racks.jpeg" alt="rack" class="img-fluid">
-                    <img src="images/cable-rack-blue.jpeg" alt="IT-rack" class="img-fluid">
-
-                    <p class="p-4">We offer network testing after every network installation and can provide you with a full data report that gives you the inner aspect of the speed and security capabilities to ensure we have provided you with a reliable and scalable private network for your needs. We can lso troubleshoot internet speed issues or connections with your existing network if you are experienceing slow speeds or no data connection just call us today to book a technician! <br></p>
-
-                    <img src="images/tester.jpg" alt="rack" class="img-fluid">
-        </div>
-    </section>
-     <section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="p-3 box-back container">
-                    <br>
-                    <br>
-                    <h2 class="display-4">Fullstack Development</h2>
-                    <p class="p-4">NM Technology provides website and application development for private and commercial businesses. We offer integration solutions to enable productivity in a modern digital format for your employees to utilize and complete their work more efficiently. If you need a website or web application solution then give us a call and we can help you with getting you setup the same day. Do you sell a product that you need a website for? We can get you setup with a custom E-comemrce soltution that meets your needs in order to make those record breaking profits in this modern era of E-commerce. We also offer a full administration and database options that are scalable and soluable to your companies work flow.<br></p>
-                    <img src="images/CompanionCloudlogo.png" alt="cc-logo" height="100" width="200" class="img-fluid img-rounded">
-                    <img src="images/companioncloud-messaging-center.png" alt="rack" class="img-fluid img-rounded">
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-    </section>
-
-
-
-    <section id="form-section" class="mt-3">
-        <div class="container">
-            <div class="row">
-                <div class="mt-5">
-
-                        <div>
-                            <div class="container d-inline-flex">
-                                <div class="row container">
-                                    <h6>Fullstack Web Development</h6>
-                                    <ul class="container ml-2">
-                                        <li>Custom Web & Mobile Apps</li>
-                                        <li>Mobile Responsive Website's</li>
-                                        <li>Web Automation</li>
-                                        <li>SMS Marketing</li>
-                                    </ul>
-                                </div>
-                                <div class="row container">
-                                    <h6>Installation Services</h6>
-                                    <ul class="container">
-                                        <li>4k IP-CCTV Installation</li>
-                                        <li>Network Infrastructure</li>
-                                        <li>Structured Cabling</li>
-                                        <li>Access Control</li>
-                                        <li>Data Center</li>
-                                    </ul>
-                                </div>
-                                <div class="row container">
-                                    <h6>Maintenance Services</h6>
-                                    <ul class="container">
-                                        <li>Cable Management</li>
-                                        <li>Hardware Upgrades</li>
-                                        <li>Network Upgrades</li>
-                                        <li>On-site Technician T/S</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div>
-                                <h3 class="ml-5 mt-5 display-6">What Can NM Technology Help You With?</h3>
-                            </div>
-                            <div class="mt-3">
-                                <form id="pwp-contact-form" action="/resources/php/mail-config.php" method="POST" class="form" novalidate="novalidate">
-                                    <label for="name"></label><input id="name" name="name" type="text" class="form-control bg-transparent form text-warning row" placeholder="Name*"><br>
-                                    <label for="email"></label><input id="email" name="email" type="text" class="form-control bg-transparent form text-warning row" placeholder="Email*"></div>
-                                    <label for="message"></label><textarea id="message" name="message" class="form-control bg-transparent text-warning form col mt-4" placeholder="Message*" rows="2"></textarea>
-
-                                    <!-- reCAPTCHA -->
-                                    <div class="container img-rounded">
-                                        <div class="g-recaptcha mt-4 row" data-sitekey="6LeQOiUaAAAAAKFMZr3FD88EEbGVABvgw4pMYUny">
-                                    </div>
-                                    <!--empty area for form error/success output-->
-                                    <div>
-                                    <div id="output-area"></div>
-
-                                    <!--SUBMIT BUTTON-->
-                                    <button value="Submit" type="submit" class="btn mt-4 container p-2 form-control" id="submit-button">Send</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                <br>
+<!--/**background image**/-->
+<div id="background-image">
+    <!--Top banner with NM Technology logo fixed to top-->
+    <nav class="navbar navbar-expand-lg position-fixed container-fluid">
+        <div class="container-fluid">
             <div>
-        </div><!-- /.container-->
+            <a class="navbar-brand" id="recap-button" href="/#"><img src="images/nmtech-logo-full.png" alt="nmtechnology-logo" class="navbar-brand img-fluid" width="400" height="65"></a>
+            <br>
+
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
+    <br>
+    <br>
+    <section class="mt-5">
+            <div class="container box-back flex-column">
+
+                <h2 class="text-center">Welcome to NM Technology & Integration Solutions</h2>
+                <br>
+                <img src="images/nm-desert.jpeg" class="container" alt="nm-desert" width="1100" height="600">
+                <br>
+                <br>
+                <p class="text-center">NM Technology's trained, certified and licensed technicians provide the capability, knowledge
+                    and the experience to get what you need fixed or installed correctly. We are here to serve businesses and the residents of New Mexico
+                    so check out the website and then give us a call and have us immediately start working on what you need today!
+                    </p>
+
+                    <br/>
+                <div id="recap-verify">
+                    <form class="g-recaptcha-response form" method="post">
+                    <recaptcha data-callback="onClick" id="submit" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE"></recaptcha><h6>Please complete recaptcha for access to site and make sure you are human!</h6>
+                    <br>
+                    <a class="btn btn-outline-success col-12 btn-lg onClick spinner-grow text-success" data-bs-toggle="onClick" aria-pressed="true" href="/fire">Access Site</a>
+                    </form> </div>
+                </div>
     </section>
-    <!-- Wrapped background image closing div was here-->
-    <!--Footer-->
-    <div class="container-fluid justify-content-center site-footer-nav" id="footer">
-        <footer class="p-2"><h6>©NM Technology 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" href="#" class="float-right" width="50" height="30"></h6>
-            </footer>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
-
-
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!--Footer-->
+<footer class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="float-right" width="50" height="30"></h6>
+</footer>
 </body>
 
 </html>
+
+

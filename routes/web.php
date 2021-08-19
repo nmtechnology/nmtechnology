@@ -17,5 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/welcome', 'Contact@show');
-Route::post('/welcome', 'Contact@store');
+Route::get('/structured', function () {
+    return view('structured');
+});
+
+Route::get('/fire', function () {
+    return view('fire');
+});
+
+Route::get('/cctv', function () {
+    return view('cctv');
+});
+
+Route::get('/access', function () {
+    return view('access');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});

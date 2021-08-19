@@ -1,11 +1,10 @@
 #top-banner {
 	background-image: url(/images/nmtis-banner.jpg?1254e7e6e002d236cd9ed19548669fbc);
 	background-attachment: fixed;
-	overflow: scroll;
 }
 
 #background-image {
-	background-image: url(/images/nm-technology-bg.png?310c0e4e7613be992c3e92d0764b8feb);
+	background-image: url(/images/nm-technology-bg.jpeg?3511707920d4ef19a1dbfdb5624a9f89);
 	background-size: cover;
 	background-repeat:no-repeat;/*single image not repeated*/
 	background-attachment: fixed;
@@ -13,12 +12,12 @@
 
 .form {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #b0ff00;
 }
 
 #submit-button {
 	font-family: 'Saira', sans-serif;
-	background: #adff00;
+	background: #b0ff00;
 	color: #000000;
 	height: 50px;
 	width: 75px;
@@ -27,26 +26,31 @@
 }
 
 h1 {
-	color:white;
-	font-family: 'Saira', sans-serif;
+    color: #edf2f7;
+    font-family: 'Saira', sans-serif;
+    font-size: 102px;
 }
 
-h2, h3, h4, h5, h6	{
-	color: #adff00;
-	text-align: left;
+h3, h6 {
+    color: #edf2f7;
+    font-family: 'Saira', sans-serif;
+}
+
+a, h2, h4, h6	{
+	color: #b0ff00;
 	font-family: 'Saira', sans-serif;
 }
 
 label {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #b0ff00;
 }
 
 p {
 	color: aliceblue;
 	font-family: 'Saira', sans-serif;
 	text-align: left;
-	font-size: medium;
+	font-size: 18px;
 }
 
 li {
@@ -55,19 +59,18 @@ li {
 }
 
 #box-back, .box-back {
-	background-color: rgba(0,78,98,.70);
+	background-color: rgba(0,0,0,.65);
 	border-radius: 7px;
 	padding: 1em;
-	background-attachment: inherit;
 }
 
 footer, #footer {
-	background-color: rgba(11,46,63,.85);
+	background-color: rgba(55, 55, 55, 0.51);
 }
 
-#typewriter {
+.typewriter {
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	border-right: .20em solid #6dff00; /* The typwriter cursor */
+	border-right: .20em solid #b0ff00; /* The typwriter cursor */
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	padding: 1vw;
@@ -93,44 +96,88 @@ footer, #footer {
 /* The typewriter cursor effect */
 @-webkit-keyframes blink-caret {
 	from, to { border-color: transparent }
-	50% { border-color: #6dff00; }
+	50% { border-color: #b0ff00; }
 }
 @keyframes blink-caret {
 	from, to { border-color: transparent }
-	50% { border-color: #6dff00; }
+	50% { border-color: #b0ff00; }
 }
 
 nav {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
-	background-color: #373737;
-	background-size: contain;
+	color: #b0ff00;
+	background-color: #363636;
+    height: 119px;
+}
+
+.responsive {
+    width: 100%;
+    min-width: 600px;
+    min-height: 250px;
+    max-width: 2000px;
+    height: 119px;
+}
+
+.nav-button-text {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.nav-title {
+    font-size: 18px;
+    color: #fff;
+    font-style: italic;
+    font-style: bold;
+    text-align: center;
+}
+.nav-title-2 {
+    font-size: 14px;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+.btn-custom {
+    background-color: #54ae2d;
+    margin-bottom: 25px;
 }
 
 input::-moz-placeholder {
-	color: #adff00;
+	color: #b0ff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input:-ms-input-placeholder {
-	color: #adff00;
+	color: #b0ff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input::placeholder {
-	color: #adff00;
+	color: #b0ff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input, label {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #b0ff00;
+}
+
+html, body {
+	background: rgb(0,0,1);
+	background-attachment: fixed;
 }
 
 #output-area {
 	font-family: 'Saira', sans-serif;
 }
 
-#form-section {
-	background-color: rgba(11,45,63,.70);
+button {
+    background-color: #b0ff00;
+    float: right;
+}
+
+marquee {
+    font-size: 24px;
+    color: #ffffff;
+
 }
