@@ -12,12 +12,12 @@
 
 .form {
 	font-family: 'Saira', sans-serif;
-	color: #b0ff00;
+	color: #adff00;
 }
 
 #submit-button {
 	font-family: 'Saira', sans-serif;
-	background: #b0ff00;
+	background: #c2ff00;
 	color: #000000;
 	height: 50px;
 	width: 75px;
@@ -37,13 +37,13 @@ h3, h6 {
 }
 
 a, h2, h4, h6	{
-	color: #b0ff00;
+	color: #ffffff;
 	font-family: 'Saira', sans-serif;
 }
 
 label {
 	font-family: 'Saira', sans-serif;
-	color: #b0ff00;
+	color: #adff00;
 }
 
 p {
@@ -65,12 +65,12 @@ li {
 }
 
 footer, #footer {
-	background-color: rgba(55, 55, 55, 0.51);
+	background-color: #373737;
 }
 
 .typewriter {
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	border-right: .20em solid #b0ff00; /* The typwriter cursor */
+	border-right: .20em solid #adff00; /* The typwriter cursor */
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	padding: 1vw;
@@ -96,70 +96,44 @@ footer, #footer {
 /* The typewriter cursor effect */
 @-webkit-keyframes blink-caret {
 	from, to { border-color: transparent }
-	50% { border-color: #b0ff00; }
+	50% { border-color: #adff00; }
 }
 @keyframes blink-caret {
 	from, to { border-color: transparent }
-	50% { border-color: #b0ff00; }
+	50% { border-color: #adff00; }
 }
 
 nav {
 	font-family: 'Saira', sans-serif;
-	color: #b0ff00;
+	color: #adff00;
 	background-color: #363636;
     height: 119px;
 }
 
-.responsive {
-    width: 100%;
-    min-width: 600px;
-    min-height: 250px;
-    max-width: 2000px;
-    height: 119px;
-}
-
-.nav-button-text {
-    color: #ffffff;
-    font-size: 12px;
-}
-
-.nav-title {
-    font-size: 18px;
-    color: #fff;
-    font-style: italic;
-    font-style: bold;
-    text-align: center;
-}
-.nav-title-2 {
-    font-size: 14px;
-    color: #fff;
-    font-style: italic;
-    text-align: center;
-}
-
-.btn-custom {
-    background-color: #54ae2d;
-    margin-bottom: 25px;
+@media only screen and (max-width: 1300px) {
+    nav {
+        height: 219px;
+    }
 }
 
 input::-moz-placeholder {
-	color: #b0ff00;
+	color: #adff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input:-ms-input-placeholder {
-	color: #b0ff00;
+	color: #adff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input::placeholder {
-	color: #b0ff00;
+	color: #adff00;
 	font-family: 'Saira', sans-serif;
 }
 
 input, label {
 	font-family: 'Saira', sans-serif;
-	color: #b0ff00;
+	color: #adff00;
 }
 
 html, body {
@@ -172,8 +146,7 @@ html, body {
 }
 
 button {
-    background-color: #b0ff00;
-    float: right;
+    background-color: #adff00;
 }
 
 marquee {
@@ -181,3 +154,4 @@ marquee {
     color: #ffffff;
 
 }
+

@@ -33,7 +33,7 @@ $(document).ready(function(){
 		// error messages to display to the end user when rules above don't pass
 		messages: {
 			name: {
-				required: "Please complete recaptcha to proceed to NMTechnology.us site!"
+				required: "Please complete recaptcha to proceed to NM Technology site!"
 			},
 		},
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			$("#recap-button").ajaxSubmit({
 
 				type: "POST",
-				url: $("#recap-button").attr("action"),
+				url: $("#validate").attr("action"),
 
 				success: function(ajaxOutput) {
 					// clear the output area's formatting
@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 					// reset the form if it was successful
 					if($(".alert-success").length >= 1) {
-						$("#recap-button")[0].enable();
+						$("#submit")[0].enable();
 					}
 				}
 			})

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" class="html__responsive">
 <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
 
     <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
     <!--Bootstrap CSS CDN-->
-    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
     <!--CSS stylesheet-->
@@ -31,10 +31,10 @@
         var onloadCallback = function () {
             grecaptcha.render('submit', {
                 sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
-                callback: 'onClick',
+                callback: 'button',
                 theme: 'dark'
             });
-            $(":submit").click(onloadCallback);
+            $(":button").click(onloadCallback);
         };
         console.log(onLoadCallback)
     </script>
@@ -49,13 +49,11 @@
 <!--/**background image**/-->
 <div id="background-image">
     <!--Top banner with NM Technology logo fixed to top-->
-    <nav class="navbar navbar-expand-lg position-fixed container-fluid">
-        <div class="container-fluid">
-            <div>
-            <a class="navbar-brand" id="recap-button" href="/#"><img src="images/nmtech-logo-full.png" alt="nmtechnology-logo" class="navbar-brand img-fluid" width="400" height="65"></a>
-            <br>
-
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
+        <div class="navbar-brand">
+            <div class="navbar-brand mx-auto">
+            <img href="/#" src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand img-center" width="400" height="300">
+            </div><br>
         </div>
     </nav>
     <br>
@@ -69,23 +67,24 @@
     <section class="mt-5">
             <div class="container box-back flex-column">
 
-                <h2 class="text-center">Welcome to NM Technology & Integration Solutions</h2>
+                <h2 class="text-center">ProfessionalLow Voltage Contractors</h2>
                 <br>
-                <img src="images/nm-desert.jpeg" class="container" alt="nm-desert" width="1100" height="600">
+                <img src="images/desert.png" class="container" alt="nm-desert" width="1100" height="600">
                 <br>
                 <br>
                 <p class="text-center">NM Technology's trained, certified and licensed technicians provide the capability, knowledge
-                    and the experience to get what you need fixed or installed correctly. We are here to serve businesses and the residents of New Mexico
-                    so check out the website and then give us a call and have us immediately start working on what you need today!
+                    and the experience to get what you need repaired or installed correctly and on time! We are here to serve Contractors and the residents of New Mexico
+                    so check out the website and then give us a call and have us immediately start working on your project today!
                     </p>
 
                     <br/>
-                <div id="recap-verify">
-                    <form class="g-recaptcha-response form" method="post">
-                    <recaptcha data-callback="onClick" id="submit" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE"></recaptcha><h6>Please complete recaptcha for access to site and make sure you are human!</h6>
+                <div class="item-center" id="recap-verify">
+                    <form class="g-recaptcha-response form mx-auto" method="post" action="validate">
+                    <recaptcha data-callback="button" id="submit" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE"></recaptcha>
                     <br>
-                    <a class="btn btn-outline-success col-12 btn-lg onClick spinner-grow text-success" data-bs-toggle="onClick" aria-pressed="true" href="/fire">Access Site</a>
-                    </form> </div>
+                    <span id="output-area"></span>
+                    <a class="btn btn-outline-gold col-12 btn-lg text-gold" data-bs-toggle="submit" aria-pressed="true" value="submit"  href="/fire">Access Site</a>
+                    </form> 
                 </div>
     </section>
     <br>
@@ -97,7 +96,7 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <!--Footer-->
 <footer class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="float-right" width="50" height="30"></h6>
 </footer>

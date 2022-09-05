@@ -19479,8 +19479,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nmtechnology/PhpstormProjects/nmtechnology-revamp/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nmtechnology/PhpstormProjects/nmtechnology-revamp/resources/css/style.css */"./resources/css/style.css");
+__webpack_require__(/*! /Users/corbindallas/nmtechnology/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/corbindallas/nmtechnology/resources/css/style.css */"./resources/css/style.css");
 
 
 /***/ })
