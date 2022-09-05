@@ -30,7 +30,7 @@
 
         var onloadCallback = function () {
             grecaptcha.render('submit', {
-                sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
+                sitekey: '*******',
                 callback: 'button',
                 theme: 'dark'
             });
