@@ -11,7 +11,7 @@
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
     <!--CSS stylesheet-->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!--aos animation-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@next/dist/aos.css">
@@ -27,16 +27,15 @@
 
 {{--    <!--Google reCAPTCHA-->--}}
     <script>
-
         var onloadCallback = function () {
-            grecaptcha.render('submit', {
+            grecaptcha.render('pwp-contact-form', {
                 sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
-                callback: 'button',
+                callback: 'onloadCallback',
                 theme: 'dark'
             });
-            $(":button").click(onloadCallback);
+            $("pwp-contact-form").click(onloadCallback);
         };
-        console.log(onLoadCallback)
+        // console.log(onLoadCallback)
     </script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
@@ -46,13 +45,14 @@
 </head>
 
 <body>
+    
 <!--/**background image**/-->
 <div id="background-image">
     <!--Top banner with NM Technology logo fixed to top-->
-    <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
-        <div class="navbar-brand">
-            <div class="navbar-brand mx-auto">
-            <img href="/#" src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand img-center" width="400" height="300">
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
+        <div class="navbar-brand center">
+            <div class="navbar-brand">
+            <a href="/#"><img class="navbar-brand center" src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" width="175" height="75"></a>
             </div><br>
         </div>
     </nav>
@@ -65,35 +65,43 @@
     <br>
     <br>
     <section class="mt-5">
-            <div class="container box-back flex-column">
+            <div class="container box-back">
 
-                <h2 class="text-center">ProfessionalLow Voltage Contractors</h2>
+                <h2 class="text-center text-lg typewriter">Professional Low Voltage Contractors</h2>
                 <br>
-                <img src="images/desert.png" class="container" alt="nm-desert" width="1100" height="600">
+                <img src="images/desert-2.png" class="container" alt="nm-desert" width="1100" height="600">
                 <br>
                 <br>
-                <p class="text-center">NM Technology's trained, certified and licensed technicians provide the capability, knowledge
-                    and the experience to get what you need repaired or installed correctly and on time! We are here to serve Contractors and the residents of New Mexico
-                    so check out the website and then give us a call and have us immediately start working on your project today!
+                <p class="text-center">NM Technology is a Southwest leader in Low Voltage Special Systems give us a call and have us immediately start working on your project today!
                     </p>
 
                     <br/>
-                <div class="item-center" id="recap-verify">
-                    <form class="g-recaptcha-response form mx-auto" method="post" action="validate">
-                    <recaptcha data-callback="button" id="submit" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE"></recaptcha>
+                    
+                <div class="center" id="recap-verify">
+                    <form class="g-recaptcha" method="post">
+                    <recaptcha id="pwp-contact-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enable-button2"></recaptcha>
                     <br>
-                    <span id="output-area"></span>
-                    <a class="btn btn-outline-gold col-12 btn-lg text-gold" data-bs-toggle="submit" aria-pressed="true" value="submit"  href="/fire">Access Site</a>
+                    <a role="button" aria-disabled="true" href="/fire" class="btn btn-lg" id="submit-button">ENTER</a>
                     </form> 
                 </div>
+                <!-- <form action="https://submit-form.com/you-form-id" method="POST">
+                <recaptcha id="enable-button" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enable-button"></recaptcha>
+      <br />
+      <a class="btn-large"href="/fire" id="enable-button" type="submit" disabled>Submit</a>
+    </form> -->
+    <script>
+      function callback('enable-button2') {
+        const submitButton = document.getElementById("enable-button2");
+        submitButton.removeAttribute(":disabled");
+      }
+    </script>
     </section>
     <br>
     <br>
     <br>
     <br>
-</div>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -103,5 +111,3 @@
 </body>
 
 </html>
-
-

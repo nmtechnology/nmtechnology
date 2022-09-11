@@ -1,11 +1,11 @@
 #top-banner {
-	background-image: url("../img/nmtis-logo-badge-full-wording.png");
+	background-image: url("public/images/nmtis-logo-badge-full-wording.png");
 	background-attachment: fixed;
 }
 
 #background-image {
-	background-image: url("../images/nm-technology-bg.jpg");
-	background-size: 100%;
+	background-image: url("../img/nm-technology-bg.jpg");
+	background-size: contain;
 	background-repeat:no-repeat;/*single image not repeated*/
 	background-attachment: fixed;
 }
@@ -17,12 +17,15 @@
 
 #submit-button {
 	font-family: 'Saira', sans-serif;
-	background: #c2ff00;
+	background: #adff00;
 	text-decoration-color: #ffffff;
 	height: 50px;
 	width: 75px;
 	margin-top: 5px;
 	text-shadow:none;
+	outline-color: invert;
+	outline-width: 5px;
+	box-sizing: content-box;
 }
 
 h1 {
@@ -76,8 +79,8 @@ footer, #footer {
 	padding: 1vw;
 	letter-spacing: .05em; /* Adjust as needed */
 	animation:
-		typing 4.5s steps(27, end),
-		blink-caret 0.7s step-end infinite;
+		typing 4.5s steps(27, 57),
+		blink-caret 0.7s step-start infinite;
 }
 
 /* The typing effect */
@@ -94,9 +97,8 @@ footer, #footer {
 
 nav {
 	font-family: 'Saira', sans-serif;
-	color: #c2ff00;
+	text-decoration-color: #c2ff00;
 	background-color: #363636;
-    height: 119px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -145,7 +147,7 @@ marquee {
 .btn-bd-primary {
 	--bs-btn-font-weight: 600;
 	--bs-btn-color: var(--bs-white);
-	--bs-btn-bg: var(--bd-violet);
+	--bs-btn-bg: var(--bd-violet-rgb);
 	--bs-btn-border-color: var(--bd-violet);
 	--bs-btn-border-radius: .5rem;
 	--bs-btn-hover-color: var(--bs-white);

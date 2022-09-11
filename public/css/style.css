@@ -1,5 +1,5 @@
 #top-banner {
-	background-image: url(/images/nmtis-banner.jpg?1254e7e6e002d236cd9ed19548669fbc);
+	background-image: url(/images/nmtis-banner.jpg);
 	background-attachment: fixed;
 }
 
@@ -12,12 +12,12 @@
 
 .form {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #9ce610;
 }
 
 #submit-button {
 	font-family: 'Saira', sans-serif;
-	background: #c2ff00;
+	background: #9ce610;
 	color: #000000;
 	height: 50px;
 	width: 75px;
@@ -25,25 +25,37 @@
 	text-shadow:none;
 }
 
+.end {
+	justify-content: flex-end;
+}
+
+.center {
+	justify-content: center;
+}
+
+.start {
+	justify-content: flex-start;
+}
+
 h1 {
-    color: #edf2f7;
+    color: #9ce610;
     font-family: 'Saira', sans-serif;
     font-size: 102px;
 }
 
 h3, h6 {
-    color: #edf2f7;
+    color: #9ce610;
     font-family: 'Saira', sans-serif;
 }
 
 a, h2, h4, h6	{
-	color: #ffffff;
+	color: #9ce610;
 	font-family: 'Saira', sans-serif;
 }
 
 label {
 	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #9ce610;
 }
 
 p {
@@ -70,7 +82,7 @@ footer, #footer {
 
 .typewriter {
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	border-right: .20em solid #adff00; /* The typwriter cursor */
+	border-right: .20em solid #9ce610; /* The typwriter cursor */
 	white-space: nowrap; /* Keeps the content on a single line */
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	padding: 1vw;
@@ -107,14 +119,21 @@ nav {
 	font-family: 'Saira', sans-serif;
 	color: #adff00;
 	background-color: #363636;
-    height: 119px;
+    height: 140px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1600px) {
     nav {
-        height: 219px;
+        height: 140px;
     }
 }
+
+@media screen and (max-width: 600px) {
+
+	nav {
+        height: 130px;
+    }
+  }
 
 input::-moz-placeholder {
 	color: #adff00;

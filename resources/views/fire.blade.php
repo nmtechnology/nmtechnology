@@ -11,7 +11,7 @@
         <br>
         <br>
         <br>
-        <div class="box-back container">
+        <div class="container p-3 mt-5 aos-init aos-animate box-back" data-aos="fade-up">
             <br>
             <br>
             <h1 class="display-4 text-center"><svg class="m-2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 179.000000 250.000000">

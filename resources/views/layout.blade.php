@@ -1,103 +1,259 @@
-<!DOCTYPE HTML>
 <html lang="en" class="html__responsive">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
-    <!--Bootstrap CSS CDN-->
-    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
-    <!--Google Font-->
-    <link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
-    <!--CSS stylesheet-->
-    <link href="/css/style.css" rel="stylesheet">
-    <!--aos animation-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@next/dist/aos.css">
-    <!--jQuery first, then Popper.js, then Bootstrap JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--    Google FOnt -->
+	<link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<!--	aos animation-->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+	<!--	aos JS-->
+	<script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/v1QHzzN92WdopzN_oD7bUO2P/recaptcha__en.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <!--jQuery Form, Additional Methods, Validate-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+	<!-- jQuery Form, Additional Methods, Validate -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
 
+	<!-- Your JavaScript Form Validator -->
+	<script src="js/form-validate.js"></script>
 
+	<!--Google reCAPTCHA-->
+    <script>
+        var onloadCallback = function () {
+            grecaptcha.render('pwp-contact-form', {
+                sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
+                callback: 'onloadCallback',
+                theme: 'dark'
+            });
+            $("pwp-contact-form").click(onloadCallback);
+        };
+        // console.log(onLoadCallback)
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
 
-    <!--Google reCAPTCHA-->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+	<!--load amimate.css from CDN-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
 
-    <title>NM Technology</title>
+	<!--load WOW js from CDN-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js">
+	</script>
+
+    
+
+	<title>NM Technology</title>
+
 </head>
 
-<body>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
 <!--/**background image**/-->
-<div id="background-image">
-    <!--Top banner with NM Technology logo fixed to top-->
-    <nav class="navbar navbar-collapse-lg position-fixed bg-dark container-fluid">
-        <div class="container">
-            <a class="navbar-brand position-fixed">
-            <img class="navbar-brand img-fluid mb-4 mt-12 row" href="/#" src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo"  width="400" height="65">
-            <button class="navbar-toggler btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-card-list" viewBox="0 0 16 16">
-                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                    <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-                </svg> <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="bg-dark p-1 rounded collapse navbar-collapse" id="navbarSupportedContent"><br><br>
-                <p class="nav-title row">Call NM Technology today and let's get started!</p>
-                <p class="nav-title row">505-659-5097</p>
-                <ul class="navbar-nav navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link btn-lg btn-secondary" aria-current="page" href="/structured">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-3 m-1" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
-                            </svg> Structured Cabling</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active btn-lg btn-danger" aria-current="page" href="/fire">
-                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 179.000000 250.000000">
-                                <g transform="translate(0.000000,250.000000) scale(0.050000,-0.050000)"
-                                   fill="#FFFFFF" stroke="none">
-                                    <path d="M1547 4849 c232 -604 18 -1364 -552 -1961 -205 -214 -198 -212 -284 -118 -86 94 -92 92 -223 -75 -644 -819 -394 -2030 521 -2528 l100 -54 -75 101 c-253 345 -266 823 -31 1147 l62 85 64 -76 64 -77 34 217 c76 491 304 908 606 1108 104 69 135 65 106 -11 -106 -280 -2 -687 258 -1010 143 -178 177 -198 226 -133 l35 46 59 -57 c307 -295 321 -911 27 -1254 -84 -99 -69 -99 95 -1 830 497 1082 1584 551 2383 -103 154 -126 165 -174 84 -50 -85 -153 -176 -175 -154 -10 11 -28 109 -41 219 -102 893 -468 1619 -1027 2034 -153 113 -250 150 -226 85z"/>
-                                </g>
-                            </svg>Fire Alarms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-lg btn-info" aria-current="page" href="/cctv">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-video m-1" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
-                            </svg> CCTV</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="disabled nav-link active btn-lg btn-success" aria-current="page" href="structured.blade.php">Access Control</a>
-                    </li>
-                    
-                </ul>
-            </div>
+<div id="background-image" class="img-fluid">
+	<!--Top banner with NM Technology logo fixed to top-->
+	<nav class="navbar nav navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
+        <div class="navbar-brand center">
+            <div class="navbar-brand">
+            <a href="/#"><img src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand" width="175" height="75"></a>
+            </div><br>
         </div>
+		<div class="flex">
+			<div class="container">
+				<div>
+					<p>Call For Service!</p><h3>505-659-5097</h3>
+				</div>
+			</div>
+		</div>
     </nav>
     <br>
     <br>
     <br>
     <br>
-    <br></div>
-    <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="100">
+    <br>
+    <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class=" nav container-fluid img-fluid position-fixed" width="2045" height="76">
+	<!--	1st section ABOUT NMTIS-->
+	<section>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="container p-0 box-back">
+			<div class="row-5">
+				<div class="container">
+					<h1 class="display-6 p-2 text-justify-center font-weight-bold">Welcome!</h1>
+					<p class="p-4">When you have a serious project that needs to be done right,
+						look no further than here. NM Technology & Integration Solutions, a Southwest leader in technology
+						integration for commercial structures. We deliver structured cabling & special systems installation!<br>
+						
+						<br>NM Technology & integration Solutions LLC was started in 2016 and we enjoy providing our customers
+						with a world class customer service experience! We have served many different types of clients and the
+						list keeps growing day by day! Our team has performed work inside various government sites and high
+						security facilities that demand privacy and above all integrity from a technology service provider like
+						us!<br>
 
+					<div>
+					<br><h6>Technology -</h6><p class="p-3">Is an expanded concept that deals with a species' usage and knowledge of tools and
+						crafts, and how it affects a species ability to control and adapt to its environment. The human race's
+						use of technology began with the conversion of plentiful natural resources into simple tools.</p></div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+		<!--	2nd section FULLSTACK DEV-->
+		<div class="container p-3 mt-5 aos-init aos-animate box-back" data-aos="fade-up">
+			<div class="row-5">
+				<div class="container p-0">
+					<h2 class="display-4">Low Voltage Contracting</h2>
+					<div class="container">
+						<div class="row">
+							<div class="d-inline-flex justify-content-center">
+								<img src="images/it-racks.jpeg" height="200" width="240" class="img-rounded mb-2" alt="teamwork">
+								<img src="images/pull-station.png" height="200" width="240" class="img-rounded mb-2" alt="php-code">
+								<img src="images/construction-site.jpg" height="200" width="240" class="img-rounded mb-2" alt="php-code">
+								<img src="images/camera.jpg" height="200" width="240" class="img-rounded mb-2" alt="php-code">
+							</div>
+						</div>
+					</div>
+					<br>
+					<p class="p-2">NM Technology & Integration is a Low Voltage Contractor in New Mexico that provides efficient installations
+							for General COntractors or private client that need Fire Alarms, Security Alarms, Access Control 
+							and much more installed in their home, building or business! We have the necessary experience to 
+							get you what you need installed on-time!
+					</p>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		@yield('content')
 
-@yield('content')
+	<!-- Contact form -->
+	<section class="bg-dark mt-3 aos-init aos-animate" data-aos="fade-up">
+		<div class="container">
+			<div class="row">
+				<div class="mt-5">
+					
+						<div>
+							<div class="container bg-transparent d-inline-flex">
+								<div class="row container">
+									<h6>Low Voltage</h6>
+									<ul class="container ml-2">
+										<li>Fire Alarms</li>
+										<li>Security Systems</li>
+										<li>Access Control</li>
+										<li>CCTV</li>
+									</ul>
+								</div>
+								<div class="row container">
+									<h6>Installation Services</h6>
+									<ul class="container">
+										<li>4k IP-CCTV Installation</li>
+										<li>Fire & Security Alarms</li>
+										<li>Structured Cabling</li>
+										<li>Access Control</li>
+									</ul>
+								</div>
+								<div class="row container">
+									<h6>Maintenance Services</h6>
+									<ul class="container">
+										<li>Fire Alarm Inspections</li>
+										<li>Hardware Upgrades</li>
+										<li>Alarm Trouble Codes</li>
+										<li>On-site Technician T/S</li>
+									</ul>
+								</div>
+							</div>
+							<div>
+								<h3 class="ml-5 mt-5 display-6" data-aos-delay="50">What Can We Help You With?</h3>
+							</div>
+							<div class="mt-3 container"><label for="name"></label><input id="name" name="name" type="text" class="form-control bg-dark form text-warning row" placeholder="Name*"><br>
+								<label for="email"></label><input id="email" name="email" type="text" class="form-control bg-dark form text-warning row" placeholder="Email*"></div></div>
+						<label for="message"></label><textarea id="message" name="message" class="form-control bg-dark text-warning form col mt-4" placeholder="Message*" rows="2"></textarea>
+                        <form id="pwp-contact-form" action="../php" method="POST" class="form" novalidate="novalidate">
+						<!-- reCAPTCHA -->
+						<div class="justify-center" id="recap-verify">
+        
+                    <recaptcha id="pwp-contact-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="onloadCallback"></recaptcha>
+                    <br>
+                    </form> 
+                </div>
+						<!--SUBMIT BUTTON-->
+						<button type="submit" class="btn mt-4 container p-2" id="submit-button">Send</button>
+					</form>
+				</div>
+			</div>
+		</div>
 
-    <!--Footer-->
-    <footer class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" href="/#" class="float-right" width="50" height="30"></h6>
+		<!--empty area for form error/success output-->
+		<div>
+			<div>
+				<div id="output-area">
+				</div>
+			</div>
+		</div><!-- /.container-->
+
+	</section>
+	<!-- Wrapped background image closing div was here-->
+	<!--Footer-->
+	<div class="container-fluid justify-content-center site-footer-nav" id="footer">
+    <footer class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="float-right" width="50" height="30"></h6>
     </footer>
+	</div>
+  </div>
 
+	<script>
+		AOS.init();
+	</script>
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	    <div
+		style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 100%;">
+		<div
+			style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;"></div>
+		<div
+			style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: absolute; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255); overflow: hidden;">
+			<iframe title="recaptcha challenge"
+				  src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=v1QHzzN92WdopzN_oD7bUO2P&amp;k=6LcIcNoUAAAAAPpNZqQDKjGm91xVKw8TkSjKOiew&amp;cb=g79avnzpp0d"
+				  name="c-krqvyqdutfr3" frameborder="0" scrolling="no"
+				  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+				  style="width: 100%; height: 100%;"></iframe>
+		</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
