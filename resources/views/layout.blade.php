@@ -1,8 +1,10 @@
 <html lang="en" class="html__responsive">
 <head>
+	<meta name="description" content="Albuquerque low voltage contractor, licensed low voltage journeyman, professional fire alarm service, security cameras, burglar alarm service, low voltage, access control new mexico, security systems albuquerque, fire alarms albuquerque, 
+    structured cabling, low voltage near me, low voltage wiring, Alarms, fire protection professionals, technician, Brand: Honeywell, Firelite, Bosch, max-snippet:-1">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
+    <link rel="icon" type="image/png" href="/images/nmtis-favicon.png" description="nm-technology">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!--    Google FOnt -->
@@ -60,18 +62,35 @@
 <div id="background-image" class="img-fluid">
 	<!--Top banner with NM Technology logo fixed to top-->
 	<nav class="navbar nav navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
-        <div class="navbar-brand center">
-            <div class="navbar-brand">
-            <a href="/#"><img src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand" width="175" height="75"></a>
-            </div><br>
-        </div>
-		<div class="flex">
-			<div class="container">
-				<div>
-					<p>Call For Service!</p><h3>505-659-5097</h3>
-				</div>
-			</div>
-		</div>
+        <div class="navbar-brand">
+        	<a href="/#"><img src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand img-center container-fluid" width="275" height="110"></a>
+			
+		</div><button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white" class="bi bi-boxes" viewBox="0 0 16 16">
+  		<path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+		</svg><span class="navbar-toggler-icon"></span>
+            </button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/cctv">CCTV</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link text-white" href="/fire">Fire</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link text-white" href="/structured">Structured Cabling</a>
+        </li>
+		<br>
+		<br>
+		<br>
+		<li class="nav-item col-md-6">
+          <h3>505-659-5097</h3>
+        </li>
+		<li class="nav-item col-md-1 offset-md-12 text-warning">
+          <p>License# 406696</p>
+        </li>
+      </ul>
     </nav>
     <br>
     <br>
@@ -79,87 +98,11 @@
     <br>
     <br>
     <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class=" nav container-fluid img-fluid position-fixed" width="2045" height="76">
-	<!--	1st section ABOUT NMTIS-->
-	<section>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div class="container p-0 box-back">
-			<div class="row-5">
-				<div class="container">
-					<h1 class="display-6 p-2 text-justify-center font-weight-bold">Welcome!</h1>
-					<p class="p-4">When you have a serious project that needs to be done right,
-						look no further than here. NM Technology & Integration Solutions, a Southwest leader in technology
-						integration for commercial structures. We deliver structured cabling & special systems installation!<br>
-						
-						<br>NM Technology & integration Solutions LLC was started in 2016 and we enjoy providing our customers
-						with a world class customer service experience! We have served many different types of clients and the
-						list keeps growing day by day! Our team has performed work inside various government sites and high
-						security facilities that demand privacy and above all integrity from a technology service provider like
-						us!<br>
-
-					<div>
-					<br><h6>Technology -</h6><p class="p-3">Is an expanded concept that deals with a species' usage and knowledge of tools and
-						crafts, and how it affects a species ability to control and adapt to its environment. The human race's
-						use of technology began with the conversion of plentiful natural resources into simple tools.</p></div>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-		<!--	2nd section FULLSTACK DEV-->
-		<div class="container p-3 mt-5 aos-init aos-animate box-back" data-aos="fade-up">
-			<div class="row-5">
-				<div class="container p-0">
-					<h2 class="display-4">Low Voltage Contracting</h2>
-					<div class="container">
-						<div class="row">
-							<div class="d-inline-flex justify-content-center">
-								<img src="images/it-racks.jpeg" height="200" width="240" class="img-rounded mb-2" alt="teamwork">
-								<img src="images/pull-station.png" height="200" width="240" class="img-rounded mb-2" alt="php-code">
-								<img src="images/construction-site.jpg" height="200" width="240" class="img-rounded mb-2" alt="php-code">
-								<img src="images/camera.jpg" height="200" width="240" class="img-rounded mb-2" alt="php-code">
-							</div>
-						</div>
-					</div>
-					<br>
-					<p class="p-2">NM Technology & Integration is a Low Voltage Contractor in New Mexico that provides efficient installations
-							for General COntractors or private client that need Fire Alarms, Security Alarms, Access Control 
-							and much more installed in their home, building or business! We have the necessary experience to 
-							get you what you need installed on-time!
-					</p>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
+	
 		@yield('content')
 
 	<!-- Contact form -->
-	<section class="bg-dark mt-3 aos-init aos-animate" data-aos="fade-up">
+	<section class="bg-dark mt-1 aos-init aos-animate" data-aos="fade-up">
 		<div class="container">
 			<div class="row">
 				<div class="mt-5">
@@ -209,7 +152,7 @@
                     </form> 
                 </div>
 						<!--SUBMIT BUTTON-->
-						<button type="submit" class="btn mt-4 container p-2" id="submit-button">Send</button>
+						<button type="submit" class="btn mt-4 container justify-content-center p-2 mb-5" id="submit-button">Send</button>
 					</form>
 				</div>
 			</div>
@@ -222,16 +165,16 @@
 				</div>
 			</div>
 		</div><!-- /.container-->
-
+		
 	</section>
+	
 	<!-- Wrapped background image closing div was here-->
-	<!--Footer-->
-	<div class="container-fluid justify-content-center site-footer-nav" id="footer">
-    <footer class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="float-right" width="50" height="30"></h6>
-    </footer>
-	</div>
+	
   </div>
-
+  <!--Footer-->
+	<div class="p-2 position-fixed container-fluid"><h6>©NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="float-right" width="50" height="30"></h6>
+    </div>
+	
 	<script>
 		AOS.init();
 	</script>
