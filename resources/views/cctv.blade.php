@@ -27,15 +27,7 @@
 
 
 
-    <div class="float-right pt-5 mb-4 container-2">
-        <div class="box-back row">
-        <div class="col-3">
-    <h4 class="mt-5">Home Automation</h4>
-    <p class="p-4">Call on us today and we can get started on the installation of your fire safety system. Our
-        team is licensed and bonded in The State Of New Mexico to perform the installation according to the specifications
-        set forth by the NFPA, we can get your system installed, tested and certified and have your
-        business within code.</p>
-        </div>
+    
 
     </div>
     </div>

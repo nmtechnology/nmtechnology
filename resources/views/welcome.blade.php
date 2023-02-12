@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
     <!--Bootstrap CSS CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Saira:200,400&display=swap" rel="stylesheet">
@@ -49,6 +50,8 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-179013824-3');
+  var popover = new bootstrap.Popover(document.querySelector('.popover'), {
+  container: 'body'
 </script>
 
     <title>NM Technology</title>
@@ -59,37 +62,28 @@
 <!--/**background image**/-->
 <div id="background-image">
     <!--Top banner with NM Technology logo fixed to top-->
-    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xsm position-fixed container-fluid">
-        <div class="navbar-brand center">
-            <div class="navbar-brand">
-            <a href="/#"><img src="images/nmtis-logo-badge-full-wording.png" alt="nmtechnology-logo" class="navbar-brand img-center" width="275" height="110"></a>
-            </div><br>
-        </div>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
     <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
     <br>
     <br>
     <section class="mt-5">
             <div class="container box-back">
+
+            <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container"></div>
             
-                <h3 description="alarm company Albuquerque, Albuquerque Low Voltage Contractor" class="text-center text-lg">New Mexico Low Voltage Contractors</h3>
+                <h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Need an Alarm or Security Camera's to Protect Your business?</h3>
                 <br>
                 <div class="row">
                 <div id="carouselExampleDark" class="col-8 carousel carousel-fade " data-bs-ride="carousel">
   
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-    <img src="images/building-front.jpeg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+    <img src="images/IQ4-4b.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
       <div class="carousel-caption d-none d-md-block">
         </div>
     </div>
     <div class="carousel-item" data-bs-interval="9000">
-    <img src="images/pull-station.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+    <img src="images/construction-site.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
      
     </div>
     <div class="carousel-item" data-bs-interval="9000">
@@ -108,14 +102,14 @@
   
 </div>
 
-                <p class="col-4 container g-start-2">When you have a construction project that needs low voltage technology installed as part of the build-out
-                        look no further than here. NM Technology will work with you every step of the way to ensure an efficient and 
-                        accurate installation ready for inspection or presentation to the AHJ or customer. <br>
-                        
-                        <br>NM Technology & Integration Solutions, is located in Albuquerque, New Mexico and we proudly serve businesses, contractors and 
-                        many other client types with their low voltage and specialty systems installation.
+                <p class="col-4 container g-start-2">If you need security systems, access control or security cameras installed on your property call us today for a free estimate. <br>
+                        <br>NM Technology is located in Albuquerque, New Mexico and we proudly serve businesses, contractors and 
+                        many other client types with their low voltage and specialty systems installation. We handle Fire Alarms, Security Systems, Access Control, Security Cameras and Custom Specialty Systems. 
+                        <br>
+                        <br>We offer Alarm.com packages at an affordable rate and we can beat your current monitoring price, we know
+                         you will love the service experience from NM Technology!
                         <br></p>
-                        <div><h6 class="col-md-4 offset-md-8 text-center">Service@nmtechnology.us</h6></p><h3 class="col-md-4 offset-md-8 text-center">505-659-5097</h3></div>    
+                        <div><h6 class="col-md-4 offset-md-8 text-center">Service@nmtechnology.us</h6></p><button type="button" class="col-md-4 offset-md-8 text-center btn btn-lg btn-success" data-bs-toggle="popover" title="Popover title" data-bs-content="505-659-5097">Call Us Today!</button></div>    
                         </div>
                <br>
                <div class="row">
@@ -126,7 +120,7 @@
                <br>
                <br>
                <br>
-               <br>s
+               <br>
                 <div class="center" id="recap-verify">
                     <form class="g-recaptcha" method="post">
                     <div id="pwp-contact-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="submit-button"></div>
