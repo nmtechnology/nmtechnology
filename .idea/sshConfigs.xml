@@ -3,7 +3,7 @@
   <component name="SshConfigs">
     <configs>
       <sshConfig authType="PASSWORD" host="localhost" id="c6b22481-59fe-4fef-bac9-a2c6ce4d9757" port="22" nameFormat="DESCRIPTIVE" />
-      <sshConfig authType="OPEN_SSH" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="206.189.223.213" id="6a9c29fd-4681-41d6-80af-51dcc36bbe49" port="22" customName="nmtechnology.us" nameFormat="CUSTOM" username="root">
+      <sshConfig authType="OPEN_SSH" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="137.184.83.7" id="6a9c29fd-4681-41d6-80af-51dcc36bbe49" port="22" customName="nmtechnology.us" nameFormat="CUSTOM" username="root" useOpenSSHConfig="true">
         <option name="customName" value="nmtechnology.us" />
       </sshConfig>
     </configs>

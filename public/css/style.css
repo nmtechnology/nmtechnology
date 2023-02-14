@@ -1,8 +1,9 @@
 #background-image {
-	background-image: url("../img/background-long.jpg");
+	background-image: url("../images/nm-bg-full.png");
 	background-size: 100em;
 	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
 	background-attachment: fixed;
+	background-size: cover;
 }
 
 .form {
@@ -20,10 +21,14 @@
 	text-shadow:none;
 }
 
-h1, h2, h3, h4, h5, h6	{
+h1, h2, h3, h5, h6	{
 	color: #adff00;
 	text-align: left;
 	font-family: 'Saira', sans-serif;
+}
+
+h4 {
+	color: #ffc902;
 }
 
 label {

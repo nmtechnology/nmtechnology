@@ -70,24 +70,60 @@
             <div class="container box-back">
 
             <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container"></div>
-            
-                <h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Need an Alarm or Security Camera's to Protect Your business?</h3>
+            <div>
+            </div>
+                <h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
+                <br>
+                <br>
+                <h4><marquee><img src="images/service-truck-marquee.png">   Do You Need Security Cameras Or A Security System? We Can Help Protect Your Home And Give You Full Control Right From Your Mobile Phone! Call Today For A Free Estimate!</marquee></h4>
                 <br>
                 <div class="row">
                 <div id="carouselExampleDark" class="col-8 carousel carousel-fade " data-bs-ride="carousel">
   
   <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
+    <div class="carousel-item active" data-bs-interval="9000">
     <img src="images/IQ4-4b.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
       <div class="carousel-caption d-none d-md-block">
         </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/IQ4-3d.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/IQ_Panel_8mp.jpeg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/IQ_Panel_4_speakers.jpeg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/service-truck-nmtis.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/network-cables.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/fire-tech.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/pull-station.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
+    </div>
+    <div class="carousel-item" data-bs-interval="9000">
+    <img src="images/fire-panels.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+     
     </div>
     <div class="carousel-item" data-bs-interval="9000">
     <img src="images/construction-site.jpg" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
      
     </div>
     <div class="carousel-item" data-bs-interval="9000">
-    <img src="images/alarm-system.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="65" height="500">
+    <img src="images/alarm-mobile-user.png" class="container" alt="nm-technology-low-voltage-albuquerque" width="50" height="500">
       
     </div>
     <div class="carousel-item" data-bs-interval="9000">
@@ -103,20 +139,23 @@
 </div>
 
                 <p class="col-4 container g-start-2">If you need security systems, access control or security cameras installed on your property call us today for a free estimate. <br>
-                        <br>NM Technology is located in Albuquerque, New Mexico and we proudly serve businesses, contractors and 
+                        <br>NM Technology is located in Albuquerque, New Mexico and we understand the rising crime rate and homeless issue in the city and we can help midigate risks and vulnerablilities that can render losses to your business. We 
+                        proudly serve businesses, contractors and 
                         many other client types with their low voltage and specialty systems installation. We handle Fire Alarms, Security Systems, Access Control, Security Cameras and Custom Specialty Systems. 
                         <br>
                         <br>We offer Alarm.com packages at an affordable rate and we can beat your current monitoring price, we know
-                         you will love the service experience from NM Technology!
+                         you will love the service and product experience from NM Technology!
                         <br></p>
-                        <div><h6 class="col-md-4 offset-md-8 text-center">Service@nmtechnology.us</h6></p><button type="button" class="col-md-4 offset-md-8 text-center btn btn-lg btn-success" data-bs-toggle="popover" title="Popover title" data-bs-content="505-659-5097">Call Us Today!</button></div>    
+                        <div><h6 class="col-md-4 offset-md-8 text-center">Service@nmtechnology.us</h6><h3 class="col-md-4 offset-md-8 text-center">505-659-5097</h3></div>    
                         </div>
                <br>
                <div class="row">
                <img src="images/bosch-logo.png" class="col-3 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
                <img src="images/fire-lite-logo.png" class="col-3 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/nicet-logo.png" class="col-1 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-    <p class="col-4">Our Technicians are licensed and certified professionals!</p></div>
+               <img src="images/z-wave-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/qolsys-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/alarm-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="150" height="100">
+                <p class="col-4">Our Technicians are licensed and certified professionals!</p></div>
                <br>
                <br>
                <br>
@@ -125,19 +164,13 @@
                     <form class="g-recaptcha" method="post">
                     <div id="pwp-contact-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="submit-button"></div>
                     <br>
-                    <a role="button" aria-disabled="true" href="/fire" class="btn btn-lg text-center key" .disabled id="submit-button">ENTER</a>
+                    <a role="button" aria-disabled="true" href="/fire" class="btn btn-lg text-center key" id="submit-button">ENTER</a>
                     </form> 
                 </div>
                 <div id="output-area"></div>
                 <br>
                 
-    <script>
-      function activate(){
-        const submitButton = bootstrap.Button.getInstance(".key");
-        submitButton.removeAttribute(".disabled");
-        button.toggle()
-      }
-    </script>
+   
     </section>
     <br>
     <br>

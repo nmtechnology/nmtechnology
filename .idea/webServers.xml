@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="851a1823-7b61-4bd3-af92-3c77ddffd9d8" name="nmtechnology.us" url="http://www.nmtechnology.us">
-        <fileTransfer rootFolder="/var/www/html/" accessType="SFTP" host="206.189.223.213" port="22" sshConfigId="6a9c29fd-4681-41d6-80af-51dcc36bbe49" sshConfig="nmtechnology.us" authAgent="true">
+      <webServer id="851a1823-7b61-4bd3-af92-3c77ddffd9d8" name="nmtechnology.us" url="https://www.nmtechnology.us">
+        <fileTransfer rootFolder="/var/www/html/" accessType="SFTP" host="137.184.83.7" port="22" sshConfigId="6a9c29fd-4681-41d6-80af-51dcc36bbe49" sshConfig="nmtechnology.us" authAgent="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
