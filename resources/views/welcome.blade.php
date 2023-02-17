@@ -60,25 +60,36 @@
 <body>
     
 <!--/**background image**/-->
-<div id="background-image">
+<div id="background-image" class="img-fluid">
     <!--Top banner with NM Technology logo fixed to top-->
     
     <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
     <br>
     <br>
-    <section class="mt-5">
-            <div class="container box-back">
+    <br>
+<br>
 
-            <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container"></div>
+    <section class="mt-5 gx-sm-4">
+            <div class="container box-back col-xs-1 gx-5 mb-2">
+
+            <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container img-fluid"></div>
             <div>
+            <br>
+<br>
             </div>
-                <h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
-                <br>
-                <br>
-                <h4><marquee><img src="images/service-truck-marquee.png">   Do You Need Security Cameras Or A Security System? We Can Help Protect Your Home And Give You Full Control Right From Your Mobile Phone! Call Today For A Free Estimate!</marquee></h4>
-                <br>
-                <div class="row">
-                <div id="carouselExampleDark" class="col-8 carousel carousel-fade " data-bs-ride="carousel">
+			<h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
+    </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+    
+    <div class="container box-back"><div>
+        <marquee><img src="images/service-truck-marquee.png">   Do You Need Security Camera's Or A Security System? We Can Help Protect Your Home And Give You Full Control Right From Your Mobile Phone! Call Today For A Free Estimate!</marquee>
+        </div>        
+        <div class="row">
+                <div id="carouselExampleDark" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 carousel carousel-fade " data-bs-ride="carousel">
   
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="9000">
@@ -137,50 +148,49 @@
   </div>
   
 </div>
-
-                <p class="col-4 container g-start-2">If you need security systems, access control or security cameras installed on your property call us today for a free estimate. <br>
-                        <br>NM Technology is located in Albuquerque, New Mexico and we understand the rising crime rate and homeless issue in the city and we can help midigate risks and vulnerablilities that can render losses to your business. We 
-                        proudly serve businesses, contractors and 
-                        many other client types with their low voltage and specialty systems installation. We handle Fire Alarms, Security Systems, Access Control, Security Cameras and Custom Specialty Systems. 
-                        <br>
-                        <br>We offer Alarm.com packages at an affordable rate and we can beat your current monitoring price, we know
+                <p class="col-sm-12 col-md-12 col-lg-12 col-xxl-12 mt-5">If you need security systems, access control or security cameras installed on your property call us today for a free estimate.
+                 NM Technology is located in Albuquerque, New Mexico and we understand the rising crime rate and homeless issue in the city and we can help midigate risks and 
+                 vulnerablilities that can render to your business. We 
+                        proudly serve businesses, contractors and many other client types with their low voltage and specialty systems installation. We handle Fire Alarms,
+                         Security Systems, Access Control, Security Cameras and Custom Specialty Systems. </p>
+                        <p>We offer Alarm.com packages at an affordable rate and we can beat your current monitoring price, we know
                          you will love the service and product experience from NM Technology!
-                        <br></p>
-                        <div><h6 class="col-md-4 offset-md-8 text-center">Service@nmtechnology.us</h6><h3 class="col-md-4 offset-md-8 text-center">505-659-5097</h3></div>    
+                        <br></p></div>
+                        <div><h6 class="col-md-4 offset-md-4 text-center">Service@nmtechnology.us</h6><h3 class="col-md-4 offset-md-4 text-center">505-659-5097</h3> <p class="text-center">Our Technicians are licensed, bonded and certified professionals!</p></div>    
                         </div>
-               <br>
-               <div class="row">
-               <img src="images/bosch-logo.png" class="col-3 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/fire-lite-logo.png" class="col-3 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/z-wave-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/qolsys-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/alarm-logo.png" class="col-2 justify-content-center" alt="nm-technology-low-voltage-albuquerque" width="150" height="100">
-                <p class="col-4">Our Technicians are licensed and certified professionals!</p></div>
-               <br>
-               <br>
-               <br>
-               <br>
-                <div class="center" id="recap-verify">
-                    <form class="g-recaptcha" method="post">
+
+
+
+  <div class="card-footer text-muted mt-5">
+ 
+  </div>
+  <div class="row container col-xxl-12 offset-xxl-3 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1">
+               <img src="images/bosch-logo.png" class="col-3 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/fire-lite-logo.png" class="col-3 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="5" height="60">
+               <img src="images/z-wave-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/qolsys-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="30" height="60">
+               <img src="images/alarm-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="75" height="75">
+               </div>
+  
+
+        
+   <div class="container box-back mt-5">
+                <div class="container back-box" id="recap-verify">
+                    <form class="g-recaptcha offset-lg-4 offset-md-4 offset-sm-2" method="post">
                     <div id="pwp-contact-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="submit-button"></div>
                     <br>
-                    <a role="button" aria-disabled="true" href="/fire" class="btn btn-lg text-center key" id="submit-button">ENTER</a>
+                    <a role="button" aria-disabled="true" href="/fire" class="btn col text-center key offest-md-7 offset-lg-2 offset-sm-3" id="submit-button">ENTER</a>
                     </form> 
                 </div>
                 <div id="output-area"></div>
                 <br>
-                
    
-    </section>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
+    </div>
+    
+   
+</div>
 <!--Footer-->
-<footer class="p-2 position-fixed container-fluid"><h6>© NM Technology & Integrations Solutions, LLC 2021<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="justify-content-end" width="50" height="30"></h6>
+<footer class="p-2 container-fluid img-fluid position-fixed gx-lg-5"><h6>© NM Technology & Integrations Solutions, LLC 2023<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="justify-content-end" width="50" height="30"></h6>
 </footer>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

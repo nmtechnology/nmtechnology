@@ -1,5 +1,5 @@
 #background-image {
-	background-image: url("../images/nm-bg-full.png");
+	background-image: url("../images/nm-bg-full-1.png");
 	background-size: 100em;
 	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
 	background-attachment: fixed;
@@ -28,7 +28,12 @@ h1, h2, h3, h5, h6	{
 }
 
 h4 {
-	color: #ffc902;
+	color: #ffd12b;
+	font-family: 'Saira', sans-serif;
+}
+
+marquee {
+	font-family: 'Saira', sans-serif;
 }
 
 label {
@@ -59,7 +64,7 @@ footer, #footer {
 }
 
 #form-back {
-	background-image: url("../img/background-long.jpg");
+	/* background-image: url("../img/background-long.jpg"); */
 	background-size: 100vw;
 	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
 	background-attachment: fixed;
@@ -73,7 +78,7 @@ footer, #footer {
 	padding: 1vw;
 	letter-spacing: .05em; /* Adjust as needed */
 	animation:
-		typing 3.5s steps(27, end),
+		typing 2.5s steps(27, end),
 		blink-caret 0.7s step-end infinite;
 }
 
