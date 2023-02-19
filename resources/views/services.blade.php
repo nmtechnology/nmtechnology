@@ -1,7 +1,9 @@
 @extends('layout')
 
 @section('content')
-<br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<br><br><br><br><br><br>
     <section>
     <div class="text-center box-back gx-5 container">
   <div class="card-header">
