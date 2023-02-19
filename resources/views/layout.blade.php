@@ -73,7 +73,7 @@
             <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container img-fluid"></div>
             <div>
             </div>
-			<h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg typewriter">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
+			<h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
     </section>
 <br>
 <br>

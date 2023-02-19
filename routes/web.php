@@ -21,8 +21,8 @@ Route::get('/structured', function () {
     return view('structured');
 });
 
-Route::get('/fire', function () {
-    return view('fire');
+Route::get('/services', function () {
+    return view('services');
 });
 
 Route::get('/cctv', function () {
