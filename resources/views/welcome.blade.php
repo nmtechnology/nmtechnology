@@ -31,7 +31,7 @@
     <script>
         var onloadCallback = function () {
             grecaptcha.render('g-form', {
-                sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
+                sitekey: '*******************',
                 callback: 'enableBtn',
                 theme: 'dark'
             },
