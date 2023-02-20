@@ -120,7 +120,7 @@
    <div class="container mt-5">
                 <div class="container" id="recap-verify">
                     <div class="offset-xl-5 offset-lg-4 offset-md-4 offset-sm-4">
-                    <div class="g-recaptcha" id="g-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enableBtn"></div>
+                    <div class="g-recaptcha" id="g-form" data-sitekey="**********" data-callback="enableBtn"></div>
                     <br>
                     <a href="/services" class="offset-md-2 offset-lg-2 offset-sm-3">
                     <input class="btn-danger text-center offset-xxl-0 offset-xl-0 offest-md-2 col-lg-0 offset-sm-0 col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a>
