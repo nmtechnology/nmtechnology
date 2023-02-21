@@ -57,11 +57,11 @@
     <title>NM Technology</title>
 </head>
 
-<body>
-    
 <!--/**background image**/-->
+<body id="background-image">
 
-<div id="background-image" class="img-fluid">
+
+
     <!--Top banner with NM Technology logo fixed to top-->
     
     <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
@@ -73,7 +73,7 @@
             <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container img-fluid"></div>
             <div>
             </div>
-			<h3 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h3>
+			<h2 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center text-lg">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h2>
     </section>
 <br>
 <br>
@@ -81,8 +81,7 @@
    
 </div>
 <!--Footer-->
-<footer class="p-2"><h6>© NM Technology & Integrations Solutions, LLC 2023<img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xl-9" width="50" height="30"></h6>
-</footer>
+<footer class="container-fluid bg-dark footer fixed-bottom"><h6 class="text-center">NM Technology ©2023</h6></footer>
 <!-- JavaScript Bundle with Popper -->
 </body>
 

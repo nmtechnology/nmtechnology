@@ -64,10 +64,10 @@
 
   gtag('config', 'G-E2854XS6EX');
 </script>
-<body>
+<body id="background-image">
     
 <!--/**background image**/-->
-<div id="background-image" class="img-fluid">
+<div class="img-fluid">
     <!--Top banner with NM Technology logo fixed to top-->
     
     <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
@@ -127,19 +127,13 @@
                     
                     </div> 
                 </div>
-                
-                <br>
-   
  </div>
-    
-   
-</div></section>
-<br><br><br><br><br><br><br><br><br><br><br>
-<!--Footer-->
-<footer class="p-2 container-fluid footer position-fixed"><h6 class="offset-xxl-5 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4 footer">© NM Technology & Integrations Solutions, LLC 2023</h6><img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xxl-6 offset-xl-6 offset-md-3 offset-lg-6 offset-sm-6" width="50" height="30">
-</footer>
+</div></section><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
+<!--Footer-->
+<footer class="container-fluid bg-dark footer fixed-bottom"><h6 class="text-center">NM Technology ©2023</h6></footer>
+
 
 </html>
