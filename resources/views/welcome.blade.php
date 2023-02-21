@@ -136,7 +136,7 @@
 </div></section>
 <br><br><br><br><br><br><br><br><br><br><br>
 <!--Footer-->
-<footer class="p-2 container-fluid position-fixed"><h6 class="offset-xxl-5 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4">© NM Technology & Integrations Solutions, LLC 2023</h6><img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xxl-6 offset-xl-6 offset-md-3 offset-lg-6 offset-sm-6" width="50" height="30">
+<footer class="p-2 container-fluid footer-fixed"><h6 class="offset-xxl-5 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4">© NM Technology & Integrations Solutions, LLC 2023</h6><img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xxl-6 offset-xl-6 offset-md-3 offset-lg-6 offset-sm-6" width="50" height="30">
 </footer>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
