@@ -31,7 +31,7 @@
     <script>
         var onloadCallback = function () {
             grecaptcha.render('g-form', {
-                sitekey: '*******************',
+                sitekey: '6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE',
                 callback: 'enableBtn',
                 theme: 'dark'
             },
@@ -120,7 +120,7 @@
    <div class="container mt-5">
                 <div class="container" id="recap-verify">
                     <div class="offset-xl-5 offset-lg-4 offset-md-4 offset-sm-4">
-                    <div class="g-recaptcha" id="g-form" data-sitekey="**********" data-callback="enableBtn"></div>
+                    <div class="g-recaptcha" id="g-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enableBtn"></div>
                     <br>
                     <a href="/services" class="offset-md-2 offset-lg-2 offset-sm-3">
                     <input class="btn-danger text-center offset-xxl-0 offset-xl-0 offest-md-2 col-lg-0 offset-sm-0 col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a>
@@ -136,7 +136,7 @@
 </div></section>
 <br><br><br><br><br><br><br><br><br><br><br>
 <!--Footer-->
-<footer class="p-2 container-fluid footer-fixed"><h6 class="offset-xxl-5 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4">© NM Technology & Integrations Solutions, LLC 2023</h6><img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xxl-6 offset-xl-6 offset-md-3 offset-lg-6 offset-sm-6" width="50" height="30">
+<footer class="p-2 container-fluid footer position-fixed"><h6 class="offset-xxl-5 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4 footer">© NM Technology & Integrations Solutions, LLC 2023</h6><img src="/images/usa-icon.png" alt="nmt-logo-banner" class="offset-xxl-6 offset-xl-6 offset-md-3 offset-lg-6 offset-sm-6" width="50" height="30">
 </footer>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
