@@ -107,14 +107,10 @@ nav {
 	background-color: #373737;
 }
 
-input::placeholder {
-	color: #adff00;
+input {
 	font-family: 'Saira', sans-serif;
-}
-
-input, label {
-	font-family: 'Saira', sans-serif;
-	color: #adff00;
+	color: #90ff00;
+	background-color: #373737;
 }
 
 html, body {
@@ -133,6 +129,10 @@ html, body {
 
 .bg-dark {
 	background-color: #363636;
+}
+
+.btn {
+	
 }
 
 .btn-bd-primary {

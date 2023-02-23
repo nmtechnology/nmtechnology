@@ -99,12 +99,20 @@
 </svg>
 </div> -->
 <br><br><br><br><br>
-<br> 
+<br><div class="container-fluid col-9"> <h5 class="container offset-0 overflow-hidden text-center">Welcome to NM Technology, <p class="text-center">as you can see, we're all about security, so please utilize our verification process and enter our site!</p></h5></div>
+ <div class="container-fluid mt-5">
+                <div class="container img-responsive col-10 items-center" id="recap-verify">
+                    <div class="g-recaptcha" id="g-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enableBtn"></div>
+                    <br>
+                    <a href="/services" class="offset-md-2 offset-lg-2 offset-sm-3">
+                    <input class="btn-danger offset-xxl-0 offset-xl-0 offest-md-2 col-lg-0 offset-sm-0 col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a> 
+                </div>
+ </div>
 <br>
 <br>
 <br>
     <div class="container"><div>
-        <marquee><img src="images/service-truck-marquee.png">   We'll Stop By And Give You A Free Estimate Today!</marquee>
+        <marquee><img src="images/service-truck-marquee.png">  We'll Stop By And Give You A Free Estimate Today!</marquee>
         </div>        
         <div class="row">
 </div>
@@ -116,24 +124,15 @@
                <img src="images/qolsys-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="30" height="60">
                <img src="images/alarm-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="75" height="75">
                </div>
-           
-   <div class="container mt-5">
-                <div class="container" id="recap-verify">
-                    <div class="offset-xl-5 offset-lg-4 offset-md-4 offset-sm-4">
-                    <div class="g-recaptcha" id="g-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enableBtn"></div>
-                    <br>
-                    <a href="/services" class="offset-md-2 offset-lg-2 offset-sm-3">
-                    <input class="btn-danger text-center offset-xxl-0 offset-xl-0 offest-md-2 col-lg-0 offset-sm-0 col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a>
-                    
-                    </div> 
-                </div>
- </div>
+               
+          
+   
 </div></section><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 <!--Footer-->
-<footer class="container-fluid bg-dark footer fixed-bottom"><h6 class="text-center">NM Technology ©2023</h6></footer>
+<footer class="container-fluid bg-dark footer fixed-bottom"><h6 class="text-center">NM Technology <p class="text-center">©2023</p</h6></footer>
 
 
 </html>
