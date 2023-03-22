@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="en" class="html__responsive">
 <head>
+    <meta name="google-site-verification" content="r8brwYLPcFcoXsWu69rygfVcEU4fllW-Bn7ZYMkwt6k" />
     <meta name="description" content="Albuquerque low voltage contractor, fire alarm service, security cameras, burglar alarm service, low voltage, access control new mexico, security systems albuquerque, fire alarms albuquerque, 
     structured cabling, Low voltage near me, low voltage wiring company">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/images/nmtis-favicon.png">
+    
+    <link rel="icon" type="image/png" href="/images/nmtis-favicon.webp">
     <!--Bootstrap CSS CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -46,7 +48,7 @@
 </script>
 <script>  function enableBtn(){
    document.getElementById("button1").disabled = false;
-   alert("Thanks For Verifying You Are Human, You May Now Enter!");
+   alert("Thanks For Verifying You Are Human, You May Now Click Enter!");
  }</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179013824-3"></script>
@@ -70,13 +72,13 @@
 <div class="img-fluid">
     <!--Top banner with NM Technology logo fixed to top-->
     
-    <img src="images/hazard-bar-yellow-cam.png" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
+    <img src="images/hazard-bar-yellow-cam.webp" alt="hazard-bar-banner" class="container-fluid img-fluid position-fixed" width="2045" height="76">
     <br>
     <br>
     <br>
     <section class="mt-5 gx-sm-4">
             <div class="container box-back col-xs-1 gx-5 mb-2">
-            <div><img src="images/nmtis-logo.png" width="1600" height="200" class="container img-fluid"></div>
+            <div><img src="images/nmtis-logo.webp" width="1600" height="200" class="container img-fluid"></div>
             <div>
             
 			<h2 description="alarm company Albuquerque, Low Voltage Contractor" class="text-center">Access Control - CCTV - Security Systems - Fire Alarms - Smart Home IoT</h2>
@@ -105,24 +107,24 @@
                     <div class="g-recaptcha" id="g-form" data-sitekey="6LeSowkbAAAAAH0lNBSQYDeTzQ-gyCmK8r3PPFsE" data-callback="enableBtn"></div>
                     <br>
                     <a href="/services" class="offset-md-2 offset-lg-2 offset-sm-3">
-                    <input class="btn-danger offset-xxl-0 offset-xl-0 offest-md-2 col-lg-0 offset-sm-0 col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a> 
+                    <input class="btn-success col-3" type="button" value="ENTER" id="button1" disabled="disabled" data-expired-callback="enableBtn"></a> 
                 </div>
  </div>
 <br>
 <br>
 <br>
     <div class="container"><div>
-        <marquee><img src="images/service-truck-marquee.png">  We'll Stop By And Give You A Free Estimate Today!</marquee>
+        <marquee><img src="images/service-truck-marquee.webp">  We'll Stop By And Give You A Free Estimate Today!</marquee>
         </div>        
         <div class="row">
 </div>
   
   <div class="row container col-xxl-12 offset-xxl-0 offset-xl-1 offset-lg-0 offset-md-0 offset-sm-0">
-               <img src="images/bosch-logo.png" class="col-3 img-responsive img-fluid" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/fire-lite-logo.png" class="col-3 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="5" height="60">
-               <img src="images/z-wave-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
-               <img src="images/qolsys-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="30" height="60">
-               <img src="images/alarm-logo.png" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="75" height="75">
+               <img src="images/bosch-logo.webp" class="col-3 img-responsive img-fluid" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/fire-lite-logo.webp" class="col-3 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="5" height="60">
+               <img src="images/z-wave-logo.webp" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="10" height="60">
+               <img src="images/qolsys-logo.webp" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="30" height="60">
+               <img src="images/alarm-logo.webp" class="col-2 img-responsive" alt="nm-technology-low-voltage-albuquerque" width="75" height="75">
                </div>
                
           

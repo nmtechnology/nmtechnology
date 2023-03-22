@@ -1,5 +1,5 @@
 #background-image {
-	background-image: url("../images/nm-bg-full-1.png");
+	background-image: url("../images/nm-bg-full-1.webp");
 	background-size: 100em;
 	background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
 	background-attachment: fixed;
@@ -9,16 +9,6 @@
 .form {
 	font-family: 'Saira', sans-serif;
 	color: #adff00;
-}
-
-#submit-button {
-	font-family: 'Saira', sans-serif;
-	background: #c2ff00;
-	color: #000000;
-	height: 50px;
-	width: 75px;
-	margin-top: 5px;
-	text-shadow:none;
 }
 
 h1, h3, h5, h6	{
@@ -109,8 +99,9 @@ nav {
 
 input {
 	font-family: 'Saira', sans-serif;
-	color: #90ff00;
-	background-color: #373737;
+	color: #000000;
+	background-color: #90ff00;
+	align-items: center;
 }
 
 html, body {
