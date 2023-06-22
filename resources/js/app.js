@@ -1,9 +1,6 @@
 import './bootstrap';
 import { createApp } from "vue";
-import Footer from "./components/Footer.vue";
+import HomePage from "./components/HomePage.vue";
 
-
-const app = createApp(Footer);
-app.component("Footer", Footer);
-
+const app = createApp(HomePage);
 const mountedApp =  app.mount('#app');
