@@ -126,21 +126,24 @@
             </div>
         </main>
     </div>
-<div id="footer">
+    <SectionService />
+
     <Footer />
-</div>
+
 </template>
 
 <script>
 import { ref } from 'vue'
 import Footer from './Footer.vue'
+import SectionService from "./SectionService.vue";
 
 export default {
     name: 'footer',
     components: {
-        Footer
+        Footer, SectionService
     }
 }
+
 
 const navigation = [
     { name: 'CCTV', href: '#' },
