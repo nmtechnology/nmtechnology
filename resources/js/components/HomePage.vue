@@ -8,6 +8,7 @@
                         <img class="h-8 w-auto flex-none" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
                     </a><a href="#" class="text-sm -space-x-0 font-bold leading-6 text-white flex-initial inset-0">Technology</a>
                 </div>
+
                 <div class="flex lg:hidden">
                     <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-skin-base">
                         <span class="sr-only">Open main menu</span>
@@ -85,12 +86,11 @@
                                     By offering a full range of security services and products that address both physical and cyber threats, we can protect
                                     organizations of all types and sizes protect their people, assets, and data. In addition, we offer ongoing maintenance
                                     and support services to ensure that these systems continue to function effectively over time.</p>
-                                <div class="mt-10 flex items-center gap-x-6">
-                                    <a href="#" class="rounded-md bg-lime-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-                                </div>
-
-
+                                <Grecaptcha />
                             </div>
+
+
+
 
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                 <div class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
@@ -135,12 +135,13 @@
 <script>
 import { ref } from 'vue'
 import Footer from './Footer.vue'
-import SectionService from "./SectionService.vue";
+import SectionService from "./SectionService.vue"
+import Grecaptcha from "./Grecaptcha.vue"
 
 export default {
-    name: 'footer',
+    name: 'nmtechnology',
     components: {
-        Footer, SectionService
+        Footer, SectionService, Grecaptcha
     }
 }
 
@@ -153,5 +154,6 @@ const navigation = [
 ]
 
 const mobileMenuOpen = ref(false)
+
 </script>
 

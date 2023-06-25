@@ -3,8 +3,9 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-lime-400">Deploy faster</h2>
-                <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Everything you need to deploy your app</p>
-                <p class="mt-6 text-lg leading-8 text-gray-300">Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.</p>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Everything you need to deploy your website to the world!</p>
+                <p class="mt-6 text-lg leading-8 text-gray-300">Our company specializes in developing custom websites and web applications tailored to the unique needs of small businesses. We understand that every business is different, which is why we take a personalized approach to each project we undertake.
+                    From simple brochure sites to complex e-commerce solutions, We also pride ourselves on our commitment to customer service. </p>
             </div>
             <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
@@ -33,7 +34,8 @@ const features = [
     {
         name: 'Web Development',
         description:
-            'Commodo nec sagittis tortor mauris sed. Turpis tortor quis scelerisque diam id accumsan nullam tempus. Pulvinar etiam lacus volutpat eu. Phasellus praesent ligula sit faucibus.',
+            'We work closely with our clients throughout the development process to make sure their vision is realized and their goals are achieved. And even after launch, we provide ongoing support and maintenance to ensure your website or application remains up-to-date and running smoothly. \n' +
+            '                    In today\'s digital age, having a strong online presence is crucial for any small business. Let us help you bring your vision to life and reach your target audience through the power of the internet.',
         href: '#',
         icon: CloudArrowUpIcon,
     },

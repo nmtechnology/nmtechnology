@@ -6,16 +6,24 @@
 
         <title>NM Technology</title>
 
+
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                async defer>
+
+        </script>
+
+
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
 
     </head>
     <body>
         <div id="app">
-
+<Grecaptcha />
         </div>
 
     <script type="module">
     </script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </body>
 </html>
