@@ -19,7 +19,7 @@
     </head>
     <body>
         <div id="app">
-<Grecaptcha />
+
         </div>
 
     <script type="module">

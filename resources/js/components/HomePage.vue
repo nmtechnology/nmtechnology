@@ -86,7 +86,6 @@
                                     By offering a full range of security services and products that address both physical and cyber threats, we can protect
                                     organizations of all types and sizes protect their people, assets, and data. In addition, we offer ongoing maintenance
                                     and support services to ensure that these systems continue to function effectively over time.</p>
-                                <Grecaptcha />
                             </div>
 
 
@@ -127,7 +126,7 @@
         </main>
     </div>
     <SectionService />
-
+    <Grecaptcha />
     <Footer />
 
 </template>
