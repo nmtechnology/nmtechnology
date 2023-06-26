@@ -28,8 +28,8 @@ const onloadCallback = function () {
     <div class="flex justify-center bg-blue-950">
         <div class="bg-blue-950 m-40">
 
-            <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Let's Get You Verified</p>
-            <p class="text-lg leading-8 flex-auto flex-col text-gray-300">As you can see were all about security, please utilize our verification to continue to our site
+            <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl text-center">Let's Get You Verified</p>
+            <p class="text-lg leading-8 flex-auto flex-col text-gray-300 text-center">As you can see were all about security, please utilize our verification to continue to our site
                 to prove you are human, thank you!</p>
 
             <div class="bg-blue-950">
