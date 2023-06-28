@@ -15,10 +15,15 @@
         "vite": "^4.3.9"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
+        "@fortawesome/free-brands-svg-icons": "^6.4.0",
+        "@fortawesome/free-regular-svg-icons": "^6.4.0",
+        "@fortawesome/free-solid-svg-icons": "^6.4.0",
+        "@fortawesome/vue-fontawesome": "^3.0.3",
         "@headlessui/vue": "^1.7.14",
         "@heroicons/vue": "^2.0.18",
         "@vitejs/plugin-vue": "^4.2.3",
-        "vls": "^0.8.5",
+        "vls": "^0.5.9",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.1"
     }
