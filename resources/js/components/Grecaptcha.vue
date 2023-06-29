@@ -1,4 +1,5 @@
 <script>
+
 const onloadCallback = function () {
     grecaptcha.render('g-form', {
             sitekey: '6LeQOiUaAAAAAKFMZr3FD88EEbGVABvgw4pMYUny',
@@ -7,11 +8,6 @@ const onloadCallback = function () {
         },
         $("g-form").click(onloadCallback))
 };
-
-function enableBtn(){
-   document.getElementById("button1").disabled = false;
-   alert("Thanks For Verifying You Are Human, You May Now Click Enter!");
- }
 
 export default {
     components: {
@@ -37,11 +33,11 @@ export default {
                 <p class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center">Let's Get You Verified</p>
                 <p class="text-lg leading-8 flex-auto flex-col text-gray-300 text-center">As you can see were all about security, please utilize our verification to continue to our site, thank you!</p>
                 <div>
-                    <div class="g-recaptcha" id="g-form" data-sitekey="6LeQOiUaAAAAAKFMZr3FD88EEbGVABvgw4pMYUny" data-callback="enableBtn"></div>
+                    
                     <br>
                     <a href="/" class="offset-md-2 offset-lg-2 offset-sm-3">
-                    <input class="justify-items-center cursor-not-allowed rounded-md bg-lime-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        type="button" value="Get Started" id="button1" data-expired-callback="enableBtn" disabled="disabled"></a>
+                    <button data-sitekey="{{ config('services.recaptcha.key') }}" data-callback="enableBtn" class="g-recaptcha justify-items-center cursor-not-allowed rounded-md bg-lime-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        type="button" value="Get Started" data-expired-callback="enableBtn" disabled="disabled">Get Started</button></a>
                 </div>
                     <div class="grid grid-cols-1absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48" aria-hidden="true">
                         <div class="justify-items-center aspect-[801/1000] w-[20.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"></div>

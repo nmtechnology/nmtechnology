@@ -10,11 +10,12 @@
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
                 async defer>
 
-        </script>
-
-        @heroicons/vue/24/outline
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+
+        </script>
+
+    
 
     </head>
     <body>
