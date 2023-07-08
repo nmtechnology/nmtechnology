@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-blue-950">
+    <div class="bg-gray-900">
         <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="mx-auto bg-blue-950 flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-blue-950" aria-label="Global">
+            <nav class="mx-auto bg-gray-900 flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-transparent" aria-label="Global">
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">NM Technology</span>
@@ -61,7 +61,7 @@
         </header>
         <main>
             <div class="relative isolate">
-                <svg class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]" aria-hidden="true">
+                <svg class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]" aria-hidden="true">
                     <defs>
                         <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
                             <path d="M.5 200V.5H200" fill="none" />
@@ -86,11 +86,11 @@
                                     By offering a full range of security services and products that address both physical and cyber threats, we can protect
                                     organizations of all types and sizes protect their people, assets, and data. In addition, we offer ongoing maintenance
                                     and support services to ensure that these systems continue to function effectively over time.</p>
-                            </div>
-
-
-
-
+                                    <Modal />
+                                    <div class="mt-10 flex items-center gap-x-6">
+                                      <a href="#" class="rounded-md bg-lime-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+                                    </div>
+                                </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                 <div class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                     <div class="relative">
@@ -125,8 +125,12 @@
             </div>
         </main>
     </div>
-    <SectionService />
-    <Grecaptcha />
+     
+    <SectionService />  
+    <Parallax />   
+    <Gradient />
+    <SectionOne />
+    <ContactForm />
     <Footer />
 
 </template>
@@ -136,11 +140,17 @@ import { ref } from 'vue'
 import Footer from './Footer.vue'
 import SectionService from "./SectionService.vue"
 import Grecaptcha from "./Grecaptcha.vue"
+import SectionOne from './SectionOne.vue'
+import Gradient from './Gradient.vue'
+import Parallax from './Parallax.vue'
+import Collage from './Collage.vue'
+import ContactForm from './ContactForm.vue'
+import Modal from './Modal.vue'
 
 export default {
     name: 'nmtechnology',
     components: {
-        Footer, SectionService, Grecaptcha
+        Footer, SectionService, Grecaptcha, SectionOne, Gradient, Parallax, Collage, ContactForm, Modal
     }
 }
 

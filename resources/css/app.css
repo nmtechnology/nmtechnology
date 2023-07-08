@@ -5,7 +5,7 @@
 
 @layer base {
     :root {
-        --color-text-base: #00001;
+        --color-text-base: #f00001;
         --color-text-muted: #90ff00;
         --color-text-inverted: #fffff;
         --color-fill: #276999;

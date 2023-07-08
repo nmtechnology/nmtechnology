@@ -13,6 +13,8 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/**/*.vue",
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js"
     ],
 
     module: exports = {
@@ -43,6 +45,8 @@ export default {
     },
 },
         plugins: [
-            [require('daisyui', '@tailwindcss/forms')],
-        ],}
-
+            [require('daisyui', '@tailwindcss/forms, tw-elements/dist/plugin.cjs')],
+        ],
+    darkMode: "class"
+    };
+        
