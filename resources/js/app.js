@@ -1,6 +1,17 @@
 import './bootstrap';
 import { createApp } from "vue";
-import HomePage from "./components/HomePage.vue";
+import { createRouter } from 'vue-router';
+import { createWebHistory } from 'vue-router';
+import App from './App.vue';
+import HomePage from './views/HomePage.vue'
 
-let app = createApp(HomePage);
-const mountedApp =  app.mount('#app');
+const router = createRouter ({
+    history : createWebHistory(),
+        routes: [
+            {path: '/', name: 'Home', component: HomePage}
+        ]
+})
+
+createApp(App)
+.use(router)
+.mount('#app')
