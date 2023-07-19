@@ -177,35 +177,35 @@
 </template>
 
 <script>
-import SectionService from "../components/SectionService.vue";
-import ContactForm from "../components/ContactForm.vue";
-import Grecaptcha from "../components/Grecaptcha.vue";
-import SectionOne from "../components/SectionOne.vue";
-import Parallax from "../components/Parallax.vue";
-import Gradient from "../components/Gradient.vue";
-import Collage from "../components/Collage.vue";
-import Footer from "../components/Footer.vue";
-import Modal from "../components/Modal.vue";
+import SectionService from '../components/SectionService.vue'
+import ContactForm from '../components/ContactForm.vue'
+import Grecaptcha from '../components/Grecaptcha.vue'
+import SectionOne from '../components/SectionOne.vue'
+import Parallax from '../components/Parallax.vue'
+import Gradient from '../components/Gradient.vue'
+import Collage from '../components/Collage.vue'
+import Footer from '../components/Footer.vue'
+import Modal from '../components/Modal.vue'
 
 export default {
-    name: "nmtechnology",
-    components: {
-        Footer,
-        SectionService,
-        Grecaptcha,
-        SectionOne,
-        Gradient,
-        Parallax,
-        Collage,
-        ContactForm,
-        Modal,
-    },
-};
+  name: 'nmtechnology',
+  components: {
+    Footer,
+    SectionService,
+    Grecaptcha,
+    SectionOne,
+    Gradient,
+    Parallax,
+    Collage,
+    ContactForm,
+    Modal
+  }
+}
 
 const navigation = [
-    { name: "CCTV", href: "#" },
-    { name: "Security Systems", href: "#" },
-    { name: "Access Control", href: "#" },
-    { name: "Web Development", href: "#" },
-];
+  { name: 'CCTV', href: '#' },
+  { name: 'Security Systems', href: '#' },
+  { name: 'Access Control', href: '#' },
+  { name: 'Web Development', href: '#' }
+]
 </script>

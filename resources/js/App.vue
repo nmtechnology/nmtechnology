@@ -147,8 +147,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
-const mobileMenuOpen = ref(false);
+import { ref } from 'vue'
+const mobileMenuOpen = ref(false)
 </script>
 
 <style></style>

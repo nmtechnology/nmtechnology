@@ -323,13 +323,13 @@
 
 <script setup>
 // Initialization for ES Users
-import { Modal, Ripple, initTE } from "tw-elements";
+import { Modal, Ripple, initTE } from 'tw-elements'
 
 import {
-    BuildingOffice2Icon,
-    EnvelopeIcon,
-    PhoneIcon,
-} from "@heroicons/vue/24/outline";
+  BuildingOffice2Icon,
+  EnvelopeIcon,
+  PhoneIcon
+} from '@heroicons/vue/24/outline'
 
-initTE({ Modal, Ripple });
+initTE({ Modal, Ripple })
 </script>
