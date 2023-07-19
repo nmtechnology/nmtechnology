@@ -69,9 +69,10 @@
         </main>
     </div>
      
-    <SectionService />  
+     <Pricing />
     <Parallax />   
     <Gradient />
+    <SectionService /> 
     <SectionOne />
     <Footer />
 
@@ -86,13 +87,14 @@ import SectionOne from '../components/SectionOne.vue'
 import Parallax from '../components/Parallax.vue'
 import Gradient from '../components/Gradient.vue'
 import Collage from '../components/Collage.vue'
+import Pricing from '../components/Pricing.vue'
 import Footer from '../components/Footer.vue'
 import Modal from '../components/Modal.vue'
 
 export default {
     name: 'nmtechnology',
     components: {
-        Footer, SectionService, Grecaptcha, SectionOne, Gradient, Parallax, Collage, ContactForm, Modal
+        Footer, SectionService, Grecaptcha, SectionOne, Gradient, Parallax, Collage, ContactForm, Modal, Pricing
     }
 }
 
