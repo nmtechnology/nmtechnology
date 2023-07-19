@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     :root {
         --color-text-base: #f00001;
@@ -12,10 +11,9 @@
         --color-button-accent: #000232;
         --color-button-accent-hover: #000099;
         --color-button-muted: #0000;
-
     }
     .theme-neon-tech {
-        --color-text-base:  ;
+        --color-text-base: ;
         --color-text-muted: ;
         --color-text-inverted: ;
         --color-fill: ;

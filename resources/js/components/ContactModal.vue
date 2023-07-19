@@ -1,19 +1,13 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
+<!-- eslint-disable no-mixed-spaces-and-tabs -->
+<!-- eslint-disable no-tabs -->
 <template>
-    <div class="relative isolate bg-gray-900">
+    <div class="root">
+        <button class="text-white text-center text-lg" id="button" @click="isOpen = true">Contact Us</button>
+        <teleport to="body">
+            <div class="modal" v-if="isOpen">
+                <!-- TAILWIND FORM START -->
+                <div class="relative isolate bg-blue-950">
+      <div><button class="text-white float-right mr-9 mt-9" @click="isOpen = false">X</button></div>
       <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -24,7 +18,7 @@
                     <path d="M130 200V.5M.5 .5H200" fill="none" />
                   </pattern>
                 </defs>
-                <svg x="100%" y="-1" class="overflow-visible fill-gray-800/20">
+                <svg x="100%" y="-1" class="overflow-visible fill-gray-950/30">
                   <path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
                 </svg>
                 <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
@@ -41,14 +35,14 @@
                   <span class="sr-only">Address</span>
                   <BuildingOffice2Icon class="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
-                <dd>545 Mavis Island<br />Chicago, IL 99191</dd>
+                <dd>12900 Juan Tabo<br />Albuquerque, NM 87112</dd>
               </div>
               <div class="flex gap-x-4">
                 <dt class="flex-none">
                   <span class="sr-only">Telephone</span>
                   <PhoneIcon class="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
-                <dd><a class="hover:text-white" href="tel:+1 (555) 234-5678">+1 (555) 234-5678</a></dd>
+                <dd><a class="hover:text-white" href="tel:+1 (505) 659-5097">+1 (505) 659-5097</a></dd>
               </div>
               <div class="flex gap-x-4">
                 <dt class="flex-none">
@@ -60,7 +54,9 @@
             </dl>
           </div>
         </div>
-        <form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+        <div>
+<!-- FORM STARTS HERE DUMBASS -->
+        <form id="contact-form" novalidate="novalidate" action="../../php" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
@@ -95,14 +91,80 @@
               </div>
             </div>
             <div class="mt-8 flex justify-end">
-              <button type="submit" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Send message</button>
+                <button type="submit" class="rounded-md bg-lime-600 px-3.5 py-1.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Send message</button>
             </div>
           </div>
         </form>
+        <!--empty area for form error/success output-->
+		<div>
+		    <div>
+			    <div id="output-area">
+			    </div>
+            </div>
+        </div>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
-  </script>
+    </div>
+            </div>
+        </teleport>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
+const isOpen = ref(false)
+</script>
+<style>
+
+#button {
+    background-color: #5fc500;
+    border-radius: 13px;
+    padding: 5%;
+    width: 200px;
+    transition: opacity 0.3s ease;
+}
+
+.root {
+    position: relative;
+    text-decoration-color: white;
+}
+
+.modal {
+    position: absolute;
+    padding-top: 17%;
+    top: 0;
+    left: 0;
+    background-color: rgba(3, 13, 30, 0.67);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #5fc500;
+}
+
+@media (max-width: 375px) {
+    .modal {
+        padding-top: 30%;
+    }
+}
+
+@media (max-width: 900px) {
+    .modal {
+        padding-top: 60%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal {
+        padding-top: 83%;
+    }
+}
+
+.modal > div {
+    background-color: #111827;
+    padding: 10px;
+    border-radius: 50px;
+}
+</style>
