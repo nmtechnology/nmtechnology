@@ -2,7 +2,7 @@
     <div class="bg-gray-900">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav
-                class="bg-scroll mx-auto bg-gray-900 flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-transparent"
+                class="bg-scroll mx-auto bg-transparent flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-transparent"
                 aria-label="Global"
             >
                 <div class="flex lg:flex-1">
@@ -20,7 +20,7 @@
                     >
                 </div>
 
-                <div class="flex lg:hidden">
+                <!-- <div class="flex lg:hidden">
                     <button
                         type="button"
                         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-skin-base"
@@ -41,7 +41,7 @@
                             />
                         </svg>
                     </button>
-                </div>
+                </div> -->
                 <div class="hidden lg:flex lg:gap-x-12">
                     <a
                         href="#"
@@ -73,11 +73,11 @@
             </nav>
 
             <!-- Mobile menu, show/hide based on menu open state. -->
-            <div class="lg:hidden" role="dialog" aria-modal="true">
+            <!-- <div class="lg:hidden" role="dialog" aria-modal="true"> -->
                 <!-- Background backdrop, show/hide based on slide-over state. -->
-                <div class="fixed inset-0 z-50"></div>
+                <!-- <div class="fixed inset-0 z-50"></div>
                 <div
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-blue-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
                 >
                     <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
@@ -87,14 +87,10 @@
                                 src="/images/nm-logo-rmbg.webp"
                                 alt="nmtechnology-logo"
                             /> </a
-                        ><a
-                            href="#"
-                            class="text-sm italic font-bold leading-6 text-white flex-initial"
-                            >Technology</a
                         >
                         <button
                             type="button"
-                            class="-m-2.5 rounded-md p-2.5 text-gray-700"
+                            class="-m-2.5 rounded-md p-2.5 text-white"
                         >
                             <span class="sr-only">Close menu</span>
                             <svg
@@ -118,37 +114,41 @@
                             <div class="space-y-2 py-6">
                                 <a
                                     href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                     >CCTV</a
                                 >
                                 <a
                                     href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                     >Security Systems</a
                                 >
                                 <a
                                     href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                     >Access Control</a
                                 >
                                 <a
                                     href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                     >Web Development</a
                                 >
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </header>
     </div>
     <router-view></router-view>
 </template>
 
 <script>
-import { ref } from "vue";
-const mobileMenuOpen = ref(false);
+import { ref } from 'vue'
+const mobileMenuOpen = ref(false)
 </script>
 
-<style></style>
+<style>
+.bg {
+    background-color: rgba(7, 16, 33, 0.641);
+}
+</style>
