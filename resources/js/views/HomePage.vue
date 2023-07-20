@@ -1,3 +1,5 @@
+<!-- eslint-disable comma-dangle -->
+<!-- eslint-disable no-undef -->
 <template>
     <div class="bg-gray-900">
         <main>
@@ -93,7 +95,7 @@
                                 </p>
 
                                 <div class="mt-10 flex items-center gap-x-6">
-                                    <Modal />
+                                    <ContactModal />
                                 </div>
                             </div>
                             <div
@@ -170,42 +172,36 @@
     </div>
 
     <SectionService />
-    <Parallax />
-    <Gradient />
+    <DesertParallax />
+    <BlackGradient />
     <SectionOne />
-    <Footer />
+    <HomeFooter />
 </template>
 
 <script>
 import SectionService from '../components/SectionService.vue'
 import ContactForm from '../components/ContactForm.vue'
-import Grecaptcha from '../components/Grecaptcha.vue'
+import HomeGrecaptcha from '../components/HomeGrecaptcha.vue'
 import SectionOne from '../components/SectionOne.vue'
-import Parallax from '../components/Parallax.vue'
-import Gradient from '../components/Gradient.vue'
-import Collage from '../components/Collage.vue'
-import Footer from '../components/Footer.vue'
-import Modal from '../components/Modal.vue'
+import DesertParallax from '../components/DesertParallax.vue'
+import BlackGradient from '../components/BlackGradient.vue'
+import WorkCollage from '../components/WorkCollage.vue'
+import HomeFooter from '../components/HomeFooter.vue'
+import ContactModal from '../components/ContactModal.vue'
 
 export default {
-  name: 'nmtechnology',
+  name: 'nmTechnology',
   components: {
-    Footer,
+    HomeFooter,
     SectionService,
-    Grecaptcha,
+    HomeGrecaptcha,
     SectionOne,
-    Gradient,
-    Parallax,
-    Collage,
+    BlackGradient,
+    DesertParallax,
+    WorkCollage,
     ContactForm,
-    Modal
+    ContactModal
   }
 }
 
-const navigation = [
-  { name: 'CCTV', href: '#' },
-  { name: 'Security Systems', href: '#' },
-  { name: 'Access Control', href: '#' },
-  { name: 'Web Development', href: '#' }
-]
 </script>
