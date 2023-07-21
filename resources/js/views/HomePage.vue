@@ -95,7 +95,7 @@
                                 </p>
 
                                 <div class="mt-10 flex items-center gap-x-6">
-                                    <ContactModal />
+                                    <ContactModal/>
                                 </div>
                             </div>
                             <div
@@ -180,7 +180,6 @@
 
 <script>
 import SectionService from '../components/SectionService.vue'
-import ContactForm from '../components/ContactForm.vue'
 import HomeGrecaptcha from '../components/HomeGrecaptcha.vue'
 import SectionOne from '../components/SectionOne.vue'
 import DesertParallax from '../components/DesertParallax.vue'
@@ -188,6 +187,9 @@ import BlackGradient from '../components/BlackGradient.vue'
 import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import ContactModal from '../components/ContactModal.vue'
+import { ref } from 'vue'
+
+const isOpen = ref(true)
 
 export default {
   name: 'nmTechnology',
@@ -199,7 +201,6 @@ export default {
     BlackGradient,
     DesertParallax,
     WorkCollage,
-    ContactForm,
     ContactModal
   }
 }

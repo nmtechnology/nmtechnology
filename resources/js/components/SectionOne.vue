@@ -11,7 +11,7 @@
                 aria-hidden="true"
             >
                 <div
-                    class="aspect-[1266/975] w-[64.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+                    class="aspect-[1266/975] w-[64.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-10"
                     style="
                         clip-path: polygon(
                             74.1% 44.1%,
