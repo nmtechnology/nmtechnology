@@ -18,3 +18,4 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/js/components/Grecaptcha.vue
+/resources/php/*.php

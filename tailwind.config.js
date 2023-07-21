@@ -51,7 +51,7 @@ export default {
   }),
   plugins: [
     [
-      require('daisyui', '@tailwindcss/forms, tw-elements/dist/plugin.cjs, @tailwindcss/forms')
+      require('daisyui', '@tailwindcss/forms, tw-elements/dist/plugin.cjs')
     ]
   ],
   darkMode: 'class'

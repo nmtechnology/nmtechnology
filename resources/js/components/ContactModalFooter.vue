@@ -146,19 +146,19 @@ const isOpen = ref(false)
 
 @media (max-width: 375px) {
     .modal {
-        padding-top: 30%;
+        padding-top: 300%;
     }
 }
 
 @media (max-width: 900px) {
     .modal {
-        padding-top: 60%;
+        padding-top: 100%;
     }
 }
 
 @media (max-width: 1024px) {
     .modal {
-        padding-top: 83%;
+        padding-top: 100%;
     }
 }
 

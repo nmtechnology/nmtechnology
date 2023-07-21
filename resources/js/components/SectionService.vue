@@ -55,33 +55,34 @@
 
 <script setup>
 import {
-    ArrowPathIcon,
-    CloudArrowUpIcon,
-    LockClosedIcon,
-} from "@heroicons/vue/20/solid";
+  ArrowPathIcon,
+  CloudArrowUpIcon,
+  LockClosedIcon
+} from '@heroicons/vue/20/solid'
+import ContactModal from '../components/ContactModal.vue'
 
 const features = [
-    {
-        name: "Web Development",
-        description:
-            "We work closely with our clients throughout the development process to make sure their vision is realized and their goals are achieved. And even after launch, we provide ongoing support and maintenance to ensure your website or application remains up-to-date and running smoothly. \n" +
+  {
+    name: 'Web Development',
+    description:
+            'We work closely with our clients throughout the development process to make sure their vision is realized and their goals are achieved. And even after launch, we provide ongoing support and maintenance to ensure your website or application remains up-to-date and running smoothly. \n' +
             "                    In today's digital age, having a strong online presence is crucial for any small business. Let us help you bring your vision to life and reach your target audience through the power of the internet.",
-        href: "#",
-        icon: CloudArrowUpIcon,
-    },
-    {
-        name: "SSL certificates",
-        description:
-            "Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat sapien consequat tempor fermentum nibh.",
-        href: "#",
-        icon: LockClosedIcon,
-    },
-    {
-        name: "Simple queues",
-        description:
-            "Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.",
-        href: "#",
-        icon: ArrowPathIcon,
-    },
-];
+    href: '#',
+    icon: CloudArrowUpIcon
+  },
+  {
+    name: 'SSL certificates',
+    description:
+            'Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat sapien consequat tempor fermentum nibh.',
+    href: '#',
+    icon: LockClosedIcon
+  },
+  {
+    name: 'Simple queues',
+    description:
+            'Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.',
+    href: '#',
+    icon: ArrowPathIcon
+  }
+]
 </script>

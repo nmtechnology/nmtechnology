@@ -1,9 +1,9 @@
 <template>
-    <footer class=" bg-transparent">
+    <footer class=" bg-gray-900">
         <div
             class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8"
         >
-
+<ContactModalFooter />
             <div class="flex justify-center space-x-6 md:order-2">
                 <a
                     v-for="item in navigation"
@@ -30,6 +30,7 @@
 
 <script setup>
 import { defineComponent, h } from 'vue'
+import ContactModalFooter from '../components/ContactModalFooter.vue'
 
 const navigation = [
   {

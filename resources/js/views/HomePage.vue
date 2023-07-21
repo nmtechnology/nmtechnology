@@ -187,6 +187,7 @@ import BlackGradient from '../components/BlackGradient.vue'
 import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import ContactModal from '../components/ContactModal.vue'
+import ContactModalFooter from '../components/ContactModalFooter.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
@@ -201,7 +202,8 @@ export default {
     BlackGradient,
     DesertParallax,
     WorkCollage,
-    ContactModal
+    ContactModal,
+    ContactModalFooter
   }
 }
 

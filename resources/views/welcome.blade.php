@@ -10,7 +10,7 @@
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
         </script>
-
+    
     
 
     </head>
@@ -22,7 +22,7 @@
 
         </div>
         
-
+        <!-- <script src='/resources/js/views/FormValidate.js'> -->
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </body>
 </html>
