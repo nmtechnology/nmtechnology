@@ -37,9 +37,22 @@ class message extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'message',
         );
     }
+
+    /**
+     * Builds the message.
+     * 
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view(
+            'message'
+        );
+    }
+
 
     /**
      * Get the attachments for the message.
