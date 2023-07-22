@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [MailController::class, 'sendMail']);
 
 Route::get('/app/{any}', function () {
     $path = public_path('app/index.html');
