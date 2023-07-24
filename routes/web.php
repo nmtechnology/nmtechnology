@@ -7,7 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [MailController::class, 'sendMail']);
+Route::get('/', [MailController::class, 'contact']);
+
+Route::post('/send-contact', [MailController::class, 'sendEmail'])->name('contact.send');
 
 Route::get('/app/{any}', function () {
     $path = public_path('app/index.html');
@@ -15,4 +17,3 @@ Route::get('/app/{any}', function () {
     return file_get_contents($path);
 })
     ->name('FrontEndApp');
-

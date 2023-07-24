@@ -1,7 +1,7 @@
 <template>
 <div class="bg-gray-900">
         <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="mx-auto bg-gray-900 flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-transparent" aria-label="Global">
+            <nav class="mx-auto bg-transparent flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gradient-to-r from-transparent" aria-label="Global">
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">NM Technology</span>
@@ -40,11 +40,11 @@
                             <img class="h-8 w-auto flex-none" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
                         </a><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
                         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Close menu</span> 
+                            <span class="sr-only">Close menu</span>
                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                            </svg>
-                        </button> 
+                        </button>
                     </div>
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-gray-500/10">
