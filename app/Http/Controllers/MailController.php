@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\message;
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
 
@@ -16,7 +14,7 @@ class MailController extends Controller
     }
 
 
-    public function sendEmail(ContactRequest $request)
+    public function send(ContactRequest $request)
     {
         $details = $request->validated([
             'firstName' => $request->firstName,
@@ -25,7 +23,7 @@ class MailController extends Controller
             'email' => $request->email,
             'message' => $request->message,
         ]);
-
+        $details = $request->validated();
         Mail::to('nmtechnology505@gmail.com')->send(new ContactMail($details));
         return response()->json('Message Sent To NM Technology', 200);
     }

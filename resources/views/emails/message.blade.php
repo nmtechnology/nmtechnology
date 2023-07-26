@@ -9,7 +9,7 @@
 
 <body>
     <h1>message</h1>
-    <p>name: {{ $details['name']}}</p>
+    <p>name: {{ $details['firstName']}}</p>
 </body>
 
 </html>

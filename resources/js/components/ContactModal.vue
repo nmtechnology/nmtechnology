@@ -60,7 +60,7 @@
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
-                <h3 v-if="flash">{{ flashMessage }}</h3>
+                <h3>{{ flashMessage }}</h3>
                 <label for="firstName" class="block text-sm font-semibold leading-6 text-white">First name</label>
                 <div class="mt-2.5">
                   <input type="text" v-model="form.firstName" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
@@ -127,15 +127,19 @@ export default {
         phoneNumber: '',
         email: '',
         message: ''
+
       },
-      flash: false,
-      flashMessage: ''
+      flash: true,
+      flashMessage: '',
+      errorFirstName: '',
+      errorLastName: '',
+      errorPhoneNumber: '',
+      errorMessage: ''
     }
   },
   methods: {
     sendContact () {
-      // eslint-disable-next-line no-undef
-      this.axios.post('/api/send-contact', {
+      axios.post('/api/send-contact', {
         firstName: this.form.firstName,
         lastName: this.form.lastName,
         phoneNumber: this.form.phoneNumber,
@@ -147,6 +151,10 @@ export default {
           console.log(res)
         })
         .catch(e => {
+          if (e.response.status == 422) {
+            console.log(422)
+            this.errorName = e.response.data.errors.firstName[0]
+          }
           console.log(e)
         })
     },
