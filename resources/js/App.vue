@@ -18,7 +18,7 @@
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">CCTV</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white btn-primary">CCTV</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Security Systems</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Access Control</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">IT Consulting</a>

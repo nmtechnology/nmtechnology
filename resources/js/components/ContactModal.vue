@@ -56,7 +56,7 @@
         </div>
         <div>
 <!-- FORM STARTS HERE DUMBASS -->
-        <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+        <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
@@ -143,7 +143,8 @@ export default {
         firstName: this.form.firstName,
         lastName: this.form.lastName,
         phoneNumber: this.form.phoneNumber,
-        email: this.form.email
+        email: this.form.email,
+        message: this.form.message
       })
         .then(res => {
           this.flash = true

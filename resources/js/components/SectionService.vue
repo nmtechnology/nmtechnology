@@ -3,23 +3,24 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-lime-400">
-                    Deploy faster
+                    Stay Protected 24/7
                 </h2>
                 <p
                     class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                    Everything you need to deploy your website to the world!
+                    Leverage Smart Technology!
                 </p>
                 <p class="mt-6 text-lg leading-8 text-gray-300">
-                    Our company specializes in developing custom websites and
-                    web applications tailored to the unique needs of small
-                    businesses. We understand that every business is different,
-                    which is why we take a personalized approach to each project
-                    we undertake. From simple brochure sites to complex
-                    e-commerce solutions, We also pride ourselves on our
-                    commitment to customer service.
+                    NM Technology has the experience to protect what matters most for you. Our team of experienced technicians are available 24/7 to provide comprehensive support, ensuring your surveillance systems are always up and running at their best. Call or email us today and we can place you on our schedule right away!
                 </p>
             </div>
+            <div class="w-full p-1 md:p-2 object-center">
+                    <img
+                        alt="gallery"
+                        class="block h-min w-min rounded-lg object-cover"
+                        src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                    />
+                </div>
             <div
                 class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none"
             >
@@ -59,13 +60,12 @@ import {
   CloudArrowUpIcon,
   LockClosedIcon
 } from '@heroicons/vue/20/solid'
-import ContactModal from '../components/ContactModal.vue'
 
 const features = [
   {
-    name: 'Web Development',
+    name: '',
     description:
-            'We work closely with our clients throughout the development process to make sure their vision is realized and their goals are achieved. And even after launch, we provide ongoing support and maintenance to ensure your website or application remains up-to-date and running smoothly. \n' +
+            '. \n' +
             "                    In today's digital age, having a strong online presence is crucial for any small business. Let us help you bring your vision to life and reach your target audience through the power of the internet.",
     href: '#',
     icon: CloudArrowUpIcon

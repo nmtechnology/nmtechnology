@@ -74,7 +74,7 @@
                                 <h1
                                     class="text-4xl font-bold tracking-tight text-white sm:text-6xl"
                                 >
-                                    We’re changing the way you are protected.
+                                    NM Technology is changing the way you are protected.
                                 </h1>
                                 <p
                                     class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
@@ -95,7 +95,7 @@
                                 </p>
 
                                 <div class="mt-10 flex items-center gap-x-6">
-                                    <ContactModal/>
+                                    <ContactModal />
                                 </div>
                             </div>
                             <div

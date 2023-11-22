@@ -13,7 +13,6 @@ class MailController extends Controller
         return view('welcome');
     }
 
-
     public function send(ContactRequest $request)
     {
         $details = $request->validated([

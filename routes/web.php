@@ -9,7 +9,6 @@ Route::get('/', function () {
 
 Route::get('/', [MailController::class, 'contact']);
 
-Route::post('/send-contact', [MailController::class, 'sendEmail'])->name('contact.send');
 
 Route::get('/app/{any}', function () {
     $path = public_path('app/index.html');

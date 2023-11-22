@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/send-contact', [MailController::class, 'send'])->name('contact.send');
+Route::post('/send-contact', [MailController::class, 'send']);
