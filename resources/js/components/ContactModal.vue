@@ -23,12 +23,16 @@
                 </svg>
                 <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
               </svg>
+              <div class="grid grid-rows-1 p-12">
+            <img class="h-12" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
+            </div>
               <div class="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]" aria-hidden="true">
                 <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
               </div>
             </div>
-            <h2 class="text-3xl font-bold tracking-tight text-white">Get in touch</h2>
-            <p class="mt-6 text-lg leading-8 text-gray-300">Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white">Get In Touch With Us</h2>
+
+            <p class="mt-6 text-lg leading-8 text-gray-300">Call us today and we can setup a free estimated cost of installation for your next project. Our email system doesn't quite work yet so we would like it if you caould call us or send us an email at service@nmtechnology.us, thank you!</p>
             <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
               <div class="flex gap-x-4">
                 <dt class="flex-none">

@@ -5,24 +5,26 @@
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">NM Technology</span>
-                        <img class="h-8 w-auto flex" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-                    </a><a href="#" class="text-sm -space-x-0 font-bold leading-6 text-white flex-initial">Technology</a>
+                        <img class="h-10 w-10 w-auto flex z-10" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+                    </a><a href="#" class="z-12 italic text-sm -space-x-0 font-extrabold leading-6 text-white flex-initial mr10">Technology</a>
                 </div>
 
                 <div class="flex lg:hidden">
                     <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-skin-base">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <svg class="h-6 w-6" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white btn-primary">CCTV</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">CCTV</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Security Systems</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Access Control</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">IT Consulting</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Web Development</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Fire Alarms</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Networking</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Structured Cabling</a>
+
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
 

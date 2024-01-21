@@ -5,7 +5,7 @@
         <main>
             <div class="relative isolate">
                 <svg
-                    class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
+                    class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
                     aria-hidden="true"
                 >
                     <defs>
@@ -44,7 +44,7 @@
                                 63.1% 29.5%,
                                 100% 17.1%,
                                 76.6% 3%,
-                                48.4% 0%,
+                                49.4% 0%,
                                 44.6% 4.7%,
                                 54.5% 25.3%,
                                 59.8% 49%,
@@ -170,7 +170,6 @@
             </div>
         </main>
     </div>
-
     <SectionService />
     <DesertParallax />
     <BlackGradient />

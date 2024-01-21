@@ -5,8 +5,7 @@
                 class="absolute -bottom-8 -left-96 -z-10 transform-gpu blur-3xl sm:-bottom-64 sm:-left-40 lg:-bottom-32 lg:left-8 xl:-left-10"
                 aria-hidden="true"
             >
-        <div
-                    class="aspect-[1266/975] w-[64.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+        <div class="aspect-[1266/975] w-[64.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
                     style="
                         clip-path: polygon(
                             74.1% 44.1%,
@@ -26,24 +25,19 @@
                             76.1% 97.7%,
                             74.1% 44.1%
                         );
-                    "
-                /></div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+                    "></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
     </div>
 </template>
 <script setup></script>

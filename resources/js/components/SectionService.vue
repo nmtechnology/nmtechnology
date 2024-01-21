@@ -8,25 +8,37 @@
                 <p
                     class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                    Leverage Smart Technology!
+                    Leverage Modern Technology!
                 </p>
                 <p class="mt-6 text-lg leading-8 text-gray-300">
                     NM Technology has the experience to protect what matters most for you. Our team of experienced technicians are available 24/7 to provide comprehensive support, ensuring your surveillance systems are always up and running at their best. Call or email us today and we can place you on our schedule right away!
+                We work with top industry vendors and can provide you with the right solution for your property. Take a look at our partner list.
                 </p>
             </div>
-            <div class="w-full p-1 md:p-2 object-center">
-                    <img
-                        alt="gallery"
-                        class="block h-min w-min rounded-lg object-cover"
-                        src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                    />
+            <div class="grid lg:grid-cols-8 sm:grid-cols-8 p-12">
+                <img src="/images/axiscomm-logo.png" class="flex flex-col h-9">
+                <img src="/images/DSC-logo.png" class="flex flex-col p-3 h-9">
+                <img src="/images/qolsys-logo.png" class="flex flex-col p-1 h-9">
+                <img src="/images/ubiquity-logo.png" class="flex flex-col h-12">
+                <img src="/images/linovision-logo.png" class="flex flex-col mt-3 h-9">
+                <img src="/images/assaabloy-logo.png" class="flex flex-col mt-5 p-4s h-5">
+                <img src="/images/allegion-logo.png" class="flex flex-col h-9">
+                <img src="/images/teltonika-logo.png" class="flex flex-col mt-4 h-9">
+            </div>
+            <div class="grid lg:grid-cols-8 sm:grid-cols-8 p-12">
+                <img src="/images/honeywell-logo.png" class="flex flex-col h-32">
+                <img src="/images/doorbird-logo.png" class="flex flex-col mt-9 h-5">
+                <img src="/images/leviton-logo.png" class="flex flex-col p-3 mb-9">
+                <img src="/images/napco-logo.png" class="flex flex-col p-4">
+                <img src="/images/zwave-logo.png" class="flex flex-col mt-6 h-9">
+                <img src="/images/firelite-logo.png" class="flex flex-col mt-5">
+                <img src="/images/dmp-logo.png" class="flex flex-col p-3 h-5">
+                <img src="/images/teltonika-logo.png" class="flex flex-col mt-4 h-9">
+            </div>
+            <div class="w-full p-1 lg:p-2">
                 </div>
-            <div
-                class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none"
-            >
-                <dl
-                    class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
-                >
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     <div
                         v-for="feature in features"
                         :key="feature.name"
