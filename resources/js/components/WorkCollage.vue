@@ -41,7 +41,7 @@
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
                     <img
-                        alt="gallery"
+                        alt='gallery'
                         class="block h-full w-full rounded-lg object-cover object-center"
                         src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
                     />

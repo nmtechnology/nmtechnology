@@ -5,7 +5,7 @@
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-1.5 p-1.5">
                         <span class="sr-only">NM Technology</span>
-                        <img class="h-10 w-10 w-auto flex z-10" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+                        <img class="h-10 w-10 w-auto flex z-10" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
                     </a><a href="#" class="z-12 italic text-sm -space-x-0 font-extrabold leading-6 text-white flex-initial mr10">Technology</a>
                 </div>
 

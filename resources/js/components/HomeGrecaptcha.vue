@@ -1,27 +1,28 @@
 <script>
 function enableBtn() {
-    document.getElementById("button1").disabled = false;
-    alert("Thanks For Verifying You Are Human, You May Now Click Enter!");
+  document.getElementById('button1').disabled = false
+  alert('Thanks For Verifying You Are Human, You May Now Click Enter!');
 }
 
 const onloadCallback = function () {
-    grecaptcha.render(
-        "g-form",
-        {
-            sitekey: "6LevCN0mAAAAAC2CnQAlJf1RlTYrZz9jCdlbDQ_8",
-            callback: "enableBtn",
-            theme: "dark",
-        },
-        $("g-form").click(onloadCallback)
-    );
-};
+  grecaptcha.render(
+    'g-form',
+    {
+      sitekey: '6LevCN0mAAAAAC2CnQAlJf1RlTYrZz9jCdlbDQ_8',
+      callback: 'enableBtn',
+      theme: 'dark'
+    },
+    $('g-form').click(onloadCallback)
+)
+}
 
 export default {
-    components: {
-        grecaptcha,
-        mounted() {
-            onloadCallback(), enableBtn();
-        },
+  components: {
+    grecaptcha,
+    mounted() {
+      onloadCallback(),
+       enableBtn()
+    },
     },
 };
 </script>
