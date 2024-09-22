@@ -137,6 +137,8 @@ import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import ContactModal from '../components/ContactModal.vue'
 import ContactModalFooter from '../components/ContactModalFooter.vue'
+import TopBanner from '../components/TopBanner.vue'
+import MobileMenu from '../components/MobileMenu.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
@@ -152,6 +154,8 @@ export default {
     DesertParallax,
     WorkCollage,
     ContactModal,
+    MobileMenu,
+    TopBanner,
     ContactModalFooter,
     },
 }

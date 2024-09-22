@@ -1,6 +1,4 @@
 <template>
-    <div
-        class="mx-auto h-80 overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat shadow-lg"
-        style="background-image: url('/public/images/desert.webp')">
-    </div>
+    <img class="mx-auto overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat shadow-lg"
+    src="/public/images/desert.webp">
 </template>
