@@ -2,7 +2,7 @@
     <div class="relative isolate overflow-hidden py-24 sm:py-32">
         <img
             src="/public/images/spaceman.webp"
-            alt=""
+            alt="spaceman-image"
             class="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -11,10 +11,10 @@
                 aria-hidden="true"
             >
                 <div
-                    class="aspect-[1266/975] w-[64.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-10"
+                    class="aspect-[1300/999] w-[54.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-10"
                     style="
                         clip-path: polygon(
-                            74.1% 44.1%,
+                            25.1% 44.1%,
                             100% 61.6%,
                             97.5% 26.9%,
                             85.5% 0.1%,
@@ -37,13 +37,11 @@
             <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                 <div class="flex lg:flex-1">
                     <img
-                        class="h-8 w-auto flex"
+                        class="h-12 w-auto flex"
                         src="/public/images/nm-logo-rmbg.webp"
                         alt="nmtechnology-logo"
                     />
-                    <p
-                        class="text-sm -space-x-0 font-bold leading-6 text-white flex-initial"
-                    >
+                    <p class="text-lg mt-3 -space-x-0 font-bold leading-6 text-white flex-initial">
                         Technology
                     </p>
                 </div>
@@ -55,14 +53,13 @@
                 <p
                     class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                    Trusted by thousands of corporations worldwide
+                    Trusted by hundreds of corporations worldwide
                 </p>
                 <p class="mt-6 text-lg leading-8 text-gray-300">
-                    Join countless satisfied users who have leveraged our
-                    platform to enhance safety awareness and drive positive
-                    change. Whether it's improving workplace safety, analyzing
-                    community crime rates, or identifying areas for improvement
-                    in your personal routine—we've got you covered.
+                    Join countless satisfied national contractors and clients who have leveraged our
+                    services to enhance safety and drive efficient
+                    change. Whether it's improving workplace safety, reducing theft and asset loss, or 
+                    protecting your home or business we've got you covered.
                 </p>
             </div>
             <dl
@@ -90,6 +87,6 @@ const stats = [
   { id: 1, name: 'Work Orders Completed', value: '3,000+' },
   { id: 2, name: 'Satisfaction Rate', value: '97%' },
   { id: 3, name: 'Safety Efficiency', value: '100%' },
-  { id: 4, name: 'Customer Revenue Saved', value: '$' }
+  { id: 4, name: 'Customer Revenue Saved', value: '$402,003+' }
 ]
 </script>

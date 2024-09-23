@@ -1,7 +1,7 @@
 <template>
+    <TopBanner />
 <div class="bg-gray-900 ">
         <header class="inset-x-0 top-0 z-50">
-            <TopBanner />
             <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex">
                     <a href="#" class="">
@@ -18,6 +18,7 @@
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Fire Alarms</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Network</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Structured Cabling</a>
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Automation</a>
 
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">

@@ -121,7 +121,6 @@
         </main>
     </div>
     <SectionService />
-    <DesertParallax />
     <BlackGradient />
     <SectionOne />
     <HomeFooter />
@@ -156,7 +155,7 @@ export default {
     ContactModal,
     MobileMenu,
     TopBanner,
-    ContactModalFooter,
-    },
+    ContactModalFooter
+  }
 }
 </script>

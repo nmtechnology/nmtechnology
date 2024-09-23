@@ -32,7 +32,7 @@
             </div>
             <h2 class="text-3xl font-bold tracking-tight text-white">Get In Touch With Us</h2>
 
-            <p class="mt-6 text-lg leading-8 text-gray-300">Call us today and we can setup a free estimated cost of installation for your next project. Our email system doesn't quite work yet so we would like it if you caould call us or send us an email at service@nmtechnology.us, thank you!</p>
+            <p class="mt-6 text-lg leading-8 text-gray-300">At NM Technology, we offer a complimentary installation cost estimation service for your upcoming projects. Our email system doesn't quite work yet so we would like it if you caould call us or send us an email at service@nmtechnology.us, thank you!</p>
             <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
               <div class="flex gap-x-4">
                 <dt class="flex-none">

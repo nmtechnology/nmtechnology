@@ -1,5 +1,5 @@
 <template>
-    <Popover class="root">
+    <Popover>
       <PopoverButton class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
         <span>Solutions</span>
         <ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
