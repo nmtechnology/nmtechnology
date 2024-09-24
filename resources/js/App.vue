@@ -1,17 +1,14 @@
 <template>
-    <TopBanner />
-<div class="bg-gray-900 ">
-        <header class="inset-x-0 top-0 z-50">
-            <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex">
-                    <a href="#" class="">
-                        <img class="md:box-border h-25 w-32 static" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-                    </a><a href="#" class="italic text-lg font-extrabold leading-6 text-white flex-initial mr10 lg:mt-5 md:mt-5 sm:mt-5 xs:mt-3">Technology</a>
+<div class="bg-gray-900 fixed z-40">
+        <header class="w-screen">
+            <nav class="p-6 lg:px-8 flex mx-30" aria-label="Global">
+                <div class="px-16 flex">
+                    <a href="#" class="flex max-w-32">
+                        <img class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+                    </a>
+                    <a href="#" class="italic text-lg font-extrabold leading-6 text-white flex-initial mx-32 mr10 lg:mt-5 md:mt-5 sm:mt-5 xs:mt-3 z-40">Technology</a>
                 </div>
-
-                <div>
-                </div>
-                <div class="hidden lg:flex lg:gap-x-12 justify-center ml-40">
+                    <div class="md:hidden lg:flex lg:gap-x-6 sm:gap-x-6 mx-10 mt-2 flex">
                     <a href="#" class="text-sm font-semibold leading-6 text-white">CCTV</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Security Systems</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Access Control</a>
@@ -21,11 +18,7 @@
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Automation</a>
 
                 </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-
-                </div>
             </nav>
-            <MobileMenu />
         </header>
     </div>
 <router-view></router-view>

@@ -1,10 +1,11 @@
-<!-- eslint-disable comma-dangle -->
-<!-- eslint-disable no-undef -->
+eslint-disable comma-dangle
+eslint-disable no-undef
 <template>
+<TopBanner />
     <div class="bg-gray-900">
         <main>
             <div class="relative isolate">
-                <svg class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
+                <svg class="absolute inset-x-0 top-0 -z-10 h-[84rem] w-full stroke-white [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
                     <defs>
                         <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
@@ -48,22 +49,21 @@
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                                 <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
                                     NM Technology is changing the way you are
-                                    protected.
+                                    protected and served here in New Mexico.
                                 </h1>
                                 <p class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none">
-                                    By utilizing integrated technology here in
-                                    New Mexico to protect your home or business,
+                                    By utilizing integrated technology to protect your home or business,
                                     you can automate routine tasks and create
                                     customized settings based on your
                                     preferences. By offering a full range of
-                                    security services and products that address
+                                    security monitoring services and products that address
                                     both physical and cyber threats, we can
-                                    protect organizations of all types and sizes
-                                    protect their people, assets, and data. In
-                                    addition, we offer ongoing maintenance and
+                                    protect organizations of all types and sizes.
+                                    We protect their personel, assets, and data. In
+                                    addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
                                     systems continue to function effectively
-                                    over time.
+                                    over time. Contact us today so we can get started immediately for you.
                                 </p>
 
                                 <div class="mt-10 flex items-center gap-x-6">
