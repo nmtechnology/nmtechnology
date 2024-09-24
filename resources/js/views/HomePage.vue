@@ -1,7 +1,6 @@
 eslint-disable comma-dangle
 eslint-disable no-undef
-<template>
-<TopBanner />
+<template><TopBanner />
     <div class="bg-gray-900">
         <main>
             <div class="relative isolate">
@@ -137,6 +136,7 @@ import HomeFooter from '../components/HomeFooter.vue'
 import ContactModal from '../components/ContactModal.vue'
 import ContactModalFooter from '../components/ContactModalFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
+import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import { ref } from 'vue'
 
@@ -155,6 +155,7 @@ export default {
     ContactModal,
     MobileMenu,
     TopBanner,
+    CcTv,
     ContactModalFooter
   }
 }

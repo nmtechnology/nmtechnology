@@ -3,12 +3,14 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory, useRoute } from 'vue-router'
 import App from './App.vue'
 import HomePage from './views/HomePage.vue'
+import CcTv from './components/CcTv.vue'
 import axios from 'axios'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', name: 'Home', component: HomePage }
+    { path: '/', name: 'home', component: HomePage },
+    { path: '/cctv', name: 'cctv', component: CcTv }
   ]
 })
 

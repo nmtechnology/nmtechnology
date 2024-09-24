@@ -134,11 +134,11 @@ export default {
 
       },
       flash: true,
-      flashMessage: '',
-      errorFirstName: '',
-      errorLastName: '',
-      errorPhoneNumber: '',
-      errorMessage: ''
+      flashMessage: 'error',
+      errorFirstName: 'error',
+      errorLastName: 'error',
+      errorPhoneNumber: 'error',
+      errorMessage: 'error'
     }
   },
   methods: {
