@@ -2,12 +2,12 @@
 <div class="bg-gray-900 fixed z-40">
         <header class="w-screen">
             <nav class="p-6 lg:px-8 flex mx-30" aria-label="Global">
-                <div class="px-16 flex static">
-                    <router-link to="/" class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30">
+                <div class="px-16 flex -mt-3">
+                    <router-link to="/" class="md:box-border h-16 max-w-32 size-full fixed mx-5 z-30">
                         <img class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></router-link>
-                    <router-link to="/" class="italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 xs:mt-3 z-40">Technology</router-link>
+                    <router-link to="/" class="italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 xs:mt-6 z-40">Technology</router-link>
                 </div>
-                    <div class="md:hidden lg:flex lg:gap-x-6 sm:gap-x-6 mx-10 mt-2 flex">
+                    <div class="sm:hidden lg:flex lg:gap-x-6 sm:gap-x-6 mx-10 mt-2">
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white">Security Cameras</router-link>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Security Systems</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Access Control</a>
@@ -15,7 +15,7 @@
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Network</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Structured Cabling</a>
                     <a href="#" class="text-sm font-semibold leading-6 text-white">Automation</a>
-
+                    <MobileMenu />
                 </div>
             </nav>
         </header>
@@ -26,9 +26,8 @@
 
 <script>
 import { ref } from 'vue'
-import TopBanner from './components/TopBanner.vue'
 import MobileMenu from './components/MobileMenu.vue'
-const mobileMenuOpen = ref(false)
+const mobileMenuOpen = ref(true)
 </script>
 
 <style>

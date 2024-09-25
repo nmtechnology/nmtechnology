@@ -18,11 +18,12 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
 const solutions = [
-  { name: 'Analytics', href: '#' },
-  { name: 'Engagement', href: '#' },
-  { name: 'Security', href: '#' },
-  { name: 'Integrations', href: '#' },
-  { name: 'Automations', href: '#' },
-  { name: 'Reports', href: '#' }
+  { name: 'Security Cameras', href: 'CcTv' },
+  { name: 'Security Systems', href: '#' },
+  { name: 'Fire Alarms', href: '#' },
+  { name: 'Access Control', href: '#' },
+  { name: 'Structured Cabling', href: '#' },
+  { name: 'Automation', href: '#' },
+  
 ]
 </script>
