@@ -22,6 +22,12 @@ export default {
     purge: [],
     theme: {
       extend: {
+        screens: {
+          'mobile': '325px',
+          'tablet': '768px',
+          'laptop': '950px',
+          'desktop': '1440px',
+        },
         textColor: {
           skin: {
             base: withOpacity('--color-text-base'),

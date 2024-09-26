@@ -45,8 +45,8 @@ eslint-disable no-undef
                 <div class="overflow-hidden">
                     <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
+                                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl 2xl:mt-10 mt-20">
                                     NM Technology is changing the way you are
                                     protected and served here in New Mexico.
                                 </h1>

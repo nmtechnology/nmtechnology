@@ -4,21 +4,22 @@
 
 @layer base {
     :root {
-        --color-text-base: #f00001;
+        --color-text-base: #d13581;
         --color-text-muted: #57fd00;
         --color-text-inverted: #fffff;
-        --color-fill: #276999;
-        --color-button-accent: #000232;
-        --color-button-accent-hover: #2828a0;
+        --color-fill: #196b9f;
+        --color-button-accent: #2aa198;
+        --color-button-accent-hover: #b58901;
         --color-button-muted: #0000;
     }
     .theme-neon-tech {
-        --color-text-base: ;
+        --color-text-base: #d13581;
         --color-text-muted: #57fd00;
-        --color-text-inverted: ;
-        --color-fill: ;
-        --color-button-accent: ;
-        --color-button-accent-hover: ;
+        --color-text-inverted: #fffff;
+        --color-fill: #196b9f;
+        --color-button-accent: #2aa198;
+        --color-button-accent-hover: #b58901;
         --color-button-muted: 99, 102, 241;
     }
+    
 }
