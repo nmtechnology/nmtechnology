@@ -4,9 +4,10 @@ eslint-disable no-undef
     <div class="bg-gray-900">
         <main>
             <div class="relative isolate">
-                <svg class="absolute inset-x-0 top-0 -z-10 h-[84rem] w-full stroke-white [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+                <svg class="absolute inset-x-0 top-0 -z-30 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
                     <defs>
+                        
                         <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
                             patternUnits="userSpaceOnUse">
                             <path d="M.5 200V.5H200" fill="none" />
@@ -20,15 +21,15 @@ eslint-disable no-undef
                 </svg>
                 <div class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
                     aria-hidden="true">
-                    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+                    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
                         style="
                             clip-path: polygon(
                                 63.1% 29.5%,
                                 100% 17.1%,
                                 76.6% 3%,
-                                49.4% 0%,
+                                69.4% 0%,
                                 44.6% 4.7%,
-                                54.5% 25.3%,
+                                40.5% 25.3%,
                                 59.8% 49%,
                                 55.2% 57.8%,
                                 44.4% 57.2%,
@@ -38,7 +39,7 @@ eslint-disable no-undef
                                 39.2% 100%,
                                 35.2% 81.4%,
                                 97.2% 52.8%,
-                                63.1% 29.5%
+                                30.1% 29.5%
                             );
                         "></div>
                 </div>
@@ -46,25 +47,22 @@ eslint-disable no-undef
                     <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
-                                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl 2xl:mt-10 mt-20">
-                                    NM Technology is changing the way you are
-                                    protected and served here in New Mexico.
-                                </h1>
-                                <p class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none">
-                                    By utilizing integrated technology to protect your home or business,
-                                    you can automate routine tasks and create
-                                    customized settings based on your
+                               
+<h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
+     <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico.</h1>
+<p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
+                                    they can automate routine tasks and create
+                                    customized settings based on their
                                     preferences. By offering a full range of
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
-                                    protect organizations of all types and sizes.
-                                    We protect their personel, assets, and data. In
+                                    protect residents and organizations of all types and sizes.
+                                    We protect their personell, assets, and data. In
                                     addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
                                     systems continue to function effectively
-                                    over time. Contact us today so we can get started immediately for you.
-                                </p>
-
+                                    over time. Contact us today so we can get started immediately for you.</p>
+                                
                                 <div class="mt-10 flex items-center gap-x-6">
                                     <ContactModal />
                                 </div>

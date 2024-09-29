@@ -97,7 +97,7 @@
             </div>
           </div>
         </form>
-        <!--empty area for form error/success output-->
+        <!--empty area for form error/success output-->:)
 		<div>
 		    <div>
 			    <div id="output-area">
@@ -120,11 +120,12 @@ const isOpen = ref(false)
 <style>
 
 #button {
-    background-color: #5fc500;
-    border-radius: 13px;
+    background-color: #15803d;
+    border-radius: 30px;
     padding: 5%;
     width: 200px;
     transition: opacity 0.3s ease;
+    justify-content: center;
 }
 
 .root {
@@ -133,6 +134,7 @@ const isOpen = ref(false)
 }
 
 .modal {
+    z-index: 1000;
     position: absolute;
     padding-top: 17%;
     top: 0;
@@ -143,7 +145,7 @@ const isOpen = ref(false)
     display: flex;
     justify-content: center;
     align-items: center;
-    border-color: #5fc500;
+    border-color: #15803d;
 }
 
 @media (max-width: 375px) {
