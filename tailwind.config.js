@@ -21,38 +21,29 @@ export default {
   module: (exports = {
     purge: [],
     theme: {
+      daisyui: {
+        themes: [
+          {
+            mytheme: {
+              "primary": "#2b3155",
+              "secondary": "#f6d860",
+              "highlight": "#c8ff00",
+              "neutral-green": "#15a34a",
+              "coder-pink": "#d13581",
+            },
+          },
+          "dark",
+          "cupcake",
+        ],
+      },
       extend: {
         screens: {
-          'mobile': '325px',
+          'mobile': '200px',
           'tablet': '768px',
           'laptop': '950px',
           'desktop': '1440px',
         },
-        textColor: {
-          skin: {
-            base: withOpacity('--color-text-base'),
-            muted: withOpacity('--color-text-muted'),
-            inverted: withOpacity('--color-text-inverted')
-          }
-        },
-        backgroundColor: {
-          skin: {
-            fill: withOpacity('--color-fill'),
-            'button-accent': withOpacity(
-              '--color-button-accent-hover'
-            ),
-            'button-accent-hover': withOpacity(
-              '--color-button-accent-hover'
-            ),
-            'button-muted': withOpacity('--color-button-muted')
-          }
-        }
       },
-      gradientColorStops: {
-        skin: {
-          hue: withOpacity('--color-fill')
-        }
-      }
     }
   }),
   plugins: [

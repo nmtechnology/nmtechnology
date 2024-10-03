@@ -6,7 +6,7 @@
         <teleport to="body">
             <div class="modal" v-if="isOpen">
                 <!-- TAILWIND FORM START -->
-                <div class="relative isolate bg-blue-950">
+                <div class="isolate bg-blue-950">
       <div><button class="text-white float-right mr-9 mt-9" @click="isOpen = false">X</button></div>
       <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">

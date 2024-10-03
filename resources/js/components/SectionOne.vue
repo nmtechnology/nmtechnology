@@ -52,11 +52,11 @@
                     Our track record
                 </h2>
                 <p
-                    class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl"
+                    class="mt-2 text-3xl font-bold tracking-tight text-green-600 sm:text-4xl"
                 >
                     Trusted by hundreds of corporations worldwide
                 </p>
-                <p class="mt-6 text-lg leading-8 text-gray-300">
+                <p class="mt-6 text-lg leading-8 text-gray-200">
                     Join countless satisfied national contractors and clients who have leveraged our
                     services to enhance safety and drive efficient
                     change. Whether it's improving workplace safety, reducing theft and asset loss, or 

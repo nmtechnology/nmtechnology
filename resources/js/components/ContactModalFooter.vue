@@ -135,7 +135,7 @@ const isOpen = ref(false)
 
 .modal {
     z-index: 1000;
-    position: absolute;
+    position: sticky;
     padding-top: 17%;
     top: 0;
     left: 0;

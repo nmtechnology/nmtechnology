@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-900 py-24 sm:py-32">
+    <div class="bg-gray-900">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="grid grid-rows-1 p-12 justify-center">
             <img class="h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
@@ -18,25 +18,15 @@
                 We work with top industry vendors and can provide you with the right solution for your property. Take a look at our partner list.
                 </p>
             </div>
-            <div class="grid lg:grid-cols-8 sm:grid-cols-8 p-12">
-                <img src="/public/images/axiscomm-logo.png" class="flex flex-col h-9">
-                <img src="/public/images/DSC-logo.png" class="flex flex-col p-3 h-9">
-                <img src="/public/images/qolsys-logo.png" class="flex flex-col p-1 h-9">
-                <img src="/public/images/ubiquity-logo.png" class="flex flex-col h-12">
-                <img src="/public/images/linovision-logo.png" class="flex flex-col mt-3 h-9">
-                <img src="/public/images/assaabloy-logo.png" class="flex flex-col mt-5 p-4s h-5">
-                <img src="/public/images/allegion-logo.png" class="flex flex-col h-9">
-                <img src="/public/images/teltonika-logo.png" class="flex flex-col mt-4 h-9">
-            </div>
-            <div class="grid lg:grid-cols-8 sm:grid-cols-8 p-6">
-                <img src="/public/images/honeywell-logo.png" class="flex flex-col h-32">
-                <img src="/public/images/doorbird-logo.png" class="flex flex-col mt-9 h-5">
-                <img src="/public/images/leviton-logo.png" class="flex flex-col p-3 mb-9">
-                <img src="/public/images/napco-logo.png" class="flex flex-col p-4">
-                <img src="/public/images/zwave-logo.png" class="flex flex-col mt-6 h-9">
-                <img src="/public/images/firelite-logo.png" class="flex flex-col mt-5">
-                <img src="/public/images/dmp-logo.png" class="flex flex-col p-3 h-5">
-                <img src="/public/images/teltonika-logo.png" class="flex flex-col mt-4 h-9">
+            <div class="grid lg:columns-8 sm:columns-2 flex-row lg:grid-cols-8 sm:grid-cols-8">
+                <img src="/public/images/axiscomm-logo.png" class="flex flex-row h-9 object-contain">
+                <img src="/public/images/DSC-logo.png" class="flex flex-row p-3 h-9">
+                <img src="/public/images/qolsys-logo.png" class="flex flex-row p-1 h-9">
+                <img src="/public/images/ubiquity-logo.png" class="flex flex-row h-9 object-fill">
+                <img src="/public/images/linovision-logo.png" class="flex flex-row mt-3 h-9">
+                <img src="/public/images/zwave-logo.png" class="flex flex-col h-9">
+                <img src="/public/images/allegion-logo.png" class="flex flex-row h-9">
+                <img src="/public/images/teltonika-logo.png" class="flex flex-row h-9">
             </div>
             <div class="w-full p-1 lg:p-2">
                 </div>
