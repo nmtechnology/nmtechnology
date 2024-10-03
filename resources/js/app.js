@@ -8,6 +8,13 @@ import axios from 'axios'
 
 const router = createRouter({
   history: createWebHistory(),
+
+  variants: {
+    backgroundColor: ['responsive','hover','focus', 'active']
+  },
+
+  currentLinkActiveClass: 'active-link',
+
   routes: [
     { path: '/', name: 'home', component: HomePage },
     { path: '/cctv', name: 'cctv', component: CcTv }

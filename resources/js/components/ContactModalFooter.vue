@@ -97,7 +97,7 @@
             </div>
           </div>
         </form>
-        <!--empty area for form error/success output-->:)
+        <!--empty area for form error/success output-->
 		<div>
 		    <div>
 			    <div id="output-area">

@@ -177,7 +177,7 @@ export default {
 <style>
 
 #button {
-    background-color: #5fc500;
+    background-color: #15a34a;
     border-radius: 13px;
     padding: 5%;
     width: 200px;
