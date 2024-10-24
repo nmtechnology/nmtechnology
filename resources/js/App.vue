@@ -9,23 +9,24 @@
                     <router-link to="/"
                         class="fixed italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">Technology</router-link>
                 </div>
+                <!-- mobile menu button -->
                 <div class="flex lg:hidden">
                     <button type="button"
-                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-green-400"
                         @click="mobileMenuOpen = true">
                         <span class="sr-only">Open main menu</span>
-                        <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+                        <Bars3Icon class="h-6 w-6 bg-gray-500" aria-hidden="true" />
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-5 gap-x-10">
-                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400 active:text-green-400 rounded-sm">CCTV
+                    <router-link to="cctv" class="nav-item text-sm font-semibold leading-6 text-white hover:text-green-400 active:text-green-400 rounded-sm">CCTV
                     </router-link>
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Security
                         Systems</router-link>
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Fire Alarms
                     </router-link>
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Networking</router-link>
-                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Strucured Cabling
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Structured Cabling
                     </router-link>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -50,15 +51,19 @@
                         </button>
                     </div>
                     <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-white-500/10">
+                        <div class="-my-6 divide-y divide-white-500/40">
                             <div class="space-y-2 py-6">
                                 <a v-for="item in navigation" :key="item.name" :href="item.href"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-500">{{
                                     item.name }}</a>
                             </div>
-                            <div class="py-6">
-                                <router-link to="cctv" class="text-sm font-semibold leading-6 text-white">Security
-                                    Cameras</router-link>
+                            <div class="hidden lg:flex lg:gap-x-5 gap-x-10">
+                    <router-link to="cctv" class="nav-item text-sm font-semibold leading-6 text-white hover:text-green-400 active:text-green-400 rounded-sm">CCTV
+                    </router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Security Systems</router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Fire Alarms</router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Networking</router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Structured Cabling</router-link>
                             </div>
                         </div>
                     </div>
@@ -72,12 +77,10 @@
 
 <script>
 import { ref } from 'vue'
-
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import MobileMenu from './components/MobileMenu.vue'
 
-const mobileMenuOpen = ref(true)
+const mobileMenuOpen = ref(false)
 </script>
 
 <style>

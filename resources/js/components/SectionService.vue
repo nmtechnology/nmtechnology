@@ -1,9 +1,10 @@
 <template>
     <div class="bg-gray-900">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid grid-rows-1 p-12 justify-center">
-            <img class="h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
+            <div class="grid grid-rows-1 p-12 justify-center ">
+            <img class="h-12 z-20" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
             </div>
+            <work-collage></work-collage>
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-lime-400">
                     Stay Protected and Connected 24/7!

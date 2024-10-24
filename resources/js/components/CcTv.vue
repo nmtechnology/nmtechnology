@@ -47,16 +47,6 @@
   
   <script setup>
   import { ref } from 'vue'
-  import { Dialog, DialogPanel } from '@headlessui/vue'
-  import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-  import { ChevronRightIcon } from '@heroicons/vue/20/solid'
-  
-  const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
-  ]
   
   const mobileMenuOpen = ref(false)
   </script>

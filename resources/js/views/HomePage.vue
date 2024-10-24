@@ -4,13 +4,13 @@ eslint-disable no-undef
     <div class="bg-gray-900">
         <main>
             <div class="relative isolate">
-                <svg class="absolute inset-x-0 top-0 -z-30 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+                <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
                     <defs>
                         
                         <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
                             patternUnits="userSpaceOnUse">
-                            <path d="M.5 200V.5H200" fill="none" />
+                            <path d="M.5 300V.5H200" fill="none" />
                         </pattern>
                     </defs>
                     <svg x="50%" y="-1" class="overflow-visible">
@@ -19,7 +19,7 @@ eslint-disable no-undef
                     </svg>
                     <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
                 </svg>
-                <div class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+                <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
                     aria-hidden="true">
                     <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
                         style="
@@ -61,7 +61,7 @@ eslint-disable no-undef
                                     addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
                                     systems continue to function effectively
-                                    over time. Contact us today so we can get started immediately for you.</p>
+                                    over time. Contact us today so we can get started.</p>
                                 
                                 <div class="mt-10 flex items-center gap-x-6">
                                     <ContactModal />

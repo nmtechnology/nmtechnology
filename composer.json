@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.8",
         "mailgun/mailgun-php": "^3.5",
         "nyholm/psr7": "^1.8",
-        "symfony/mailer": "^6.3"
+        "symfony/mailer": "^6.3",
+        "wireui/heroicons": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

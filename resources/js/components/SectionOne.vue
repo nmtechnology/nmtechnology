@@ -88,6 +88,6 @@ const stats = [
   { id: 1, name: 'Work Orders Completed', value: '3,000+' },
   { id: 2, name: 'Satisfaction Rate', value: '97%' },
   { id: 3, name: 'Safety Efficiency', value: '100%' },
-  { id: 4, name: 'Customer Revenue Saved', value: '$402,003+' }
+  { id: 4, name: 'Customer Revenue Saved', value: '$309,003+' }
 ]
 </script>

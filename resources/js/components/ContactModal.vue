@@ -7,6 +7,7 @@
             <div class="modal" v-if="isOpen">
                 <!-- TAILWIND FORM START -->
                 <div class="isolate bg-blue-950">
+                  <br><br><br><br><br>
       <div><button class="text-white float-right mr-9 mt-9" @click="isOpen = false">X</button></div>
       <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
@@ -23,44 +24,45 @@
                 </svg>
                 <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
               </svg>
-              <div class="grid grid-rows-1 p-12">
-            <img class="h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
-            </div>
               <div class="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]" aria-hidden="true">
                 <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
               </div>
             </div>
-            <h2 class="text-3xl font-bold tracking-tight text-white">Get In Touch With Us</h2>
-
-            <p class="mt-6 text-lg leading-8 text-gray-300">At NM Technology, we offer a complimentary installation cost estimation service for your upcoming projects. Our email system doesn't quite work yet so we would like it if you caould call us or send us an email at service@nmtechnology.us, thank you!</p>
+            <div class="grid grid-rows-1 p-12">
+            <img class="h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"><a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
+            <br>
+            <h2 class="text-3xl font-bold tracking-tight text-green-600">Service Request Form</h2>
+        
+            <p class="mt-6 text-lg leading-8 text-gray-300">Here is our service request form, if you need a service technician onsite to troubleshoot, Install or remove something we can 
+              help you with that just give us the details here and a member of our team will reach out to you for confirmation.
+            </p>
+            <br>
+            <p class="text-white">If you are having issues with submitting a request please reach out to our support team by email or phone, thank you!</p>
+    
             <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
-              <div class="flex gap-x-4">
-                <dt class="flex-none">
-                  <span class="sr-only">Address</span>
-                  <BuildingOffice2Icon class="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>12900 Juan Tabo<br />Albuquerque, NM 87112</dd>
-              </div>
               <div class="flex gap-x-4">
                 <dt class="flex-none">
                   <span class="sr-only">Telephone</span>
                   <PhoneIcon class="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
-                <dd><a class="hover:text-white" href="tel:+1 (505) 659-5097">+1 (505) 659-5097</a></dd>
+                <dd><a class="hover:text-white" href="tel:+1 (505) 659-5097">+1 (505)659-5097</a></dd>
               </div>
               <div class="flex gap-x-4">
                 <dt class="flex-none">
                   <span class="sr-only">Email</span>
                   <EnvelopeIcon class="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
-                <dd><a class="hover:text-white" href="mailto:hello@example.com">service@nmtechnology.us</a></dd>
+                <dd><a class="hover:text-white" href="mailto:hello@example.com">support@nmtechnology.us</a></dd>
               </div>
             </dl>
           </div>
         </div>
+      </div>
         <div>
 <!-- FORM STARTS HERE DUMBASS -->
-        <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+ <br><br><br><br> <br><br><br><br>
+<div class="asana-embed-container"><link rel="stylesheet" href="https://form.asana.com/static/asana-form-embed-style.css"/><iframe class="asana-embed-iframe" height="533" width = "800" src="https://form.asana.com/?k=6pAvMCcJt27tVtR9CNkprQ&d=1201840591062137&embed=true"></iframe><div class="asana-embed-footer"><a rel="nofollow noopener" target="_blank" class="asana-embed-footer-link" href="https://asana.com/?utm_source=embedded_form"><span class="asana-embed-footer-text bg-color-gray">Form powered by NM Technology</span><br><img class="h-6" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></a></div></div>
+        <!-- <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
@@ -99,7 +101,7 @@
                 <button type="submit" class="rounded-md bg-lime-600 px-3.5 py-1.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Send message</button>
             </div>
           </div>
-        </form>
+        </form> -->
         <!--empty area for form error/success output-->
 		<div>
 		    <div>
