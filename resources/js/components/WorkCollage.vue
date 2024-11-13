@@ -12,14 +12,14 @@
                 <div class="w-1/2 p-1 md:p-2">
                     <img
                         alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
+                        class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
                         src="/public/images/cctv-highway.webp"
                     />
                 </div>
                 <div class="w-full p-1 md:p-2">
                     <img
                         alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
+                        class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
                         src="/public/images/cctv-corner.webp"
                     />
                 </div>
@@ -28,14 +28,14 @@
                 <div class="w-full p-1 md:p-2">
                     <img
                         alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
+                        class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
                         src="/public/images/cctv-store.webp"
                     />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
                     <img
                         alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
+                        class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
                         src="/public/images/cctv-restaurant.webp"
                     />
                 </div>

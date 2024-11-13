@@ -52,8 +52,8 @@ eslint-disable no-undef
      <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico.</h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
-                                    customized settings based on their
-                                    preferences. By offering a full range of
+                                    customized settings based around thier lifestyle or business functionalities. 
+                                    By offering a full range of
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
                                     protect residents and organizations of all types and sizes.

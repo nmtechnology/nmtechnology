@@ -7,16 +7,16 @@
             <work-collage></work-collage>
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-base font-semibold leading-7 text-lime-400">
-                    Stay Protected and Connected 24/7!
+                    Stay Protected 24/7!
                 </h2>
                 <p
                     class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                    Leverage Modern Technology!
+                    Leverage Modern Technology
                 </p>
                 <p class="mt-6 mb-12 text-lg leading-8 text-gray-300">
-                    NM Technology has the technological experience and know how to protect what matters most for you. Our team of experienced technicians are available 24/7 to provide comprehensive support, ensuring your surveillance systems are always up and running at their best. Call or email us today and we can place you on our schedule right away!
-                We work with top industry vendors and can provide you with the right solution for your property. Take a look at our partner list.
+                    NM Technology has the experience and know how to install and protect what matters most for you. Our team of experienced technicians are available 24/7 to provide comprehensive support, ensuring your surveillance systems are always up and running at their best. Call or email us today and we can place you on our schedule right away!
+                We work with top industry vendors and can provide you with the right solution for your property. Take a look at our partner list.  
                 </p>
             </div>
             <div class="grid lg:columns-8 sm:columns-2 flex-row lg:grid-cols-8 sm:grid-cols-8">

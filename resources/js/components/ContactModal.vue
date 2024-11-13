@@ -4,28 +4,31 @@
     <div class="root">
         <button class="text-white text-center text-lg" id="button" @click="isOpen = true">Contact Us</button>
         <teleport to="body">
-            <div class="modal" v-if="isOpen">
+            <div class="modal mt-40" v-if="isOpen">
                 <!-- TAILWIND FORM START -->
                 <div class="isolate bg-blue-950">
                   <br><br><br><br><br>
-      <div><button class="text-white float-right mr-9 mt-9" @click="isOpen = false">X</button></div>
-      <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+      <div><button class="text-white float-right mr-9 mt-40" @click="isOpen = false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+</svg>
+</button></div>
+      <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 shadow-xl rounded-md">
         <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
-              <svg class="absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+              <!-- <svg class="absolute inset-0 h-full w-full stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true"> -->
                 <defs>
-                  <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" y="-1" patternUnits="userSpaceOnUse">
-                    <path d="M130 200V.5M.5 .5H200" fill="none" />
-                  </pattern>
+                  <!-- <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" patternUnits="userSpaceOnUse">
+                    <path d="M130 400V.5M.5 .5H200" fill="none" />
+                  </pattern> -->
                 </defs>
                 <svg x="100%" y="-1" class="overflow-visible fill-gray-950/30">
-                  <path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
+                  <path d="M-470.5 0h201v201h-301Z" stroke-width="0" />
                 </svg>
                 <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
-              </svg>
+              
               <div class="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]" aria-hidden="true">
-                <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
+                <div class="aspect-[1155/678] w-[30.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
               </div>
             </div>
             <div class="grid grid-rows-1 p-12">
@@ -45,7 +48,7 @@
                   <span class="sr-only">Telephone</span>
                   <PhoneIcon class="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
-                <dd><a class="hover:text-white" href="tel:+1 (505) 659-5097">+1 (505)659-5097</a></dd>
+                <dd><a class="hover:text-white" href="tel:+1 (505) 659-5097">+1 (505) 659-5097</a></dd>
               </div>
               <div class="flex gap-x-4">
                 <dt class="flex-none">
