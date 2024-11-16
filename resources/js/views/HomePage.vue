@@ -97,7 +97,7 @@ eslint-disable no-undef
                                 <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                     <div class="relative">
                                         <img src="/public/images/IT-rack.webp" alt=""
-                                            class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
+                                            class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover" />
                                         <div
                                             class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                                         </div>
@@ -120,6 +120,7 @@ eslint-disable no-undef
     <SectionService />
     <BlackGradient />
     <SectionOne />
+    <TrustedTeams />
     <HomeFooter />
 </template>
 
@@ -136,6 +137,7 @@ import ContactModalFooter from '../components/ContactModalFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
+import TrustedTeams from '../components/TrustedTeams.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
@@ -154,7 +156,8 @@ export default {
     MobileMenu,
     TopBanner,
     CcTv,
-    ContactModalFooter
+    ContactModalFooter,
+    TrustedTeams
   }
 }
 </script>

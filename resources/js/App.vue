@@ -4,10 +4,10 @@
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1 -mt-12 lg:-mx-12">
                     <router-link to="/" class="fixed mx-5">
-                        <img class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30"
+                        <img class="md:box-border h-16 max-w-28 size-full flex-initial fixed mx-5 z-30"
                             src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></router-link>
                     <router-link to="/"
-                        class="fixed italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">Technology</router-link>
+                        class="fixed italic text-lg font-extrabold leading-6 text-white flex-initial mx-32 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">Technology</router-link>
                 </div>
                 <!-- mobile menu button -->
                 <div class="flex lg:hidden">

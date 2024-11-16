@@ -31,64 +31,12 @@
             </div>
             <div class="w-full p-1 lg:p-2">
                 </div>
-            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-                    <div
-                        v-for="feature in features"
-                        :key="feature.name"
-                        class="flex flex-col"
-                    >
-                        <dt
-                            class="flex items-center gap-x-3 text-base font-semibold leading-7 text-white"
-                        >
-                            <component
-                                :is="feature.icon"
-                                class="h-5 w-5 flex-none text-lime-400"
-                                aria-hidden="true"
-                            />
-                            {{ feature.name }}
-                        </dt>
-                        <dd
-                            class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300"
-                        >
-                            <p class="flex-auto">{{ feature.description }}</p>
-                        </dd>
-                    </div>
-                </dl>
-            </div>
+            
         </div>
     </div>
 </template>
 
 <script setup>
-import {
-  ArrowPathIcon,
-  CloudArrowUpIcon,
-  LockClosedIcon
-} from '@heroicons/vue/20/solid'
 import WorkCollage from './WorkCollage.vue';
 
-const features = [
-  {
-    name: 'Max Uptime',
-    description:
-            "In today's digital age, having your network functioning fast is crucial for any business. We can keep you connected with the latest updates on your firmware and software.",
-    href: '#',
-    icon: CloudArrowUpIcon
-  },
-  {
-    name: 'Fast Tech Service',
-    description:
-            'A fast response to your tech issues can provide you with a reliable experience from all your devices and framework Give us a call and we can provide service today!',
-    href: '#',
-    icon: LockClosedIcon
-  },
-  {
-    name: 'Affordable Pricing',
-    description:
-            'Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.',
-    href: '#',
-    icon: ArrowPathIcon
-  }
-]
 </script>

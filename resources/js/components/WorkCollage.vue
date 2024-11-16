@@ -14,7 +14,7 @@
                     <img
                         alt="gallery"
                         class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
-                        src="/public/images/cctv-highway.webp"
+                        src="/public/images/cctv-corner.webp"
                     />
                 </div>
                 <div class="w-full p-1 md:p-2">
