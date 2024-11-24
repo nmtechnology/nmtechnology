@@ -120,7 +120,6 @@ eslint-disable no-undef
     <SectionService />
     <BlackGradient />
     <SectionOne />
-    <TrustedTeams />
     <HomeFooter />
 </template>
 

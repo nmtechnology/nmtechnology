@@ -1,31 +1,34 @@
 <template>
     <div>
         <header class="fixed inset-x-0 top-0 z-30 h-20 bg-gray-900">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1 -mt-12 lg:-mx-12">
-                    <router-link to="/" class="fixed mx-5">
-                        <img class="md:box-border h-16 max-w-28 size-full flex-initial fixed mx-5 z-30"
+            <nav class="flex items-center justify-between p-6 lg:px-8 w-screen" aria-label="Global">
+                <div class="flex lg:flex-1 -mt-8 lg:-mt-8 md:-mt-8 sm:-mt-8 lg:-mx-8 md:mx-16 sm:-mx-8">
+                    <router-link to="/" class="fixed">
+                        <img class="md:box-border h-10 w-18 fixed mx-12 z-30"
                             src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></router-link>
                     <router-link to="/"
-                        class="fixed italic text-lg font-extrabold leading-6 text-white flex-initial mx-32 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">Technology</router-link>
+                        class="fixed italic text-lg font-extrabold leading-1 text-white mx-28 lg:mt-1 md:mt-1 sm:mt-1 mt-1 z-40">Technology</router-link>
                 </div>
                 <!-- mobile menu button -->
                 <div class="flex lg:hidden">
                     <button type="button"
                         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-green-400"
                         @click="mobileMenuOpen = true">
-                        <span class="sr-only">Open main menu</span>
-                        <Bars3Icon class="h-6 w-6 bg-gray-500" aria-hidden="true" />
+                        <span class="sr-only">Open main menu</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
+  <path fillRule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+</svg>
+
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-5 gap-x-10">
                     <router-link to="cctv" class="nav-item text-sm font-semibold leading-6 text-white hover:text-green-400 active:text-green-400 rounded-sm">CCTV
                     </router-link>
-                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Security
-                        Systems</router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Security Systems
+                    </router-link>
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Fire Alarms
                     </router-link>
-                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Networking</router-link>
+                    <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Networking
+                    </router-link>
                     <router-link to="cctv" class="text-sm font-semibold leading-6 text-white hover:text-green-400">Structured Cabling
                     </router-link>
                 </div>

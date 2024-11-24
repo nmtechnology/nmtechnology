@@ -1,5 +1,6 @@
 <template>
   <div class="bg-gray-900 p-6">
+    <TopBanner />
     <h1 class="text-3xl font-bold text-center text-white mb-8 mt-40">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
     <p class="text-white text-sm mb-6 text-center">Our top of the line security camera products come with many AI features that can help identify certain people in crowds by what they are wearing or complete facial recognition.</p>
     <h2 class="text-left text-wrap text-green-600 text-bold mb-5">Axis Communications</h2>
@@ -139,9 +140,13 @@
 </template>
 
 <script>
+import TopBanner from '../components/TopBanner.vue'
+
 export default {
   name: 'CcTv',
-};
+components: 
+    TopBanner,
+  };
 </script>
 
 <style scoped>

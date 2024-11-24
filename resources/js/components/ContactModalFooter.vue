@@ -2,7 +2,7 @@
 <!-- eslint-disable no-tabs -->
 <template>
   <div class="root">
-      <button class="text-white text-center text-lg" id="button" @click="isOpen = true">Contact Us</button>
+      <button class="text-white text-center text-lg flex ml-1" id="button" @click="isOpen = true">Contact Us</button>
       <teleport to="body">
           <div class="modal -z-40" v-if="isOpen">
               <!-- TAILWIND FORM START -->
