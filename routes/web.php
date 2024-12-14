@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 
@@ -7,7 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cctv', function () {
+    return view('cctv');
+});
+
 Route::get('/', [MailController::class, 'contact']);
+
 
 
 Route::get('/app/{any}', function () {
