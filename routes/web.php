@@ -6,10 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cctv', function () {
-    return view('cctv');
-});
-
 Route::get('/', [MailController::class, 'contact']);
 
 

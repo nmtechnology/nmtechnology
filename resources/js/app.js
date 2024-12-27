@@ -16,8 +16,8 @@ const router = createRouter({
   currentLinkActiveClass: 'active-link',
 
   routes: [
-    { path: '/', name: 'home', component: HomePage },
-    { path: '/cctv', name: 'cctv', component: CcTv }
+    { path: '/', name: 'nmtis', component: HomePage },
+    { path: '/cctv', name: 'CcTv', component: CcTv }
   ]
 })
 

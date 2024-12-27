@@ -4,11 +4,11 @@
     <div class="root">
         <button class="text-white text-center text-lg" id="button" @click="isOpen = true">Contact Us</button>
         <teleport to="body">
-            <div class="modal mt-40" v-if="isOpen">
+            <div class="modal mt-10" v-if="isOpen">
                 <!-- TAILWIND FORM START -->
                 <div class="isolate bg-blue-950">
                   <br><br><br><br><br>
-      <div><button class="text-white float-right mr-9 mt-40" @click="isOpen = false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+      <div><button class="text-white float-right mr-9 mt-10" @click="isOpen = false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
   <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
 </svg>
 </button></div>
@@ -18,9 +18,9 @@
             <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
               <!-- <svg class="absolute inset-0 h-full w-full stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true"> -->
                 <defs>
-                  <!-- <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" patternUnits="userSpaceOnUse">
+                  <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" patternUnits="userSpaceOnUse">
                     <path d="M130 400V.5M.5 .5H200" fill="none" />
-                  </pattern> -->
+                  </pattern>
                 </defs>
                 <svg x="100%" y="-1" class="overflow-visible fill-gray-950/30">
                   <path d="M-470.5 0h201v201h-301Z" stroke-width="0" />
@@ -36,9 +36,7 @@
             <br>
             <h2 class="text-3xl font-bold tracking-tight text-green-600">Service Request Form</h2>
         
-            <p class="mt-6 text-lg leading-8 text-gray-300">Here is our service request form, if you need a service technician onsite to troubleshoot, Install or remove something we can 
-              help you with that just give us the details here and a member of our team will reach out to you for confirmation.
-            </p>
+            
             <br>
             <p class="text-white">If you are having issues with submitting a request please reach out to our support team by email or phone, thank you!</p>
     
@@ -63,7 +61,7 @@
       </div>
         <div>
 <!-- FORM STARTS HERE DUMBASS -->
- <br><br><br><br> <br><br><br><br>
+ <br>
 <div class="asana-embed-container"><link rel="stylesheet" href="https://form.asana.com/static/asana-form-embed-style.css"/><iframe class="asana-embed-iframe" height="533" width = "800" src="https://form.asana.com/?k=6pAvMCcJt27tVtR9CNkprQ&d=1201840591062137&embed=true"></iframe><div class="asana-embed-footer"><a rel="nofollow noopener" target="_blank" class="asana-embed-footer-link" href="https://asana.com/?utm_source=embedded_form"><span class="asana-embed-footer-text bg-color-gray">Form powered by NM Technology</span><br><img class="h-6" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></a></div></div>
         <!-- <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -106,6 +104,19 @@
           </div>
         </form> -->
         <!--empty area for form error/success output-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+       
 		<div>
 		    <div>
 			    <div id="output-area">
