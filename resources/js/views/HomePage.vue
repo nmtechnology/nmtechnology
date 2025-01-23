@@ -50,7 +50,7 @@ eslint-disable no-undef
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
                                
 <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
-     <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico.</h1>
+     <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!</h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
                                     customized settings based around thier lifestyle or business functionalities. 
