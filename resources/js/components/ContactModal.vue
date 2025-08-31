@@ -60,64 +60,63 @@
         </div>
       </div>
         <div>
-<!-- FORM STARTS HERE DUMBASS -->
+<!-- Contact Form -->
  <br>
-<div class="asana-embed-container"><link rel="stylesheet" href="https://form.asana.com/static/asana-form-embed-style.css"/><iframe class="asana-embed-iframe" height="533" width = "800" src="https://form.asana.com/?k=6pAvMCcJt27tVtR9CNkprQ&d=1201840591062137&embed=true"></iframe><div class="asana-embed-footer"><a rel="nofollow noopener" target="_blank" class="asana-embed-footer-link" href="https://asana.com/?utm_source=embedded_form"><span class="asana-embed-footer-text bg-color-gray">Form powered by NM Technology</span><br><img class="h-6" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"></a></div></div>
-        <!-- <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+        <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            <div v-if="successMessage" class="mb-6 p-4 bg-green-100 text-green-700 rounded-md text-center font-semibold animate__animated animate__fadeIn">
+              {{ successMessage }}
+            </div>
+            <div v-if="errorMessage" class="mb-6 p-4 bg-red-100 text-red-700 rounded-md text-center font-semibold animate__animated animate__fadeIn">
+              {{ errorMessage }}
+            </div>
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
-                <h3>{{ flashMessage }}</h3>
                 <label for="firstName" class="block text-sm font-semibold leading-6 text-white">First name</label>
                 <div class="mt-2.5">
                   <input type="text" v-model="form.firstName" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
                 </div>
+                <div v-if="validationErrors.firstName" class="text-sm text-red-500 mt-1">{{ validationErrors.firstName[0] }}</div>
               </div>
               <div>
                 <label for="lastName" class="block text-sm font-semibold leading-6 text-white">Last name</label>
                 <div class="mt-2.5">
                   <input type="text" v-model="form.lastName" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
                 </div>
+                <div v-if="validationErrors.lastName" class="text-sm text-red-500 mt-1">{{ validationErrors.lastName[0] }}</div>
               </div>
               <div class="sm:col-span-2">
                 <label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label>
                 <div class="mt-2.5">
                   <input type="email" v-model="form.email" id="email" autocomplete="email" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
                 </div>
+                <div v-if="validationErrors.email" class="text-sm text-red-500 mt-1">{{ validationErrors.email[0] }}</div>
               </div>
               <div class="sm:col-span-2">
                 <label for="phoneNumber" class="block text-sm font-semibold leading-6 text-white">Phone number</label>
                 <div class="mt-2.5">
                   <input type="tel" v-model="form.phoneNumber" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
                 </div>
+                <div v-if="validationErrors.phoneNumber" class="text-sm text-red-500 mt-1">{{ validationErrors.phoneNumber[0] }}</div>
               </div>
               <div class="sm:col-span-2">
                 <label for="message" class="block text-sm font-semibold leading-6 text-white">Message</label>
                 <div class="mt-2.5">
-                  <textarea v-model="form.message" id="message" rows="4" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" />
+                  <textarea v-model="form.message" id="message" rows="4" class="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"></textarea>
                 </div>
+                <div v-if="validationErrors.message" class="text-sm text-red-500 mt-1">{{ validationErrors.message[0] }}</div>
               </div>
             </div>
             <div class="mt-8 flex justify-end">
-                <button type="submit" class="rounded-md bg-lime-600 px-3.5 py-1.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Send message</button>
+                <button type="submit" :disabled="isSubmitting" class="rounded-md bg-lime-600 px-3.5 py-1.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                  <span v-if="isSubmitting">Sending...</span>
+                  <span v-else>Send message</span>
+                </button>
             </div>
           </div>
-        </form> -->
+        </form>
         <!--empty area for form error/success output-->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-       
-		<div>
+        <div>
 		    <div>
 			    <div id="output-area">
 			    </div>
@@ -138,6 +137,8 @@ import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/
 const isOpen = ref(false)
 </script>
 <script>
+import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -147,18 +148,20 @@ export default {
         phoneNumber: '',
         email: '',
         message: ''
-
       },
-      flash: true,
-      flashMessage: 'error',
-      errorFirstName: 'error',
-      errorLastName: 'error',
-      errorPhoneNumber: 'error',
-      errorMessage: 'error'
+      isSubmitting: false,
+      successMessage: '',
+      errorMessage: '',
+      validationErrors: {}
     }
   },
   methods: {
     sendContact () {
+      this.isSubmitting = true
+      this.successMessage = ''
+      this.errorMessage = ''
+      this.validationErrors = {}
+      
       axios.post('/api/send-contact', {
         firstName: this.form.firstName,
         lastName: this.form.lastName,
@@ -166,18 +169,36 @@ export default {
         email: this.form.email,
         message: this.form.message
       })
-        .then(res => {
-          this.flash = true
-          this.flashMessage = res.data
-          console.log(res)
-        })
-        .catch(e => {
-          if (e.response.status == 422) {
-            console.log(422)
-            this.errorName = e.response.data.errors.firstName[0]
+      .then(res => {
+        console.log('Success response:', res)
+        this.successMessage = "Thank you! Your message has been sent successfully to NM Technology. Our team will contact you soon."
+        this.clearForm()
+        // Close modal after 3 seconds of showing success message
+        setTimeout(() => {
+          this.isOpen = false
+          this.successMessage = ''
+        }, 3000)
+      })
+      .catch(error => {
+        console.error('Contact form error:', error)
+        if (error.response) {
+          if (error.response.status === 422) {
+            // Validation errors
+            this.validationErrors = error.response.data.errors
+            this.errorMessage = 'Please correct the errors in the form.'
+          } else {
+            // General error
+            this.errorMessage = error.response.data || 'An error occurred while sending your message. Please try again.'
           }
-          console.log(e)
-        })
+        } else if (error.request) {
+          this.errorMessage = 'No response received from the server. Please try again later.'
+        } else {
+          this.errorMessage = 'Network error. Please check your internet connection and try again.'
+        }
+      })
+      .finally(() => {
+        this.isSubmitting = false
+      })
     },
     clearForm () {
       this.form.firstName = ''
@@ -191,7 +212,6 @@ export default {
 </script>
 
 <style>
-
 #button {
     background-color: #15a34a;
     border-radius: 13px;

@@ -15,16 +15,28 @@ class MailController extends Controller
 
     public function send(ContactRequest $request)
     {
-        $details = $request->validated([
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
-            'phoneNumber' => $request->phoneNumber,
-            'email' => $request->email,
-            'message' => $request->message,
-        ]);
-        $details = $request->validated();
-        Mail::to('nmtechnology505@gmail.com')->send(new ContactMail($details));
-        return response()->json('Message Sent To NM Technology', 200);
+        try {
+            // Validate the request data
+            $details = $request->validated();
+            
+            // Log the attempt
+            \Log::info('Attempting to send contact form email to service@nmtechnology.us');
+            
+            // Send email to service@nmtechnology.us
+            Mail::to('service@nmtechnology.us')->send(new ContactMail($details));
+            
+            // Log success
+            \Log::info('Contact form email sent successfully');
+            
+            // Return success message
+            return response()->json('Your message has been sent successfully!', 200);
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Contact form error: ' . $e->getMessage());
+            
+            // Return error message
+            return response()->json('Error sending message: ' . $e->getMessage(), 500);
+        }
     }
 
 
