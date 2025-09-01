@@ -2,13 +2,13 @@
 <!-- eslint-disable no-tabs -->
 <template>
     <div class="root">
-        <button class="text-white text-center text-lg" id="button" @click="isOpen = true">Contact Us</button>
+        <button class="text-white text-center text-lg" id="button" @click="openModal">Contact Us</button>
         <teleport to="body">
-            <div class="modal" v-if="isOpen">
+            <div class="modal" v-if="isOpen" @click.self="closeModal">
                 <!-- TAILWIND FORM START -->
-                <div class="isolate bg-blue-900 modal-content">
+                <div class="isolate bg-gray-900 modal-content">
                   <div class="modal-header">
-                    <button class="text-white close-button" @click="isOpen = false">
+                    <button class="text-white close-button" @click="closeModal">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                         <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
                       </svg>
@@ -18,7 +18,7 @@
         <div class="relative px-4 sm:px-6 pb-12 sm:pb-20 pt-12 sm:pt-24 lg:static lg:px-8 lg:py-48">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
-              <!-- <svg class="absolute inset-0 h-full w-full stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true"> -->
+              <svg class="absolute inset-0 h-full w-full stroke-gray-800" aria-hidden="true">
                 <defs>
                   <pattern id="54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2" width="200" height="200" x="100%" patternUnits="userSpaceOnUse">
                     <path d="M130 400V.5M.5 .5H200" fill="none" />
@@ -28,6 +28,7 @@
                   <path d="M-470.5 0h201v201h-301Z" stroke-width="0" />
                 </svg>
                 <rect width="100%" height="100%" stroke-width="0" fill="url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)" />
+              </svg>
               
               <div class="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]" aria-hidden="true">
                 <div class="aspect-[1155/678] w-[30.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
@@ -181,10 +182,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
 
 const isOpen = ref(false)
+const emit = defineEmits(['close'])
+
+// Close modal function for click-outside behavior
+const closeModal = () => {
+  isOpen.value = false
+  emit('close')
+}
+
+// Open modal function
+const openModal = () => {
+  isOpen.value = true
+}
 </script>
 <script>
 import axios from 'axios'
@@ -212,6 +225,10 @@ export default {
     }
   },
   methods: {
+    // Access the closeModal method from the composition API
+    closeModalFromOptions() {
+      closeModal();
+    },
     sendContact () {
       this.isSubmitting = true
       this.successMessage = ''
@@ -238,7 +255,7 @@ export default {
         this.clearForm()
         // Close modal after 3 seconds of showing success message
         setTimeout(() => {
-          this.isOpen = false
+          this.$emit('close')  // Emit close event to parent component
           this.successMessage = ''
         }, 3000)
       })
@@ -340,12 +357,14 @@ export default {
 }
 
 .modal-content {
-    margin-top: 2rem;
+    margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
     margin-bottom: 2rem;
     width: 100%;
     max-width: 1200px;
     border-radius: 1.5rem;
     position: relative;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    animation: modalSlideDown 0.3s ease-out;
 }
 
 .modal-header {
@@ -381,12 +400,24 @@ export default {
 
 @media (min-width: 768px) {
     .modal {
-        align-items: center;
+        align-items: flex-start; /* Changed from center to flex-start to keep modal at top */
         padding: 2rem;
     }
     
     .modal-content {
-        margin-top: 0;
+        margin-top: 120px; /* Consistent with smaller screens */
+    }
+}
+
+/* Animation for modal appearance */
+@keyframes modalSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 </style>

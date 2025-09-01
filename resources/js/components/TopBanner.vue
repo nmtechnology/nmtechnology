@@ -14,13 +14,12 @@
         </svg>
       </p>
 
-      <a href="tel:+1-505-659-5097"
-        class="rounded-xl bg-green-700 px-3.5 py-1 text-sm font-semibold flex text-gray-900 shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 text-center">CALL
-        TODAY!<span aria-hidden="true"></span></a>
+      <ContactModal @close="handleModalClose" class="px-3.5 py-1 text-sm font-semibold flex text-gray-900 focus-visible:outline text-center" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/20/solid'
+import ContactModal from './ContactModal.vue'
 </script>
