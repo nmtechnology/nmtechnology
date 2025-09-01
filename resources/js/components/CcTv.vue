@@ -3,12 +3,37 @@
   
   <div class="bg-gray-900">
     <main>
-      <div class="relative isolate"> 
+      <div class="relative isolate">
+        <!-- SVG Background Pattern (Same as HomePage) -->
+        <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+            aria-hidden="true">
+            <defs>
+                <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
+                    patternUnits="userSpaceOnUse">
+                    <path d="M.5 300V.5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-1" class="overflow-visible">
+                <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                    stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+        </svg>
+        
+        <!-- Gradient Blur Effect (Same as HomePage) -->
+        <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+            aria-hidden="true">
+            <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
+                style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 69.4% 0%, 44.6% 4.7%, 40.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 30.1% 29.5%);">
+            </div>
+        </div>
         
         <div class="overflow-hidden">
           <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
             <h1 class="text-3xl font-bold text-center text-white mb-8 relative">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
-            <p class="text-white text-sm mb-10 text-center relative">Our top of the line security camera products come with many AI features that can help identify certain people in crowds by what they are wearing or complete facial recognition.</p>
+            <p class="text-white text-sm mb-10 text-center relative">Here are our most popualr products, here you can select the products that you may already know what you need for your project, add them to your cart and then when your ready you can check out
+              and our system will send this cart to our team as an inquiry and we will get back to you with pricing and availability as soon as possible.
+            </p>
     
             <!-- Product Filter -->
             <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
@@ -62,6 +87,9 @@
               </div>
             </div>
           </div>
+          
+          <!-- Recently Viewed Products -->
+          <RecentlyViewedProducts @view-product="showProductDetails" class="mt-12" />
         </div>
       </div>
     </main>
@@ -86,6 +114,7 @@ import { ref, computed, watch } from 'vue';
 import TopBanner from '../components/TopBanner.vue';
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
+import BackgroundPattern from '../components/BackgroundPattern.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
 import RecentlyViewedProducts from '../components/RecentlyViewedProducts.vue';
 import { cartStore } from '../store/cartStore.js';
@@ -101,7 +130,8 @@ export default {
     CartModal,
     ProductFilter,
     ProductDetailsModal,
-    RecentlyViewedProducts
+    RecentlyViewedProducts,
+    BackgroundPattern
   },
   setup() {
     const cartItemCount = computed(() => cartStore.getItemCount.value);
@@ -272,9 +302,9 @@ svg.fixed, svg.absolute {
   width: 100%;
 }
 
-/* Add margin-top to account for the fixed TopBanner */
+/* Add margin-top to account for the TopBanner */
 main {
-  margin-top: 160px; /* Increased margin to accommodate the full-width Halloween banner */
+  margin-top: 30px; /* Reduced margin since TopBanner is now properly contained */
 }
 </style>
 
