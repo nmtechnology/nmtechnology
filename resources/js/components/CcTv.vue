@@ -18,36 +18,10 @@
           <rect width="100%" height="200%" stroke-width="0" fill="url(#cctv-pattern)" />
         </svg>
         
-        <!-- Background gradient blob - Fixed position -->
-        <div class="fixed left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-          aria-hidden="true">
-          <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
-            style="
-              clip-path: polygon(
-                63.1% 29.5%,
-                100% 17.1%,
-                76.6% 3%,
-                69.4% 0%,
-                44.6% 4.7%,
-                40.5% 25.3%,
-                59.8% 49%,
-                55.2% 57.8%,
-                44.4% 57.2%,
-                27.8% 47.9%,
-                35.1% 81.5%,
-                0% 97.7%,
-                39.2% 100%,
-                35.2% 81.4%,
-                97.2% 52.8%,
-                30.1% 29.5%
-              );
-            ">
-          </div>
-        </div>
         
         <div class="overflow-hidden">
-          <div class="mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pt-32 lg:px-8 lg:pt-32">
-            <h1 class="text-3xl font-bold text-center text-white mb-8 relative mt-20">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
+          <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
+            <h1 class="text-3xl font-bold text-center text-white mb-8 relative">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
             <p class="text-white text-sm mb-10 text-center relative">Our top of the line security camera products come with many AI features that can help identify certain people in crowds by what they are wearing or complete facial recognition.</p>
     
             <!-- Product Filter -->
@@ -99,44 +73,6 @@
       </div>
     </main>
   
-  </div>
-  
-  <!-- Recently Viewed Products section -->
-  <div class="bg-gray-900 relative">
-    <div class="relative isolate">
-      <!-- Secondary gradient for visual interest - Fixed position -->
-      <div class="fixed right-1/4 left-0 top-1/2 -z-40 ml-24 transform-gpu overflow-hidden blur-3xl"
-        aria-hidden="true">
-        <div class="aspect-[801/1036] w-[40.0625rem] bg-gradient-to-tr from-[#30b540] to-[#607efc] opacity-20"
-          style="
-            clip-path: polygon(
-              30.1% 29.5%,
-              70% 17.1%,
-              76.6% 43%,
-              49.4% 10%,
-              54.6% 34.7%,
-              40.5% 65.3%,
-              20.8% 49%,
-              15.2% 37.8%,
-              34.4% 57.2%,
-              47.8% 47.9%,
-              35.1% 81.5%,
-              20% 67.7%,
-              39.2% 90%,
-              55.2% 71.4%,
-              37.2% 52.8%,
-              60.1% 29.5%
-            );
-          ">
-        </div>
-      </div>
-      
-      <div class="overflow-hidden">
-        <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <RecentlyViewedProducts @view-product="showProductDetails" />
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Cart Modal -->
