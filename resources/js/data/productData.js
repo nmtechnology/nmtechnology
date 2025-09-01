@@ -5,7 +5,7 @@ export const cameraProducts = [
     name: 'HD Security Box Camera',
     description: 'High-definition video quality with night vision capabilities.',
     price: null, // Call for price
-    image: '/public/images/axis-bullet-cam.webp',
+    image: '/images/axis-bullet-cam.webp',
     category: 'camera',
     brand: 'Axis Communications',
     features: ['HD Resolution', 'Night Vision', 'Motion Detection']
@@ -15,7 +15,7 @@ export const cameraProducts = [
     name: 'HD Dome Security Camera',
     description: 'High-definition video quality with night vision capabilities.',
     price: null,
-    image: '/public/images/axis-dome-side.webp',
+    image: '/images/axis-dome-side.webp',
     category: 'camera',
     brand: 'Axis Communications',
     features: ['HD Resolution', 'Night Vision', 'Weather Resistant']
@@ -25,7 +25,7 @@ export const cameraProducts = [
     name: '8CH Network Recorder',
     description: 'High-definition video quality recorder with remote viewing app.',
     price: null,
-    image: '/public/images/nvr-recorder.webp',
+    image: '/images/nvr-recorder.webp',
     category: 'recorder',
     brand: 'Axis Communications',
     features: ['8 Channels', 'Remote Viewing', 'Mobile App']
@@ -35,7 +35,7 @@ export const cameraProducts = [
     name: 'Advanced Security Box Camera',
     description: 'Advanced high-definition video quality with night vision and AI capabilities.',
     price: null,
-    image: '/public/images/axis-bullet-cam.webp',
+    image: '/images/axis-bullet-cam.webp',
     category: 'camera',
     brand: 'Hikvision',
     features: ['4K Resolution', 'Night Vision', 'AI Motion Detection']
@@ -45,7 +45,7 @@ export const cameraProducts = [
     name: 'Advanced Dome Security Camera',
     description: 'Advanced high-definition video quality with night vision and AI capabilities.',
     price: null,
-    image: '/public/images/axis-dome-side.webp',
+    image: '/images/axis-dome-side.webp',
     category: 'camera',
     brand: 'Hikvision',
     features: ['4K Resolution', 'Night Vision', 'Weather Resistant']
@@ -55,7 +55,7 @@ export const cameraProducts = [
     name: '16CH Network Recorder',
     description: 'Advanced high-definition video quality recorder with remote viewing app and AI features.',
     price: null,
-    image: '/public/images/nvr-recorder.webp',
+    image: '/images/nvr-recorder.webp',
     category: 'recorder',
     brand: 'Hikvision',
     features: ['16 Channels', 'Remote Viewing', 'Mobile App', 'AI Detection']
@@ -65,7 +65,7 @@ export const cameraProducts = [
     name: '8-Port PoE Switch',
     description: 'Power over Ethernet switch for connecting IP cameras.',
     price: null,
-    image: '/public/images/nvr-recorder.webp', // Using placeholder image
+    image: '/images/nvr-recorder.webp', // Using placeholder image
     category: 'accessory',
     brand: 'Ubiquiti',
     features: ['8 PoE Ports', 'Managed', 'Easy Setup']
@@ -75,7 +75,7 @@ export const cameraProducts = [
     name: 'LiteBeam 5AC Gen2 WiFi Bridge',
     description: 'Point-to-point wireless bridge for extending network coverage up to 5km with high-speed data transmission.',
     price: null,
-    image: '/public/images/axis-dome-side.webp', // Using placeholder image
+    image: '/images/axis-dome-side.webp', // Using placeholder image
     category: 'network',
     brand: 'Ubiquiti',
     features: [
@@ -106,7 +106,7 @@ export const cameraProducts = [
     name: 'G5 Pro UVC Camera',
     description: 'Next-gen indoor/outdoor 4K PoE camera with exceptional image performance, long-range IR night vision, and 3x optical zoom.',
     price: null,
-    image: '/public/images/axis-bullet-cam.webp', // Using placeholder image
+    image: '/images/axis-bullet-cam.webp', // Using placeholder image
     category: 'camera',
     brand: 'Ubiquiti',
     features: [
@@ -144,7 +144,7 @@ export const cameraProducts = [
     name: 'UVC G4 Pro Camera',
     description: 'Professional-grade 4K security camera with advanced motion detection and IR night vision.',
     price: null,
-    image: '/public/images/axis-bullet-cam.webp', // Using placeholder image
+    image: '/images/axis-bullet-cam.webp', // Using placeholder image
     category: 'camera',
     brand: 'Ubiquiti',
     features: [
@@ -204,7 +204,7 @@ export const cameraProducts = [
     name: 'UniFi Switch Pro 24 PoE',
     description: 'Advanced 24-port Gigabit PoE+ switch with SFP+ ports for high-performance network deployments.',
     price: null,
-    image: '/public/images/nvr-recorder.webp', // Using placeholder image
+    image: '/images/nvr-recorder.webp', // Using placeholder image
     category: 'network',
     brand: 'Ubiquiti',
     features: [
@@ -234,7 +234,7 @@ export const cameraProducts = [
     name: 'Security Camera Mount',
     description: 'Adjustable mount for security cameras.',
     price: null,
-    image: '/public/images/axis-dome-side.webp', // Using placeholder image
+    image: '/images/axis-dome-side.webp', // Using placeholder image
     category: 'accessory',
     brand: 'Axis Communications',
     features: ['Adjustable', 'Weather Resistant', 'Easy Installation']
