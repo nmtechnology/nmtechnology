@@ -1,5 +1,6 @@
 <template>
-
+  <TopBanner />
+  
   <div class="bg-gray-900">
     <main>
       <div class="relative isolate"> 
@@ -22,10 +23,10 @@
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id" 
                      class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02]">
-                  <img :src="product.image || '/public/images/axis-dome-side.webp'" 
+                  <img :src="product.image || '/images/axis-dome-side.webp'" 
                        :alt="product.name" 
                        class="w-full h-48 object-scale-down"
-                       @error="$event.target.src = '/public/images/axis-dome-side.webp'">
+                       @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-xl text-green-600 font-semibold">{{ product.name }}</h2>
                     <p class="text-gray-400 mt-2">{{ product.description }}</p>
@@ -82,6 +83,7 @@
 <script>
 import { ref, computed, watch } from 'vue';
 
+import TopBanner from '../components/TopBanner.vue';
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
@@ -91,10 +93,11 @@ import { toastService } from '../services/toastService.js';
 import { recentlyViewedService } from '../services/recentlyViewedService.js';
 import { cameraProducts } from '../data/productData.js';
 
+
 export default {
   name: 'CcTv',
   components: {
-
+    TopBanner,
     CartModal,
     ProductFilter,
     ProductDetailsModal,
@@ -261,6 +264,11 @@ svg.fixed, svg.absolute {
 .fixed {
   min-height: 100vh;
   width: 100%;
+}
+
+/* Add margin-top to account for the fixed TopBanner */
+main {
+  margin-top: 160px; /* Increased margin to accommodate the full-width Halloween banner */
 }
 </style>
 

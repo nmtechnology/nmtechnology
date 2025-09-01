@@ -6,7 +6,7 @@
         <teleport to="body">
             <div class="modal" v-if="isOpen">
                 <!-- TAILWIND FORM START -->
-                <div class="isolate bg-blue-950 modal-content">
+                <div class="isolate bg-blue-900 modal-content">
                   <div class="modal-header">
                     <button class="text-white close-button" @click="isOpen = false">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
