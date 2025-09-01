@@ -14,11 +14,11 @@
             <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
             
             <!-- Product Grid -->
-            <div v-if="Object.keys(groupedProducts).length === 0" class="text-center text-white py-10">
+            <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0" class="text-center text-white py-10">
               No products found. Please try a different filter.
             </div>
             
-            <div v-for="(brandGroup, brand) in groupedProducts" :key="brand" class="mb-16" v-else>
+            <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else>
               <h2 class="text-left text-wrap text-green-600 text-bold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id" 
@@ -133,21 +133,27 @@ export default {
     
     // Group products by brand
     const groupedProducts = computed(() => {
+      // Start with an empty object
       const grouped = {};
       
-      // Make sure filteredProducts.value is an array before processing
-      if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
-        filteredProducts.value.forEach(product => {
-          if (product && product.brand) {
-            if (!grouped[product.brand]) {
-              grouped[product.brand] = [];
+      try {
+        // Make sure filteredProducts.value is an array before processing
+        if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
+          filteredProducts.value.forEach(product => {
+            if (product && product.brand) {
+              if (!grouped[product.brand]) {
+                grouped[product.brand] = [];
+              }
+              grouped[product.brand].push(product);
             }
-            grouped[product.brand].push(product);
-          }
-        });
+          });
+        }
+      } catch (error) {
+        console.error('Error grouping products:', error);
+        // Return empty object in case of error
       }
       
-      return grouped || {};
+      return grouped;
     });
     
     // Cart operations

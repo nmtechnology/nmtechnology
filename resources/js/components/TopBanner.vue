@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden bg-gray-900 fixed z-50 mt-20 w-screen">
+  <div class="overflow-hidden bg-gray-900 fixed z-50 top-20 left-0 right-0 w-full">
     <!-- Halloween Promo Banner -->
     <div class="halloween-promo-container mb-2 w-full" v-if="showHalloweenPromo">
       <img src="/public/images/halloween-promo-banner.png" alt="Halloween Promotion" class="halloween-banner w-full" />
@@ -60,7 +60,8 @@ const closeHalloweenPromo = () => {
   width: 100%;
   height: auto;
   max-height: 120px;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
 }
 
 .close-promo-btn {

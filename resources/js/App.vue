@@ -8,7 +8,7 @@
             <span class="italic text-lg font-extrabold text-white -ml-5">Technology</span>
           </router-link>
         </div>
-        
+      
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button type="button" 
@@ -57,15 +57,15 @@
       <!-- Mobile menu -->
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
         <div class="fixed inset-0 z-30" />
-        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto hover:bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto hover:bg-green-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div class="flex items-center justify-between">
             <router-link to="/" class="md:box-border h-16 max-w-32 size-full fixed mx-5 z-30">
-              <img class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+              <img class="md:box-border h-16 max-w-16 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
             </router-link>
             <router-link to="/" class="italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">
               Technology
             </router-link>
-            <button type="button" class="-m-2.5 rounded-md p-2.5 text-white" @click="mobileMenuOpen = false">
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-black" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
