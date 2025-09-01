@@ -1,10 +1,8 @@
 <template>
-  <TopBanner />
+
   <div class="bg-gray-900">
     <main>
-      <div class="relative isolate">
-
-        
+      <div class="relative isolate"> 
         
         <div class="overflow-hidden">
           <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
@@ -83,7 +81,7 @@
 
 <script>
 import { ref, computed, watch } from 'vue';
-import TopBanner from '../components/TopBanner.vue';
+
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
@@ -96,7 +94,7 @@ import { cameraProducts } from '../data/productData.js';
 export default {
   name: 'CcTv',
   components: {
-    TopBanner,
+
     CartModal,
     ProductFilter,
     ProductDetailsModal,
