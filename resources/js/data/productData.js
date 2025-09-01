@@ -75,7 +75,7 @@ export const cameraProducts = [
     name: 'LiteBeam 5AC Gen2 WiFi Bridge',
     description: 'Point-to-point wireless bridge for extending network coverage up to 5km with high-speed data transmission.',
     price: null,
-    image: '/images/axis-dome-side.webp', // Using placeholder image
+    image: '/images/ubiquiti-wifi-bridge.webp', // Using placeholder image
     category: 'network',
     brand: 'Ubiquiti',
     features: [
