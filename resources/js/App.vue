@@ -5,7 +5,7 @@
         <div class="flex lg:flex-1 items-center">
           <router-link to="/" class="relative flex items-center">
             <img class="h-10 w-auto mr-2" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-            <span class="italic text-lg font-extrabold text-white">Technology</span>
+            <span class="italic text-lg font-extrabold text-white -ml-5">Technology</span>
           </router-link>
         </div>
         
