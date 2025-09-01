@@ -28,12 +28,19 @@
             <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
             
             <!-- Product Grid -->
-            <div v-for="(brandGroup, brand) in groupedProducts" :key="brand" class="mb-16">
+            <div v-if="Object.keys(groupedProducts).length === 0" class="text-center text-white py-10">
+              No products found. Please try a different filter.
+            </div>
+            
+            <div v-for="(brandGroup, brand) in groupedProducts" :key="brand" class="mb-16" v-else>
               <h2 class="text-left text-wrap text-green-600 text-bold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id" 
                      class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02]">
-                  <img :src="product.image" :alt="product.name" class="w-full h-48 object-scale-down">
+                  <img :src="product.image || '/public/images/axis-dome-side.webp'" 
+                       :alt="product.name" 
+                       class="w-full h-48 object-scale-down"
+                       @error="$event.target.src = '/public/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-xl text-green-600 font-semibold">{{ product.name }}</h2>
                     <p class="text-gray-400 mt-2">{{ product.description }}</p>
@@ -110,20 +117,29 @@ export default {
   },
   setup() {
     const cartItemCount = computed(() => cartStore.getItemCount.value);
-    const allProducts = ref(cameraProducts);
-    const filteredProducts = ref([...cameraProducts]);
+    // Ensure we have valid product data or use an empty array as fallback
+    const allProducts = ref(Array.isArray(cameraProducts) ? cameraProducts : []);
+    const filteredProducts = ref(Array.isArray(cameraProducts) ? [...cameraProducts] : []);
     const activeCategory = ref('all');
     const productDetailsOpen = ref(false);
     const selectedProduct = ref(null);
 
     // Filter products by category
     const filterProducts = (categoryId) => {
-      activeCategory.value = categoryId;
+      activeCategory.value = categoryId || 'all';
+      
+      if (!Array.isArray(allProducts.value)) {
+        console.error('Product data is not an array:', allProducts.value);
+        filteredProducts.value = [];
+        return;
+      }
       
       if (categoryId === 'all') {
         filteredProducts.value = [...allProducts.value];
       } else {
-        filteredProducts.value = allProducts.value.filter(product => product.category === categoryId);
+        filteredProducts.value = allProducts.value.filter(product => 
+          product && product.category === categoryId
+        );
       }
     };
     
@@ -131,14 +147,19 @@ export default {
     const groupedProducts = computed(() => {
       const grouped = {};
       
-      filteredProducts.value.forEach(product => {
-        if (!grouped[product.brand]) {
-          grouped[product.brand] = [];
-        }
-        grouped[product.brand].push(product);
-      });
+      // Make sure filteredProducts.value is an array before processing
+      if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
+        filteredProducts.value.forEach(product => {
+          if (product && product.brand) {
+            if (!grouped[product.brand]) {
+              grouped[product.brand] = [];
+            }
+            grouped[product.brand].push(product);
+          }
+        });
+      }
       
-      return grouped;
+      return grouped || {};
     });
     
     // Cart operations
