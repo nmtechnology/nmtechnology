@@ -12,7 +12,7 @@
     </div>
     <div class="flex gap-x-4 gap-y-2 justify-center">
       <p class="text-sm leading-6 text-white">
-        <strong class="font-semibold">+1(505)373-7066 or email service@nmtis.com!</strong><svg viewBox="0 0 2 2"
+        <strong class="font-semibold">Check Us Out On Yelp!</strong><svg viewBox="0 0 2 2"
           class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
           <circle cx="5" cy="5" r="5" />
         </svg>
