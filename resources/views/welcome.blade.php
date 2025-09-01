@@ -10,15 +10,22 @@
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #app {
+            position: relative;
+        }
+    </style>
 </head>
 
-<body>
-
-
-
-    <div id="app">
-
+<body class="bg-gray-900">
+    <div id="app" class="min-h-screen">
     </div>
 
     <!-- <script src='/resources/js/views/FormValidate.js'> -->
