@@ -5,7 +5,6 @@
       <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#89c2fc] opacity-20" />
     </div>
     <div class="flex gap-x-4 gap-y-2 justify-center">
-      <img src="/public/images/usa-flag.webp" alt="" class="h-8 w-auto animate-pulse" />
       <p class="text-sm leading-6 text-white">
         <strong class="font-semibold">Check Us Out On Yelp!</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="5" cy="5" r="5" /></svg>
       </p>
