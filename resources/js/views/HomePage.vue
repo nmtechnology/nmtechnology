@@ -59,7 +59,7 @@ eslint-disable no-undef
                                     By offering a full range of
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
-                                    protect residents and organizations of all types and sizes.
+                                    protect organizations of all types and sizes with our security systems and cameras. We offer on-site representation as well so we can help you get the work you need done even though you are 3 area codes away from your customer.
                                     We protect their personell, assets, and data. In
                                     addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
