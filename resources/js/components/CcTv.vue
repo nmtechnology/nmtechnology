@@ -16,8 +16,8 @@
     </div>
   </PromoBanner>
   
-  <div class="bg-gray-900 min-h-screen">
-    <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
+  <div class="bg-gray-900 min-h-screen flex flex-col">
+    <main class="pt-[60px] flex-grow"> <!-- Reduced padding to account for the fixed banner, flex-grow to push footer down -->
       <div class="relative isolate">
         <!-- SVG Background Pattern (Same as HomePage) - Now Fixed Position -->
         <svg class="fixed inset-x-0 top-0 -z-40 h-screen w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
@@ -44,7 +44,7 @@
         </div>
         
         <div class="overflow-visible relative z-10">
-          <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
+          <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
             <h1 class="text-3xl font-bold text-center text-white mb-8 relative">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
             <p class="text-white text-sm mb-10 text-center relative">Here are our most popualr products, here you can select the products that you may already know what you need for your project, add them to your cart and then when your ready you can check out
               and our system will send this cart to our team as an inquiry and we will get back to you with pricing and availability as soon as possible.
@@ -105,30 +105,44 @@
         </div>
       </div>
     </main>
-    
-    <!-- Recently Viewed Products Footer -->
-    <footer class="bg-gray-900/80 border-t border-gray-700 py-4 fixed mt-50 w-full">
-      <div class="container mx-auto px-4">
-        <h2 class="text-xl font-bold text-white mb-3">Recently Viewed Products</h2>
-        <div class="overflow-x-auto pb-2" style="scrollbar-width: thin;">
-          <div class="flex space-x-4" style="min-width: min-content;">
-            <div v-for="product in recentlyViewedProducts" :key="product.id" 
-                 @click="showProductDetails(product)"
-                 class="flex-shrink-0 w-48 bg-gray-800/60 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200 hover:bg-gray-800/80">
-              <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2">
-              <div class="p-3">
-                <h3 class="text-sm font-medium text-white truncate">{{ product.name }}</h3>
-                <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+  </div>
+  
+  <!-- Recently Viewed Products Footer - Fixed at bottom -->
+  <transition name="fade">
+    <footer v-if="hasRecentProducts" class="bg-gray-900/90 border-t border-gray-700 w-full relative left-0 z-40">
+      <!-- Toggle button -->
+      <button @click="toggleRecentlyViewed" class="absolute right-6 bg-gray-900/90 border rounded-t-md px-4 py-1 text-xs text-gray-300 hover:text-white">
+        {{ isRecentlyViewedExpanded ? 'Hide' : 'Show' }} Recently Viewed
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" :class="{'rotate-180': !isRecentlyViewedExpanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      
+      <!-- Footer content with transition -->
+      <transition name="slide">
+        <div v-if="isRecentlyViewedExpanded" class="py-6">
+          <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
+            <div class="overflow-x-auto pb-3" style="scrollbar-width: thin;">
+              <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
+                <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
+                  <div v-for="product in recentlyViewedProducts" :key="product.id" 
+                      @click="showProductDetails(product)"
+                      class="flex-shrink-0 w-36 sm:w-48 md:w-56 bg-gray-800/60 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-800/80 hover:-translate-y-1">
+                    <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2">
+                    <div class="p-3">
+                      <h3 class="text-sm font-medium text-white truncate">{{ product.name }}</h3>
+                      <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+                    </div>
+                  </div>
+                </transition-group>
               </div>
-            </div>
-            <div v-if="!hasRecentProducts" class="text-gray-400 py-8 px-4">
-              No recently viewed products
             </div>
           </div>
         </div>
-      </div>
+      </transition>
     </footer>
-  </div>
+  </transition>
 
   <!-- Cart Modal -->
   <CartModal />
@@ -176,6 +190,30 @@ export default {
     const selectedProduct = ref(null);
     const recentlyViewedProducts = computed(() => recentlyViewedService.getProducts());
     const hasRecentProducts = computed(() => recentlyViewedService.hasProducts());
+    
+    // Recently viewed products footer toggle state
+    const isRecentlyViewedExpanded = ref(true);
+    
+    // Toggle recently viewed products footer visibility
+    const toggleRecentlyViewed = () => {
+      isRecentlyViewedExpanded.value = !isRecentlyViewedExpanded.value;
+      // Save preference to localStorage
+      try {
+        localStorage.setItem('recentlyViewedExpanded', isRecentlyViewedExpanded.value ? 'true' : 'false');
+      } catch (e) {
+        console.error('Error saving preference to localStorage:', e);
+      }
+    };
+    
+    // Load preference from localStorage on component mount
+    try {
+      const savedPreference = localStorage.getItem('recentlyViewedExpanded');
+      if (savedPreference !== null) {
+        isRecentlyViewedExpanded.value = savedPreference === 'true';
+      }
+    } catch (e) {
+      console.error('Error loading preference from localStorage:', e);
+    }
 
     // Handler for banner dismissal
     const handleBannerDismiss = () => {
@@ -318,13 +356,15 @@ export default {
       selectedProduct,
       recentlyViewedProducts,
       hasRecentProducts,
+      isRecentlyViewedExpanded,
       filterProducts,
       addToCart,
       openCart,
       showProductDetails,
       closeProductDetails,
       handleBannerDismiss,
-      formatTimeAgo
+      formatTimeAgo,
+      toggleRecentlyViewed
     };
   }
 };
@@ -384,7 +424,7 @@ svg.fixed, svg.absolute {
 /* Add margin-top to account for the TopBanner and PromoBanner */
 main {
   margin-top: 30px;
-  padding-bottom: 2rem;
+  padding-bottom: 10rem; /* Extra padding to account for fixed footer */
 }
 
 /* Add some spacing between brand sections */
@@ -396,7 +436,9 @@ main {
 /* Footer with recently viewed products styling */
 footer {
   border-top: 1px solid rgba(55, 65, 81, 0.5);
-  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3), 0 -4px 8px -2px rgba(0, 0, 0, 0.2);
+  z-index: 40;
+  backdrop-filter: blur(12px);
 }
 
 /* Scrollable container for products */
@@ -421,6 +463,51 @@ footer {
 
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
   background: rgba(75, 85, 99, 0.7);
+}
+
+/* Transition animations for recently viewed products */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.product-list-enter-active,
+.product-list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.product-list-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.product-list-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.product-list-move {
+  transition: transform 0.5s ease;
+}
+
+/* Slide animation for footer content */
+.slide-enter-active,
+.slide-leave-active {
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 </style>
 
