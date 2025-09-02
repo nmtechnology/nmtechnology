@@ -1,31 +1,72 @@
 <template>
-
+  <!-- Halloween Promotional Banner at the top -->
+  <PromoBanner 
+    :maxHeight="80"
+    link="/halloween-special"
+    fixed
+    dismissible
+    linkAriaLabel="View our Halloween security system special offers"
+    @dismissed="handleBannerDismiss"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
+      <div class="text-center">
+        <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
+        <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
+      </div>
+    </div>
+  </PromoBanner>
+  
   <div class="bg-gray-900">
-    <main>
-      <div class="relative isolate"> 
+    <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
+      <div class="relative isolate">
+        <!-- SVG Background Pattern (Same as HomePage) -->
+        <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+            aria-hidden="true">
+            <defs>
+                <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
+                    patternUnits="userSpaceOnUse">
+                    <path d="M.5 300V.5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-1" class="overflow-visible">
+                <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                    stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+        </svg>
+        
+        <!-- Gradient Blur Effect (Same as HomePage) -->
+        <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+            aria-hidden="true">
+            <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
+                style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 69.4% 0%, 44.6% 4.7%, 40.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 30.1% 29.5%);">
+            </div>
+        </div>
         
         <div class="overflow-hidden">
           <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
             <h1 class="text-3xl font-bold text-center text-white mb-8 relative">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
-            <p class="text-white text-sm mb-10 text-center relative">Our top of the line security camera products come with many AI features that can help identify certain people in crowds by what they are wearing or complete facial recognition.</p>
+            <p class="text-white text-sm mb-10 text-center relative">Here are our most popualr products, here you can select the products that you may already know what you need for your project, add them to your cart and then when your ready you can check out
+              and our system will send this cart to our team as an inquiry and we will get back to you with pricing and availability as soon as possible.
+            </p>
     
             <!-- Product Filter -->
             <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
             
             <!-- Product Grid -->
-            <div v-if="Object.keys(groupedProducts).length === 0" class="text-center text-white py-10">
+            <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0" class="text-center text-white py-10">
               No products found. Please try a different filter.
             </div>
             
-            <div v-for="(brandGroup, brand) in groupedProducts" :key="brand" class="mb-16" v-else>
+            <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else>
               <h2 class="text-left text-wrap text-green-600 text-bold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id" 
                      class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02]">
-                  <img :src="product.image || '/public/images/axis-dome-side.webp'" 
+                  <img :src="product.image || '/images/axis-dome-side.webp'" 
                        :alt="product.name" 
                        class="w-full h-48 object-scale-down"
-                       @error="$event.target.src = '/public/images/axis-dome-side.webp'">
+                       @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-xl text-green-600 font-semibold">{{ product.name }}</h2>
                     <p class="text-gray-400 mt-2">{{ product.description }}</p>
@@ -61,6 +102,9 @@
               </div>
             </div>
           </div>
+          
+          <!-- Recently Viewed Products -->
+          <RecentlyViewedProducts @view-product="showProductDetails" class="mt-12" />
         </div>
       </div>
     </main>
@@ -81,24 +125,27 @@
 
 <script>
 import { ref, computed, watch } from 'vue';
-
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
+import BackgroundPattern from '../components/BackgroundPattern.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
 import RecentlyViewedProducts from '../components/RecentlyViewedProducts.vue';
+import PromoBanner from '../components/PromoBanner.vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
 import { recentlyViewedService } from '../services/recentlyViewedService.js';
 import { cameraProducts } from '../data/productData.js';
 
+
 export default {
   name: 'CcTv',
   components: {
-
     CartModal,
     ProductFilter,
     ProductDetailsModal,
-    RecentlyViewedProducts
+    RecentlyViewedProducts,
+    BackgroundPattern,
+    PromoBanner
   },
   setup() {
     const cartItemCount = computed(() => cartStore.getItemCount.value);
@@ -108,6 +155,13 @@ export default {
     const activeCategory = ref('all');
     const productDetailsOpen = ref(false);
     const selectedProduct = ref(null);
+
+    // Handler for banner dismissal
+    const handleBannerDismiss = () => {
+      console.log('Banner dismissed!');
+      // You could add additional logic here if needed
+      localStorage.setItem('halloweenBannerDismissed', 'true');
+    };
 
     // Filter products by category
     const filterProducts = (categoryId) => {
@@ -130,21 +184,27 @@ export default {
     
     // Group products by brand
     const groupedProducts = computed(() => {
+      // Start with an empty object
       const grouped = {};
       
-      // Make sure filteredProducts.value is an array before processing
-      if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
-        filteredProducts.value.forEach(product => {
-          if (product && product.brand) {
-            if (!grouped[product.brand]) {
-              grouped[product.brand] = [];
+      try {
+        // Make sure filteredProducts.value is an array before processing
+        if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
+          filteredProducts.value.forEach(product => {
+            if (product && product.brand) {
+              if (!grouped[product.brand]) {
+                grouped[product.brand] = [];
+              }
+              grouped[product.brand].push(product);
             }
-            grouped[product.brand].push(product);
-          }
-        });
+          });
+        }
+      } catch (error) {
+        console.error('Error grouping products:', error);
+        // Return empty object in case of error
       }
       
-      return grouped || {};
+      return grouped;
     });
     
     // Cart operations
@@ -213,7 +273,8 @@ export default {
       addToCart,
       openCart,
       showProductDetails,
-      closeProductDetails
+      closeProductDetails,
+      handleBannerDismiss
     };
   }
 };
@@ -261,6 +322,11 @@ svg.fixed, svg.absolute {
 .fixed {
   min-height: 100vh;
   width: 100%;
+}
+
+/* Add margin-top to account for the TopBanner and PromoBanner */
+main {
+  margin-top: 30px; /* Reduced margin since TopBanner is now properly contained */
 }
 </style>
 

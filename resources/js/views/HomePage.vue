@@ -2,8 +2,23 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <TopBanner />
+    <!-- Halloween Promotional Banner -->
+    <PromoBanner 
+      :maxHeight="80"
+      link="/halloween-special"
+      dismissible
+      fixed
+      @dismissed="handleBannerDismiss"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
+        <div class="text-center">
+          <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
+          <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
+        </div>
+      </div>
+    </PromoBanner>
     <div class="bg-gray-900">
-        <main>
+        <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
             <div class="relative isolate">
                 <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
@@ -45,13 +60,13 @@ eslint-disable no-undef
                         "></div>
                 </div>
                 <div class="overflow-hidden">
-                    <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+                    <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32" style="margin-top: 80px;">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
                                
 <div class="flex items-center gap-4">
-    <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
-         <span class="text-green-600 dark:text-blue-500">protected and served</span> here in <span class="flex items-center inline-flex"><img src="/public/images/zia-symbol.png" alt="Zia Symbol" class="w-12 h-12 mx-1"/> New Mexico!</span></h1>
+    <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-2 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
+         <span class="text-green-600 dark:text-blue-500">protected and served</span> here in <span class="items-center inline-flex"><img src="/public/images/zia-symbol.png" alt="Zia Symbol" class="w-12 h-12 mx-1"/> New Mexico!</span></h1>
 </div>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
@@ -139,9 +154,17 @@ import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
+import PromoBanner from '../components/PromoBanner.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
+const showBanner = ref(true)
+
+const handleBannerDismiss = () => {
+  showBanner.value = false;
+  // Optionally, you can store this in localStorage to remember the user's choice
+  localStorage.setItem('halloweenBannerDismissed', 'true');
+}
 
 export default {
   name: 'nmTechnology',
@@ -157,7 +180,8 @@ export default {
     MobileMenu,
     TopBanner,
     CcTv,
-    TrustedTeams
+    TrustedTeams,
+    PromoBanner
   }
 }
 </script>

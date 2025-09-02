@@ -8,7 +8,7 @@
             <span class="italic text-lg font-extrabold text-white -ml-5">Technology</span>
           </router-link>
         </div>
-        
+      
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button type="button" 
@@ -56,16 +56,16 @@
       
       <!-- Mobile menu -->
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-        <div class="fixed inset-0 z-30" />
-        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto hover:bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div class="fixed inset-0 z-30 bg-gray-900/80" />
+        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-800/10 shadow-xl">
           <div class="flex items-center justify-between">
             <router-link to="/" class="md:box-border h-16 max-w-32 size-full fixed mx-5 z-30">
-              <img class="md:box-border h-16 max-w-32 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+              <img class="md:box-border h-16 max-w-16 size-full flex-initial fixed mx-5 z-30" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
             </router-link>
             <router-link to="/" class="italic text-lg font-extrabold leading-6 text-white flex-initial mx-36 mr10 lg:mt-5 md:mt-5 sm:mt-5 mt-5 z-40">
               Technology
             </router-link>
-            <button type="button" class="-m-2.5 rounded-md p-2.5 text-white" @click="mobileMenuOpen = false">
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-white hover:text-green-400" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -74,14 +74,14 @@
           </div>
           
           <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-white-500/40">
+            <div class="-my-6 divide-y divide-gray-700">
               <div class="space-y-2 py-6">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-500">
+                <router-link v-for="item in navigation" :key="item.name" :to="item.href" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800 hover:text-green-400 transition-colors">
                   {{ item.name }}
-                </a>
+                </router-link>
                 
                 <!-- Mobile cart button -->
-                <button @click="openCart" class="flex items-center -mx-3 rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-500 w-full">
+                <button @click="openCartAndCloseMenu" class="flex items-center -mx-3 rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800 hover:text-green-400 transition-colors w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
@@ -138,11 +138,17 @@ export default {
       cartStore.openCart();
     };
     
+    const openCartAndCloseMenu = () => {
+      cartStore.openCart();
+      mobileMenuOpen.value = false;
+    };
+    
     return {
       navigation,
       mobileMenuOpen,
       cartItemCount,
-      openCart
+      openCart,
+      openCartAndCloseMenu
     };
   }
 }

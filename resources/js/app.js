@@ -17,7 +17,8 @@ const router = createRouter({
 
   routes: [
     { path: '/', name: 'nmtis', component: HomePage },
-    { path: '/cctv', name: 'CcTv', component: CcTv }
+    { path: '/cctv', name: 'CcTv', component: CcTv },
+    { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
   ]
 })
 
