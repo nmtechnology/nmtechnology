@@ -1,8 +1,21 @@
 <template>
-  <TopBanner />
+  <!-- Halloween Promotional Banner at the top -->
+  <PromoBanner 
+    :maxHeight="120"
+    link="/halloween-special"
+    fixed
+    linkAriaLabel="View our Halloween security system special offers"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
+      <div class="text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-orange-500">Halloween Security Special!</h3>
+        <p class="text-white text-lg md:text-xl">Get 20% off all security systems until October 31st</p>
+      </div>
+    </div>
+  </PromoBanner>
   
   <div class="bg-gray-900">
-    <main>
+    <main class="pt-[120px]"> <!-- Add padding to account for the fixed banner -->
       <div class="relative isolate">
         <!-- SVG Background Pattern (Same as HomePage) -->
         <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
@@ -110,13 +123,12 @@
 
 <script>
 import { ref, computed, watch } from 'vue';
-
-import TopBanner from '../components/TopBanner.vue';
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
 import BackgroundPattern from '../components/BackgroundPattern.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
 import RecentlyViewedProducts from '../components/RecentlyViewedProducts.vue';
+import PromoBanner from '../components/PromoBanner.vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
 import { recentlyViewedService } from '../services/recentlyViewedService.js';
@@ -126,12 +138,12 @@ import { cameraProducts } from '../data/productData.js';
 export default {
   name: 'CcTv',
   components: {
-    TopBanner,
     CartModal,
     ProductFilter,
     ProductDetailsModal,
     RecentlyViewedProducts,
-    BackgroundPattern
+    BackgroundPattern,
+    PromoBanner
   },
   setup() {
     const cartItemCount = computed(() => cartStore.getItemCount.value);
@@ -302,7 +314,7 @@ svg.fixed, svg.absolute {
   width: 100%;
 }
 
-/* Add margin-top to account for the TopBanner */
+/* Add margin-top to account for the TopBanner and PromoBanner */
 main {
   margin-top: 30px; /* Reduced margin since TopBanner is now properly contained */
 }
