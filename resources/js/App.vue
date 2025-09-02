@@ -130,6 +130,7 @@ import { cartStore } from './store/cartStore.js'
 
 // Navigation array for mobile menu
 const navigation = [
+  { name: 'Home', href: '/home' },
   { name: 'CCTV', href: '/cctv' },
   { name: 'Security Systems', href: '/cctv' },
   { name: 'Fire Alarms', href: '/cctv' },

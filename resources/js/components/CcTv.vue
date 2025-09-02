@@ -16,11 +16,11 @@
     </div>
   </PromoBanner>
   
-  <div class="bg-gray-900">
+  <div class="bg-gray-900 min-h-screen">
     <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
       <div class="relative isolate">
-        <!-- SVG Background Pattern (Same as HomePage) -->
-        <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+        <!-- SVG Background Pattern (Same as HomePage) - Now Fixed Position -->
+        <svg class="fixed inset-x-0 top-0 -z-40 h-screen w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
             aria-hidden="true">
             <defs>
                 <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
@@ -35,16 +35,16 @@
             <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
         </svg>
         
-        <!-- Gradient Blur Effect (Same as HomePage) -->
-        <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+        <!-- Gradient Blur Effect (Same as HomePage) - Now Fixed Position -->
+        <div class="fixed left-1/2 right-0 top-0 -z-30 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
             aria-hidden="true">
             <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
                 style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 69.4% 0%, 44.6% 4.7%, 40.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 30.1% 29.5%);">
             </div>
         </div>
         
-        <div class="overflow-hidden">
-          <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
+        <div class="overflow-visible relative z-10">
+          <div class="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
             <h1 class="text-3xl font-bold text-center text-white mb-8 relative">Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products</h1>
             <p class="text-white text-sm mb-10 text-center relative">Here are our most popualr products, here you can select the products that you may already know what you need for your project, add them to your cart and then when your ready you can check out
               and our system will send this cart to our team as an inquiry and we will get back to you with pricing and availability as soon as possible.
@@ -62,7 +62,7 @@
               <h2 class="text-left text-wrap text-green-600 text-bold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id" 
-                     class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02]">
+                     class="bg-gray-800/50 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm">
                   <img :src="product.image || '/images/axis-dome-side.webp'" 
                        :alt="product.name" 
                        class="w-full h-48 object-scale-down"
@@ -102,13 +102,32 @@
               </div>
             </div>
           </div>
-          
-          <!-- Recently Viewed Products -->
-          <RecentlyViewedProducts @view-product="showProductDetails" class="mt-12" />
         </div>
       </div>
     </main>
-  
+    
+    <!-- Recently Viewed Products Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-700 py-4 fixed mt-50 w-full">
+      <div class="container mx-auto px-4">
+        <h2 class="text-xl font-bold text-white mb-3">Recently Viewed Products</h2>
+        <div class="overflow-x-auto pb-2" style="scrollbar-width: thin;">
+          <div class="flex space-x-4" style="min-width: min-content;">
+            <div v-for="product in recentlyViewedProducts" :key="product.id" 
+                 @click="showProductDetails(product)"
+                 class="flex-shrink-0 w-48 bg-gray-800/60 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200 hover:bg-gray-800/80">
+              <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2">
+              <div class="p-3">
+                <h3 class="text-sm font-medium text-white truncate">{{ product.name }}</h3>
+                <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+              </div>
+            </div>
+            <div v-if="!hasRecentProducts" class="text-gray-400 py-8 px-4">
+              No recently viewed products
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <!-- Cart Modal -->
@@ -155,6 +174,8 @@ export default {
     const activeCategory = ref('all');
     const productDetailsOpen = ref(false);
     const selectedProduct = ref(null);
+    const recentlyViewedProducts = computed(() => recentlyViewedService.getProducts());
+    const hasRecentProducts = computed(() => recentlyViewedService.hasProducts());
 
     // Handler for banner dismissal
     const handleBannerDismiss = () => {
@@ -263,18 +284,47 @@ export default {
       }, 200); // Small delay to allow for animation
     };
     
+    // Format time ago for recently viewed products
+    const formatTimeAgo = (timestamp) => {
+      try {
+        const date = new Date(timestamp);
+        const now = new Date();
+        const diffMs = now - date;
+        
+        // Convert to minutes, hours, and days
+        const diffMinutes = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMinutes / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        
+        if (diffDays > 0) {
+          return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+        } else if (diffHours > 0) {
+          return `${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
+        } else if (diffMinutes > 0) {
+          return `${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
+        } else {
+          return 'Just now';
+        }
+      } catch (e) {
+        return '';
+      }
+    };
+    
     return {
       cartItemCount,
       groupedProducts,
       activeCategory,
       productDetailsOpen,
       selectedProduct,
+      recentlyViewedProducts,
+      hasRecentProducts,
       filterProducts,
       addToCart,
       openCart,
       showProductDetails,
       closeProductDetails,
-      handleBannerDismiss
+      handleBannerDismiss,
+      formatTimeAgo
     };
   }
 };
@@ -293,12 +343,19 @@ export default {
   z-index: 1;
 }
 
-/* Main scrollable content container */
-.overflow-hidden {
+/* Main scrollable content container with improved styling for overlay effect */
+.overflow-visible {
   position: relative;
   z-index: 10;
-  overflow-y: auto;
-  overflow-x: hidden;
+}
+
+/* Content container with more transparent background */
+.mx-auto.max-w-7xl {
+  background: rgba(17, 24, 39, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
 }
 
 /* Improve text readability against the complex background */
@@ -326,7 +383,44 @@ svg.fixed, svg.absolute {
 
 /* Add margin-top to account for the TopBanner and PromoBanner */
 main {
-  margin-top: 30px; /* Reduced margin since TopBanner is now properly contained */
+  margin-top: 30px;
+  padding-bottom: 2rem;
+}
+
+/* Add some spacing between brand sections */
+.mb-16 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Footer with recently viewed products styling */
+footer {
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Scrollable container for products */
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.5) rgba(31, 41, 55, 0.5);
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.7);
 }
 </style>
 
