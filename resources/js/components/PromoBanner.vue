@@ -12,14 +12,14 @@
     <!-- Banner Container -->
     <div class="mx-auto" :class="{'max-w-7xl': !fullWidth}">
       <!-- Background Image -->
-      <div class="w-full overflow-hidden" :style="{ maxHeight: maxHeight ? `${maxHeight}px` : '300px' }">
+      <div class="w-full overflow-hidden" :style="{ maxHeight: maxHeight ? `${maxHeight}px` : '100px' }">
         <img 
           :src="imageUrl || '/images/halloween-promo-banner.png'" 
           :alt="altText || 'Promotional Banner'" 
           class="w-full object-contain mx-auto"
           :style="{
             height: height ? `${height}px` : 'auto',
-            maxHeight: maxHeight ? `${maxHeight}px` : '300px'
+            maxHeight: maxHeight ? `${maxHeight}px` : '50px'
           }"
         />
       </div>
@@ -32,18 +32,6 @@
         <slot></slot>
       </div>
       
-      <!-- Optional Close Button -->
-      <button 
-        v-if="dismissible" 
-        @click="dismiss" 
-        class="absolute top-2 right-2 text-white hover:text-gray-200 transition-colors"
-        aria-label="Close banner"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      
       <!-- Click-through Link -->
       <a 
         v-if="link" 
@@ -53,6 +41,18 @@
         :rel="openInNewTab ? 'noopener noreferrer' : ''"
         :aria-label="linkAriaLabel || 'Learn more'"
       ></a>
+      
+      <!-- Optional Close Button (Higher z-index to appear above the link) -->
+      <button 
+        v-if="dismissible" 
+        @click="dismiss" 
+        class="absolute top-2 right-2 text-white hover:text-gray-200 transition-colors z-20"
+        aria-label="Close banner"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
   </div>
 </template>
@@ -76,7 +76,7 @@ const props = defineProps({
   },
   maxHeight: {
     type: Number,
-    default: 300
+    default: 80
   },
   link: {
     type: String,
@@ -203,23 +203,42 @@ onMounted(() => {
 @media (max-width: 640px) {
   /* Ensure the banner isn't too tall on mobile */
   img {
-    max-height: 120px !important;
+    max-height: 60px !important;
     object-position: center;
   }
   
   /* Make dismiss button more tappable on mobile */
   button {
-    padding: 8px;
-    margin: 4px;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    top: 4px;
+    right: 4px;
   }
   
   /* Adjust fixed position on mobile for smaller top bar */
-  .fixed.top-\[140px\] {
-    top: 100px; /* Slightly less on mobile as the top elements might be smaller */
+  .fixed.top-\[60px\] {
+    top: 60px; /* Same as desktop since the navbar height is consistent */
   }
 }
 
 /* Button hover effects */
+button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 button:hover svg {
   transform: scale(1.1);
   transition: transform 0.2s ease;

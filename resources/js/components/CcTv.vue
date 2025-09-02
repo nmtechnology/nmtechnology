@@ -1,21 +1,23 @@
 <template>
   <!-- Halloween Promotional Banner at the top -->
   <PromoBanner 
-    :maxHeight="120"
+    :maxHeight="80"
     link="/halloween-special"
     fixed
+    dismissible
     linkAriaLabel="View our Halloween security system special offers"
+    @dismissed="handleBannerDismiss"
   >
     <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
       <div class="text-center">
-        <h3 class="text-2xl md:text-3xl font-bold text-orange-500">Halloween Security Special!</h3>
-        <p class="text-white text-lg md:text-xl">Get 20% off all security systems until October 31st</p>
+        <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
+        <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
       </div>
     </div>
   </PromoBanner>
   
   <div class="bg-gray-900">
-    <main class="pt-[120px]"> <!-- Add padding to account for the fixed banner -->
+    <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
       <div class="relative isolate">
         <!-- SVG Background Pattern (Same as HomePage) -->
         <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
@@ -154,6 +156,13 @@ export default {
     const productDetailsOpen = ref(false);
     const selectedProduct = ref(null);
 
+    // Handler for banner dismissal
+    const handleBannerDismiss = () => {
+      console.log('Banner dismissed!');
+      // You could add additional logic here if needed
+      localStorage.setItem('halloweenBannerDismissed', 'true');
+    };
+
     // Filter products by category
     const filterProducts = (categoryId) => {
       activeCategory.value = categoryId || 'all';
@@ -264,7 +273,8 @@ export default {
       addToCart,
       openCart,
       showProductDetails,
-      closeProductDetails
+      closeProductDetails,
+      handleBannerDismiss
     };
   }
 };

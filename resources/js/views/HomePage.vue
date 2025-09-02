@@ -4,7 +4,7 @@ eslint-disable no-undef
     <TopBanner />
     <!-- Halloween Promotional Banner -->
     <PromoBanner 
-      :maxHeight="120"
+      :maxHeight="80"
       link="/halloween-special"
       dismissible
       fixed
@@ -12,13 +12,13 @@ eslint-disable no-undef
     >
       <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
         <div class="text-center">
-          <h3 class="text-2xl md:text-3xl font-bold text-orange-500">Halloween Security Special!</h3>
-          <p class="text-white text-lg md:text-xl">Get 20% off all security systems until October 31st</p>
+          <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
+          <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
         </div>
       </div>
     </PromoBanner>
     <div class="bg-gray-900">
-        <main class="pt-[120px]"> <!-- Add padding to account for the fixed banner -->
+        <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
             <div class="relative isolate">
                 <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
