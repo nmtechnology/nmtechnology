@@ -50,7 +50,7 @@
               <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ cartItemCount }}</span>
             </transition>
           </button>
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+          <!-- <a href="#" class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
         </div>
       </nav>
       
@@ -96,6 +96,19 @@
         </DialogPanel>
       </Dialog>
     </header>
+  </div>
+  
+  <!-- Floating cart button - only visible when not on landing page -->
+  <div v-if="!isLandingPage" class="fixed bottom-6 right-6 z-50">
+    <button @click="openCart" 
+            class="flex items-center justify-center h-14 w-14 rounded-full bg-gray-800 hover:bg-gray-700 text-green-400 hover:text-green-300 shadow-lg transition-all duration-300 hover:scale-110 border border-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <transition name="cart-badge">
+        <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ cartItemCount }}</span>
+      </transition>
+    </button>
   </div>
   
   <router-view></router-view>
@@ -240,6 +253,28 @@ header {
   .cart-modal-mobile-content {
     max-width: 100% !important;
     margin: 0 !important;
+  }
+}
+
+/* Floating cart button styling */
+.fixed.bottom-6.right-6 button {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transform-origin: center;
+}
+
+.fixed.bottom-6.right-6 button:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 640px) {
+  .fixed.bottom-6.right-6 {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .fixed.bottom-6.right-6 button {
+    height: 3rem;
+    width: 3rem;
   }
 }
 </style>
