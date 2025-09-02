@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/public/images/nm-logo-rmbg.webp">
+    <link rel="icon" type="image/webp" href="{{ asset('images/nm-logo-rmbg.webp') }}">
 
     <title>NM Technology</title>
 

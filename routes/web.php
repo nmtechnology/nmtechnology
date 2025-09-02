@@ -3,7 +3,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 
 // Main entry point - load Vue SPA
-Route::get('/', [MailController::class, 'contact']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Direct CCTV route
 Route::get('/cctv', function () {

@@ -1,6 +1,7 @@
 eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
+  <AuthGuard>
     <TopBanner />
     <!-- Halloween Promotional Banner -->
     <PromoBanner 
@@ -139,6 +140,7 @@ eslint-disable no-undef
     <BlackGradient />
     <SectionOne />
     <HomeFooter />
+  </AuthGuard>
 </template>
 
 <script>
@@ -155,6 +157,7 @@ import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import PromoBanner from '../components/PromoBanner.vue'
+import AuthGuard from '../components/AuthGuard.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
@@ -181,7 +184,8 @@ export default {
     TopBanner,
     CcTv,
     TrustedTeams,
-    PromoBanner
+    PromoBanner,
+    AuthGuard
   }
 }
 </script>
