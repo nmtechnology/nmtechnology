@@ -9,10 +9,10 @@ Route::get('/', function () {
 
 // Direct CCTV route
 Route::get('/cctv', function () {
-    return view('welcome');
+    return redirect('/');
 });
 
-// Catch all other routes and redirect to the SPA to handle them
+// Catch all other routes and redirect to the root URL
 Route::get('/{any?}', function () {
-    return view('welcome');
+    return redirect('/');
 })->where('any', '.*');
