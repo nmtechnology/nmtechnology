@@ -21,7 +21,25 @@ const router = createRouter({
     { path: '/home', name: 'nmtis', component: HomePage },
     { path: '/cctv', name: 'CcTv', component: CcTv },
     { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
-  ]
+  ],
+  
+  // Add scrollBehavior function to handle anchor links
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // Return savedPosition if it exists (browser back/forward navigation)
+      return savedPosition;
+    } else if (to.hash) {
+      // If the URL has a hash, scroll to the element with that ID
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+        top: 80, // Add offset to account for fixed header
+      }
+    } else {
+      // Otherwise scroll to top of the page
+      return { top: 0 }
+    }
+  }
 })
 
 export default router

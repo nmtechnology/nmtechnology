@@ -72,6 +72,7 @@ eslint-disable no-undef
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
                                     customized settings based around thier lifestyle or business functionalities. 
+                                    Our new Quote Cart system makes it easy to select the security products you need and generate a customized quote in minutes. Simply browse our products, add items to your Quote Cart, and submit your request to have our team prepare a detailed quote tailored to your specific requirements.
                                     By offering a full range of
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
@@ -82,8 +83,20 @@ eslint-disable no-undef
                                     systems continue to function effectively
                                     over time. Contact us today so we can get started.</p>
                                 
-                                <div class="mt-10 flex items-center gap-x-6">
+                                <div class="mt-10 flex items-center gap-x-4 flex-wrap">
                                     <ContactModal />
+                                    <router-link to="/cctv#product-grid" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300">
+                                        Generate a Quote
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
+                                    </router-link>
+                                    <router-link to="/cctv#security-faqs" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300">
+                                        Why Security?
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </router-link>
                                 </div>
                             </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">

@@ -32,7 +32,7 @@
         </svg>
 
         <!-- Security FAQs Section -->
-        <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8" id="security-faqs">
+        <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 scroll-mt-24" id="security-faqs">
           <SecurityFAQs @scroll-to="handleScrollTo" />
         </div>
 
@@ -125,13 +125,14 @@
             </div>
 
             <!-- Product Grid -->
-            <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
-              class="text-center text-white py-10">
-              No products found. Please try a different filter.
-            </div>
+            <div id="product-grid" class="scroll-mt-24">
+              <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
+                class="text-center text-white py-10">
+                No products found. Please try a different filter.
+              </div>
 
-            <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
-              :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
+              <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
+                :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
               <h2 class="text-left text-wrap text-green-600 text-bold text-2xl font-extrabold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id"
@@ -250,8 +251,7 @@
             </div>
           </div>
         </div>
-
-
+      </div>
       </div>
     </main>
   </div>
@@ -303,7 +303,8 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
 import BackgroundPattern from '../components/BackgroundPattern.vue';
@@ -344,6 +345,32 @@ export default {
     
     // Package comparison toggle state
     const showPackageComparison = ref(false);
+    
+    // Check if we were directed here with a hash and handle it appropriately
+    const { currentRoute } = useRouter();
+    
+    // Add onMounted hook to handle hash navigation
+    onMounted(() => {
+      // Check for hash in URL
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1); // Remove the '#' character
+        
+        // Wait a moment for the DOM to fully render
+        setTimeout(() => {
+          if (targetId === 'product-grid') {
+            const element = document.getElementById('product-grid');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          } else if (targetId === 'security-faqs') {
+            const element = document.getElementById('security-faqs');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        }, 300);
+      }
+    });
     
     // Get all package products for comparison table
     const packageProducts = computed(() => {
@@ -524,10 +551,10 @@ export default {
         // Filter for monitoring packages and scroll to the top of the results
         filterProducts('monitoring');
         targetElement = document.querySelector('#monitoring-section');
-      } else if (targetId === 'products') {
+      } else if (targetId === 'products' || targetId === 'product-grid') {
         // Show all products
         filterProducts('all');
-        targetElement = document.querySelector('#product-section');
+        targetElement = document.querySelector('#product-grid');
       }
       
       // Scroll to the target element if found

@@ -194,8 +194,12 @@ export default {
     
     // Check if a route is active (either exact match or starts with)
     const isActiveRoute = (path) => {
-      if (route.path === path) return true;
-      if (path !== '/home' && route.path.startsWith(path)) return true;
+      // Remove hash part from both paths for comparison
+      const routePath = route.path.split('#')[0];
+      const comparePath = path.split('#')[0];
+      
+      if (routePath === comparePath) return true;
+      if (comparePath !== '/home' && routePath.startsWith(comparePath)) return true;
       return false;
     };
     
