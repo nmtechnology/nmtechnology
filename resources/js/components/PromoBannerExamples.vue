@@ -208,7 +208,7 @@ const onDismiss = () => {
           <PromoBanner :maxHeight="150">
             <div class="bg-black bg-opacity-50 p-4 rounded-lg text-center">
               <h3 class="text-2xl font-bold text-orange-500">Halloween Special Offer!</h3>
-              <p class="text-white">Get 20% off all security systems until October 31st</p>
+              <p class="text-white">Get 10% off all security systems until October 31st</p>
               <button class="mt-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
                 Learn More
               </button>
@@ -221,7 +221,7 @@ const onDismiss = () => {
 &lt;PromoBanner :maxHeight="150"&gt;
   &lt;div class="bg-black bg-opacity-50 p-4 rounded-lg text-center"&gt;
     &lt;h3 class="text-2xl font-bold text-orange-500"&gt;Halloween Special Offer!&lt;/h3&gt;
-    &lt;p class="text-white"&gt;Get 20% off all security systems until October 31st&lt;/p&gt;
+    &lt;p class="text-white"&gt;Get 10% off all security systems until October 31st&lt;/p&gt;
     &lt;button class="mt-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600"&gt;
       Learn More
     &lt;/button&gt;

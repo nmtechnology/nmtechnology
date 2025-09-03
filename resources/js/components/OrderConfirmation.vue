@@ -7,16 +7,16 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <div>
-          <h3 class="font-medium text-green-400">Order Confirmation</h3>
+          <h3 class="font-medium text-green-400">Quote Request Confirmation</h3>
           <p class="text-sm text-gray-300 mt-1">
-            Please review your order summary below before proceeding.
+            Please review your quote request summary below before proceeding.
           </p>
         </div>
       </div>
     </div>
 
     <div class="mb-6">
-      <h4 class="text-lg font-medium mb-3">Order Summary</h4>
+      <h4 class="text-lg font-medium mb-3">Quote Request Summary</h4>
       
       <div class="bg-gray-700 rounded-md p-4 mb-4">
         <div class="flex justify-between mb-2">
@@ -80,7 +80,7 @@
     
     <div class="flex justify-between">
       <button @click="goBack" class="px-4 py-2 text-gray-300 border border-gray-600 rounded hover:bg-gray-700">
-        Edit Order
+        Edit Quote Request
       </button>
       <button @click="confirmOrder" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
         Confirm and Submit

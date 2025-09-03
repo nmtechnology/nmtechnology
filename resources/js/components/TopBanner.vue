@@ -5,15 +5,15 @@
       aria-hidden="true">
       <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#89c2fc] opacity-20" />
     </div>
-    <div class="flex gap-x-4 gap-y-2 justify-center">
-      <p class="text-sm leading-6 text-white">
+    <div class="flex items-center justify-center">
+      <p class="text-sm leading-6 text-white flex items-center">
         <strong class="font-semibold">Check Us Out On Yelp!</strong><svg viewBox="0 0 2 2"
           class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
           <circle cx="5" cy="5" r="5" />
         </svg>
       </p>
 
-      <ContactModal @close="handleModalClose" class="px-3.5 py-1 text-sm font-semibold flex text-gray-900 focus-visible:outline text-center" />
+      <ContactModal @close="handleModalClose" class="ml-2 px-3.5 py-1 text-sm font-semibold flex text-gray-900 focus-visible:outline text-center" />
     </div>
   </div>
 </template>

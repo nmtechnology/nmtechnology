@@ -4,8 +4,8 @@
     linkAriaLabel="View our Halloween security system special offers" @dismissed="handleBannerDismiss">
     <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
       <div class="text-center">
-        <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
-        <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
+        <h3 class="text-xl md:text-5xl font-bold text-orange-500">Halloween Security Special!</h3>
+        <p class="text-white text-lg md:text-lg">Get 10% off all security systems until October 31st</p>
       </div>
     </div>
   </PromoBanner>
@@ -39,7 +39,7 @@
         <div class="overflow-visible relative z-10">
           <div
             class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
-            <h1 class="text-3xl font-bold text-center text-white mb-8 relative">
+            <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative">
               <span v-if="activeCategory === 'package'">
                 Complete <span class="text-green-500">Security Packages</span>
               </span>
@@ -50,12 +50,12 @@
             <p class="text-white text-sm mb-10 text-center relative">
               <span v-if="activeCategory === 'package'">
                 Our comprehensive security packages offer everything you need for complete protection. Choose the tier
-                that fits your needs and add it to your cart - our team will reach out with detailed pricing and
+                that fits your needs and add it to your quote cart - our team will reach out with detailed pricing and
                 installation options.
               </span>
               <span v-else>
-                Here are our most popular products. Select what you need for your project, add them to your cart, and
-                when you're ready to check out, our system will send this cart to our team as an inquiry. We'll get back
+                Here are our most popular products. Select what you need for your project, add them to your quote cart, and
+                when you're ready to check out, our system will send this quote cart to our team as an inquiry. We'll get back
                 to you with pricing and availability as soon as possible.
               </span>
             </p>
@@ -131,8 +131,8 @@
             </div>
 
             <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
-              :id="brand === 'NM Security Monitoring' ? 'monitoring-section' : null">
-              <h2 class="text-left text-wrap text-green-600 text-bold mb-5">{{ brand }}</h2>
+              :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
+              <h2 class="text-left text-wrap text-green-600 text-bold text-2xl font-extrabold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id"
                   :class="['rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm',
@@ -159,10 +159,10 @@
                   <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name"
                     class="w-full h-48 object-scale-down" @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
-                    <h2 class="text-xl font-semibold" :class="{
-                          'text-green-400 font-bold': product.category === 'package',
-                          'text-purple-500': product.category === 'monitoring',
-                          'text-green-600': product.category !== 'package' && product.category !== 'monitoring'
+                    <h2 class="text-2xl font-bold" :class="{
+                          'text-green-400 font-extrabold': product.category === 'package',
+                          'text-purple-500 font-extrabold': product.category === 'monitoring',
+                          'text-green-600 font-bold': product.category !== 'package' && product.category !== 'monitoring'
                         }">
                       {{ product.name }}
                     </h2>
@@ -225,7 +225,7 @@
                               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                         </span>
-                        {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Cart' }}
+                        {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}
                       </button>
                       <button @click="showProductDetails(product)" :class="[
                                 'text-white px-3 py-2 rounded-r transition-colors',
@@ -416,8 +416,8 @@ export default {
           });
           
           // Sort packages by price (ascending)
-          if (grouped['NM Security Packages']) {
-            grouped['NM Security Packages'].sort((a, b) => {
+          if (grouped['NM Technology Security Packages']) {
+            grouped['NM Technology Security Packages'].sort((a, b) => {
               return (a.price || 0) - (b.price || 0);
             });
           }

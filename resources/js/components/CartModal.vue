@@ -9,7 +9,7 @@
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-medium leading-6 text-white" id="modal-title">
-              <i class="fas fa-shopping-cart mr-2"></i>Your Cart
+              <i class="fas fa-shopping-cart mr-2"></i>Your Quote Cart
             </h3>
             <button @click="cartStore.closeCart()" class="text-gray-400 hover:text-white focus:outline-none">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,7 +21,7 @@
           <!-- Cart contents -->
           <div class="mt-3 text-center sm:text-left">
             <div v-if="cartStore.getItems().length === 0" class="text-gray-300 py-10 text-center">
-              Your cart is empty.
+              Your quote cart is empty.
             </div>
             <div v-else>
               <!-- Cart items list -->
@@ -76,7 +76,7 @@
           <div class="sm:flex sm:flex-row-reverse">
             <button v-if="cartStore.getItems().length > 0" @click="checkout" 
                     class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
-              Checkout
+              Request Quote
             </button>
             <button @click="cartStore.closeCart()" 
                     class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
@@ -84,7 +84,7 @@
             </button>
             <button v-if="cartStore.getItems().length > 0" @click="cartStore.clearCart()" 
                     class="mt-3 w-full inline-flex justify-center rounded-md border border-red-700 shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-red-400 hover:text-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:w-auto sm:text-sm">
-              Clear Cart
+              Clear Quote Cart
             </button>
           </div>
           
@@ -109,7 +109,7 @@
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-medium leading-6 text-white" id="checkout-modal-title">
-              Complete Your Order
+              Complete Your Quote Request
             </h3>
             <button @click="checkoutFormOpen = false" class="text-gray-400 hover:text-white focus:outline-none">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +159,7 @@
             <div class="bg-gray-900 px-4 py-3 text-right sm:px-6 sm:rounded-b-lg">
               <button type="submit" 
                       class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm">
-                Review Order
+                Review Quote
               </button>
             </div>
           </form>
@@ -179,7 +179,7 @@
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-medium leading-6 text-white" id="confirmation-modal-title">
-              Review Your Order
+              Review Your Quote Request
             </h3>
             <button @click="checkoutFormOpen = false" class="text-gray-400 hover:text-white focus:outline-none">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,11 +220,11 @@
             </div>
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
               <h3 class="text-lg leading-6 font-medium text-white" id="success-modal-title">
-                Order Submitted Successfully
+                Quote Request Submitted Successfully
               </h3>
               <div class="mt-2">
                 <p class="text-sm text-gray-300">
-                  Thank you for your order! We have received your request and will contact you shortly to discuss your purchase.
+                  Thank you for your quote request! We have received your request and will contact you shortly to discuss your requirements.
                 </p>
               </div>
             </div>

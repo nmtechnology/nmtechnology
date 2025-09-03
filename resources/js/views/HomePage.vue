@@ -14,7 +14,7 @@ eslint-disable no-undef
       <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
         <div class="text-center">
           <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
-          <p class="text-white text-sm md:text-lg">Get 20% off all security systems until October 31st</p>
+          <p class="text-white text-sm md:text-lg">Get 10% off all security systems until October 31st</p>
         </div>
       </div>
     </PromoBanner>
@@ -76,7 +76,7 @@ eslint-disable no-undef
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
                                     protect organizations of all types and sizes with our security systems and cameras. We offer on-site representation as well so we can help you get the work you need done even though you are 3 area codes away from your customer.
-                                    We protect their personell, assets, and data. In
+                                    We protect our customers personell, assets. In
                                     addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
                                     systems continue to function effectively
