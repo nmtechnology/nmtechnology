@@ -160,7 +160,7 @@
                     class="w-full h-48 object-scale-down" @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-xl font-semibold" :class="{
-                          'text-green-600': product.category === 'package',
+                          'text-green-400 font-bold': product.category === 'package',
                           'text-purple-500': product.category === 'monitoring',
                           'text-green-600': product.category !== 'package' && product.category !== 'monitoring'
                         }">
