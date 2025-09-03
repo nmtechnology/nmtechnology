@@ -48,13 +48,28 @@
             
             <!-- Detailed specifications section -->
             <div v-if="product.specs" class="mt-8 border-t border-gray-700 pt-4">
-              <h4 class="text-white font-medium mb-4">Technical Specifications:</h4>
+              <h4 class="text-white font-medium mb-4">
+                <span v-if="product.category === 'package'" class="text-green-500">Package</span>
+                Technical Specifications:
+              </h4>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div v-for="(value, key) in product.specs" :key="key" class="flex flex-col">
-                  <span class="text-gray-400 text-sm">{{ formatSpecName(key) }}</span>
+                <div v-for="(value, key) in product.specs" :key="key" 
+                     :class="['flex flex-col p-2', product.category === 'package' ? 'bg-gray-700/30 rounded' : '']">
+                  <span :class="['text-sm', product.category === 'package' ? 'text-green-400' : 'text-gray-400']">
+                    {{ formatSpecName(key) }}
+                  </span>
                   <span class="text-white">{{ value }}</span>
                 </div>
+              </div>
+              
+              <!-- Special call to action for packages -->
+              <div v-if="product.category === 'package'" class="mt-6 bg-green-900/20 border border-green-600/30 rounded-lg p-4">
+                <h5 class="text-green-500 font-semibold mb-2">Complete Security Solution</h5>
+                <p class="text-gray-300 text-sm">
+                  This package includes everything you need for a complete security setup: cameras, NVR, storage, 
+                  and all necessary cables and mounting hardware. Professional installation available.
+                </p>
               </div>
             </div>
           </div>
@@ -101,7 +116,9 @@ export default {
         'camera': 'Security Camera',
         'recorder': 'Recorder & NVR',
         'accessory': 'Accessory',
-        'network': 'Networking Equipment'
+        'network': 'Networking Equipment',
+        'package': 'Security Package',
+        'monitoring': 'Security Monitoring'
       };
       
       return categories[props.product.category] || props.product.category;
@@ -129,6 +146,23 @@ export default {
         'wifi': 'WiFi Standard',
         'range': 'Coverage Range',
         'weatherproofing': 'Weatherproofing',
+        'cameraCount': 'Number of Cameras',
+        'resolution': 'Camera Resolution',
+        'nvr': 'NVR Specification',
+        'storage': 'Storage Capacity',
+        'poe': 'PoE Capability',
+        'coverage': 'Coverage Area',
+        'warranty': 'Warranty',
+        'doorContacts': 'Door Contacts',
+        'windowSensors': 'Window Sensors',
+        'motionDetectors': 'Motion Detectors',
+        'ipSirens': 'IP Sirens',
+        'smartDevices': 'Smart Devices',
+        'responseTimes': 'Response Time',
+        'contractLength': 'Contract Length',
+        'installation': 'Installation',
+        'monthlyFee': 'Monthly Fee',
+        'idealFor': 'Ideal For',
         'power': 'Power Supply',
         'antenna': 'Antenna Gain',
         'maxTxPower': 'Max TX Power',

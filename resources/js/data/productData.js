@@ -238,5 +238,450 @@ export const cameraProducts = [
     category: 'accessory',
     brand: 'Axis Communications',
     features: ['Adjustable', 'Weather Resistant', 'Easy Installation']
+  },
+  
+  // CCTV Security Packages - Tiered solutions for different security needs
+  {
+    id: 'patriot-package',
+    name: 'Patriot Package',
+    description: 'Entry-level security package with 4 cameras. Perfect for small homes and offices.',
+    price: 699.99,
+    image: '/images/axis-dome-side.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '4 HD Cameras (2MP Resolution)',
+      '4-Channel NVR',
+      '4TB Storage Capacity',
+      'Night Vision',
+      'Motion Detection',
+      'Mobile App Access'
+    ],
+    specs: {
+      cameraCount: 4,
+      resolution: '1080p (2MP)',
+      nvr: '4-Channel',
+      storage: '4TB HDD',
+      poe: 'Built-in PoE',
+      coverage: 'Small property (up to 1,500 sq ft)',
+      warranty: '1 Year Standard'
+    }
+  },
+  {
+    id: 'guardian-package',
+    name: 'Guardian Package',
+    description: 'Step up your security with enhanced resolution and more storage capacity.',
+    price: 999.99,
+    image: '/images/axis-bullet-cam.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '4 Ultra HD Cameras (4MP Resolution)',
+      '8-Channel NVR',
+      '6TB Storage Capacity',
+      'Enhanced Night Vision',
+      'Smart Motion Detection',
+      'Mobile App & Desktop Access'
+    ],
+    specs: {
+      cameraCount: 4,
+      resolution: '2K (4MP)',
+      nvr: '8-Channel',
+      storage: '6TB HDD',
+      poe: 'Built-in PoE',
+      coverage: 'Medium property (up to 2,500 sq ft)',
+      warranty: '2 Year Standard'
+    }
+  },
+  {
+    id: 'sentinel-package',
+    name: 'Sentinel Package',
+    description: 'Comprehensive security solution with more cameras and advanced features.',
+    price: 1499.99,
+    image: '/images/cctv-outdoor-wall.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '6 Ultra HD Cameras (4MP Resolution)',
+      '8-Channel NVR',
+      '8TB Storage Capacity',
+      'Advanced Night Vision (Up to 100ft)',
+      'Person & Vehicle Detection',
+      'Two-Way Audio',
+      'Weather Resistant (IP66)'
+    ],
+    specs: {
+      cameraCount: 6,
+      resolution: '2K (4MP)',
+      nvr: '8-Channel',
+      storage: '8TB HDD',
+      poe: 'Built-in PoE+',
+      coverage: 'Medium to Large property (up to 3,500 sq ft)',
+      warranty: '2 Year Standard'
+    }
+  },
+  {
+    id: 'defender-package',
+    name: 'Defender Package',
+    description: 'Superior protection with high-resolution cameras and expanded coverage.',
+    price: 1999.99,
+    image: '/images/cctv-corner.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '8 4K Ultra HD Cameras (8MP Resolution)',
+      '16-Channel NVR',
+      '12TB Storage Capacity',
+      'Advanced Night Vision (Up to 130ft)',
+      'AI-Powered Motion Detection',
+      'Cloud Backup Option',
+      'Weather Resistant (IP67)'
+    ],
+    specs: {
+      cameraCount: 8,
+      resolution: '4K (8MP)',
+      nvr: '16-Channel',
+      storage: '12TB HDD',
+      poe: 'Built-in PoE+ with Extended Range',
+      coverage: 'Large property (up to 5,000 sq ft)',
+      warranty: '3 Year Premium'
+    }
+  },
+  {
+    id: 'fortress-package',
+    name: 'Fortress Package',
+    description: 'Professional-grade security system for large properties with comprehensive coverage.',
+    price: 2999.99,
+    image: '/images/cctv-highway.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '12 4K Ultra HD Cameras (8MP Resolution)',
+      '16-Channel NVR',
+      '16TB Storage Capacity',
+      'Color Night Vision',
+      'Advanced AI Analytics',
+      'Perimeter Intrusion Detection',
+      'Weatherproof (IP67) & Vandal-resistant'
+    ],
+    specs: {
+      cameraCount: 12,
+      resolution: '4K (8MP)',
+      nvr: '16-Channel',
+      storage: '16TB RAID Storage',
+      poe: 'Enterprise PoE+ Network',
+      coverage: 'Large property (up to 8,000 sq ft)',
+      warranty: '3 Year Premium with On-Site Service'
+    }
+  },
+  {
+    id: 'sovereign-package',
+    name: 'Sovereign Package',
+    description: 'Our most advanced security solution with state-of-the-art technology for maximum security.',
+    price: 4499.99,
+    image: '/images/cctv-mkII.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '16 4K Ultra HD Cameras (Mix of Dome, Bullet & PTZ)',
+      '32-Channel NVR',
+      '24TB RAID Storage',
+      'Starlight Night Vision Technology',
+      'Advanced Analytics (Face Detection, License Plate Recognition)',
+      'Integrated Alarm System',
+      'Remote Management & Monitoring'
+    ],
+    specs: {
+      cameraCount: 16,
+      resolution: '4K+ (8MP+)',
+      nvr: '32-Channel Enterprise Grade',
+      storage: '24TB RAID Storage with Hot-Swap',
+      poe: 'Enterprise PoE++ with Redundancy',
+      coverage: 'Estate or Commercial (10,000+ sq ft)',
+      warranty: '5 Year Premium with 24/7 Support'
+    }
+  },
+  {
+    id: 'presidential-package',
+    name: 'Presidential Package',
+    description: 'Ultimate security solution for estates and businesses requiring the highest level of protection.',
+    price: 7999.99,
+    image: '/images/cctv-highway.webp', // Using placeholder image
+    category: 'package',
+    brand: 'NM Security Packages',
+    features: [
+      '24+ Custom Security Camera Mix (4K & 12MP)',
+      'Fully Customizable Camera Placement',
+      '64-Channel Enterprise NVR',
+      '36TB Redundant Storage with Cloud Backup',
+      'Advanced AI with Behavioral Analysis',
+      'Thermal & Optical Cameras Option',
+      'Integration with Smart Home/Business Systems',
+      'Dedicated Security Monitoring Station'
+    ],
+    specs: {
+      cameraCount: '24+ (Customizable)',
+      resolution: 'Up to 12MP',
+      nvr: '64-Channel Enterprise Grade with Failover',
+      storage: '36TB Redundant RAID with Cloud Backup',
+      poe: 'Enterprise Grade Network with UPS Backup',
+      coverage: 'Large Estate or Business Campus (Unlimited)',
+      warranty: 'Lifetime Premium with Dedicated Support Team'
+    }
+  },
+  
+  // Security Monitoring Packages - Monthly subscription security monitoring
+  {
+    id: 'essential-monitoring',
+    name: 'Essential Monitoring',
+    description: 'Basic home security monitoring package for apartment or small homes with 24/7 professional monitoring.',
+    price: 39.99, // Monthly price
+    image: '/images/security-monitoring-basic.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring',
+      '2 Door Contacts',
+      '4 Window Sensors',
+      '2 PIR Motion Detectors',
+      'Mobile App Access',
+      'Push Notifications',
+      'Email Alerts'
+    ],
+    specs: {
+      doorContacts: 2,
+      windowSensors: 4,
+      motionDetectors: 2,
+      ipSirens: 0,
+      smartDevices: 0,
+      responseTimes: 'Under 60 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Professional installation available ($99)',
+      monthlyFee: '$39.99/month',
+      idealFor: 'Apartments, Condos, Small Homes (up to 1,000 sq ft)'
+    },
+    savings: {
+      yearOne: 120,
+      yearThree: 480,
+      yearFive: 840
+    }
+  },
+  {
+    id: 'standard-monitoring',
+    name: 'Standard Monitoring',
+    description: 'Enhanced home security coverage with added sensors and smart device integration for medium-sized homes.',
+    price: 49.99,
+    image: '/images/security-monitoring-standard.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring',
+      '4 Door Contacts',
+      '6 Window Sensors',
+      '3 PIR Motion Detectors',
+      '1 IP Siren',
+      'Mobile App Access',
+      'Smart Home Integration (1 device)',
+      'SMS & Push Notifications',
+      'Email Alerts'
+    ],
+    specs: {
+      doorContacts: 4,
+      windowSensors: 6,
+      motionDetectors: 3,
+      ipSirens: 1,
+      smartDevices: 1,
+      responseTimes: 'Under 45 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Professional installation included',
+      monthlyFee: '$49.99/month',
+      idealFor: 'Medium-sized Homes (up to 2,000 sq ft)'
+    },
+    savings: {
+      yearOne: 180,
+      yearThree: 660,
+      yearFive: 1140
+    }
+  },
+  {
+    id: 'premium-monitoring',
+    name: 'Premium Monitoring',
+    description: 'Comprehensive security solution with advanced smart home features and expanded coverage for larger homes.',
+    price: 59.99,
+    image: '/images/security-monitoring-premium.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring',
+      '6 Door Contacts',
+      '8 Window Sensors',
+      '4 PIR Motion Detectors',
+      '1 IP Siren',
+      'Mobile App Access with Live Video',
+      'Smart Home Integration (2 devices)',
+      'SMS & Push Notifications',
+      'Email Alerts',
+      'Weekly Security Reports'
+    ],
+    specs: {
+      doorContacts: 6,
+      windowSensors: 8,
+      motionDetectors: 4,
+      ipSirens: 1,
+      smartDevices: 2,
+      responseTimes: 'Under 30 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Professional installation included',
+      monthlyFee: '$59.99/month',
+      idealFor: 'Larger Homes (up to 3,000 sq ft)'
+    },
+    savings: {
+      yearOne: 240,
+      yearThree: 840,
+      yearFive: 1440
+    }
+  },
+  {
+    id: 'advanced-monitoring',
+    name: 'Advanced Monitoring',
+    description: 'Advanced security monitoring with extensive coverage, glass break detection and smart automation features.',
+    price: 69.99,
+    image: '/images/security-monitoring-advanced.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring',
+      '8 Door Contacts',
+      '10 Window Sensors',
+      '5 PIR Motion Detectors',
+      '2 IP Sirens',
+      'Glass Break Detection',
+      'Mobile App Access with Live Video',
+      'Smart Home Integration (3 devices)',
+      'SMS & Push Notifications',
+      'Email Alerts',
+      'Weekly Security Reports',
+      'Guard Dispatch Service'
+    ],
+    specs: {
+      doorContacts: 8,
+      windowSensors: 10,
+      motionDetectors: 5,
+      ipSirens: 2,
+      smartDevices: 3,
+      responseTimes: 'Under 25 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Professional installation included + system setup',
+      monthlyFee: '$69.99/month',
+      idealFor: 'Large Homes (up to 4,000 sq ft)'
+    },
+    savings: {
+      yearOne: 360,
+      yearThree: 1080,
+      yearFive: 1800
+    }
+  },
+  {
+    id: 'elite-monitoring',
+    name: 'Elite Monitoring',
+    description: 'Elite-level security coverage with complete home automation integration and priority response for large homes.',
+    price: 89.99,
+    image: '/images/security-monitoring-elite.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring with Priority Response',
+      '10 Door Contacts',
+      '12 Window Sensors',
+      '6 PIR Motion Detectors',
+      '2 IP Sirens',
+      'Glass Break Detection',
+      'Water Leak Detection',
+      'Carbon Monoxide Monitoring',
+      'Mobile App Access with Live Video',
+      'Smart Home Integration (5 devices)',
+      'Complete Home Automation',
+      'SMS & Push Notifications',
+      'Email Alerts',
+      'Daily Security Reports',
+      'Guard Dispatch Service',
+      'Video Verification'
+    ],
+    specs: {
+      doorContacts: 10,
+      windowSensors: 12,
+      motionDetectors: 6,
+      ipSirens: 2,
+      smartDevices: 5,
+      responseTimes: 'Under 20 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Premium installation included + system setup',
+      monthlyFee: '$89.99/month',
+      idealFor: 'Large Homes & Estates (up to 6,000 sq ft)'
+    },
+    savings: {
+      yearOne: 480,
+      yearThree: 1440,
+      yearFive: 2400
+    }
+  },
+  {
+    id: 'ultimate-monitoring',
+    name: 'Ultimate Monitoring',
+    description: 'The ultimate in home security and automation with complete coverage, video surveillance, and concierge service.',
+    price: 119.99,
+    image: '/images/security-monitoring-ultimate.webp', // Using placeholder image
+    category: 'monitoring',
+    brand: 'NM Security Monitoring',
+    recurring: true,
+    billingCycle: 'monthly',
+    features: [
+      '24/7 Professional Monitoring with VIP Response',
+      '12+ Door Contacts',
+      '15+ Window Sensors',
+      '8+ PIR Motion Detectors',
+      '3 IP Sirens',
+      'Glass Break Detection',
+      'Water Leak Detection',
+      'Smoke & Carbon Monoxide Monitoring',
+      'Mobile App Access with Live Video',
+      'Smart Home Integration (Unlimited devices)',
+      'Complete Home Automation',
+      'SMS & Push Notifications',
+      'Email Alerts',
+      'Daily Security Reports & Analysis',
+      'Guard Dispatch Service',
+      'Video Verification',
+      'Dedicated Account Manager',
+      'Annual Security Audit',
+      'Concierge Service'
+    ],
+    specs: {
+      doorContacts: '12+',
+      windowSensors: '15+',
+      motionDetectors: '8+',
+      ipSirens: 3,
+      smartDevices: 'Unlimited',
+      responseTimes: 'Under 15 seconds',
+      contractLength: 'Month-to-month',
+      installation: 'Premium installation with custom setup',
+      monthlyFee: '$119.99/month',
+      idealFor: 'Luxury Homes & Estates (6,000+ sq ft)'
+    },
+    savings: {
+      yearOne: 600,
+      yearThree: 1800,
+      yearFive: 3000
+    }
   }
 ];

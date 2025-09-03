@@ -33,6 +33,8 @@ export default {
   setup(props, { emit }) {
     const categories = [
       { id: 'all', name: 'All Products' },
+      { id: 'monitoring', name: 'Security Monitoring' },
+      { id: 'package', name: 'Security Packages' },
       { id: 'camera', name: 'Security Cameras' },
       { id: 'recorder', name: 'Recorders & NVRs' },
       { id: 'network', name: 'Networking' },
