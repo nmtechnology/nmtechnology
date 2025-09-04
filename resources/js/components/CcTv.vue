@@ -359,7 +359,6 @@ export default {
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }
-          }
         }, 300);
       }
     });
