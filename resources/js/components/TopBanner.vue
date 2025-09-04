@@ -13,7 +13,7 @@
         </svg>
       </p>
 
-      <ContactModal @close="handleModalClose" class="ml-2" />
+      <!-- <ContactModal @close="handleModalClose" class="ml-2" /> -->
     </div>
   </div>
 </template>
