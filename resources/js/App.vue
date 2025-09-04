@@ -38,7 +38,9 @@
         
         <!-- Desktop cart and login buttons -->
         <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
-          <ContactModal />
+          <div class="mr-1">
+            <ContactModal />
+          </div>
           
           <button @click="openCart" class="group p-2 text-white hover:text-green-400 relative rounded-full hover:bg-gray-800/50 transition-all duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">

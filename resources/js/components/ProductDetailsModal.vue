@@ -4,8 +4,12 @@
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="close"></div>
 
-      <!-- Modal panel -->
-      <div class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+      <!-- Modal panel with swipe functionality -->
+      <div 
+        ref="modalPanel"
+        v-touch:swipe.top="close"
+        v-touch:swipe.bottom="close"
+        class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full mobile-swipe-indicator">
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-2xl font-bold leading-6 text-white" id="product-details-title">
@@ -92,9 +96,10 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
+import { useSwipe } from '@vueuse/core';
 
 export default {
   name: 'ProductDetailsModal',
@@ -110,6 +115,68 @@ export default {
   },
   emits: ['close'],
   setup(props, { emit }) {
+    const modalPanel = ref(null);
+    let swipeCleanup = null;
+    
+    // Set up swipe gesture handling when component is mounted
+    onMounted(() => {
+      if (modalPanel.value) {
+        const { stop } = useSwipe(modalPanel.value, {
+          onSwipeStart: (e) => {
+            // Add visual feedback that swiping has started
+            if (modalPanel.value) {
+              modalPanel.value.classList.add('swiping');
+            }
+          },
+          onSwipe: ({ deltaY }) => {
+            // Apply transform during swipe for visual feedback
+            if (modalPanel.value && Math.abs(deltaY) > 20) {
+              const opacity = Math.max(0.5, 1 - Math.abs(deltaY) / 500);
+              modalPanel.value.style.transform = `translateY(${deltaY}px)`;
+              modalPanel.value.style.opacity = opacity.toString();
+            }
+          },
+          onSwipeEnd: ({ direction, deltaY }) => {
+            // Reset styles if swipe wasn't enough to dismiss
+            if (modalPanel.value) {
+              if ((direction === 'top' || direction === 'bottom') && Math.abs(deltaY) > 100) {
+                // Close the modal if swiped enough
+                close();
+              } else {
+                // Reset position and opacity if swipe wasn't far enough
+                modalPanel.value.style.transform = '';
+                modalPanel.value.style.opacity = '1';
+                modalPanel.value.classList.remove('swiping');
+              }
+            }
+          }
+        });
+        
+        // Store cleanup function
+        swipeCleanup = stop;
+        
+        // Add swipe hint animation
+        if (modalPanel.value) {
+          setTimeout(() => {
+            if (modalPanel.value) {
+              modalPanel.value.classList.add('show-swipe-hint');
+              setTimeout(() => {
+                if (modalPanel.value) {
+                  modalPanel.value.classList.remove('show-swipe-hint');
+                }
+              }, 2000);
+            }
+          }, 1000);
+        }
+      }
+    });
+    
+    // Clean up swipe handler when component is unmounted
+    onBeforeUnmount(() => {
+      if (swipeCleanup) {
+        swipeCleanup();
+      }
+    });
     // Convert category ID to friendly name
     const categoryName = computed(() => {
       const categories = {
@@ -202,6 +269,7 @@ export default {
     };
     
     return {
+      modalPanel,
       categoryName,
       close,
       addToCartAndClose,
@@ -210,3 +278,56 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* Mobile swipe indicator styles */
+.mobile-swipe-indicator {
+  position: relative;
+  touch-action: pan-y;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.mobile-swipe-indicator::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.show-swipe-hint::after {
+  opacity: 1;
+  animation: pulse 1.5s ease-in-out;
+}
+
+.swiping {
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scaleX(1); opacity: 0.3; }
+  50% { transform: translateX(-50%) scaleX(1.2); opacity: 0.6; }
+  100% { transform: translateX(-50%) scaleX(1); opacity: 0.3; }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+  .mobile-swipe-indicator {
+    margin-top: 2rem;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 1rem 1rem 0 0;
+  }
+  
+  .mobile-swipe-indicator::after {
+    opacity: 0.5;
+  }
+}
+</style>

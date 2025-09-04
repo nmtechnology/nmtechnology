@@ -136,9 +136,12 @@
               <h2 class="text-left text-wrap text-green-600 text-bold text-2xl font-extrabold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id"
-                  :class="['rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm',
+                  :class="['rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer',
                       product.category === 'package' ? 'bg-gray-800/70 border border-green-600/30' : 
-                      product.category === 'monitoring' ? 'bg-gray-800/70 border border-purple-600/30' : 'bg-gray-800/50']">
+                      product.category === 'monitoring' ? 'bg-gray-800/70 border border-purple-600/30' : 'bg-gray-800/50']"
+                  @click="showProductDetails(product)"
+                  role="button"
+                  :aria-label="`View details for ${product.name}`">
                   <div v-if="product.category === 'package'"
                     class="bg-green-600/20 text-green-500 text-xs font-bold px-3 py-1 text-center flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
@@ -205,7 +208,7 @@
                       window sensors
                     </div>
                     <div class="flex gap-2 mt-4">
-                      <button @click="addToCart(product)" :class="[
+                      <button @click.stop="addToCart(product)" :class="[
                                 'flex-1 py-2 rounded-l text-white transition-colors flex items-center justify-center',
                                 product.category === 'package' 
                                   ? 'bg-green-600 hover:bg-green-700' 
@@ -228,8 +231,8 @@
                         </span>
                         {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}
                       </button>
-                      <button @click="showProductDetails(product)" :class="[
-                                'text-white px-3 py-2 rounded-r transition-colors',
+                      <button @click.stop="showProductDetails(product)" :class="[
+                                'text-white px-3 py-2 rounded-r transition-colors cursor-pointer',
                                 product.category === 'package' 
                                   ? 'bg-gray-800 hover:bg-gray-700' 
                                   : product.category === 'monitoring'
@@ -624,10 +627,29 @@ h1, p {
 }
 
 /* Product card hover effects */
-.bg-gray-800:hover {
+.bg-gray-800:hover,
+.bg-gray-800\/70:hover,
+.bg-gray-800\/50:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   transform: translateY(-4px);
   transition: all 0.3s ease;
+}
+
+/* Clickable product tile indication */
+.cursor-pointer:hover {
+  position: relative;
+}
+
+.cursor-pointer:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 0 2px rgba(22, 163, 74, 0.4);
+  pointer-events: none;
 }
 
 /* Make sure SVG background doesn't interfere with interactive elements */

@@ -6,6 +6,7 @@ import HomePage from './views/HomePage.vue'
 import LandingPage from './views/LandingPage.vue'
 import CcTv from './components/CcTv.vue'
 import axios from 'axios'
+import { vTouch } from './directives/touch-directive'
 
 const router = createRouter({
   history: createWebHistory(),

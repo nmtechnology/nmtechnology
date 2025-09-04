@@ -2,7 +2,7 @@
 <!-- eslint-disable no-tabs -->
 <template>
   <div class="root w-full">
-    <button class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-green-600 border border-transparent rounded-md font-semibold text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300 text-sm md:text-base" id="button" @click="openModalFromOptions">
+    <button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2.5 bg-green-600 border border-transparent rounded-md font-semibold text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300 text-sm md:text-base" @click="openModalFromOptions">
       Contact Us
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -498,30 +498,14 @@
   </div>
 </template>
 
-<script setup>
-import { ref, defineEmits } from 'vue'
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
-
-const isOpen = ref(false)
-const emit = defineEmits(['close'])
-
-// Close modal function for click-outside behavior
-const closeModal = () => {
-  isOpen.value = false
-  emit('close')
-}
-
-// Open modal function
-const openModal = () => {
-  isOpen.value = true
-}
-</script>
 <script>
+import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
 import axios from 'axios'
 
 export default {
   data () {
     return {
+      isOpen: false,
       form: {
         firstName: '',
         lastName: '',
@@ -543,18 +527,19 @@ export default {
     }
   },
   methods: {
-    // Access the closeModal method from the composition API
-    closeModalFromOptions() {
-      closeModal();
+    // Close modal function
+    closeModal() {
+      this.isOpen = false
+      this.$emit('close')
     },
-    // Access the openModal method from the composition API and reset state
+    // Open modal function with reset state
     openModalFromOptions() {
       // Reset confirmation screen and error states when opening modal
       this.showConfirmationScreen = false;
       this.successMessage = '';
       this.errorMessage = '';
       this.validationErrors = {};
-      openModal();
+      this.isOpen = true;
     },
     sendContact () {
       this.isSubmitting = true
@@ -639,8 +624,8 @@ export default {
     },
     closeFromConfirmation() {
       this.showConfirmationScreen = false
-      this.$emit('close')
       this.successMessage = ''
+      this.closeModal()
     }
   },
   mounted () {
@@ -650,26 +635,6 @@ export default {
 </script>
 
 <style>
-#button {
-    background: linear-gradient(to right, #15a34a, #16a34a);
-    border-radius: 13px;
-    padding: 5%;
-    width: 200px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 128, 0, 0.1), 0 2px 4px -1px rgba(0, 128, 0, 0.06);
-    position: relative;
-    overflow: hidden;
-}
-
-#button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 15px -3px rgba(0, 128, 0, 0.1), 0 4px 6px -2px rgba(0, 128, 0, 0.05);
-    background: linear-gradient(to right, #16a34a, #15803d);
-}
-
-#button:active {
-    transform: translateY(0) scale(0.98);
-}
 
 /* All delay classes will take 2x longer to start */
 :root {
@@ -730,12 +695,6 @@ export default {
 }
 
 @media (max-width: 640px) {
-    #button {
-        width: 150px;
-        font-size: 0.9rem;
-        padding: 4%;
-    }
-    
     .modal-content {
         margin-top: 1rem;
     }
