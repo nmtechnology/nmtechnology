@@ -20,7 +20,6 @@
 
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/20/solid'
-import ContactModal from './ContactModal.vue'
 </script>
 
 <style scoped>

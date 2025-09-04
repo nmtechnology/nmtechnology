@@ -39,6 +39,9 @@
         <!-- Desktop cart and login buttons -->
         <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
           <div class="mr-1">
+            <SecurityFAQsModal />
+          </div>
+          <div class="mr-1">
             <ContactModal />
           </div>
           
@@ -164,6 +167,7 @@ import { useRoute } from 'vue-router'
 import ToastContainer from './components/ToastContainer.vue'
 import CartModal from './components/CartModal.vue'
 import ContactModal from './components/ContactModal.vue'
+import SecurityFAQsModal from './components/SecurityFAQsModal.vue'
 import { cartStore } from './store/cartStore.js'
 
 // Navigation array for mobile menu
@@ -181,6 +185,7 @@ export default {
     ToastContainer,
     CartModal,
     ContactModal,
+    SecurityFAQsModal,
     Dialog,
     DialogPanel
   },

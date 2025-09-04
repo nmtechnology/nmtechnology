@@ -31,11 +31,6 @@
           <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
         </svg>
 
-        <!-- Security FAQs Section -->
-        <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 scroll-mt-24" id="security-faqs">
-          <SecurityFAQs @scroll-to="handleScrollTo" />
-        </div>
-
         <div class="overflow-visible relative z-10">
           <div
             class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
@@ -306,14 +301,13 @@
 </template>
 
 <script>
-import { ref, computed, watch, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import CartModal from '../components/CartModal.vue';
 import ProductFilter from '../components/ProductFilter.vue';
 import BackgroundPattern from '../components/BackgroundPattern.vue';
 import ProductDetailsModal from '../components/ProductDetailsModal.vue';
 import RecentlyViewedProducts from '../components/RecentlyViewedProducts.vue';
-import SecurityFAQs from '../components/SecurityFAQs.vue';
 import PromoBanner from '../components/PromoBanner.vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
@@ -328,7 +322,6 @@ export default {
     ProductFilter,
     ProductDetailsModal,
     RecentlyViewedProducts,
-    SecurityFAQs,
     BackgroundPattern,
     PromoBanner
   },
@@ -365,11 +358,7 @@ export default {
             if (element) {
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-          } else if (targetId === 'security-faqs') {
-            const element = document.getElementById('security-faqs');
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+          }
           }
         }, 300);
       }
@@ -793,11 +782,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* SecurityFAQs section styling */
-#security-faqs {
-  margin-top: 4rem;
-  scroll-margin-top: 80px; /* Account for any fixed headers */
-}
+
 
 /* Animation styles for scroll transitions */
 .scroll-transition {

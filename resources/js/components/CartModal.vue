@@ -222,10 +222,30 @@
               <h3 class="text-lg leading-6 font-medium text-white" id="success-modal-title">
                 Quote Request Submitted Successfully
               </h3>
-              <div class="mt-2">
-                <p class="text-sm text-gray-300">
-                  Thank you for your quote request! We have received your request and will contact you shortly to discuss your requirements.
-                </p>
+              <div class="mt-4">
+                <div class="bg-green-900/20 border border-green-600/30 rounded-lg p-4 mb-4">
+                  <div class="flex items-center">
+                    <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-green-400 font-medium">Quote Request Successfully Submitted!</p>
+                  </div>
+                </div>
+                
+                <div class="text-sm text-gray-300 space-y-3">
+                  <p>Thank you for submitting your quote request! Here's what happens next:</p>
+                  
+                  <ul class="list-disc list-inside space-y-2 ml-2">
+                    <li>Our team will review your request within 1 business day</li>
+                    <li>We'll prepare a detailed quote based on your specific requirements</li>
+                    <li>A security specialist will contact you at {checkoutForm.email} to discuss your needs</li>
+                    <li>We'll answer any questions and can adjust the quote as needed</li>
+                  </ul>
+                  
+                  <p class="mt-4 text-sm text-gray-400">
+                    If you need immediate assistance, please don't hesitate to call us directly.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -233,7 +253,7 @@
         <div class="bg-gray-900 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button type="button" @click="closeSuccessModal"
                   class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
-            Close
+            Got it, thanks!
           </button>
         </div>
       </div>
@@ -470,7 +490,7 @@ export default {
     const closeSuccessModal = () => {
       orderSubmitted.value = false;
       cartStore.closeCart();
-      toastService.info('Thank you for your order! We will contact you shortly.');
+      toastService.success('Quote request submitted successfully! We\'ll be in touch soon.');
     };
 
     return {
