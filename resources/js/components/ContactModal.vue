@@ -1,8 +1,13 @@
 <!-- eslint-disable no-mixed-spaces-and-tabs -->
 <!-- eslint-disable no-tabs -->
 <template>
-  <div class="root">
-    <button class="text-white text-center text-lg" id="button" @click="openModal">Contact Us</button>
+  <div class="root w-full">
+    <button class="w-full inline-flex items-center justify-center px-4 py-2.5 bg-green-600 border border-transparent rounded-md font-semibold text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300 text-sm md:text-base" id="button" @click="openModalFromOptions">
+      Contact Us
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    </button>
     <teleport to="body">
       <div class="modal" v-if="isOpen" @click.self="closeModal">
         <!-- TAILWIND FORM START -->
@@ -146,22 +151,55 @@
               </div>
             </div>
             <div>
-              <!-- Contact Form -->
-              <form id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post"
-                class="px-4 sm:px-6 pb-16 sm:pb-24 pt-10 sm:pt-20 lg:px-8 lg:py-48">
+              <!-- Confirmation Screen -->
+              <div v-if="showConfirmationScreen" class="px-4 sm:px-6 pb-16 sm:pb-24 pt-10 sm:pt-20 lg:px-8 lg:py-48">
                 <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                  <div v-if="successMessage"
-                    class="mb-6 p-4 bg-gradient-to-br from-green-900/40 to-green-900/20 border border-green-500/30 text-green-400 rounded-md text-center font-medium animate__animated animate__fadeIn shadow-md">
-                    <div class="flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-500" viewBox="0 0 20 20"
-                        fill="currentColor">
-                        <path fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd" />
-                      </svg>
-                      {{ successMessage }}
+                  <div class="animate__animated animate__fadeIn">
+                    <div class="text-center">
+                      <div class="mb-6 mx-auto w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <h2 class="text-2xl font-bold text-green-500 mb-4">Message Sent Successfully!</h2>
+                      <p class="text-gray-300 text-lg mb-6">
+                        Thank you for contacting NM Technology. Your message has been received, and our team will get back to you shortly.
+                      </p>
+                    </div>
+                    
+                    <div class="mt-8 bg-gray-800/50 p-4 rounded-lg border border-gray-700">
+                      <h3 class="text-white font-semibold mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z" clip-rule="evenodd" />
+                        </svg>
+                        What happens next?
+                      </h3>
+                      <ul class="text-gray-300 text-sm space-y-2 pl-6 list-disc">
+                        <li>Our team will review your inquiry within 1 business day</li>
+                        <li>You will receive an email confirmation to the address you provided</li>
+                        <li>One of our security experts will contact you to discuss your requirements</li>
+                        <li>We may request additional information to better assist with your security needs</li>
+                      </ul>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                      <button 
+                        @click="closeFromConfirmation"
+                        class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors duration-300 inline-flex items-center justify-center font-semibold">
+                        Close
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                      </button>
                     </div>
                   </div>
+                </div>
+              </div>
+              
+              <!-- Contact Form -->
+              <form v-else id="contact-form" novalidate="novalidate" @submit.prevent="sendContact" method="post"
+                class="px-4 sm:px-6 pb-16 sm:pb-24 pt-10 sm:pt-20 lg:px-8 lg:py-48">
+                <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                   <div v-if="errorMessage"
                     class="mb-6 p-4 bg-gradient-to-br from-red-900/40 to-red-900/20 border border-red-500/30 text-red-400 rounded-md text-center font-medium animate__animated animate__fadeIn shadow-md">
                     <div class="flex items-center justify-center">
@@ -495,6 +533,7 @@ export default {
       successMessage: '',
       errorMessage: '',
       validationErrors: {},
+      showConfirmationScreen: false,
       mathProblem: {
         question: '',
         answer: null
@@ -507,6 +546,15 @@ export default {
     // Access the closeModal method from the composition API
     closeModalFromOptions() {
       closeModal();
+    },
+    // Access the openModal method from the composition API and reset state
+    openModalFromOptions() {
+      // Reset confirmation screen and error states when opening modal
+      this.showConfirmationScreen = false;
+      this.successMessage = '';
+      this.errorMessage = '';
+      this.validationErrors = {};
+      openModal();
     },
     sendContact () {
       this.isSubmitting = true
@@ -532,11 +580,8 @@ export default {
         console.log('Success response:', res)
         this.successMessage = "Thank you! Your message has been sent successfully to NM Technology. Our team will contact you soon."
         this.clearForm()
-        // Close modal after 3 seconds of showing success message
-        setTimeout(() => {
-          this.$emit('close')  // Emit close event to parent component
-          this.successMessage = ''
-        }, 3000)
+        // Show confirmation screen instead of closing automatically
+        this.showConfirmationScreen = true
       })
       .catch(error => {
         console.error('Contact form error:', error)
@@ -591,6 +636,11 @@ export default {
       this.mathProblem.answer = answer
       this.userMathAnswer = null
       this.mathVerificationError = ''
+    },
+    closeFromConfirmation() {
+      this.showConfirmationScreen = false
+      this.$emit('close')
+      this.successMessage = ''
     }
   },
   mounted () {

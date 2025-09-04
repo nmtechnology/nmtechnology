@@ -5,7 +5,7 @@
     :class="[
       fullWidth ? 'px-0' : 'px-4 sm:px-6 lg:px-8', 
       fixed ? 'fixed left-0 right-0 z-10' : 'relative',
-      fixed ? 'top-[140px]' : '', /* Position below navbar (60px) + TopBanner (80px) */
+      fixed ? 'top-[128px]' : '', /* Position below navbar (80px) + TopBanner (48px) */
       customClass
     ]"
   >
