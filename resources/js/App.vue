@@ -38,14 +38,14 @@
         
         <!-- Desktop cart and login buttons -->
         <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
-          <div class="mr-1">
+          <div class="mr-1" v-if="isRouteActive('/cctv')">
             <SecurityFAQsModal />
           </div>
-          <div class="mr-1">
+          <div class="mr-1" v-if="isRouteActive('/home')">
             <ContactModal />
           </div>
           
-          <button @click="openCart" class="group p-2 text-white hover:text-green-400 relative rounded-full hover:bg-gray-800/50 transition-all duration-200">
+          <button @click="openCart" class="group p-2 text-white hover:text-green-400 relative rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
@@ -115,20 +115,24 @@
                 <!-- Mobile cart button -->
                 <button 
                   @click="openCartAndCloseMenu" 
-                  class="flex items-center w-full px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
+                  class="flex items-center px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Quote Cart
                   <transition name="cart-badge">
                     <span v-if="cartItemCount > 0" class="ml-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ cartItemCount }}</span>
                   </transition>
                 </button>
 
-                <!-- Contact Us Button -->
-                <div class="mt-6 px-4">
+                <!-- Contact Us Button - only on home page -->
+                <div v-if="isRouteActive('/home')" class="mt-6 px-4">
                   <ContactModal />
+                </div>
+                
+                <!-- Security FAQs Button - only on CCTV page -->
+                <div v-if="isRouteActive('/cctv')" class="mt-6 px-4">
+                  <SecurityFAQsModal />
                 </div>
               </div>
             </div>
@@ -209,6 +213,11 @@ export default {
       if (comparePath !== '/home' && routePath.startsWith(comparePath)) return true;
       return false;
     };
+
+    // Check if current route matches exactly
+    const isRouteActive = (path) => {
+      return route.path === path;
+    };
     
     const openCart = () => {
       cartStore.openCart();
@@ -226,7 +235,8 @@ export default {
       openCart,
       openCartAndCloseMenu,
       isLandingPage,
-      isActiveRoute
+      isActiveRoute,
+      isRouteActive
     };
   }
 }
