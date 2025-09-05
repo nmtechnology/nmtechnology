@@ -1,6 +1,44 @@
 // Product data with categories for CCTV page
 export const cameraProducts = [
   {
+    id: 'udm-pro',
+    name: 'UniFi Dream Machine Pro',
+    description: 'All-in-one network security gateway and controller for enterprise-grade networks with integrated security features, advanced routing, and network management.',
+    price: null, // Call for price
+    image: '/images/KX-UDMPRO-dream-machine-nvr-1.png',
+    images: [
+      '/images/KX-UDMPRO-dream-machine-nvr-1.png',
+      '/images/KX-UDMPRO-dream-machine-nvr-2.png',
+      '/images/KX-UDMPRO-dream-machine-nvr-3.png',
+      '/images/KX-UDMPRO-dream-machine-nvr-4.png'
+    ],
+    category: 'network',
+    brand: 'Ubiquiti',
+    features: [
+      'All-in-One Network Appliance',
+      'Integrated Security Gateway',
+      '10 Gbps WAN/LAN SFP+ Ports',
+      '8-Port Gigabit Switch',
+      '3.5" HDD Bay for NVR',
+      'UniFi Network Controller',
+      'IDS/IPS Threat Management'
+    ],
+    specs: {
+      dimensions: '442.4 x 43.7 x 285.6 mm (17.42 x 1.72 x 11.24")',
+      processor: '1.7 GHz Quad-Core Processor',
+      memory: '4 GB DDR4 RAM',
+      storage: '16 GB eMMC, 3.5" HDD Bay for Protect',
+      networkInterfaces: '(1) 10G WAN, (1) 10G SFP+, (8) GbE RJ45 LAN',
+      maxThroughput: '10 Gbps total, 3.5 Gbps with IDS/IPS',
+      management: 'UniFi OS with Network, Protect & Access Applications',
+      powerInput: '100-240VAC, 50/60 Hz',
+      powerConsumption: '33W (Max)',
+      operating: 'UniFi OS',
+      mounting: 'Standard 19" Rack Mount (1U)',
+      temperature: '0 to 40°C (32 to 104°F)'
+    }
+  },
+  {
     id: 'box-cam-1',
     name: 'HD Security Box Camera',
     description: 'High-definition video quality with night vision capabilities.',
@@ -103,36 +141,44 @@ export const cameraProducts = [
   },
   {
     id: 'uvc-g5-pro',
-    name: 'G5 Pro UVC Camera',
+    name: 'UniFi G5 Pro Camera',
     description: 'Next-gen indoor/outdoor 4K PoE camera with exceptional image performance, long-range IR night vision, and 3x optical zoom.',
     price: null,
-    image: '/images/axis-bullet-cam.webp', // Using placeholder image
+    image: '/images/KX-UVCG5PRO-G5-Pro-camera-1.png',
+    images: [
+      '/images/KX-UVCG5PRO-G5-Pro-camera-1.png',
+      '/images/KX-UVCG5PRO-G5-Pro-camera-2.png',
+      '/images/KX-UVCG5PRO-G5-Pro-camera-3.png',
+      '/images/KX-UVCG5PRO-G5-Pro-camera-4.png',
+      '/images/KX-UVCG5PRO-G5-Pro-camera-5.png'
+    ],
     category: 'camera',
     brand: 'Ubiquiti',
     features: [
-      '4K Resolution', 
+      '4K Resolution (8MP)', 
       '3x Optical Zoom', 
-      'IR Night Vision (25m)', 
-      'Smart Detection', 
+      'IR Night Vision (25m/82ft)',
       'IP65 Weatherproof',
-      'Built-in Microphone',
-      'NDAA Compliant'
+      'H.264/H.265 Video Formats',
+      'PoE Powered',
+      'Wall & Pole Mountable'
     ],
     specs: {
-      dimensions: 'Ø86 x 154.3 mm (Ø3.4 x 6.1")',
+      dimensions: '86 mm x 154.3 mm (3.4" x 6.1")',
       resolution: '4K (8MP 3840 x 2160)',
-      nightVision: '25m (82 ft), up to 40m (131 ft) with Vision Enhancer',
+      nightVision: '25m (82 ft)',
       zoom: '3x Optical',
-      fov: 'Wide: H 109.9°, V 60°, D 127.7° | Zoom: H 35°, V 19.8°, D 40°',
-      smartDetections: 'People, Vehicles, Animals',
-      audio: 'Built-in Microphone',
+      fov: 'H: 35-109.9° / V: 19.8-60° / D: 40-127.7°',
+      lens: 'Varifocal 4.1-12.3mm, f/1.53-f/3.3',
       weatherproofing: 'IP65',
-      tamperResistance: 'IK04',
-      mountOptions: 'Wall, ceiling, pole mount (Included)',
-      networkInterface: '10/100 MbE RJ45 port',
+      mountOptions: 'Wall mount, Pole mount',
+      networkInterface: 'RJ-45 Ethernet with PoE',
       maxFrameRate: '30 FPS',
-      sensor: '1/2" 8MP',
-      lens: 'F 4.1–12.3 mm; ƒ/1.53–ƒ/3.3',
+      sensor: 'CMOS',
+      videoFormat: 'H.264, H.265',
+      powerInput: '37-57V DC (PoE)',
+      temperature: '-4° to 122°F (-20° to 50°C)',
+      humidity: '0-90% Operating Humidity',
       power: 'PoE (37-57V DC)',
       powerConsumption: 'Device: 10W, With Enhancer: 12.95W',
       processor: 'Dual-core Arm® Cortex®-A53 based chip',
@@ -238,6 +284,45 @@ export const cameraProducts = [
     category: 'accessory',
     brand: 'Axis Communications',
     features: ['Adjustable', 'Weather Resistant', 'Easy Installation']
+  },
+  {
+    id: 'u6-pro-us',
+    name: 'Ubiquiti UniFi WiFi 6 Pro Access Point',
+    description: 'Quickly expand your business\'s network with strong and reliable wireless coverage by connecting the WiFi 6 Pro Dual-Band Access Point from Ubiquiti Networks to your compatible router or network switch. Supporting over 300 concurrent connections with 4x4 MIMO with 160 MHz channels.',
+    price: null, // Call for price
+    image: '/images/KX-U6PRO-access-point-angle-1.png',
+    images: [
+      '/images/KX-U6PRO-access-point-angle-1.png',
+      '/images/KX-U6PRO-access-point-angle-2.png',
+      '/images/KX-U6PRO-access-point-angle-3.png'
+    ],
+    category: 'network',
+    brand: 'Ubiquiti',
+    features: [
+      'WiFi 6 (802.11ax) Technology',
+      '5.3 Gbps Total Throughput',
+      '4x4 MIMO with 160 MHz Channels',
+      'Supports 300+ Concurrent Connections',
+      'Dual-Band 2.4 GHz and 5 GHz',
+      'PoE+ Powered',
+      'IP54 Weatherproof Rating',
+      'Easy UniFi Network Management'
+    ],
+    specs: {
+      dimensions: '197.7 mm diameter x 35.8 mm height (7.8" x 1.4")',
+      processor: 'Quad-Core ARM Processor',
+      networkInterfaces: '(1) GbE RJ45 Port with PoE+',
+      wifi: 'Dual-Band 802.11ax',
+      maxThroughput: '5.3 Gbps',
+      frequency: '2.4 GHz & 5 GHz',
+      encryption: 'WPA, WPA2, WPA3, WPA-ENT, WPA-PSK',
+      powerInput: 'PoE+ IEEE 802.3at',
+      powerConsumption: '13W Maximum',
+      mountOptions: 'Ceiling Mount, Wall Mount (Included)',
+      management: 'UniFi Network Application',
+      temperature: 'Indoor Use',
+      antennaType: 'Internal 4x4 MIMO'
+    }
   },
   
   // CCTV Security Packages - Tiered solutions for different security needs

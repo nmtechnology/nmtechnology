@@ -25,9 +25,63 @@
           <!-- Product details -->
           <div class="mt-3">
             <div class="flex flex-col lg:flex-row gap-6">
-              <!-- Product image -->
+              <!-- Product image or carousel -->
               <div class="w-full lg:w-1/2">
-                <img :src="product.image" :alt="product.name" class="w-full h-64 object-contain bg-gray-700 rounded-lg">
+                <div v-if="product.images && product.images.length > 1" class="relative">
+                  <!-- Image carousel -->
+                  <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72">
+                    <div ref="carouselRef" class="carousel-container flex transition-transform duration-300" 
+                      :style="{ transform: `translateX(-${currentSlide * 100}%)`, width: `${product.images.length * 100}%` }"
+                      v-touch:swipe.left="nextSlide"
+                      v-touch:swipe.right="prevSlide">
+                      <div
+                        v-for="(image, index) in product.images"
+                        :key="index"
+                        class="w-full h-72 flex items-center justify-center flex-shrink-0"
+                        :style="{ width: `${100 / product.images.length}%` }">
+                        <img
+                          :src="image" 
+                          :alt="`${product.name} - Image ${index + 1}`" 
+                          class="max-h-full max-w-full object-contain"
+                          @error="$event.target.src = '/images/axis-dome-side.webp'"
+                        />
+                      </div>
+                    </div>
+                    <!-- Navigation arrows -->
+                    <button 
+                      @click="prevSlide" 
+                      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700"
+                      v-if="product.images.length > 1">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button 
+                      @click="nextSlide" 
+                      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700"
+                      v-if="product.images.length > 1">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  <!-- Pagination dots -->
+                  <div class="flex justify-center mt-2 space-x-2" v-if="product.images.length > 1">
+                    <button 
+                      v-for="(_, index) in product.images" 
+                      :key="index" 
+                      @click="goToSlide(index)"
+                      :class="[
+                        'w-2 h-2 rounded-full transition-all focus:outline-none',
+                        currentSlide === index ? 'bg-green-500 w-4' : 'bg-gray-400 hover:bg-gray-300'
+                      ]"
+                      :aria-label="`Go to image ${index + 1}`">
+                    </button>
+                  </div>
+                </div>
+                <div v-else class="relative overflow-hidden bg-gray-700 rounded-lg h-72 flex items-center justify-center">
+                  <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain" @error="$event.target.src = '/images/axis-dome-side.webp'">
+                </div>
               </div>
               
               <!-- Product info -->
@@ -96,7 +150,7 @@
 </template>
 
 <script>
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
+import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
 import { useSwipe } from '@vueuse/core';
@@ -116,7 +170,66 @@ export default {
   emits: ['close'],
   setup(props, { emit }) {
     const modalPanel = ref(null);
+    const currentSlide = ref(0);
+    const carouselRef = ref(null);
     let swipeCleanup = null;
+    
+    // Carousel controls
+    const nextSlide = () => {
+      if (!props.product.images) return;
+      currentSlide.value = (currentSlide.value + 1) % props.product.images.length;
+      resetAutoRotation();
+    };
+    
+    const prevSlide = () => {
+      if (!props.product.images) return;
+      currentSlide.value = (currentSlide.value - 1 + props.product.images.length) % props.product.images.length;
+      resetAutoRotation();
+    };
+    
+    const goToSlide = (index) => {
+      currentSlide.value = index;
+      resetAutoRotation();
+    };
+    
+    // Reset auto-rotation when user interacts with carousel
+    const resetAutoRotation = () => {
+      if (autoRotationTimer) {
+        clearInterval(autoRotationTimer);
+        startAutoRotation();
+      }
+    };
+    
+    // Reset slide index when product changes
+    watch(() => props.product, () => {
+      currentSlide.value = 0;
+      startAutoRotation();
+    });
+    
+    // Auto-rotate carousel slides
+    let autoRotationTimer = null;
+    
+    const startAutoRotation = () => {
+      // Clear any existing timer
+      if (autoRotationTimer) clearInterval(autoRotationTimer);
+      
+      // Only start auto-rotation if product has multiple images
+      if (props.product.images && props.product.images.length > 1) {
+        autoRotationTimer = setInterval(() => {
+          nextSlide();
+        }, 5000); // Rotate every 5 seconds
+      }
+    };
+    
+    // Clean up timer when component is unmounted
+    onBeforeUnmount(() => {
+      if (autoRotationTimer) clearInterval(autoRotationTimer);
+    });
+    
+    // Start auto-rotation when component is mounted
+    onMounted(() => {
+      startAutoRotation();
+    });
     
     // Set up swipe gesture handling when component is mounted
     onMounted(() => {
@@ -270,10 +383,15 @@ export default {
     
     return {
       modalPanel,
+      carouselRef,
       categoryName,
       close,
       addToCartAndClose,
-      formatSpecName
+      formatSpecName,
+      currentSlide,
+      nextSlide,
+      prevSlide,
+      goToSlide
     };
   }
 };
@@ -317,6 +435,23 @@ export default {
 }
 
 /* Responsive adjustments for mobile */
+/* Carousel styles */
+.carousel-container {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+}
+
+.carousel-container img {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 640px) {
   .mobile-swipe-indicator {
     margin-top: 2rem;
