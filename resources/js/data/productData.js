@@ -180,7 +180,7 @@ export const cameraProducts = [
     name: 'UniFi G5 Pro Camera',
     description: 'Next-gen indoor/outdoor 4K PoE camera with exceptional image performance, long-range IR night vision, and 3x optical zoom.',
     price: null,
-    image: '/images/KX-UVCG5PRO-G5-Pro-camera-1.webp',
+    image: '/images/uv-g4-pro-camera-1.webp',
     images: [
       '/images/KX-UVCG5PRO-G5-Pro-camera-1.webp',
       '/images/KX-UVCG5PRO-G5-Pro-camera-2.webp',
@@ -226,7 +226,10 @@ export const cameraProducts = [
     name: 'UVC G4 Pro Camera',
     description: 'Professional-grade 4K security camera with advanced motion detection and IR night vision.',
     price: null,
-    image: '/images/axis-bullet-cam.webp', // Using placeholder image
+    image: '/images/uv-g4-pro-camera-1.webp',
+    images: [
+      '/images/uv-g4-pro-camera-1.webp'
+    ],
     category: 'camera',
     brand: 'Ubiquiti',
     features: [
