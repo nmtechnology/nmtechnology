@@ -43,7 +43,7 @@
                           :src="image" 
                           :alt="`${product.name} - Image ${index + 1}`" 
                           class="max-h-full max-w-full object-contain"
-                          @error="$event.target.src = '/images/axis-dome-side.webp'"
+                          @error="$event.target.src = '/public/images/axis-dome-side.webp'"
                         />
                       </div>
                     </div>
@@ -80,7 +80,7 @@
                   </div>
                 </div>
                 <div v-else class="relative overflow-hidden bg-gray-700 rounded-lg h-72 flex items-center justify-center">
-                  <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain" @error="$event.target.src = '/images/axis-dome-side.webp'">
+                  <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
                 </div>
               </div>
               

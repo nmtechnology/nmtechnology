@@ -30,11 +30,18 @@ const router = createRouter({
       // Return savedPosition if it exists (browser back/forward navigation)
       return savedPosition;
     } else if (to.hash) {
-      // If the URL has a hash, scroll to the element with that ID
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-        top: 80, // Add offset to account for fixed header
+      // Check if the element exists before scrolling
+      const element = document.querySelector(to.hash);
+      if (element) {
+        return {
+          el: to.hash,
+          behavior: 'smooth',
+          top: 80, // Add offset to account for fixed header
+        }
+      } else {
+        // If element doesn't exist, scroll to top
+        console.warn(`Element with selector "${to.hash}" not found in the DOM`);
+        return { top: 0 }
       }
     } else {
       // Otherwise scroll to top of the page

@@ -19,6 +19,12 @@ const props = defineProps({
 const router = useRouter();
 const isLoading = ref(true);
 
+// Add the handleBannerDismiss method that was missing
+const handleBannerDismiss = () => {
+  // Method to handle banner dismissal
+  console.log('Banner dismissed');
+};
+
 onMounted(() => {
   console.log('AuthGuard mounted, requireAuth:', props.requireAuth);
   

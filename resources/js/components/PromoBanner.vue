@@ -14,7 +14,7 @@
       <!-- Background Image -->
       <div class="w-full overflow-hidden" :style="{ maxHeight: maxHeight ? `${maxHeight}px` : '100px' }">
         <img 
-          :src="imageUrl || '/images/halloween-promo-banner.png'" 
+          :src="imageUrl || '/public/images/halloween-promo-banner.webp'" 
           :alt="altText || 'Promotional Banner'" 
           class="w-full object-contain mx-auto"
           :style="{
@@ -64,7 +64,7 @@ import { ref, computed, onMounted } from 'vue';
 const props = defineProps({
   imageUrl: {
     type: String,
-    default: '/images/halloween-promo-banner.png'
+    default: '/public/images/halloween-promo-banner.webp'
   },
   altText: {
     type: String,

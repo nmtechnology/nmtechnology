@@ -155,8 +155,8 @@
                     </svg>
                     SECURITY MONITORING
                   </div>
-                  <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name"
-                    class="w-full h-48 object-scale-down" @error="$event.target.src = '/images/axis-dome-side.webp'">
+                  <img :src="product.image || '/public/images/axis-dome-side.webp'" :alt="product.name"
+                    class="w-full h-48 object-scale-down" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-2xl font-bold" :class="{
                           'text-green-400 font-extrabold': product.category === 'package',

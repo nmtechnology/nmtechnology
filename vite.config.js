@@ -10,9 +10,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    build: {
-        rollupOptions: {
-            external: ['/public/images/zia-symbol.png']
-        }
-    },
 });

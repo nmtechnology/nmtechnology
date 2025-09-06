@@ -67,7 +67,7 @@ eslint-disable no-undef
                                
 <div class="flex items-center gap-4">
     <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-2 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
-         <span class="text-green-600 dark:text-blue-500">protected and served</span> here in <span class="items-center inline-flex"><img src="/public/images/zia-symbol.webp" alt="Zia Symbol" class="w-12 h-12 mx-1"/> New Mexico!</span></h1>
+         <span class="text-green-600 dark:text-blue-500">protected and served</span> here in <span class="items-center inline-flex"><img src="/public/images/zia-symbol.png" alt="Zia Symbol" class="w-12 h-12 mx-1"/> New Mexico!</span></h1>
 </div>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
