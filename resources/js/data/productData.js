@@ -113,7 +113,7 @@ export const cameraProducts = [
     name: 'LiteBeam 5AC Gen2 WiFi Bridge',
     description: 'Point-to-point wireless bridge for extending network coverage up to 5km with high-speed data transmission.',
     price: null,
-    image: '/images/ubiquiti-wifi-bridge.webp', // Using placeholder image
+    image: '/images/LiteBeam 5AC Gen2 WiFi Bridge-1.webp',
     category: 'network',
     brand: 'Ubiquiti',
     features: [
@@ -286,7 +286,12 @@ export const cameraProducts = [
     name: 'UniFi Switch Pro 24 PoE',
     description: 'Advanced 24-port Gigabit PoE+ switch with SFP+ ports for high-performance network deployments.',
     price: null,
-    image: '/images/nvr-recorder.webp', // Using placeholder image
+    image: '/images/Ubiquiti USW-24-POE-switch-1.webp',
+    images: [
+      '/images/Ubiquiti USW-24-POE-switch-1.webp',
+      '/images/Ubiquiti USW-24-POE-switch-2.webp',
+      '/images/Ubiquiti USW-24-POE-switch-3.webp'
+    ],
     category: 'network',
     brand: 'Ubiquiti',
     features: [
@@ -316,9 +321,9 @@ export const cameraProducts = [
     name: 'Industrial 8 Ports Full Gigabit POE++ Switch',
     description: '8-port industrial-grade PoE++ switch with 4 BT90W ports, DC48-56V redundant power input, and real-time PoE load monitoring for harsh environments.',
     price: null, // Call for price
-    image: '/images/BT90W-Industrial-switch-1.webp',
+    image: '/images/POE-SW508G2-industrial-switch-1.webp',
     images: [
-      '/images/BT90W-Industrial-switch-1.webp',
+      '/images/POE-SW508G2-industrial-switch-1.webp',
       '/images/BT90W-Industrial-switch-2.webp',
       '/images/BT90W-Industrial-switch-3.webp'
     ],
