@@ -140,6 +140,42 @@ export const cameraProducts = [
     }
   },
   {
+    id: 'airmax-nanobeam-ac',
+    name: 'Ubiquiti airMAX NanoBeam AC 5 GHz Bridge',
+    description: 'Compact, UISP-ready, 5 GHz WiFi bridge with enhanced surge protection and an optimized radio and antenna. The sleek NanoBeam design with proprietary airMAX ac chipset and dedicated management WiFi for easy UISP mobile app support and fast setup.',
+    price: null, // Call for price
+    image: '/images/ubiquity-wifi-bridge.png',
+    images: [
+      '/images/ubiquity-wifi-bridge.png',
+      '/images/wifi-bridge-1.avif'
+    ],
+    category: 'network',
+    brand: 'Ubiquiti',
+    features: [
+      'New Optimized Antenna Design', 
+      'Improved Radio Performance', 
+      'Enhanced Surge Protection', 
+      'Management WiFi Radio',
+      'UISP Mobile App Support',
+      'AirOS 8',
+      'PoE Injector Included',
+      'Ball Joint Mount'
+    ],
+    specs: {
+      dimensions: '140 x 140 x 54 mm (5.51 x 5.51 x 2.13")',
+      wifi: 'airMAX ac Technology',
+      range: '10+ km (6.2+ mi)',
+      weatherproofing: 'IP65',
+      power: 'PoE Injector Included',
+      antenna: 'High-Performance Integrated',
+      maxTxPower: '26 dBm',
+      interfaces: 'GbE RJ45 port',
+      temperature: '-40 to 70° C (-40 to 158° F)',
+      frequency: '5 GHz',
+      mountOptions: 'Ball joint for flexible mounting and alignment'
+    }
+  },
+  {
     id: 'uvc-g5-pro',
     name: 'UniFi G5 Pro Camera',
     description: 'Next-gen indoor/outdoor 4K PoE camera with exceptional image performance, long-range IR night vision, and 3x optical zoom.',
@@ -273,6 +309,47 @@ export const cameraProducts = [
       powerConsumption: '500W Maximum',
       mounting: 'Rack Mount, 1U Height',
       management: 'UniFi Network Application'
+    }
+  },
+  {
+    id: 'poe-sw508g2',
+    name: 'Industrial 8 Ports Full Gigabit POE++ Switch',
+    description: '8-port industrial-grade PoE++ switch with 4 BT90W ports, DC48-56V redundant power input, and real-time PoE load monitoring for harsh environments.',
+    price: null, // Call for price
+    image: '/images/BT90W-Industrial-switch-1.avif',
+    images: [
+      '/images/BT90W-Industrial-switch-1.avif',
+      '/images/BT90W-Industrial-switch-2.avif',
+      '/images/BT90W-Industrial-switch-3.avif'
+    ],
+    category: 'network',
+    brand: 'NM Technology',
+    features: [
+      '8 Gigabit PoE++ Ports & 2 SFP Uplinks',
+      'BT 90W PoE++ (Ports 1-4)',
+      'IEEE 802.3af/at/bt Compliant',
+      'Redundant Power Supply (DC 48-56V)',
+      'PoE Watchdog Technology',
+      'Industrial-Grade IP40 Metal Enclosure',
+      'Extended Temperature Range (-40°C to +75°C)',
+      'DIN-Rail or Wall Mountable',
+      '6kV Surge Protection'
+    ],
+    specs: {
+      totalPorts: '10 (8 GbE RJ45 + 2 SFP)',
+      gigabitPorts: '8 10/100/1000Mbps PoE+ ports',
+      sfpPorts: '2 10/100/1000Mbps SFP Uplink ports',
+      poeInterfaces: 'IEEE 802.3af/at/bt (PoE/PoE+/PoE++)',
+      poeBudget: '120W (Up to 480W with optional adapters)',
+      maxPoePerPort: '90W (Ports 1-4), 30W (Ports 5-8)',
+      powerInput: 'DC 48-56V Redundant Input',
+      powerConsumption: '120W standard (included adapter)',
+      powerOptions: '120W (included), 240W or 480W adapters available',
+      mounting: 'DIN-rail or wall mount',
+      weatherproofing: 'IP40 metal enclosure',
+      temperature: '-40°C to +75°C (-40°F to +167°F)',
+      specialFeatures: 'PoE Watchdog for automatic device reboot',
+      safety: 'UL Listed'
     }
   },
   {
@@ -767,6 +844,44 @@ export const cameraProducts = [
       yearOne: 600,
       yearThree: 1800,
       yearFive: 3000
+    }
+  },
+  
+  // Solar Powered Security Solutions
+  {
+    id: 'go-box-v1200pw-ptz-lpr',
+    name: 'GO BOX-V1200PW-PTZ-LPR Solar Powered Camera System',
+    description: 'Commercial solar powered security system with License Plate Recognition, enabling endless video monitoring and AI capabilities without requiring grid power.',
+    price: null, // Call for price
+    image: '/images/GOBOX-V1200PW-PTZ-LPR_180x-1.avif',
+    images: [
+      '/images/GOBOX-V1200PW-PTZ-LPR_180x-1.avif'
+    ],
+    category: 'camera',
+    brand: 'NM Solar',
+    features: [
+      '360° Endless Video Monitoring',
+      'Local ANPR (License Plate Recognition)',
+      '30-Day Video Playback',
+      'Time-Lapse Playback',
+      'Remote Cloud Monitoring',
+      '72-Hour Operation in Rainy Days',
+      'Cellular Wireless Connection',
+      'AI Human/Vehicle Classification'
+    ],
+    specs: {
+      powerSystem: '1200WH Lithium Battery with MPPT Solar Charge Controller',
+      solarPanels: '2x 100W with Installation Brackets',
+      ptzCamera: '4MP 25X Dual-Lens PTZ with 256GB Storage',
+      lprCamera: '4MP with 256GB Storage, 8-32mm Lens',
+      connectivity: 'Cellular (Verizon, AT&T, T-Mobile)',
+      network: 'Industrial Cellular Router with 4-Port Solar PoE Switch',
+      mounting: 'Wall Mount and Pole Mount Support',
+      autonomy: 'Up to 72 Hours Without Sun',
+      monitoring: 'Remote Cloud Access for Video, Charging Status, IoT Sensors',
+      aiFeatures: 'Human/Vehicle Classification, License Plate Recognition',
+      videoStorage: '30 Days of Recording (Depending on Settings)',
+      installation: 'Complete System with All Components Included'
     }
   }
 ];
