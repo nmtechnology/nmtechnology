@@ -7,8 +7,8 @@
       <!-- Modal panel with swipe functionality -->
       <div 
         ref="modalPanel"
-        v-touch:swipe.top="close"
-        v-touch:swipe.bottom="close"
+        v-touch:up="close"
+        v-touch:down="close"
         class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full mobile-swipe-indicator">
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6">
           <div class="flex justify-between items-center mb-4">

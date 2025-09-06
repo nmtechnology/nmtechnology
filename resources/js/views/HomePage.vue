@@ -1,23 +1,24 @@
 eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
+  <!-- Halloween Promotional Banner -->
+  <PromoBanner 
+    :maxHeight="80"
+    link="/halloween-special"
+    dismissible
+    fixed
+    @dismissed="handleBannerDismiss"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
+      <div class="text-center">
+        <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
+        <p class="text-white text-sm md:text-lg">Get 10% off all security systems until October 31st</p>
+      </div>
+    </div>
+  </PromoBanner>
+  
   <AuthGuard>
     <TopBanner />
-    <!-- Halloween Promotional Banner -->
-    <PromoBanner 
-      :maxHeight="80"
-      link="/halloween-special"
-      dismissible
-      fixed
-      @dismissed="handleBannerDismiss"
-    >
-      <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
-        <div class="text-center">
-          <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
-          <p class="text-white text-sm md:text-lg">Get 10% off all security systems until October 31st</p>
-        </div>
-      </div>
-    </PromoBanner>
     <div class="bg-gray-900">
         <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
             <div class="relative isolate">
@@ -99,7 +100,7 @@ eslint-disable no-undef
                                         </svg>
                                     </router-link>
                                     <div class="w-full sm:w-auto mb-3 sm:mb-0">
-                                        <SecurityFAQsModal />
+                                        <!-- <SecurityFAQsModal /> -->
                                     </div>
                                 </div>
                             </div>
@@ -178,17 +179,23 @@ import AuthGuard from '../components/AuthGuard.vue'
 import SecurityFAQsModal from '../components/SecurityFAQsModal.vue'
 import { ref } from 'vue'
 
-const isOpen = ref(true)
-const showBanner = ref(true)
-
-const handleBannerDismiss = () => {
-  showBanner.value = false;
-  // Optionally, you can store this in localStorage to remember the user's choice
-  localStorage.setItem('halloweenBannerDismissed', 'true');
-}
-
 export default {
   name: 'nmTechnology',
+  data() {
+    return {
+      isOpen: true,
+      showBanner: true
+    }
+  },
+  methods: {
+    // Banner dismissal handler
+    handleBannerDismiss() {
+      this.showBanner = false;
+      console.log('HomePage: Banner dismissed');
+      // Store dismissal in localStorage to remember the user's choice
+      localStorage.setItem('halloweenBannerDismissed', 'true');
+    }
+  },
   components: {
     HomeFooter,
     SectionService,

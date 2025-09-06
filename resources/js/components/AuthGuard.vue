@@ -19,15 +19,6 @@ const props = defineProps({
 const router = useRouter();
 const isLoading = ref(true);
 
-// Export functions to make them available to parent components
-defineExpose({
-  handleBannerDismiss: () => {
-    // Method to handle banner dismissal
-    console.log('Banner dismissed');
-    localStorage.setItem('halloweenBannerDismissed', 'true');
-  }
-});
-
 onMounted(() => {
   console.log('AuthGuard mounted, requireAuth:', props.requireAuth);
   
