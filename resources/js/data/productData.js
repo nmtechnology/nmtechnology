@@ -1,6 +1,45 @@
 // Product data with categories for CCTV page
 export const cameraProducts = [
   {
+    id: 'ux-us',
+    name: 'Ubiquiti UX-US UniFi Express Cloud Gateway and WiFi 6 Access Point',
+    description: 'Impressively compact UniFi Cloud Gateway and WiFi 6 access point that runs UniFi Network. Powers an entire network or simply meshes as an access point.',
+    price: null, // Call for price
+    image: '/images/ubiquiti-unifi-express.webp',
+    images: [
+      '/images/ubiquiti-unifi-express.webp'
+    ],
+    category: 'network',
+    brand: 'Ubiquiti',
+    features: [
+      'WiFi 6 Access Point with Cloud Gateway',
+      'High-performance wireless connectivity',
+      'IEEE 802.11 a/b/g/n/ac/ax wireless standard',
+      'Gigabit Ethernet port',
+      'USB port for peripherals',
+      '0.96" LCM status display',
+      'Manages up to four UniFi Network devices'
+    ],
+    specs: {
+      dimensions: '3.9 x 3.9 x 1.2" (99.06 x 99.06 x 30.48 mm)',
+      weight: '10.7 oz (303g)',
+      processor: 'Dual Band Processor',
+      networkBand: 'Dual Band',
+      networkInterfaces: '1 Gigabit Ethernet Port',
+      wifi: 'WiFi 6 (802.11 a/b/g/n/ac/ax)',
+      encryption: 'WPA, WPA2, WPA3, WPA-ENT, WPA-PSK',
+      antennas: '2',
+      display: '0.96" LCM Status Display',
+      management: 'UniFi Network 8.0.7 and later',
+      powerInput: 'US Power Cord included',
+      material: 'PC',
+      warranty: '1-Year Limited Warranty',
+      partNumber: 'KX-UXUS | UX-US',
+      upc: '810084691878',
+      countryOfOrigin: 'China'
+    }
+  },
+  {
     id: 'udm-pro',
     name: 'UniFi Dream Machine Pro',
     description: 'All-in-one network security gateway and controller for enterprise-grade networks with integrated security features, advanced routing, and network management.',
