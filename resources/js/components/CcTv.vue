@@ -120,7 +120,7 @@
             </div>
 
             <!-- Product Grid -->
-            <div id="product-grid" class="scroll-mt-24">
+            <div id="product-grid" class="scroll-mt-32 pt-4">
               <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
                 class="text-center text-white py-10">
                 No products found. Please try a different filter.
@@ -155,8 +155,8 @@
                     </svg>
                     SECURITY MONITORING
                   </div>
-                  <img :src="product.image || '/public/images/axis-dome-side.webp'" :alt="product.name"
-                    class="w-full h-48 object-scale-down" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
+                  <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name"
+                    class="w-full h-48 object-scale-down" @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-2xl font-bold" :class="{
                           'text-green-400 font-extrabold': product.category === 'package',
@@ -351,15 +351,18 @@ export default {
       if (window.location.hash) {
         const targetId = window.location.hash.substring(1); // Remove the '#' character
         
-        // Wait a moment for the DOM to fully render
+        // Wait longer for the DOM to fully render and products to load
         setTimeout(() => {
           if (targetId === 'product-grid') {
             const element = document.getElementById('product-grid');
             if (element) {
+              console.log('CcTv: Scrolling to product-grid');
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              console.warn('CcTv: Could not find #product-grid element');
             }
           }
-        }, 300);
+        }, 600); // Increased timeout to ensure component is fully rendered
       }
     });
     

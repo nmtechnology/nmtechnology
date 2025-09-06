@@ -48,7 +48,7 @@
                   </div>
                 </div>
                 <div class="grid grid-rows-1 p-4 sm:p-8 lg:p-12">
-                  <img class="h-10 sm:h-12" :src="logoImage" alt="nmtechnology-logo">
+                  <img class="h-10 sm:h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
                   <a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
                   <br>
                   <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-green-500">Security Service Request</h2>

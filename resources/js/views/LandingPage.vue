@@ -181,7 +181,7 @@
     <!-- Footer -->
     <div class="mt-8 text-center">
       <div class="flex items-center justify-center gap-4 mb-3">
-        <img src="/public/images/zia-symbol.png" alt="New Mexico Zia Symbol" class="h-6 w-6 opacity-50" />
+        <img src="/public/images/zia-symbol.webp" alt="New Mexico Zia Symbol" class="h-6 w-6 opacity-50" />
         <p class="text-sm text-gray-400">&copy; {{ new Date().getFullYear() }} NM Technology. All rights reserved.</p>
         <img src="/public/images/usa-flag.webp" alt="USA Flag" class="h-6 opacity-50" />
       </div>
