@@ -331,6 +331,8 @@ import { ref, onMounted } from 'vue';
 
 export default {
   name: 'SecurityFAQs',
+  // Define emitted events
+  emits: ['scroll-to'],
   setup(props, { emit }) {
     // Counter animations
     const burglaryCounter = ref(60);

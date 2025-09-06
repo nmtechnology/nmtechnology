@@ -1,11 +1,11 @@
 <template>
   <div class="root w-full">
     <!-- Modal Trigger Button -->
-    <button @click="navigateToProducts" class="inline-flex items-center justify-center px-3 py-1.5 bg-red-700 border border-red-600 rounded-md font-medium text-white text-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-300">
+    <button @click="openModal" class="w-full inline-flex items-center justify-center px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-      <span class="text-center">Security System FAQs</span>
+      <span class="text-center">Why Security?</span>
     </button>
 
     <teleport to="body">
@@ -26,7 +26,7 @@
                 <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
                   <div class="absolute inset-0 bg-gradient-to-br from-gray-800/80 to-gray-800/60"></div>
                 </div>
-                <SecurityFAQs />
+                <SecurityFAQs @scroll-to="handleScrollTo" />
               </div>
             </div>
           </div>
@@ -58,16 +58,39 @@ export default {
       document.body.style.overflow = '';
     };
 
+    // No longer needed since we're opening the modal directly
+    // Keeping this as a reference in case we need to navigate elsewhere
     const navigateToProducts = () => {
-      // Navigate to the CCTV page's product grid section
-      window.location.href = '/cctv#product-grid';
+      console.log('Navigate to products function is no longer used');
+    };
+    
+    // Handler for scroll-to events from SecurityFAQs component
+    // This handles the case when users click on links/buttons inside the FAQs component
+    const handleScrollTo = (targetId) => {
+      // Close modal first
+      closeModal();
+      
+      // Wait for modal to close before navigating
+      setTimeout(() => {
+        console.log(`SecurityFAQsModal: Navigating to ${targetId}`);
+        
+        // Navigate to the appropriate section on the CCTV page
+        if (targetId === 'products' || targetId === 'product-grid') {
+          window.location.href = '/cctv#product-grid';
+        } else if (targetId === 'packages') {
+          window.location.href = '/cctv#package-section';
+        } else if (targetId === 'monitoring') {
+          window.location.href = '/cctv#monitoring-section';
+        }
+      }, 300);
     };
 
     return {
       isOpen,
       openModal,
       closeModal,
-      navigateToProducts
+      navigateToProducts,
+      handleScrollTo
     };
   }
 };

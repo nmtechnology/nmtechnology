@@ -553,9 +553,21 @@ export default {
       
       // Scroll to the target element if found
       if (targetElement) {
+        // Use a longer delay to ensure the DOM is fully rendered after filtering
         setTimeout(() => {
+          console.log(`CcTv: Scrolling to ${targetId} element`);
           targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); // Short delay to ensure filter has applied
+        }, 300); // Longer delay to ensure filter has applied and DOM is updated
+      } else {
+        console.warn(`CcTv: Could not find element with ID: ${targetId}`);
+        // Try one more time with an even longer delay if element wasn't found
+        setTimeout(() => {
+          const retryElement = document.querySelector(targetId === 'products' ? '#product-grid' : `#${targetId}`);
+          if (retryElement) {
+            console.log(`CcTv: Found ${targetId} element on retry, scrolling now`);
+            retryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 600);
       }
     };
     

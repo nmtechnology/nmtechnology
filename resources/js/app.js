@@ -52,7 +52,14 @@ const router = createRouter({
 
 export default router
 
-createApp(App).use(router).mount('#app')
+// Create app instance
+const app = createApp(App)
+
+// Register the touch directive globally
+app.directive('touch', vTouch)
+
+// Mount the app
+app.use(router).mount('#app')
 
 const instance = axios.create({
   baseURL: 'http://127.0.0.1:8000/'
