@@ -89,10 +89,10 @@
 
       <!-- Brands Section -->
       <div class="flex flex-wrap justify-center gap-4 mt-2 mb-6">
-        <img src="/public/images/axiscomm-logo.png" alt="Axis Communications" class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/honeywell-logo.png" alt="Honeywell" class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/DSC-logo.png" alt="DSC" class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/ubiquity-logo.png" alt="Ubiquiti" class="h-8 grayscale hover:grayscale-0 transition-all">
+        <img src="/public/images/axiscomm-logo.webp" alt="Axis Communications" class="h-8 grayscale hover:grayscale-0 transition-all">
+        <img src="/public/images/honeywell-logo.webp" alt="Honeywell" class="h-8 grayscale hover:grayscale-0 transition-all">
+        <img src="/public/images/DSC-logo.webp" alt="DSC" class="h-8 grayscale hover:grayscale-0 transition-all">
+        <img src="/public/images/ubiquity-logo.webp" alt="Ubiquiti" class="h-8 grayscale hover:grayscale-0 transition-all">
       </div>
       
       <div class="text-center">
@@ -181,7 +181,7 @@
     <!-- Footer -->
     <div class="mt-8 text-center">
       <div class="flex items-center justify-center gap-4 mb-3">
-        <img src="/images/zia-symbol.png" alt="New Mexico Zia Symbol" class="h-6 w-6 opacity-50" />
+        <img src="/public/images/zia-symbol.webp" alt="New Mexico Zia Symbol" class="h-6 w-6 opacity-50" />
         <p class="text-sm text-gray-400">&copy; {{ new Date().getFullYear() }} NM Technology. All rights reserved.</p>
         <img src="/public/images/usa-flag.webp" alt="USA Flag" class="h-6 opacity-50" />
       </div>

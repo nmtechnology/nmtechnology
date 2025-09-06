@@ -22,14 +22,14 @@
                 </p>
             </div>
             <div class="grid lg:columns-8 sm:columns-2 flex-row lg:grid-cols-8 sm:grid-cols-8">
-                <img src="/public/images/axiscomm-logo.png" class="flex flex-row h-9 object-contain">
-                <img src="/public/images/DSC-logo.png" class="flex flex-row p-3 h-9">
-                <img src="/public/images/qolsys-logo.png" class="flex flex-row p-1 h-9">
-                <img src="/public/images/ubiquity-logo.png" class="flex flex-row h-9 object-fill">
-                <img src="/public/images/linovision-logo.png" class="flex flex-row mt-3 h-9">
-                <img src="/public/images/zwave-logo.png" class="flex flex-col h-9">
-                <img src="/public/images/allegion-logo.png" class="flex flex-row h-9">
-                <img src="/public/images/teltonika-logo.png" class="flex flex-row h-9">
+                <img src="/public/images/axiscomm-logo.webp" class="flex flex-row h-9 object-contain">
+                <img src="/public/images/DSC-logo.webp" class="flex flex-row p-3 h-9">
+                <img src="/public/images/qolsys-logo.webp" class="flex flex-row p-1 h-9">
+                <img src="/public/images/ubiquity-logo.webp" class="flex flex-row h-9 object-fill">
+                <img src="/public/images/linovision-logo.webp" class="flex flex-row mt-3 h-9">
+                <img src="/public/images/zwave-logo.webp" class="flex flex-col h-9">
+                <img src="/public/images/allegion-logo.webp" class="flex flex-row h-9">
+                <img src="/public/images/teltonika-logo.webp" class="flex flex-row h-9">
             </div>
             <div class="w-full p-1 lg:p-2">
                 </div>
