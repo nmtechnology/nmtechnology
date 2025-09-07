@@ -304,10 +304,24 @@
               <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
                 <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
                   <div v-for="product in recentlyViewedProducts" :key="product.id" @click="showProductDetails(product)"
-                    class="flex-shrink-0 w-36 sm:w-48 md:w-56 bg-gray-800/60 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-800/80 hover:-translate-y-1">
-                    <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2">
+                    :class="[
+                      'flex-shrink-0 w-36 sm:w-48 md:w-56 rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1',
+                      product.category === 'package' ? 'bg-gray-800/60 border border-green-600/30 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/50' : 
+                      product.category === 'monitoring' ? 'bg-gray-800/60 border border-purple-600/30 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/50' :
+                      (product.category === 'security' && product.color === 'blue') ? 'bg-gray-800/60 border border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50' :
+                      (product.brand === 'NM Solar' && product.color === 'yellow') ? 'bg-gray-800/60 border border-yellow-600/30 hover:shadow-lg hover:shadow-yellow-500/20 hover:border-yellow-500/50' : 
+                      'bg-gray-800/60 border border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50'
+                    ]">
+                    <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2 bg-gray-900/50">
                     <div class="p-3">
-                      <h3 class="text-sm font-medium text-white truncate">{{ product.name }}</h3>
+                      <h3 :class="[
+                        'text-sm font-medium truncate',
+                        product.category === 'package' ? 'text-green-400' : 
+                        product.category === 'monitoring' ? 'text-purple-400' : 
+                        (product.category === 'security' && product.color === 'blue') ? 'text-blue-400' :
+                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'text-yellow-400' :
+                        'text-blue-400'
+                      ]">{{ product.name }}</h3>
                       <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
                     </div>
                   </div>
@@ -521,6 +535,10 @@ export default {
         selectedProduct.value = product;
         // Add to recently viewed
         if (product) {
+          // Make sure color property is included for proper theming
+          if (product.category === 'security' && !product.color) {
+            product.color = 'blue';
+          }
           recentlyViewedService.addProduct(product);
         }
       }

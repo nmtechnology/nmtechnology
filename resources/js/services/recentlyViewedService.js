@@ -50,6 +50,8 @@ export const recentlyViewedService = {
       image: product.image,
       price: product.price,
       category: product.category,
+      color: product.color,
+      brand: product.brand,
       timestamp: new Date().toISOString()
     });
     

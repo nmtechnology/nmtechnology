@@ -936,5 +936,65 @@ export const cameraProducts = [
       specialFeatures: 'Self-healing Wi-Fi, Smart AI Detection, Crystal-control wireless technology'
     },
     longDescription: "Add an all-in-one home security and automation solution to your property with the Napco Prima System with Window/Door & Motion Sensors, Verizon Network. This kit includes a Napco Prima 7\" Super Panel, 3 Window/Door Transmitters, a Motion Sensor, and an HD Video Doorbell – everything you need to build an excellent foundation for a reliable home security system.\n\nThe Napco Prima Super Panel is designed to work as an all-in-one solution to control smart devices for security, fire, HD Video, and Z-Wave Plus automation. It features dual-path connectivity through Wi-Fi or Verizon's cellular network to ensure a strong, fast, and reliable connection so that if one communication path fails, the other will continue to keep the system monitored.\n\nWith Z-Wave Plus control, you'll be able to integrate many smart devices such as smart thermostats, smart locks and garage doors, smart lighting and appliances; plus, utilize voice control with personal speaker devices from Amazon Alexa. You'll be able to control the system locally from the panel or via your smartphone using the Napco Prima mobile app, for iOS and Android devices.\n\nThe motion sensor detects human-sized movement with pet immunity up to 65 pounds, while the window/door transmitters alert you to any unauthorized entry. The HD Video Doorbell captures footage in clear 1080p resolution with night vision capabilities, allowing you to see and communicate with visitors from anywhere.\n\nNapco's crystal-control Prima wireless products have been proven by an independent testing laboratory to outperform competitive products, with long-range RF reliability as much as 50% higher than other brands, ensuring dependable security and peace of mind for years to come."
+  },
+  {
+    id: 'solar-cctv-trailer',
+    name: 'Solar CCTV Trailer Solution Kit',
+    description: 'Complete mobile solar-powered CCTV solution mounted on a trailer for temporary or permanent surveillance needs. Includes comprehensive monitoring capabilities with cellular connectivity and advanced AI features.',
+    price: null, // Call for price
+    image: '/images/gotrailermain-1.webp',
+    images: [
+      '/images/gotrailermain-1.webp',
+    ],
+    category: 'camera',
+    brand: 'NM Solar',
+    color: 'yellow',
+    features: [
+      'Complete Mobile Surveillance Solution',
+      'Solar Powered with Battery Backup',
+      'Multiple 4K PTZ & Fixed Cameras',
+      'Advanced AI Analytics',
+      'License Plate Recognition (LPR)',
+      'Cellular Remote Access',
+      'Cloud Video Storage',
+      'Weather-resistant Construction',
+      'Easy Deployment',
+      'Optional Thermal Imaging'
+    ],
+    specs: {
+      powerSystem: '2400WH Lithium Battery Bank',
+      solarArray: '600W Solar Panel Array',
+      chargeController: 'MPPT Solar Charge Controller',
+      cameras: {
+        ptz: '2x 4K PTZ Cameras with 30x Optical Zoom',
+        fixed: '4x 4K Fixed Cameras with 4mm Lens',
+        lpr: '1x Dedicated LPR Camera'
+      },
+      storage: '2TB SSD + Cloud Storage',
+      network: 'Industrial 4G/5G Router with Dual SIM',
+      switch: '8-Port Industrial PoE++ Switch',
+      autonomy: '96+ Hours Without Sun',
+      monitoring: 'Remote Cloud Dashboard Access',
+      aiFeatures: [
+        'Person Detection',
+        'Vehicle Classification',
+        'License Plate Recognition',
+        'Object Tracking',
+        'Perimeter Protection'
+      ],
+      trailer: {
+        type: 'Heavy-duty with Stabilizers',
+        mast: '20ft Pneumatic Mast',
+        security: 'Anti-theft Features',
+        certifications: 'DOT Compliant'
+      },
+      optional: {
+        thermal: 'Thermal Imaging Camera',
+        audio: 'Two-way Audio System',
+        solar: 'Additional Solar Panels',
+        storage: 'Extended Storage Options',
+        satellite: 'Satellite Communication'
+      }
+    }
   }
 ];
