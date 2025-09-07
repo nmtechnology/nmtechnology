@@ -10,8 +10,8 @@
     </div>
   </PromoBanner>
 
-  <div class="bg-gray-900 min-h-screen flex flex-col">
-    <main class="pt-[60px] flex-grow">
+  <div class="bg-gray-900 min-h-screen flex flex-col relative">
+    <main class="pt-[60px] flex-grow relative z-10">
       <!-- Reduced padding to account for the fixed banner, flex-grow to push footer down -->
       <div class="relative isolate">
         <!-- SVG Background Pattern (Same as HomePage) - Now Fixed Position -->
@@ -284,12 +284,12 @@
 
   <!-- Recently Viewed Products Footer - Fixed at bottom -->
   <transition name="fade">
-    <footer v-if="hasRecentProducts" class="bg-gray-900/90 border-t border-gray-700 w-full relative left-0 z-40">
+    <footer v-if="hasRecentProducts" class="bg-gray-900/90 border-t border-gray-700 w-full fixed bottom-0 left-0 z-20">
       <!-- Toggle button -->
       <button @click="toggleRecentlyViewed"
-        class="absolute right-6 bg-gray-900/90 border rounded-t-md px-4 py-1 text-xs text-gray-300 hover:text-white">
+        class="absolute -top-8 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-4 py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-lg">
         {{ isRecentlyViewedExpanded ? 'Hide' : 'Show' }} Recently Viewed
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1"
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1 transition-transform duration-300"
           :class="{'rotate-180': !isRecentlyViewedExpanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
@@ -297,7 +297,7 @@
 
       <!-- Footer content with transition -->
       <transition name="slide">
-        <div v-if="isRecentlyViewedExpanded" class="py-6">
+        <div v-if="isRecentlyViewedExpanded" class="py-6 transform transition-all duration-500 ease-in-out">
           <div class="container mx-auto px-4 md:px-6">
             <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
             <div class="overflow-x-auto pb-3" style="scrollbar-width: thin;">
@@ -335,10 +335,10 @@
   </transition>
 
   <!-- Cart Modal -->
-  <CartModal />
+  <CartModal class="z-30" />
 
   <!-- Product Details Modal -->
-  <ProductDetailsModal v-if="selectedProduct" :isOpen="productDetailsOpen" :product="selectedProduct"
+  <ProductDetailsModal v-if="selectedProduct" :isOpen="productDetailsOpen" :product="selectedProduct" class="z-30"
     @close="closeProductDetails" />
 </template>
 
@@ -715,7 +715,7 @@ svg.fixed, svg.absolute {
 /* Add margin-top to account for the TopBanner and PromoBanner */
 main {
   margin-top: 30px;
-  padding-bottom: 10rem; /* Extra padding to account for fixed footer */
+  padding-bottom: 150px; /* Extra padding to account for fixed footer */
 }
 
 /* Add some spacing between brand sections */
@@ -728,8 +728,18 @@ main {
 footer {
   border-top: 1px solid rgba(55, 65, 81, 0.5);
   box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3), 0 -4px 8px -2px rgba(0, 0, 0, 0.2);
-  z-index: 40;
+  z-index: 20;
   backdrop-filter: blur(12px);
+  transition: transform 0.5s ease;
+  pointer-events: none; /* This ensures clicks pass through to elements beneath */
+}
+
+/* Make sure interactive elements within footer are clickable */
+footer button,
+footer .container,
+footer .overflow-x-auto,
+footer .product-list {
+  pointer-events: auto;
 }
 
 /* Scrollable container for products */
@@ -789,7 +799,7 @@ footer {
 /* Slide animation for footer content and package comparison */
 .slide-enter-active,
 .slide-leave-active {
-  transition: max-height 0.5s ease, opacity 0.4s ease;
+  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.5s ease;
   max-height: 500px;
   overflow: hidden;
 }
@@ -798,6 +808,7 @@ footer {
 .slide-leave-to {
   max-height: 0;
   opacity: 0;
+  transform: translateY(100%);
   overflow: hidden;
 }
 

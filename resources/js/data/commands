@@ -1,0 +1,15 @@
+Commands to convert images to WebP format using cwebp tool
+#!/bin/bash 
+
+for ext in avif jpeg png tiff tif
+do
+    if ls *.$ext 1> /dev/null 2>&1; then
+        for file in *.$ext
+        do
+            cwebp -q 50 "$file" -o "${file%.*}.webp"
+            echo "Converted $file to ${file%.*}.webp"
+        done
+    else
+        echo "No files with .$ext extension found."
+    fi
+done
