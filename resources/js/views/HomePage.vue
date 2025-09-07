@@ -64,8 +64,9 @@ eslint-disable no-undef
                                     systems continue to function effectively
                                     over time. Contact us today so we can get started.</p>
                                 
-                                <div class="mt-10 flex items-center gap-x-12 w-full sm:w-auto">
-                                    <button @click="openContactModal" class="w-full sm:w-auto text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">Contact Us</button>
+                                <div class="mt-10 flex items-center gap-x-4 w-full sm:w-auto">
+                                    <button @click="openContactModal" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">Contact Us</button>
+                                    <button @click="generateQuote" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-md transition">Generate a Quote</button>
                                 </div>
                             </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -140,6 +141,7 @@ import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isOpen = ref(true)
 
@@ -162,15 +164,21 @@ export default {
   setup() {
     const contactModalRef = ref(null)
     
+    const router = useRouter()
     const openContactModal = () => {
       if (contactModalRef.value) {
         contactModalRef.value.openModalFromOptions()
       }
     }
+
+    const generateQuote = () => {
+      router.push('/cctv')
+    }
     
     return {
       contactModalRef,
-      openContactModal
+      openContactModal,
+      generateQuote
     }
   }
 }
