@@ -27,7 +27,7 @@
       <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
     </svg>
 
-    <main class="pt-[60px] pb-48 flex-grow relative z-20">
+    <main class="pt-[60px] pb-[250px] flex-grow relative z-20">
       <div class="relative">
         <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
           <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative z-20">
@@ -278,7 +278,7 @@
 
     <!-- Recently Viewed Products Footer -->
     <transition name="fade">
-      <div v-if="hasRecentProducts" class="recently-viewed-footer fixed bottom-0 left-0 w-full">
+      <div v-if="hasRecentProducts" class="recently-viewed-footer fixed w-full" style="position: fixed; bottom: 0; left: 0; width: 100%; max-height: 200px; z-index: 99;">
         <!-- Toggle button -->
         <button @click="toggleRecentlyViewed"
           class="absolute -top-8 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-4 py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-lg">
@@ -291,10 +291,10 @@
 
         <!-- Footer content with transition -->
         <transition name="slide">
-          <div v-if="isRecentlyViewedExpanded" class="bg-gray-900/90 border-t border-gray-700 py-4">
+          <div v-if="isRecentlyViewedExpanded" class="bg-gray-900/90 border-t border-gray-700 py-4" style="max-height: 180px; overflow: hidden;">
             <div class="container mx-auto px-4 md:px-6">
               <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
-              <div class="recently-viewed-scroller overflow-x-auto pb-3">
+              <div class="recently-viewed-scroller overflow-x-auto pb-3" style="max-height: 120px;">
                 <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
                   <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
                     <div v-for="product in recentlyViewedProducts" :key="product.id" @click="showProductDetails(product)"
@@ -382,7 +382,7 @@ export default {
     // Check if we were directed here with a hash and handle it appropriately
     const { currentRoute } = useRouter();
     
-    // Add onMounted hook to handle hash navigation
+    // Add onMounted hook to handle hash navigation and fix recently viewed footer
     onMounted(() => {
       // Check for hash in URL
       if (window.location.hash) {
@@ -401,6 +401,23 @@ export default {
           }
         }, 600); // Increased timeout to ensure component is fully rendered
       }
+
+      // Fix the position of the recently viewed footer
+      const fixFooterPosition = () => {
+        const footer = document.querySelector('.recently-viewed-footer');
+        if (footer) {
+          footer.style.position = 'fixed';
+          footer.style.bottom = '0';
+          footer.style.left = '0';
+          footer.style.width = '100%';
+          footer.style.zIndex = '9999';
+          footer.style.maxHeight = '200px';
+        }
+      };
+
+      // Apply immediately and also after a short delay to ensure it works after all rendering
+      fixFooterPosition();
+      setTimeout(fixFooterPosition, 500);
     });
     
     // Get all package products for comparison table
@@ -647,7 +664,7 @@ export default {
 /* Content area should be above background but below modals */
 main {
   position: relative;
-  z-index: 20;
+  z-index: 10; /* Lower z-index to ensure footer appears above */
 }
 
 /* Product cards should be clickable */
@@ -677,7 +694,7 @@ main {
 
 /* Keep recently viewed footer above content but below modals */
 .recently-viewed-footer.fixed {
-  z-index: 40;
+  z-index: 35; /* Adjusted to be above content but below other UI elements */
 }
 
 /* Background patterns should stay in back */
@@ -745,31 +762,31 @@ main {
   z-index: 10;
 }
 
-/* Footer with recently viewed products styling */
-footer {
+/* Recently viewed products footer styling */
+.recently-viewed-footer {
   border-top: 1px solid rgba(55, 65, 81, 0.5);
   box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3), 0 -4px 8px -2px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(12px);
-  transition: transform 0.5s ease;
-  max-height: 300px; /* Limit the height of the footer */
+  transition: transform 0.3s ease;
+  max-height: 250px; /* Limit the height of the footer */
   overflow: auto;
 }
 
 /* Footer container styles */
-footer .container {
+.recently-viewed-footer .container {
   max-width: 100%;
   margin: 0 auto;
 }
 
 /* Product list container in footer */
-footer .overflow-x-auto {
-  max-height: 220px; /* Leave room for the header */
+.recently-viewed-footer .overflow-x-auto {
+  max-height: 150px; /* Leave room for the header */
   overflow-y: auto;
   overflow-x: auto;
 }
 
 /* Recently viewed toggle button */
-footer button.absolute {
+.recently-viewed-footer button.absolute {
   z-index: 41; /* Ensure the toggle button is always clickable */
 }
 
@@ -827,8 +844,8 @@ main {
 /* Slide animation for footer content and package comparison */
 .slide-enter-active,
 .slide-leave-active {
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-  max-height: 500px;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 250px;
   overflow: hidden;
 }
 
@@ -947,17 +964,17 @@ main {
 
 /* Recently viewed footer styling */
 .recently-viewed-footer.fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  height: auto;
-  max-height: 300px;
-  background: rgba(17, 24, 39, 0.95);
-  border-top: 1px solid rgba(55, 65, 81, 0.5);
-  box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  height: auto !important;
+  max-height: 250px !important;
+  background: rgba(17, 24, 39, 0.95) !important;
+  border-top: 1px solid rgba(55, 65, 81, 0.5) !important;
+  box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 /* Footer toggle button */
@@ -966,16 +983,16 @@ main {
 }
 
 /* Footer content container */
-footer .container {
+.recently-viewed-footer .container {
   position: relative;
   height: 100%;
-  max-height: 250px;
+  max-height: 200px;
   overflow-y: auto;
 }
 
-/* Product list in footer */
-footer .overflow-x-auto {
-  max-height: 200px;
+/* Product list in recently viewed footer */
+.recently-viewed-footer .overflow-x-auto {
+  max-height: 150px;
   overflow-y: hidden;
 }
 
@@ -1062,6 +1079,37 @@ svg.fixed {
 
 .recently-viewed-item:hover {
   transform: translateY(-4px);
+}
+
+/* Add this at the end of your <style> section */
+
+/* Reset for recently viewed footer to ensure proper display */
+.recently-viewed-footer {
+  display: block !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 200px !important;
+  overflow: visible !important;
+  z-index: 9999 !important;
+}
+
+.recently-viewed-footer > div {
+  max-height: 180px !important;
+  overflow-y: auto !important;
+}
+
+.recently-viewed-scroller {
+  max-height: 120px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+/* Make sure content doesn't get hidden behind the footer */
+.bg-gray-900 {
+  padding-bottom: 200px !important;
 }
 </style>
 
