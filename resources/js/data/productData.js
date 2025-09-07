@@ -865,12 +865,13 @@ export const cameraProducts = [
     name: 'GO BOX-V1200PW-PTZ-LPR Solar Powered Camera System',
     description: 'Commercial solar powered security system with License Plate Recognition, enabling endless video monitoring and AI capabilities without requiring grid power.',
     price: null, // Call for price
-    image: '/images/GOBOX-V1200PW-PTZ-LPR_180x-1.webp',
+    image: '/images/gobox-solar-1.webp',
     images: [
-      '/images/GOBOX-V1200PW-PTZ-LPR_180x-1.webp'
+      '/images/gobox-solar-1.webp'
     ],
     category: 'camera',
     brand: 'NM Solar',
+    color: 'yellow',
     features: [
       '360° Endless Video Monitoring',
       'Local ANPR (License Plate Recognition)',
@@ -895,5 +896,45 @@ export const cameraProducts = [
       videoStorage: '30 Days of Recording (Depending on Settings)',
       installation: 'Complete System with All Components Included'
     }
+  },
+  {
+    id: 'napco-prima-bundle',
+    name: 'Napco Prima Complete Home Security and Automation Kit',
+    description: 'All-in-one home security and automation solution with Verizon Connectivity, including a 7" Super Panel, window/door sensors, motion detection, and HD video doorbell.',
+    price: null, // Call for price
+    image: '/images/napco-prima-bundle-1.webp',
+    images: [
+      '/images/napco-prima-bundle-1.webp'
+    ],
+    category: 'security',
+    brand: 'Napco',
+    color: 'blue',
+    features: [
+      '7" Super Panel with Touch Display',
+      'Dual Connectivity (Wi-Fi & Verizon)',
+      '3 Window/Door Transmitters',
+      'Motion Sensor with Pet Immunity',
+      'HD Video Doorbell with Night Vision',
+      'Two-Way Audio Communication',
+      'Z-Wave Plus Integration',
+      'Mobile App Control',
+      'Smart Home Automation'
+    ],
+    specs: {
+      panel: '7-inch color touchscreen display (1024 x 600)',
+      camera: 'Built-in 5MP camera with two-way communication',
+      connectivity: 'Wi-Fi dual band 2.4/5GHz & Verizon Cellular',
+      automation: 'Z-Wave Plus with S2 Encryption (BT enabled)',
+      motionRange: '32.8 ft (10m) with pet immunity up to 65 lbs',
+      videoQuality: '1080p HD (2MP) with IR Night Vision',
+      doorbell: 'Weather-resistant (IP54) with Smart AI Detection',
+      zones: 'Supports up to 128 security zones',
+      users: '40 users (1 master, 1 duress, 38 normal)',
+      batteryType: 'CR2032 lithium coin cell for door/window sensors',
+      boxContents: 'Super Panel, 3 Door/Window Sensors, Motion Sensor, Video Doorbell, Mounting Hardware',
+      appSupport: 'iOS and Android devices',
+      specialFeatures: 'Self-healing Wi-Fi, Smart AI Detection, Crystal-control wireless technology'
+    },
+    longDescription: "Add an all-in-one home security and automation solution to your property with the Napco Prima System with Window/Door & Motion Sensors, Verizon Network. This kit includes a Napco Prima 7\" Super Panel, 3 Window/Door Transmitters, a Motion Sensor, and an HD Video Doorbell – everything you need to build an excellent foundation for a reliable home security system.\n\nThe Napco Prima Super Panel is designed to work as an all-in-one solution to control smart devices for security, fire, HD Video, and Z-Wave Plus automation. It features dual-path connectivity through Wi-Fi or Verizon's cellular network to ensure a strong, fast, and reliable connection so that if one communication path fails, the other will continue to keep the system monitored.\n\nWith Z-Wave Plus control, you'll be able to integrate many smart devices such as smart thermostats, smart locks and garage doors, smart lighting and appliances; plus, utilize voice control with personal speaker devices from Amazon Alexa. You'll be able to control the system locally from the panel or via your smartphone using the Napco Prima mobile app, for iOS and Android devices.\n\nThe motion sensor detects human-sized movement with pet immunity up to 65 pounds, while the window/door transmitters alert you to any unauthorized entry. The HD Video Doorbell captures footage in clear 1080p resolution with night vision capabilities, allowing you to see and communicate with visitors from anywhere.\n\nNapco's crystal-control Prima wireless products have been proven by an independent testing laboratory to outperform competitive products, with long-range RF reliability as much as 50% higher than other brands, ensuring dependable security and peace of mind for years to come."
   }
 ];

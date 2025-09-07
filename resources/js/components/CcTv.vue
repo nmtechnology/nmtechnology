@@ -2,7 +2,7 @@
   <!-- Halloween Promotional Banner at the top -->
   <PromoBanner :maxHeight="80" link="/halloween-special" fixed dismissible
     linkAriaLabel="View our Halloween security system special offers" @dismissed="handleBannerDismiss">
-    <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-90 md:flex items-center justify-center hidden">
       <div class="text-center">
         <h3 class="text-xl md:text-5xl font-bold text-orange-500">Halloween Security Special!</h3>
         <p class="text-white text-lg md:text-lg">Get 10% off all security systems until October 31st</p>
@@ -33,7 +33,7 @@
 
         <div class="overflow-visible relative z-10">
           <div
-            class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-sm shadow-xl">
+            class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
             <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative">
               <span v-if="activeCategory === 'package'">
                 Complete <span class="text-green-500">Security Packages</span>
@@ -133,7 +133,9 @@
                 <div v-for="product in brandGroup" :key="product.id"
                   :class="['rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer',
                       product.category === 'package' ? 'bg-gray-800/70 border border-green-600/30' : 
-                      product.category === 'monitoring' ? 'bg-gray-800/70 border border-purple-600/30' : 'bg-gray-800/50']"
+                      product.category === 'monitoring' ? 'bg-gray-800/70 border border-purple-600/30' :
+                      (product.category === 'security' && product.color === 'blue') ? 'bg-gray-800/70 border border-blue-600/30' :
+                      (product.brand === 'NM Solar' && product.color === 'yellow') ? 'bg-gray-800/70 border border-yellow-600/30' : 'bg-gray-800/50']"
                   @click="showProductDetails(product)"
                   role="button"
                   :aria-label="`View details for ${product.name}`">
@@ -155,13 +157,35 @@
                     </svg>
                     SECURITY MONITORING
                   </div>
+                  <div v-if="product.category === 'security' && product.color === 'blue'"
+                    class="bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    HOME SECURITY SYSTEM
+                  </div>
+                  <div v-if="product.brand === 'NM Solar' && product.color === 'yellow'"
+                    class="bg-yellow-600/20 text-yellow-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    SOLAR POWERED SECURITY
+                  </div>
                   <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name"
                     class="w-full h-48 object-scale-down" @error="$event.target.src = '/images/axis-dome-side.webp'">
                   <div class="p-4">
                     <h2 class="text-2xl font-bold" :class="{
                           'text-green-400 font-extrabold': product.category === 'package',
                           'text-purple-500 font-extrabold': product.category === 'monitoring',
-                          'text-green-600 font-bold': product.category !== 'package' && product.category !== 'monitoring'
+                          'text-blue-400 font-extrabold': product.category === 'security' && product.color === 'blue',
+                          'text-yellow-400 font-extrabold': product.brand === 'NM Solar' && product.color === 'yellow',
+                          'text-green-600 font-bold': product.category !== 'package' && product.category !== 'monitoring' && 
+                                               !(product.category === 'security' && product.color === 'blue') && 
+                                               !(product.brand === 'NM Solar' && product.color === 'yellow')
                         }">
                       {{ product.name }}
                     </h2>
@@ -185,6 +209,8 @@
                         'font-bold', 
                         product.category === 'package' ? 'text-xl text-green-500' : 
                         product.category === 'monitoring' ? 'text-xl text-purple-500' : 
+                        (product.category === 'security' && product.color === 'blue') ? 'text-xl text-blue-500' :
+                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'text-xl text-yellow-500' :
                         'text-lg text-green-600'
                       ]">
                         {{ product.price ? `$${product.price.toFixed(2)}${product.recurring ? '/mo' : ''}` : 'Call For Price' }}
@@ -209,7 +235,11 @@
                                   ? 'bg-green-600 hover:bg-green-700' 
                                   : product.category === 'monitoring'
                                     ? 'bg-purple-600 hover:bg-purple-700'
-                                    : 'bg-blue-500 hover:bg-blue-600'
+                                    : (product.category === 'security' && product.color === 'blue')
+                                      ? 'bg-blue-600 hover:bg-blue-700'
+                                      : (product.brand === 'NM Solar' && product.color === 'yellow')
+                                        ? 'bg-yellow-600 hover:bg-yellow-700'
+                                        : 'bg-blue-500 hover:bg-blue-600'
                               ]">
                         <span v-if="product.category === 'package'" class="mr-1">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -773,6 +803,36 @@ footer {
 .bg-gray-800\/70.border-purple-600\/30:hover {
   border-color: rgba(147, 51, 234, 0.5); /* More visible border on hover */
   box-shadow: 0 0 15px rgba(147, 51, 234, 0.2); /* Purple glow effect */
+}
+
+/* Special styles for security cards */
+.bg-gray-800\/70.border-blue-600\/30 {
+  transition: all 0.3s ease;
+}
+
+.bg-gray-800\/70.border-blue-600\/30:hover {
+  border-color: rgba(37, 99, 235, 0.5); /* More visible border on hover */
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); /* Blue glow effect */
+}
+
+/* Special styles for solar powered cards */
+.bg-gray-800\/70.border-yellow-600\/30 {
+  transition: all 0.3s ease;
+}
+
+.bg-gray-800\/70.border-yellow-600\/30:hover {
+  border-color: rgba(234, 179, 8, 0.5); /* More visible border on hover */
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.2); /* Yellow glow effect */
+}
+
+/* Special styles for blue security cards */
+.bg-gray-800\/70.border-blue-600\/30 {
+  transition: all 0.3s ease;
+}
+
+.bg-gray-800\/70.border-blue-600\/30:hover {
+  border-color: rgba(37, 99, 235, 0.5); /* More visible blue border on hover */
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); /* Blue glow effect */
 }
 
 /* Package comparison table styles */

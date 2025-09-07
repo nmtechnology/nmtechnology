@@ -9,10 +9,29 @@
         ref="modalPanel"
         v-touch:up="close"
         v-touch:down="close"
-        class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full mobile-swipe-indicator">
+        :class="[
+          'inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full mobile-swipe-indicator border-2',
+          themeColor === 'green' ? 'border-green-600/30 theme-green' : 
+          themeColor === 'purple' ? 'border-purple-600/30 theme-purple' : 
+          themeColor === 'blue' ? 'border-blue-600/30 theme-blue' : 
+          themeColor === 'yellow' ? 'border-yellow-600/30 theme-yellow' : 'border-transparent'
+        ]">
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-2xl font-bold leading-6 text-white" id="product-details-title">
+          <div :class="[
+            'flex justify-between items-center mb-4 pb-2 border-b',
+            themeColor === 'green' ? 'border-green-600/30' : 
+            themeColor === 'purple' ? 'border-purple-600/30' : 
+            themeColor === 'blue' ? 'border-blue-600/30' : 
+            themeColor === 'yellow' ? 'border-yellow-600/30' : 'border-gray-700'
+          ]">
+            <h3 class="text-2xl font-bold leading-6" 
+                :class="[
+                  themeColor === 'green' ? 'text-green-400' : 
+                  themeColor === 'purple' ? 'text-purple-400' : 
+                  themeColor === 'blue' ? 'text-blue-400' : 
+                  themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
+                ]" 
+                id="product-details-title">
               {{ product.name }}
             </h3>
             <button @click="close" class="text-gray-400 hover:text-white focus:outline-none">
@@ -73,7 +92,11 @@
                       @click="goToSlide(index)"
                       :class="[
                         'w-2 h-2 rounded-full transition-all focus:outline-none',
-                        currentSlide === index ? 'bg-green-500 w-4' : 'bg-gray-400 hover:bg-gray-300'
+                        currentSlide === index ? 
+                          (themeColor === 'green' ? 'bg-green-500 w-4' : 
+                           themeColor === 'purple' ? 'bg-purple-500 w-4' : 
+                           themeColor === 'blue' ? 'bg-blue-500 w-4' : 
+                           themeColor === 'yellow' ? 'bg-yellow-500 w-4' : 'bg-green-500 w-4') : 'bg-gray-400 hover:bg-gray-300'
                       ]"
                       :aria-label="`Go to image ${index + 1}`">
                     </button>
@@ -87,8 +110,20 @@
               <!-- Product info -->
               <div class="w-full lg:w-1/2">
                 <div class="mb-4">
-                  <span class="inline-block bg-green-600 text-white text-xs px-2 py-1 rounded-full">{{ product.brand }}</span>
-                  <span class="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded-full ml-2">{{ categoryName }}</span>
+                  <span class="inline-block text-white text-xs px-2 py-1 rounded-full"
+                    :class="{
+                      'bg-green-600': themeColor === 'green',
+                      'bg-purple-600': themeColor === 'purple',
+                      'bg-blue-600': themeColor === 'blue',
+                      'bg-yellow-600': themeColor === 'yellow'
+                    }">{{ product.brand }}</span>
+                  <span class="inline-block text-white text-xs px-2 py-1 rounded-full ml-2"
+                    :class="{
+                      'bg-green-600': themeColor === 'green',
+                      'bg-purple-600': themeColor === 'purple',
+                      'bg-blue-600': themeColor === 'blue',
+                      'bg-yellow-600': themeColor === 'yellow'
+                    }">{{ categoryName }}</span>
                 </div>
                 
                 <p class="text-gray-300 mb-4">{{ product.description }}</p>
@@ -99,7 +134,13 @@
                 </ul>
                 
                 <div class="mt-4">
-                  <span class="text-xl font-bold text-green-600 block">{{ product.price ? `$${product.price.toFixed(2)}` : 'Call For Price' }}</span>
+                  <span class="text-xl font-bold block" 
+                    :class="{
+                      'text-green-600': themeColor === 'green',
+                      'text-purple-600': themeColor === 'purple',
+                      'text-blue-500': themeColor === 'blue',
+                      'text-yellow-600': themeColor === 'yellow'
+                    }">{{ product.price ? `$${product.price.toFixed(2)}` : 'Call For Price' }}</span>
                 </div>
               </div>
             </div>
@@ -107,26 +148,54 @@
             <!-- Detailed specifications section -->
             <div v-if="product.specs" class="mt-8 border-t border-gray-700 pt-4">
               <h4 class="text-white font-medium mb-4">
-                <span v-if="product.category === 'package'" class="text-green-500">Package</span>
+                <span v-if="product.category === 'package'" :class="`text-${themeColor}-500`">Package</span>
+                <span v-else-if="product.category === 'security'" :class="`text-${themeColor}-500`">Security System</span>
+                <span v-else-if="product.brand === 'NM Solar'" :class="`text-${themeColor}-500`">Solar Security</span>
+                <span v-else-if="product.category === 'monitoring'" :class="`text-${themeColor}-500`">Monitoring</span>
                 Technical Specifications:
               </h4>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div v-for="(value, key) in product.specs" :key="key" 
-                     :class="['flex flex-col p-2', product.category === 'package' ? 'bg-gray-700/30 rounded' : '']">
-                  <span :class="['text-sm', product.category === 'package' ? 'text-green-400' : 'text-gray-400']">
+                     :class="['flex flex-col p-2', 'bg-gray-700/30 rounded']">
+                  <span :class="[
+                    'text-sm', 
+                    themeColor === 'green' ? 'text-green-400' : 
+                    themeColor === 'purple' ? 'text-purple-400' : 
+                    themeColor === 'blue' ? 'text-blue-400' : 
+                    themeColor === 'yellow' ? 'text-yellow-400' : 'text-gray-400'
+                  ]">
                     {{ formatSpecName(key) }}
                   </span>
                   <span class="text-white">{{ value }}</span>
                 </div>
               </div>
               
-              <!-- Special call to action for packages -->
-              <div v-if="product.category === 'package'" class="mt-6 bg-green-900/20 border border-green-600/30 rounded-lg p-4">
-                <h5 class="text-green-500 font-semibold mb-2">Complete Security Solution</h5>
+              <!-- Special call to action based on product category -->
+              <div v-if="product.category === 'package'" 
+                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Security Solution</h5>
                 <p class="text-gray-300 text-sm">
                   This package includes everything you need for a complete security setup: cameras, NVR, storage, 
                   and all necessary cables and mounting hardware. Professional installation available.
+                </p>
+              </div>
+              
+              <div v-else-if="product.category === 'security'" 
+                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Home Security System</h5>
+                <p class="text-gray-300 text-sm">
+                  This security system includes everything you need to protect your home: control panel, sensors,
+                  and mobile app access. Professional installation and monitoring options available.
+                </p>
+              </div>
+              
+              <div v-else-if="product.brand === 'NM Solar'" 
+                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Solar-Powered Security Solution</h5>
+                <p class="text-gray-300 text-sm">
+                  This solar-powered security system can be deployed anywhere without requiring grid power.
+                  Perfect for remote locations, construction sites, or temporary security needs.
                 </p>
               </div>
             </div>
@@ -136,8 +205,14 @@
         <!-- Modal footer with action buttons -->
         <div class="bg-gray-900 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button @click="addToCartAndClose" 
-                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
-            Add to Quote Cart
+                  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                  :class="{
+                    'bg-green-600 hover:bg-green-700 focus:ring-green-500': themeColor === 'green',
+                    'bg-purple-600 hover:bg-purple-700 focus:ring-purple-500': themeColor === 'purple',
+                    'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500': themeColor === 'blue',
+                    'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500': themeColor === 'yellow'
+                  }">
+            {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}
           </button>
           <button @click="close" 
                   class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
@@ -298,10 +373,26 @@ export default {
         'accessory': 'Accessory',
         'network': 'Networking Equipment',
         'package': 'Security Package',
-        'monitoring': 'Security Monitoring'
+        'monitoring': 'Security Monitoring',
+        'security': 'Home Security System'
       };
       
       return categories[props.product.category] || props.product.category;
+    });
+    
+    // Determine theme color based on product category and color
+    const themeColor = computed(() => {
+      if (props.product.category === 'package') {
+        return 'green';
+      } else if (props.product.category === 'monitoring') {
+        return 'purple';
+      } else if (props.product.category === 'security' && props.product.color === 'blue') {
+        return 'blue';
+      } else if (props.product.brand === 'NM Solar' && props.product.color === 'yellow') {
+        return 'yellow';
+      } else {
+        return 'blue'; // Default color
+      }
     });
     
     const close = () => {
@@ -385,6 +476,7 @@ export default {
       modalPanel,
       carouselRef,
       categoryName,
+      themeColor,
       close,
       addToCartAndClose,
       formatSpecName,
@@ -403,6 +495,51 @@ export default {
   position: relative;
   touch-action: pan-y;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  overflow: hidden;
+}
+
+.mobile-swipe-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 10;
+}
+
+/* Theme-specific accent colors */
+.theme-green::before {
+  background: linear-gradient(90deg, rgba(22, 163, 74, 0.8) 0%, rgba(22, 163, 74, 0.4) 100%);
+}
+
+.theme-purple::before {
+  background: linear-gradient(90deg, rgba(147, 51, 234, 0.8) 0%, rgba(147, 51, 234, 0.4) 100%);
+}
+
+.theme-blue::before {
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.8) 0%, rgba(37, 99, 235, 0.4) 100%);
+}
+
+.theme-yellow::before {
+  background: linear-gradient(90deg, rgba(234, 179, 8, 0.8) 0%, rgba(234, 179, 8, 0.4) 100%);
+}
+
+/* Glow effects for themed modals */
+.theme-green {
+  box-shadow: 0 0 15px rgba(22, 163, 74, 0.15);
+}
+
+.theme-purple {
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.15);
+}
+
+.theme-blue {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.15);
+}
+
+.theme-yellow {
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.15);
 }
 
 .mobile-swipe-indicator::after {
