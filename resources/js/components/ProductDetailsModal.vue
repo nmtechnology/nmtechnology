@@ -17,122 +17,145 @@
         
         <!-- Fixed Header with Carousel -->
         <div :class="[
-          'bg-gray-800 sticky top-0 z-10 border-b',
+          'sticky top-0 z-10',
           themeColor === 'green' ? 'border-green-600/30' : 
           themeColor === 'purple' ? 'border-purple-600/30' : 
           themeColor === 'blue' ? 'border-blue-600/30' : 
           themeColor === 'yellow' ? 'border-yellow-600/30' : 'border-gray-700'
         ]">
-          <!-- Title and close button -->
-          <div class="px-4 py-3 flex justify-between items-center">
-            <h3 class="text-2xl font-bold leading-6 truncate" 
-                :class="[
-                  themeColor === 'green' ? 'text-green-400' : 
-                  themeColor === 'purple' ? 'text-purple-400' : 
-                  themeColor === 'blue' ? 'text-blue-400' : 
-                  themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
-                ]" 
-                id="product-details-title">
-              {{ product.name }}
-            </h3>
-            <button @click="close" class="text-gray-400 hover:text-white focus:outline-none">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <!-- Image carousel in header -->
-          <div v-if="product.images && product.images.length > 1" class="relative bg-gray-900">
-            <!-- Image carousel with ARIA attributes -->
-            <div class="relative overflow-hidden bg-gray-700 h-72 sm:h-96" @click.stop role="region" aria-roledescription="carousel" aria-label="Product images">
-              <!-- Screen reader announcement region -->
-              <div id="carousel-live-region" class="sr-only" aria-live="polite"></div>
-              
-              <!-- Carousel container with improved event handling -->
-              <div 
-                ref="carouselRef" 
-                class="carousel-container"
-                :style="{ 
-                  transform: `translateX(-${currentSlide * 100}%)`, 
-                  width: `${product.images.length * 100}%` 
-                }"
-                @touchstart="handleTouchStart"
-                @touchmove="handleTouchMove"
-                @touchend="handleTouchEnd">
-                <div
-                  v-for="(image, index) in product.images"
-                  :key="index"
-                  :class="['carousel-item', currentSlide === index ? 'active' : '']"
-                  :style="{ width: `${100 / product.images.length}%` }"
-                  role="group"
-                  aria-roledescription="slide"
-                  :aria-label="`Image ${index + 1} of ${product.images.length}`">
-                  <img
-                    :src="image" 
-                    :alt="`${product.name} - Image ${index + 1}`" 
-                    class="object-contain transition-opacity duration-300"
-                    @error="$event.target.src = '/public/images/axis-dome-side.webp'"
-                    loading="lazy"
-                    @click.stop
-                    @load="$event.target.classList.add('opacity-100')"
-                    style="opacity: 0;"
-                  />
+          <div class="relative">
+            <!-- Image carousel in header -->
+            <div v-if="product.images && product.images.length > 1" class="relative bg-gray-900">
+              <!-- Image carousel with ARIA attributes -->
+              <div class="relative overflow-hidden bg-gray-900 h-80 sm:h-[450px]" @click.stop role="region" aria-roledescription="carousel" aria-label="Product images">
+                <!-- Screen reader announcement region -->
+                <div id="carousel-live-region" class="sr-only" aria-live="polite"></div>
+                
+                <!-- Title overlay with subtle gradient -->
+                <div class="absolute inset-0 z-10 pointer-events-none">
+                  <div class="absolute inset-0 h-32 bg-gradient-to-b from-gray-900/75 via-gray-900/25 to-transparent"></div>
+                  <div class="relative px-6 py-4 flex flex-col pointer-events-auto">
+                    <!-- Title and close button -->
+                    <div class="flex justify-between items-center">
+                      <h3 class="text-2xl font-bold leading-6 text-white max-w-[80%] truncate" 
+                          :class="[
+                            themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
+                          ]" 
+                          id="product-details-title">
+                        {{ product.name }}
+                      </h3>
+                      <button @click="close" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20 rounded-full p-1 transition-colors">
+                        <span class="sr-only">Close modal</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                    
+                    <!-- Swipe text -->
+                    <div v-if="product.images && product.images.length > 1" class="text-xs text-gray-300/80 mt-2">
+                      <span class="hidden sm:inline">Use arrow keys or </span>
+                      <span>swipe to navigate</span>
+                    </div>
+                  </div>
                 </div>
+                
+                <!-- Carousel container -->
+                <div 
+                  ref="carouselRef"
+                  class="carousel-container"
+                  @touchstart="handleTouchStart"
+                  @touchmove="handleTouchMove"
+                  @touchend="handleTouchEnd">
+                  <div
+                    v-for="(image, index) in product.images"
+                    :key="index"
+                    :class="['carousel-item', currentSlide === index ? 'active' : '']"
+                    :style="{ width: `${100 / product.images.length}%` }"
+                    role="group"
+                    aria-roledescription="slide"
+                    :aria-label="`Image ${index + 1} of ${product.images.length}`">
+                    <div class="w-full h-full flex items-center justify-center">
+                      <!-- Loading placeholder -->
+                      <div 
+                        :class="['absolute inset-0 bg-gray-800 flex items-center justify-center transition-opacity duration-300',
+                          currentSlide === index ? 'opacity-100' : 'opacity-0']">
+                        <div class="w-8 h-8 border-4 border-gray-600 border-t-gray-200 rounded-full animate-spin"></div>
+                      </div>
+                      <img
+                        :src="image" 
+                        :alt="`${product.name} - Image ${index + 1}`" 
+                        class="max-h-full max-w-full w-auto h-auto transition-opacity duration-300"
+                        @error="$event.target.src = '/public/images/axis-dome-side.webp'"
+                        loading="lazy"
+                        @click.stop
+                        @load="$event.target.classList.add('opacity-100')"
+                        style="opacity: 0;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Navigation arrows with improved accessibility -->
+                <button 
+                  @click.stop="prevSlide" 
+                  class="carousel-nav-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
+                  v-if="product.images.length > 1"
+                  aria-label="Previous image"
+                  title="Previous image">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button 
+                  @click.stop="nextSlide" 
+                  class="carousel-nav-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
+                  v-if="product.images.length > 1"
+                  aria-label="Next image"
+                  title="Next image">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
               
-              <!-- Navigation arrows with improved accessibility -->
-              <button 
-                @click.stop="prevSlide" 
-                class="carousel-nav-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
-                v-if="product.images.length > 1"
-                aria-label="Previous image"
-                title="Previous image">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button 
-                @click.stop="nextSlide" 
-                class="carousel-nav-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
-                v-if="product.images.length > 1"
-                aria-label="Next image"
-                title="Next image">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              <!-- Pagination dots with improved accessibility -->
+              <div class="flex justify-center pb-3 space-x-2" v-if="product.images.length > 1" role="tablist" aria-label="Image pagination">
+                <button 
+                  v-for="(_, index) in product.images" 
+                  :key="index" 
+                  @click.stop="goToSlide(index)"
+                  :class="[
+                    'pagination-dot rounded-full transition-all focus:outline-none focus:ring focus:ring-white/30',
+                    currentSlide === index ? 'w-4 active' : 'w-2 h-2',
+                    currentSlide === index ? 
+                      (themeColor === 'green' ? 'bg-green-500' : 
+                       themeColor === 'purple' ? 'bg-purple-500' : 
+                       themeColor === 'blue' ? 'bg-blue-500' : 
+                       themeColor === 'yellow' ? 'bg-yellow-500' : 'bg-green-500') : 'bg-gray-400 hover:bg-gray-300'
+                  ]"
+                  :aria-label="`Go to image ${index + 1}`"
+                  :aria-selected="currentSlide === index"
+                  role="tab">
+                </button>
+              </div>
             </div>
-            <!-- Keyboard and gesture hints -->
-            <div class="flex text-xs text-gray-400 justify-center py-2" v-if="product.images.length > 1">
-              <span class="hidden sm:inline">Use arrow keys or </span>
-              <span>Swipe to navigate</span>
+            <!-- Single image display -->
+            <div v-else class="relative bg-gray-900 h-80 sm:h-[450px] flex items-center justify-center">
+              <!-- Loading placeholder -->
+              <div class="absolute inset-0 bg-gray-800 flex items-center justify-center transition-opacity duration-300" 
+                   :class="{ 'opacity-0': imageLoaded }">
+                <div class="w-8 h-8 border-4 border-gray-600 border-t-gray-200 rounded-full animate-spin"></div>
+              </div>
+              <img 
+                :src="product.image" 
+                :alt="product.name" 
+                class="max-h-full max-w-full w-auto h-auto p-4 transition-opacity duration-300"
+                style="opacity: 0"
+                @load="$event.target.style.opacity = 1; imageLoaded = true"
+                @error="$event.target.src = '/public/images/axis-dome-side.webp'"
+              >
             </div>
-            
-            <!-- Pagination dots with improved accessibility -->
-            <div class="flex justify-center pb-3 space-x-2" v-if="product.images.length > 1" role="tablist" aria-label="Image pagination">
-              <button 
-                v-for="(_, index) in product.images" 
-                :key="index" 
-                @click.stop="goToSlide(index)"
-                :class="[
-                  'pagination-dot rounded-full transition-all focus:outline-none focus:ring focus:ring-white/30',
-                  currentSlide === index ? 'w-4 active' : 'w-2 h-2',
-                  currentSlide === index ? 
-                    (themeColor === 'green' ? 'bg-green-500' : 
-                     themeColor === 'purple' ? 'bg-purple-500' : 
-                     themeColor === 'blue' ? 'bg-blue-500' : 
-                     themeColor === 'yellow' ? 'bg-yellow-500' : 'bg-green-500') : 'bg-gray-400 hover:bg-gray-300'
-                ]"
-                :aria-label="`Go to image ${index + 1}`"
-                :aria-selected="currentSlide === index"
-                role="tab">
-              </button>
-            </div>
-          </div>
-          <!-- Single image display -->
-          <div v-else class="relative bg-gray-700 h-72 sm:h-96 flex items-center justify-center">
-            <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain p-4" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
           </div>
         </div>
 
@@ -284,6 +307,7 @@ export default {
     const modalPanel = ref(null);
     const currentSlide = ref(0);
     const carouselRef = ref(null);
+    const imageLoaded = ref(false);
     let swipeCleanup = null;
     let touchStartX = 0;
     let touchStartY = 0;
@@ -688,6 +712,7 @@ export default {
       carouselRef,
       categoryName,
       themeColor,
+      imageLoaded,
       close,
       addToCartAndClose,
       formatSpecName,
@@ -788,38 +813,90 @@ export default {
 /* Carousel styles */
 .carousel-container {
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
-  will-change: transform; /* Performance optimization for smoother animations */
-  touch-action: pan-y; /* Allow vertical scrolling but handle horizontal swipe */
-  pointer-events: auto;
-  position: relative;
-  z-index: 5;
-  min-height: 280px;
+  width: 100%;
+  will-change: transform;
+  touch-action: pan-y;
 }
 
 .carousel-item {
-  flex: 1 0 100%;
+  flex: 0 0 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(17, 24, 39);
   overflow: hidden;
-  height: 100%;
-  padding: 1rem;
-  background-color: rgb(31, 41, 55);
+  position: relative;
 }
 
 .carousel-item img {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   object-position: center;
-  display: block;
-  margin: 0 auto;
-  pointer-events: none; /* Prevent image dragging */
-  border-radius: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item.loading {
+  position: relative;
+}
+
+.carousel-item.loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.5);
+  z-index: 1;
+}
+
+.carousel-item.loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid rgb(75, 85, 99);
+  border-top-color: rgb(209, 213, 219);
+  animation: spin 1s linear infinite;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.carousel-navigation {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 20;
+}
+
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgb(209, 213, 219);
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.carousel-dot.active {
+  opacity: 1;
+  transform: scale(1.25);
 }
 
 /* Responsive adjustments for different screen sizes */
