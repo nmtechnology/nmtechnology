@@ -78,7 +78,7 @@
                     <div class="w-full h-full flex items-center justify-center">
                       <!-- Loading placeholder -->
                       <div 
-                        :class="['absolute inset-0 bg-gray-800 flex items-center justify-center transition-opacity duration-300',
+                        :class="['absolute inset-0 bg-gr flex items-center justify-center transition-opacity duration-300',
                           currentSlide === index ? 'opacity-100' : 'opacity-0']">
                         <div class="w-8 h-8 border-4 border-gray-600 border-t-gray-200 rounded-full animate-spin"></div>
                       </div>
