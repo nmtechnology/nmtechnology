@@ -64,8 +64,8 @@ eslint-disable no-undef
                                     systems continue to function effectively
                                     over time. Contact us today so we can get started.</p>
                                 
-                                <div class="mt-10 flex items-center gap-x-6">
-
+                                <div class="mt-10 flex items-center gap-x-12 w-full sm:w-auto">
+                                    <button @click="openContactModal" class="w-full sm:w-auto text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">Contact Us</button>
                                 </div>
                             </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -122,6 +122,7 @@ eslint-disable no-undef
     <BlackGradient />
     <SectionOne />
     <HomeFooter />
+    <ContactModal ref="contactModalRef" />
 </template>
 
 <script>
@@ -137,6 +138,7 @@ import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
+import ContactModal from '../components/ContactModal.vue'
 import { ref } from 'vue'
 
 const isOpen = ref(true)
@@ -154,8 +156,22 @@ export default {
     MobileMenu,
     TopBanner,
     CcTv,
-
+    ContactModal,
     TrustedTeams
+  },
+  setup() {
+    const contactModalRef = ref(null)
+    
+    const openContactModal = () => {
+      if (contactModalRef.value) {
+        contactModalRef.value.openModalFromOptions()
+      }
+    }
+    
+    return {
+      contactModalRef,
+      openContactModal
+    }
   }
 }
 </script>
