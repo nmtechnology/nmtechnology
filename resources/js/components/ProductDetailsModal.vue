@@ -25,7 +25,7 @@
         ]">
           <div class="relative">
             <!-- Image carousel in header -->
-            <div v-if="product.images && product.images.length > 1" class="relative bg-gray-900">
+            <div v-if="product.images && product.images.length > 1" class="relative bg-gray-900 border-b border-gray-700">
               <!-- Image carousel with ARIA attributes -->
               <div class="relative overflow-hidden bg-gray-900 h-80 sm:h-[450px]" @click.stop role="region" aria-roledescription="carousel" aria-label="Product images">
                 <!-- Screen reader announcement region -->
@@ -50,6 +50,24 @@
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
+                    </div>
+
+                    <!-- Category pills -->
+                    <div class="flex gap-2 mt-2">
+                      <span class="inline-block text-white text-xs px-2 py-1 rounded-full bg-opacity-90"
+                        :class="{
+                          'bg-green-600': themeColor === 'green',
+                          'bg-purple-600': themeColor === 'purple',
+                          'bg-blue-600': themeColor === 'blue',
+                          'bg-yellow-600': themeColor === 'yellow'
+                        }">{{ product.brand }}</span>
+                      <span class="inline-block text-white text-xs px-2 py-1 rounded-full bg-opacity-90"
+                        :class="{
+                          'bg-green-600': themeColor === 'green',
+                          'bg-purple-600': themeColor === 'purple',
+                          'bg-blue-600': themeColor === 'blue',
+                          'bg-yellow-600': themeColor === 'yellow'
+                        }">{{ categoryName }}</span>
                     </div>
                     
                     <!-- Swipe text -->
@@ -164,23 +182,6 @@
           <div class="flex flex-col gap-6">
             <!-- Product info -->
             <div class="w-full">
-              <div class="mb-4">
-                <span class="inline-block text-white text-xs px-2 py-1 rounded-full"
-                  :class="{
-                    'bg-green-600': themeColor === 'green',
-                    'bg-purple-600': themeColor === 'purple',
-                    'bg-blue-600': themeColor === 'blue',
-                    'bg-yellow-600': themeColor === 'yellow'
-                  }">{{ product.brand }}</span>
-                <span class="inline-block text-white text-xs px-2 py-1 rounded-full ml-2"
-                  :class="{
-                    'bg-green-600': themeColor === 'green',
-                    'bg-purple-600': themeColor === 'purple',
-                    'bg-blue-600': themeColor === 'blue',
-                    'bg-yellow-600': themeColor === 'yellow'
-                  }">{{ categoryName }}</span>
-              </div>
-              
               <p class="text-gray-300 mb-4">{{ product.description }}</p>
               
               <h4 class="text-white font-medium mb-2">Key Features:</h4>
