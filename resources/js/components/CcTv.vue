@@ -247,22 +247,20 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span v-else-if="product.category === 'monitoring'" class="mr-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                        </span>
                         {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}
                       </button>
-                      <button @click.stop="showProductDetails(product)" :class="[
-                                'text-white px-3 py-2 rounded-r transition-colors cursor-pointer',
+                      <button @click.stop="showProductDetails(product)" 
+                              :class="[
+                                'px-3 py-2 rounded-r transition-all duration-200 cursor-pointer border',
                                 product.category === 'package' 
-                                  ? 'bg-gray-800 hover:bg-gray-700' 
+                                  ? 'border-green-600/50 hover:border-green-500 text-green-500 hover:text-green-400 hover:bg-green-900/20' 
                                   : product.category === 'monitoring'
-                                    ? 'bg-gray-800 hover:bg-gray-700'
-                                    : 'bg-gray-700 hover:bg-gray-600'
+                                    ? 'border-purple-600/50 hover:border-purple-500 text-purple-500 hover:text-purple-400 hover:bg-purple-900/20'
+                                    : (product.category === 'security' && product.color === 'blue')
+                                      ? 'border-blue-600/50 hover:border-blue-500 text-blue-500 hover:text-blue-400 hover:bg-blue-900/20'
+                                      : (product.brand === 'NM Solar' && product.color === 'yellow')
+                                        ? 'border-yellow-600/50 hover:border-yellow-500 text-yellow-500 hover:text-yellow-400 hover:bg-yellow-900/20'
+                                        : 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20'
                               ]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
