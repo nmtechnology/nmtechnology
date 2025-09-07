@@ -11,123 +11,119 @@
   </PromoBanner>
 
   <div class="bg-gray-900 min-h-screen flex flex-col relative">
-    <main class="pt-[60px] flex-grow relative z-10">
-      <!-- Reduced padding to account for the fixed banner, flex-grow to push footer down -->
-      <div class="relative isolate">
-        <!-- SVG Background Pattern (Same as HomePage) - Now Fixed Position -->
-        <svg
-          class="fixed inset-x-0 top-0 -z-40 h-screen w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
-          aria-hidden="true">
-          <defs>
-            <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
-              patternUnits="userSpaceOnUse">
-              <path d="M.5 300V.5H200" fill="none" />
-            </pattern>
-          </defs>
-          <svg x="50%" y="-1" class="overflow-visible">
-            <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-              stroke-width="0" />
-          </svg>
-          <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
-        </svg>
+    <!-- Background Pattern - Lower z-index -->
+    <svg class="fixed inset-x-0 top-0 -z-10 h-screen w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+        aria-hidden="true">
+      <defs>
+        <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
+          patternUnits="userSpaceOnUse">
+          <path d="M.5 300V.5H200" fill="none" />
+        </pattern>
+      </defs>
+      <svg x="50%" y="-1" class="overflow-visible">
+        <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+          stroke-width="0" />
+      </svg>
+      <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+    </svg>
 
-        <div class="overflow-visible relative z-10">
-          <div
-            class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
-            <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative">
-              <span v-if="activeCategory === 'package'">
-                Complete <span class="text-green-500">Security Packages</span>
-              </span>
-              <span v-else>
-                Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products
-              </span>
-            </h1>
-            <p class="text-white text-sm mb-10 text-center relative">
-              <span v-if="activeCategory === 'package'">
-                Our comprehensive security packages offer everything you need for complete protection. Choose the tier
-                that fits your needs and add it to your quote cart - our team will reach out with detailed pricing and
-                installation options.
-              </span>
-              <span v-else>
-                Here are our most popular products. Select what you need for your project, add them to your quote cart, and
-                when you're ready to check out, our system will send this quote cart to our team as an inquiry. We'll get back
-                to you with pricing and availability as soon as possible.
-              </span>
-            </p>
+    <main class="pt-[60px] pb-48 flex-grow relative z-20">
+      <div class="relative">
+        <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
+          <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative z-20">
+            <span v-if="activeCategory === 'package'">
+              Complete <span class="text-green-500">Security Packages</span>
+            </span>
+            <span v-else>
+              Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products
+            </span>
+          </h1>
+          <p class="text-white text-sm mb-10 text-center relative">
+            <span v-if="activeCategory === 'package'">
+              Our comprehensive security packages offer everything you need for complete protection. Choose the tier
+              that fits your needs and add it to your quote cart - our team will reach out with detailed pricing and
+              installation options.
+            </span>
+            <span v-else>
+              Here are our most popular products. Select what you need for your project, add them to your quote cart, and
+              when you're ready to check out, our system will send this quote cart to our team as an inquiry. We'll get back
+              to you with pricing and availability as soon as possible.
+            </span>
+          </p>
 
-            <!-- Product Filter -->
-            <div id="product-section">
-              <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
+          <!-- Product Filter -->
+          <div id="product-section" class="relative z-20">
+            <ProductFilter :initialCategory="activeCategory" @filter-change="filterProducts" />
+          </div>
+
+          <!-- Special Package Info Box -->
+          <div v-if="activeCategory === 'package'" id="package-section"
+            class="bg-green-900/20 border border-green-600/30 rounded-lg p-4 mb-8">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+              <div class="flex-1">
+                <h3 class="text-green-500 text-lg font-bold mb-2">Complete Security Solutions</h3>
+                <p class="text-gray-300 text-sm">
+                  Our security packages are designed to provide complete coverage for properties of all sizes. Each
+                  package includes cameras, recording equipment, storage, and all necessary accessories. As you move
+                  up in tiers, you'll get higher resolution, more storage, and additional advanced features.
+                </p>
+              </div>
+              <div class="flex-shrink-0">
+                <button @click="showPackageComparison = !showPackageComparison"
+                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                  <span>Compare All Packages</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                    :class="{'rotate-180': showPackageComparison}" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <!-- Special Package Info Box -->
-            <div v-if="activeCategory === 'package'" id="package-section"
-              class="bg-green-900/20 border border-green-600/30 rounded-lg p-4 mb-8">
-              <div class="flex flex-col md:flex-row items-center gap-4">
-                <div class="flex-1">
-                  <h3 class="text-green-500 text-lg font-bold mb-2">Complete Security Solutions</h3>
-                  <p class="text-gray-300 text-sm">
-                    Our security packages are designed to provide complete coverage for properties of all sizes. Each
-                    package includes cameras, recording equipment, storage, and all necessary accessories. As you move
-                    up in tiers, you'll get higher resolution, more storage, and additional advanced features.
-                  </p>
-                </div>
-                <div class="flex-shrink-0">
-                  <button @click="showPackageComparison = !showPackageComparison"
-                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                    <span>Compare All Packages</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-                      :class="{'rotate-180': showPackageComparison}" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+            <!-- Package Comparison Table -->
+            <transition name="slide">
+              <div v-if="showPackageComparison" class="mt-4 overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                  <thead class="bg-gray-800/50">
+                    <tr>
+                      <th class="px-4 py-2 text-gray-400">Package</th>
+                      <th class="px-4 py-2 text-gray-400">Cameras</th>
+                      <th class="px-4 py-2 text-gray-400">Resolution</th>
+                      <th class="px-4 py-2 text-gray-400">Storage</th>
+                      <th class="px-4 py-2 text-gray-400">Price</th>
+                      <th class="px-4 py-2 text-gray-400"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="product in packageProducts" :key="product.id"
+                      class="border-b border-gray-800 hover:bg-gray-800/30 transition-colors">
+                      <td class="px-4 py-3 text-white font-medium">{{ product.name }}</td>
+                      <td class="px-4 py-3 text-gray-300">{{ product.specs?.cameraCount }}</td>
+                      <td class="px-4 py-3 text-gray-300">{{ product.specs?.resolution }}</td>
+                      <td class="px-4 py-3 text-gray-300">{{ product.specs?.storage }}</td>
+                      <td class="px-4 py-3 text-green-500 font-bold">${{ product.price?.toFixed(2) }}</td>
+                      <td class="px-4 py-3">
+                        <button @click="showProductDetails(product)" class="text-blue-400 hover:text-blue-300">
+                          Details
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </transition>
+          </div>
 
-              <!-- Package Comparison Table -->
-              <transition name="slide">
-                <div v-if="showPackageComparison" class="mt-4 overflow-x-auto">
-                  <table class="w-full text-left text-sm">
-                    <thead class="bg-gray-800/50">
-                      <tr>
-                        <th class="px-4 py-2 text-gray-400">Package</th>
-                        <th class="px-4 py-2 text-gray-400">Cameras</th>
-                        <th class="px-4 py-2 text-gray-400">Resolution</th>
-                        <th class="px-4 py-2 text-gray-400">Storage</th>
-                        <th class="px-4 py-2 text-gray-400">Price</th>
-                        <th class="px-4 py-2 text-gray-400"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="product in packageProducts" :key="product.id"
-                        class="border-b border-gray-800 hover:bg-gray-800/30 transition-colors">
-                        <td class="px-4 py-3 text-white font-medium">{{ product.name }}</td>
-                        <td class="px-4 py-3 text-gray-300">{{ product.specs?.cameraCount }}</td>
-                        <td class="px-4 py-3 text-gray-300">{{ product.specs?.resolution }}</td>
-                        <td class="px-4 py-3 text-gray-300">{{ product.specs?.storage }}</td>
-                        <td class="px-4 py-3 text-green-500 font-bold">${{ product.price?.toFixed(2) }}</td>
-                        <td class="px-4 py-3">
-                          <button @click="showProductDetails(product)" class="text-blue-400 hover:text-blue-300">
-                            Details
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </transition>
+          <!-- Product Grid -->
+          <div id="product-grid" class="relative z-20 scroll-mt-32 pt-4">
+            <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
+              class="text-center text-white py-10">
+              No products found. Please try a different filter.
             </div>
 
-            <!-- Product Grid -->
-            <div id="product-grid" class="scroll-mt-32 pt-4">
-              <div v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
-                class="text-center text-white py-10">
-                No products found. Please try a different filter.
-              </div>
-
-              <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
-                :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
+            <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
+              :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
               <h2 class="text-left text-wrap text-green-600 text-bold text-2xl font-extrabold mb-5">{{ brand }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id"
@@ -278,68 +274,67 @@
           </div>
         </div>
       </div>
-      </div>
     </main>
-  </div>
 
-  <!-- Recently Viewed Products Footer - Fixed at bottom -->
-  <transition name="fade">
-    <footer v-if="hasRecentProducts" class="bg-gray-900/90 border-t border-gray-700 w-full fixed bottom-0 left-0 z-20">
-      <!-- Toggle button -->
-      <button @click="toggleRecentlyViewed"
-        class="absolute -top-8 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-4 py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-lg">
-        {{ isRecentlyViewedExpanded ? 'Hide' : 'Show' }} Recently Viewed
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1 transition-transform duration-300"
-          :class="{'rotate-180': !isRecentlyViewedExpanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+    <!-- Recently Viewed Products Footer -->
+    <transition name="fade">
+      <div v-if="hasRecentProducts" class="recently-viewed-footer fixed bottom-0 left-0 w-full">
+        <!-- Toggle button -->
+        <button @click="toggleRecentlyViewed"
+          class="absolute -top-8 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-4 py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-lg">
+          {{ isRecentlyViewedExpanded ? 'Hide' : 'Show' }} Recently Viewed
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1 transition-transform duration-300"
+            :class="{'rotate-180': !isRecentlyViewedExpanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
-      <!-- Footer content with transition -->
-      <transition name="slide">
-        <div v-if="isRecentlyViewedExpanded" class="py-6 transform transition-all duration-500 ease-in-out">
-          <div class="container mx-auto px-4 md:px-6">
-            <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
-            <div class="overflow-x-auto pb-3" style="scrollbar-width: thin;">
-              <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
-                <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
-                  <div v-for="product in recentlyViewedProducts" :key="product.id" @click="showProductDetails(product)"
-                    :class="[
-                      'flex-shrink-0 w-36 sm:w-48 md:w-56 rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1',
-                      product.category === 'package' ? 'bg-gray-800/60 border border-green-600/30 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/50' : 
-                      product.category === 'monitoring' ? 'bg-gray-800/60 border border-purple-600/30 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/50' :
-                      (product.category === 'security' && product.color === 'blue') ? 'bg-gray-800/60 border border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50' :
-                      (product.brand === 'NM Solar' && product.color === 'yellow') ? 'bg-gray-800/60 border border-yellow-600/30 hover:shadow-lg hover:shadow-yellow-500/20 hover:border-yellow-500/50' : 
-                      'bg-gray-800/60 border border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50'
-                    ]">
-                    <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2 bg-gray-900/50">
-                    <div class="p-3">
-                      <h3 :class="[
-                        'text-sm font-medium truncate',
-                        product.category === 'package' ? 'text-green-400' : 
-                        product.category === 'monitoring' ? 'text-purple-400' : 
-                        (product.category === 'security' && product.color === 'blue') ? 'text-blue-400' :
-                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'text-yellow-400' :
-                        'text-blue-400'
-                      ]">{{ product.name }}</h3>
-                      <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+        <!-- Footer content with transition -->
+        <transition name="slide">
+          <div v-if="isRecentlyViewedExpanded" class="bg-gray-900/90 border-t border-gray-700 py-4">
+            <div class="container mx-auto px-4 md:px-6">
+              <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
+              <div class="recently-viewed-scroller overflow-x-auto pb-3">
+                <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
+                  <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
+                    <div v-for="product in recentlyViewedProducts" :key="product.id" @click="showProductDetails(product)"
+                      class="recently-viewed-item flex-shrink-0 w-36 sm:w-48 md:w-56 rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 bg-gray-800/60 border"
+                      :class="[
+                        product.category === 'package' ? 'border-green-600/30 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/50' : 
+                        product.category === 'monitoring' ? 'border-purple-600/30 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/50' :
+                        (product.category === 'security' && product.color === 'blue') ? 'border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50' :
+                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'border-yellow-600/30 hover:shadow-lg hover:shadow-yellow-500/20 hover:border-yellow-500/50' : 
+                        'border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50'
+                      ]">
+                      <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2 bg-gray-900/50">
+                      <div class="p-3">
+                        <h3 :class="[
+                          'text-sm font-medium truncate',
+                          product.category === 'package' ? 'text-green-400' : 
+                          product.category === 'monitoring' ? 'text-purple-400' : 
+                          (product.category === 'security' && product.color === 'blue') ? 'text-blue-400' :
+                          (product.brand === 'NM Solar' && product.color === 'yellow') ? 'text-yellow-400' :
+                          'text-blue-400'
+                        ]">{{ product.name }}</h3>
+                        <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+                      </div>
                     </div>
-                  </div>
-                </transition-group>
+                  </transition-group>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </transition>
-    </footer>
-  </transition>
+        </transition>
+      </div>
+    </transition>
 
-  <!-- Cart Modal -->
-  <CartModal class="z-30" />
+    <!-- Cart Modal -->
+    <CartModal class="relative z-50" />
 
-  <!-- Product Details Modal -->
-  <ProductDetailsModal v-if="selectedProduct" :isOpen="productDetailsOpen" :product="selectedProduct" class="z-30"
-    @close="closeProductDetails" />
+    <!-- Product Details Modal -->
+    <ProductDetailsModal v-if="selectedProduct" :isOpen="productDetailsOpen" :product="selectedProduct" 
+      class="relative z-50" @close="closeProductDetails" />
+  </div>
 </template>
 
 <script>
@@ -643,31 +638,57 @@ export default {
 </script>
 
 <style scoped>
-/* Background styling to match homepage */
+/* Base layout and background */
 .bg-gray-900 {
   position: relative;
   min-height: 100vh;
 }
 
-/* Ensure content is positioned properly relative to background elements */
-.relative {
+/* Content area should be above background but below modals */
+main {
   position: relative;
-  z-index: 1;
+  z-index: 20;
 }
 
-/* Main scrollable content container with improved styling for overlay effect */
-.overflow-visible {
+/* Product cards should be clickable */
+.rounded-lg {
   position: relative;
-  z-index: 10;
+  z-index: 30;
 }
 
-/* Content container with more transparent background */
+/* Main content container */
 .mx-auto.max-w-7xl {
+  position: relative;
   background: rgba(17, 24, 39, 0.4);
   backdrop-filter: blur(4px);
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   margin-bottom: 2rem;
+}
+
+/* Make sure modals appear on top */
+:deep(.modal-overlay) {
+  z-index: 45;
+}
+
+:deep(.modal-container) {
+  z-index: 50;
+}
+
+/* Keep recently viewed footer above content but below modals */
+.recently-viewed-footer.fixed {
+  z-index: 40;
+}
+
+/* Background patterns should stay in back */
+svg.fixed {
+  z-index: -10;
+}
+
+/* Ensure product cards are clickable */
+.cursor-pointer {
+  position: relative;
+  z-index: 30;
 }
 
 /* Improve text readability against the complex background */
@@ -728,28 +749,34 @@ main {
 footer {
   border-top: 1px solid rgba(55, 65, 81, 0.5);
   box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3), 0 -4px 8px -2px rgba(0, 0, 0, 0.2);
-  z-index: 20;
   backdrop-filter: blur(12px);
   transition: transform 0.5s ease;
-  pointer-events: none; /* This ensures clicks pass through to elements beneath */
+  max-height: 300px; /* Limit the height of the footer */
+  overflow: auto;
 }
 
-/* Make sure interactive elements within footer are clickable */
-footer button,
-footer .container,
-footer .overflow-x-auto,
-footer .product-list {
-  pointer-events: auto;
+/* Footer container styles */
+footer .container {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-/* Scrollable container for products */
-.overflow-x-auto {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(75, 85, 99, 0.5) rgba(31, 41, 55, 0.5);
+/* Product list container in footer */
+footer .overflow-x-auto {
+  max-height: 220px; /* Leave room for the header */
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
+/* Recently viewed toggle button */
+footer button.absolute {
+  z-index: 41; /* Ensure the toggle button is always clickable */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
 .overflow-x-auto::-webkit-scrollbar {
   height: 6px;
+  width: 6px;
 }
 
 .overflow-x-auto::-webkit-scrollbar-track {
@@ -762,8 +789,9 @@ footer .product-list {
   border-radius: 10px;
 }
 
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background: rgba(75, 85, 99, 0.7);
+/* Main content area padding to prevent content from being hidden behind footer */
+main {
+  padding-bottom: 320px; /* Increased padding to account for footer height */
 }
 
 /* Transition animations for recently viewed products */
@@ -799,7 +827,7 @@ footer .product-list {
 /* Slide animation for footer content and package comparison */
 .slide-enter-active,
 .slide-leave-active {
-  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.5s ease;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
   max-height: 500px;
   overflow: hidden;
 }
@@ -808,7 +836,6 @@ footer .product-list {
 .slide-leave-to {
   max-height: 0;
   opacity: 0;
-  transform: translateY(100%);
   overflow: hidden;
 }
 
@@ -883,11 +910,158 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
 /* Animation styles for scroll transitions */
 .scroll-transition {
   transition: all 0.5s ease;
+}
+
+/* Base layout styling */
+main {
+  position: relative;
+  margin-top: 30px;
+  padding-bottom: 150px; /* Space for footer */
+  z-index: 1; /* Lower z-index for main content */
+}
+
+/* Content container */
+.mx-auto.max-w-7xl {
+  position: relative;
+  z-index: 1;
+  background: rgba(17, 24, 39, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+}
+
+/* Product grid and cards */
+#product-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.cursor-pointer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Recently viewed footer styling */
+.recently-viewed-footer.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  height: auto;
+  max-height: 300px;
+  background: rgba(17, 24, 39, 0.95);
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+  box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+/* Footer toggle button */
+.recently-viewed-footer .absolute {
+  z-index: 41;
+}
+
+/* Footer content container */
+footer .container {
+  position: relative;
+  height: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Product list in footer */
+footer .overflow-x-auto {
+  max-height: 200px;
+  overflow-y: hidden;
+}
+
+/* Modal z-indices */
+:deep(.modal-overlay) {
+  z-index: 45;
+}
+
+:deep(.modal-container) {
+  z-index: 50;
+}
+
+/* Background pattern */
+svg.fixed {
+  z-index: -10;
+}
+
+/* Transition animations */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Hide scrollbar for cleaner look */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+  border-radius: 10px;
+}
+
+/* Recently viewed products footer styling */
+.recently-viewed-footer .container {
+  position: relative;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Recently viewed items styles */
+.recently-viewed-scroller {
+  padding-bottom: 0.75rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: thin;  /* Firefox */
+}
+
+.recently-viewed-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recently-viewed-scroller::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.4);
+  border-radius: 10px;
+}
+
+.recently-viewed-scroller::-webkit-scrollbar-thumb {
+  background: rgba(55, 65, 81, 0.7);
+  border-radius: 10px;
+}
+
+.recently-viewed-scroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.9);
+}
+
+.recently-viewed-item {
+  transition: all 0.3s ease;
+}
+
+.recently-viewed-item:hover {
+  transform: translateY(-4px);
 }
 </style>
 
