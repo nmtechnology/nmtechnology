@@ -1,5 +1,41 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 overflow-hidden z-50" aria-labelledby="product-details-title" role="dialog" aria-modal="true">
+  <div v-if="isOpen" class="fixed inset-0 overflow-hidden z-50" aria-labelledby="                <!                <!-- Pagination dots -->
+                <div class="flex justify-center mt-2 space-x-2" v-if="product.images.length > 1">
+                  <button 
+                    v-for="(_, index) in product.images" 
+                    :key="index" 
+                    @click.stop="goToSlide(index)"
+                    :class="[
+                      'pagination-dot transition-all focus:outline-none',
+                      currentSlide === index ? 'active' : '',
+                      currentSlide === index ? 
+                        (themeColor === 'green' ? 'bg-green-500' : 
+                         themeColor === 'purple' ? 'bg-purple-500' : 
+                         themeColor === 'blue' ? 'bg-blue-500' : 
+                         themeColor === 'yellow' ? 'bg-yellow-500' : 'bg-green-500') : 'bg-gray-400 hover:bg-gray-300'
+                    ]"
+                    :aria-label="`Go to image ${index + 1}`"
+                    :aria-current="currentSlide === index ? 'true' : 'false'">
+                  </button>
+                </div>s -->
+                <div class="pagination-dots mt-2 space-x-2" v-if="product.images.length > 1">
+                  <button 
+                    v-for="(_, index) in product.images" 
+                    :key="index" 
+                    @click.stop="goToSlide(index)"
+                    :class="[
+                      'pagination-dot transition-all focus:outline-none',
+                      currentSlide === index ? 'active' : '',
+                      currentSlide === index ? 
+                        (themeColor === 'green' ? 'bg-green-500' : 
+                         themeColor === 'purple' ? 'bg-purple-500' : 
+                         themeColor === 'blue' ? 'bg-blue-500' : 
+                         themeColor === 'yellow' ? 'bg-yellow-500' : 'bg-green-500') : 'bg-gray-400 hover:bg-gray-300'
+                    ]"
+                    :aria-label="`Go to image ${index + 1}`"
+                    :aria-current="currentSlide === index ? 'true' : 'false'">
+                  </button>
+                </div>itle" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="close"></div>
@@ -46,11 +82,8 @@
             <!-- Product image or carousel -->
             <div class="w-full lg:w-1/2">
               <div v-if="product.images && product.images.length > 1" class="relative">
-                <!-- Image carousel with ARIA attributes -->
-                <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72" @click.stop role="region" aria-roledescription="carousel" aria-label="Product images">
-                  <!-- Screen reader announcement region -->
-                  <div id="carousel-live-region" class="sr-only" aria-live="polite"></div>
-                  
+                <!-- Image carousel -->
+                <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72" @click.stop>
                   <!-- Carousel container with improved event handling -->
                   <div 
                     ref="carouselRef" 
@@ -65,58 +98,43 @@
                     <div
                       v-for="(image, index) in product.images"
                       :key="index"
-                      :class="['carousel-item', currentSlide === index ? 'active' : '']"
-                      :style="{ width: `${100 / product.images.length}%` }"
-                      role="group"
-                      aria-roledescription="slide"
-                      :aria-label="`Image ${index + 1} of ${product.images.length}`">
+                      class="carousel-item"
+                      :style="{ width: `${100 / product.images.length}%` }">
                       <img
                         :src="image" 
                         :alt="`${product.name} - Image ${index + 1}`" 
                         class="object-contain"
                         @error="$event.target.src = '/public/images/axis-dome-side.webp'"
-                        loading="lazy"
                         @click.stop
                       />
                     </div>
                   </div>
-                  
-                  <!-- Navigation arrows with improved accessibility -->
+                  <!-- Navigation arrows with improved click targets -->
                   <button 
                     @click.stop="prevSlide" 
-                    class="carousel-nav-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
-                    v-if="product.images.length > 1"
-                    aria-label="Previous image"
-                    title="Previous image">
+                    class="carousel-nav-button absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700 z-10"
+                    v-if="product.images.length > 1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
                   <button 
                     @click.stop="nextSlide" 
-                    class="carousel-nav-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700 z-10 focus:outline-none focus:ring focus:ring-white/30"
-                    v-if="product.images.length > 1"
-                    aria-label="Next image"
-                    title="Next image">
+                    class="carousel-nav-button absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700 z-10"
+                    v-if="product.images.length > 1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
                 </div>
-                <!-- Keyboard and gesture hints -->
-                <div class="flex text-xs text-gray-400 justify-center mb-1" v-if="product.images.length > 1">
-                  <span class="hidden sm:inline">Use arrow keys or </span>
-                  <span>Swipe to navigate</span>
-                </div>
-                
-                <!-- Pagination dots with improved accessibility -->
-                <div class="flex justify-center mt-1 space-x-2" v-if="product.images.length > 1" role="tablist" aria-label="Image pagination">
+                <!-- Pagination dots -->
+                <div class="flex justify-center mt-2 space-x-2" v-if="product.images.length > 1">
                   <button 
                     v-for="(_, index) in product.images" 
                     :key="index" 
                     @click.stop="goToSlide(index)"
                     :class="[
-                      'pagination-dot rounded-full transition-all focus:outline-none focus:ring focus:ring-white/30',
+                      'pagination-dot rounded-full transition-all focus:outline-none',
                       currentSlide === index ? 'w-4 active' : 'w-2 h-2',
                       currentSlide === index ? 
                         (themeColor === 'green' ? 'bg-green-500' : 
@@ -125,8 +143,7 @@
                          themeColor === 'yellow' ? 'bg-yellow-500' : 'bg-green-500') : 'bg-gray-400 hover:bg-gray-300'
                     ]"
                     :aria-label="`Go to image ${index + 1}`"
-                    :aria-selected="currentSlide === index"
-                    role="tab">
+                    :aria-current="currentSlide === index ? 'true' : 'false'">
                   </button>
                 </div>
               </div>
@@ -282,140 +299,71 @@ export default {
     const carouselRef = ref(null);
     let swipeCleanup = null;
     let touchStartX = 0;
-    let touchStartY = 0;
     let touchEndX = 0;
     let isSwiping = false;
     let swipeThreshold = 50; // Minimum distance to trigger a swipe
-    let isDragging = false;
-    let initialSwipeDirection = null;
     
     // Improved touch event handlers for the carousel
     const handleTouchStart = (e) => {
       if (!props.product.images || props.product.images.length <= 1) return;
       
       touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
+      const touchStartY = e.changedTouches[0].screenY;
       isSwiping = true;
-      initialSwipeDirection = null;
-      isDragging = false;
       
       // Store Y position to determine if this is a horizontal or vertical swipe
-      if (modalPanel.value) {
-        modalPanel.value._touchStartY = touchStartY;
-      }
+      modalPanel.value._touchStartY = touchStartY;
+      
+      // Don't stop propagation yet - we'll determine direction first
     };
     
     const handleTouchMove = (e) => {
-      if (!isSwiping || !props.product.images || props.product.images.length <= 1) return;
+      if (!isSwiping || !props.product.images) return;
       
-      const touchCurrentX = e.changedTouches[0].screenX;
-      const touchCurrentY = e.changedTouches[0].screenY;
-      const deltaX = touchCurrentX - touchStartX;
-      const deltaY = touchCurrentY - touchStartY;
-      
-      // Determine initial swipe direction if not yet determined
-      if (initialSwipeDirection === null) {
-        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
-          initialSwipeDirection = 'horizontal';
-          // Add dragging class for visual feedback
-          if (carouselRef.value) {
-            carouselRef.value.classList.add('dragging');
-          }
-        } else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 10) {
-          initialSwipeDirection = 'vertical';
-        }
-      }
+      touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - modalPanel.value._touchStartY;
       
       // If primarily horizontal swipe (carousel navigation), stop propagation to modal
-      if (initialSwipeDirection === 'horizontal') {
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
         e.stopPropagation();
-        isDragging = true;
         
-        // Enhanced visual feedback for swiping with resistance effect
+        // Optional: Add visual feedback for swiping
         if (carouselRef.value) {
-          // Add resistance at the edges
-          let offset = deltaX;
-          
-          // Apply resistance if at first or last slide
-          if ((currentSlide.value === 0 && deltaX > 0) || 
-              (currentSlide.value === props.product.images.length - 1 && deltaX < 0)) {
-            offset = deltaX / 3; // More resistance at edges
-          } else {
-            offset = deltaX / 1.5; // Less resistance in the middle
-          }
-          
+          const offset = deltaX / 4; // Reduce the movement for subtle effect
           carouselRef.value.style.transform = `translateX(calc(-${currentSlide.value * 100}% + ${offset}px))`;
         }
       }
     };
     
     const handleTouchEnd = (e) => {
-      if (!isSwiping || !props.product.images || props.product.images.length <= 1) return;
+      if (!isSwiping || !props.product.images) return;
       
       touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
       const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - modalPanel.value._touchStartY;
       
-      // Remove dragging class
+      // Reset any visual transformation
       if (carouselRef.value) {
-        carouselRef.value.classList.remove('dragging');
+        carouselRef.value.style.transform = `translateX(-${currentSlide.value * 100}%)`;
       }
       
-      // Reset any visual transformation with animation
-      if (carouselRef.value) {
-        // If was dragging horizontally and initiated as a horizontal swipe
-        if (isDragging && initialSwipeDirection === 'horizontal') {
-          // Determine if swipe was significant enough to change slides
-          if (Math.abs(deltaX) > swipeThreshold) {
-            // Add smooth transition back
-            carouselRef.value.style.transition = 'transform 0.3s ease-out';
-            
-            if (deltaX > 0) {
-              // Add a small bounce effect for previous slide
-              if (currentSlide.value > 0) {
-                prevSlide(); // Swipe right -> previous slide
-              } else {
-                // At first slide, bounce back with animation
-                carouselRef.value.style.transform = `translateX(calc(-${currentSlide.value * 100}% + 20px))`;
-                setTimeout(() => {
-                  if (carouselRef.value) {
-                    carouselRef.value.style.transform = `translateX(-${currentSlide.value * 100}%)`;
-                  }
-                }, 50);
-              }
-            } else {
-              // Add a small bounce effect for next slide
-              if (currentSlide.value < props.product.images.length - 1) {
-                nextSlide(); // Swipe left -> next slide
-              } else {
-                // At last slide, bounce back with animation
-                carouselRef.value.style.transform = `translateX(calc(-${currentSlide.value * 100}% - 20px))`;
-                setTimeout(() => {
-                  if (carouselRef.value) {
-                    carouselRef.value.style.transform = `translateX(-${currentSlide.value * 100}%)`;
-                  }
-                }, 50);
-              }
-            }
+      // If primarily horizontal swipe, handle carousel navigation
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Determine if swipe was significant enough to change slides
+        if (Math.abs(deltaX) > swipeThreshold) {
+          if (deltaX > 0) {
+            prevSlide(); // Swipe right -> previous slide
           } else {
-            // Not enough to change slide, reset to current slide with easing
-            carouselRef.value.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
-            carouselRef.value.style.transform = `translateX(-${currentSlide.value * 100}%)`;
-            setTimeout(() => {
-              if (carouselRef.value) {
-                carouselRef.value.style.transition = 'transform 0.3s ease-in-out';
-              }
-            }, 300);
+            nextSlide(); // Swipe left -> next slide
           }
           e.stopPropagation(); // Prevent modal from closing
-        } else {
-          // Reset transform if not dragging horizontally
-          carouselRef.value.style.transform = `translateX(-${currentSlide.value * 100}%)`;
         }
       }
       
       isSwiping = false;
-      isDragging = false;
-      initialSwipeDirection = null;
     };
     
     // Carousel controls
@@ -423,31 +371,17 @@ export default {
       if (!props.product.images) return;
       currentSlide.value = (currentSlide.value + 1) % props.product.images.length;
       resetAutoRotation();
-      announceSlideChange();
     };
     
     const prevSlide = () => {
       if (!props.product.images) return;
       currentSlide.value = (currentSlide.value - 1 + props.product.images.length) % props.product.images.length;
       resetAutoRotation();
-      announceSlideChange();
     };
     
     const goToSlide = (index) => {
       currentSlide.value = index;
       resetAutoRotation();
-      announceSlideChange();
-    };
-    
-    // Accessibility announcement for screen readers
-    const announceSlideChange = () => {
-      const announcement = `Image ${currentSlide.value + 1} of ${props.product.images ? props.product.images.length : 1}`;
-      
-      // Use ARIA live region for announcement (added in the template)
-      const liveRegion = document.getElementById('carousel-live-region');
-      if (liveRegion) {
-        liveRegion.textContent = announcement;
-      }
     };
     
     // Reset auto-rotation when user interacts with carousel
@@ -479,44 +413,18 @@ export default {
       }
     };
     
-    // Enhanced keyboard navigation
+    // Clean up timer when component is unmounted
+    onBeforeUnmount(() => {
+      if (autoRotationTimer) clearInterval(autoRotationTimer);
+    });
+    
+    // Start auto-rotation when component is mounted
     onMounted(() => {
       startAutoRotation();
-      
-      const handleKeyDown = (e) => {
-        if (!props.isOpen || !props.product.images || props.product.images.length <= 1) return;
-        
-        // Focus handling - only respond to keyboard if modal is focused or carousel container is focused
-        const activeElement = document.activeElement;
-        const modalElement = modalPanel.value;
-        const carouselElement = carouselRef.value;
-        
-        // Check if focus is within the modal
-        if (modalElement && !modalElement.contains(activeElement)) {
-          return;
-        }
-        
-        // Left arrow key - previous slide
-        if (e.key === 'ArrowLeft') {
-          prevSlide();
-          e.preventDefault();
-        }
-        // Right arrow key - next slide
-        else if (e.key === 'ArrowRight') {
-          nextSlide();
-          e.preventDefault();
-        }
-      };
-      
-      window.addEventListener('keydown', handleKeyDown);
-      
-      onBeforeUnmount(() => {
-        window.removeEventListener('keydown', handleKeyDown);
-        if (autoRotationTimer) clearInterval(autoRotationTimer);
-        if (swipeCleanup) swipeCleanup();
-      });
-      
-      // Set up swipe gesture handling for the modal
+    });
+    
+    // Set up swipe gesture handling when component is mounted
+    onMounted(() => {
       if (modalPanel.value) {
         const { stop } = useSwipe(modalPanel.value, {
           onSwipeStart: (e) => {
@@ -572,6 +480,12 @@ export default {
       }
     });
     
+    // Clean up swipe handler when component is unmounted
+    onBeforeUnmount(() => {
+      if (swipeCleanup) {
+        swipeCleanup();
+      }
+    });
     // Convert category ID to friendly name
     const categoryName = computed(() => {
       const categories = {
@@ -678,6 +592,30 @@ export default {
       // Use predefined name if available, otherwise format the key
       return specNames[key] || key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
     };
+
+    // Add keyboard event handler to navigate carousel
+    onMounted(() => {
+      const handleKeyDown = (e) => {
+        if (!props.isOpen || !props.product.images || props.product.images.length <= 1) return;
+        
+        // Left arrow key - previous slide
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          e.preventDefault();
+        }
+        // Right arrow key - next slide
+        else if (e.key === 'ArrowRight') {
+          nextSlide();
+          e.preventDefault();
+        }
+      };
+      
+      window.addEventListener('keydown', handleKeyDown);
+      
+      onBeforeUnmount(() => {
+        window.removeEventListener('keydown', handleKeyDown);
+      });
+    });
     
     return {
       modalPanel,
@@ -971,58 +909,5 @@ export default {
 
 .pagination-dot.active {
   width: 1rem;
-}
-
-/* Enhanced touch feedback for carousel */
-.carousel-container.dragging {
-  transition: none;
-  cursor: grabbing;
-}
-
-/* Ensure the carousel doesn't interfere with modal swiping */
-.carousel-container {
-  pointer-events: auto;
-  position: relative;
-  z-index: 5;
-}
-
-/* Keyboard focus styling */
-.carousel-nav-button:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
-
-.pagination-dot:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
-
-/* Screen reader only class */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Animated entrance for slide content */
-@keyframes slideEnter {
-  from {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.carousel-item.active img {
-  animation: slideEnter 0.3s ease-out forwards;
 }
 </style>
