@@ -43,8 +43,8 @@
         <!-- Scrollable Content Area -->
         <div class="bg-gray-800 px-4 py-4 sm:px-6 overflow-y-auto flex-grow scrollbar">
           <div class="flex flex-col lg:flex-row gap-6">
-            <!-- Product image or carousel -->
-            <div class="w-full lg:w-1/2">
+            <!-- Product image or carousel - sticky on mobile, normal on desktop -->
+            <div class="w-full lg:w-1/2 carousel-container-wrapper">
               <div v-if="product.images && product.images.length > 1" class="relative">
                 <!-- Image carousel with ARIA attributes -->
                 <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72" @click.stop role="region" aria-roledescription="carousel" aria-label="Product images">
@@ -136,7 +136,7 @@
             </div>
             
             <!-- Product info -->
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 mt-4 lg:mt-0">
               <div class="mb-4">
                 <span class="inline-block text-white text-xs px-2 py-1 rounded-full"
                   :class="{
@@ -791,6 +791,7 @@ export default {
   pointer-events: auto;
   position: relative;
   z-index: 5;
+  min-height: 280px;
 }
 
 .carousel-item {
@@ -799,19 +800,18 @@ export default {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  height: 100%;
+  padding: 0.5rem;
 }
 
-.carousel-container img {
+.carousel-item img {
   opacity: 0;
   animation: fadeIn 0.5s ease-in forwards;
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  display: block;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments for different screen sizes */
@@ -1008,6 +1008,19 @@ export default {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Mobile sticky carousel styles */
+@media (max-width: 1023px) {
+  .carousel-container-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }
 
 /* Animated entrance for slide content */
