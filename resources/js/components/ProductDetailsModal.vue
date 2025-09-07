@@ -7,8 +7,6 @@
       <!-- Modal panel with swipe functionality -->
       <div 
         ref="modalPanel"
-        v-touch:up="close"
-        v-touch:down="close"
         :class="[
           'relative mx-auto bg-gray-800 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full mobile-swipe-indicator border-2 flex flex-col max-h-[85vh]',
           themeColor === 'green' ? 'border-green-600/30 theme-green' : 
@@ -324,11 +322,11 @@ export default {
           },
           onSwipe: ({ deltaY }) => {
             // Apply transform during swipe for visual feedback
-            // Increased threshold from 20 to 50 to reduce sensitivity
-            if (modalPanel.value && Math.abs(deltaY) > 50) {
-              // Reduced the transformation effect by dividing deltaY by 2
-              const transformY = deltaY / 2;
-              const opacity = Math.max(0.7, 1 - Math.abs(deltaY) / 700);
+            // Significantly increased threshold from 50 to 80 to reduce sensitivity on mobile
+            if (modalPanel.value && Math.abs(deltaY) > 80) {
+              // Further reduced the transformation effect by dividing deltaY by 3
+              const transformY = deltaY / 3;
+              const opacity = Math.max(0.8, 1 - Math.abs(deltaY) / 1000);
               modalPanel.value.style.transform = `translateY(${transformY}px)`;
               modalPanel.value.style.opacity = opacity.toString();
             }
@@ -336,8 +334,8 @@ export default {
           onSwipeEnd: ({ direction, deltaY }) => {
             // Reset styles if swipe wasn't enough to dismiss
             if (modalPanel.value) {
-              // Increased threshold from 100 to 180 for dismissal to reduce sensitivity
-              if ((direction === 'top' || direction === 'bottom') && Math.abs(deltaY) > 180) {
+              // Significantly increased threshold from 180 to 250 for dismissal to reduce sensitivity on mobile
+              if ((direction === 'top' || direction === 'bottom') && Math.abs(deltaY) > 250) {
                 // Close the modal if swiped enough
                 close();
               } else {
