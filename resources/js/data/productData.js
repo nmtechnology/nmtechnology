@@ -5,7 +5,7 @@ export const cameraProducts = [
     name: 'UniFi Dream Machine Pro',
     description: 'All-in-one network security gateway and controller for enterprise-grade networks with integrated security features, advanced routing, and network management.',
     price: null, // Call for price
-    image: '/images/KX-UDMPRO-dream-machine-nvr-1.webp',
+    image: '/images/unifi-dream-machine-pro-1.webp',
     images: [
       '/images/KX-UDMPRO-dream-machine-nvr-1.webp',
       '/images/KX-UDMPRO-dream-machine-nvr-2.webp',
@@ -293,7 +293,7 @@ export const cameraProducts = [
     name: 'UniFi Switch Pro 24 PoE',
     description: 'Advanced 24-port Gigabit PoE+ switch with SFP+ ports for high-performance network deployments.',
     price: null,
-    image: '/images/Ubiquiti USW-24-POE-switch-1.webp',
+    image: '/images/unifi-24-port-switch-pro-1.webp',
     images: [
       '/images/Ubiquiti USW-24-POE-switch-1.webp',
       '/images/Ubiquiti USW-24-POE-switch-2.webp',
