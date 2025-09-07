@@ -1,26 +1,9 @@
 eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
-  <!-- Halloween Promotional Banner -->
-  <PromoBanner 
-    :maxHeight="80"
-    link="/halloween-special"
-    dismissible
-    fixed
-    @dismissed="handleBannerDismiss"
-  >
-    <div class="absolute inset-0 bg-black bg-opacity-40 md:flex items-center justify-center hidden">
-      <div class="text-center">
-        <h3 class="text-xl md:text-2xl font-bold text-orange-500">Halloween Security Special!</h3>
-        <p class="text-white text-sm md:text-lg">Get 10% off all security systems until October 31st</p>
-      </div>
-    </div>
-  </PromoBanner>
-  
-  <AuthGuard>
     <TopBanner />
     <div class="bg-gray-900">
-        <main class="pt-[60px]"> <!-- Reduced padding to account for the fixed banner -->
+        <main>
             <div class="relative isolate">
                 <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
                     aria-hidden="true">
@@ -62,46 +45,27 @@ eslint-disable no-undef
                         "></div>
                 </div>
                 <div class="overflow-hidden">
-                    <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32" style="margin-top: 80px;">
+                    <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
                                
-<div class="flex items-center gap-4">
-    <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-2 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
-         <span class="text-green-600 dark:text-blue-500">protected and served</span> here in <span class="items-center inline-flex"><img src="/public/images/zia-symbol.webp" alt="Zia Symbol" class="w-12 h-12 mx-1"/> New Mexico!</span></h1>
-</div>
+<h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
+     <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!</h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
                                     they can automate routine tasks and create
                                     customized settings based around thier lifestyle or business functionalities. 
-                                    Our new Quote Cart system makes it easy to select the security products you need and generate a customized quote in minutes. Simply browse our products, add items to your Quote Cart, and submit your request to have our team prepare a detailed quote tailored to your specific requirements.
                                     By offering a full range of
                                     security monitoring services and products that address
                                     both physical and cyber threats, we can
-                                    protect organizations of all types and sizes with our security systems and cameras. We offer on-site representation as well so we can help you get the work you need done even though you are 3 area codes away from your customer.
-                                    We protect our customers personell, assets. In
+                                    protect residents and organizations of all types and sizes.
+                                    We protect their personell, assets, and data. In
                                     addition, we offer warranties for ongoing maintenance and
                                     support services to ensure that these
                                     systems continue to function effectively
                                     over time. Contact us today so we can get started.</p>
                                 
-                                <div class="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full">
-                                    <div class="w-full sm:w-auto mb-3 sm:mb-0">
-                                        <ContactModal buttonClasses="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 bg-green-600 border border-transparent rounded-md font-medium text-white text-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300">
-                                            Contact Us
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                            </svg>
-                                        </ContactModal>
-                                    </div>
-                                    <router-link to="/cctv#product-grid" class="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 bg-blue-600 border border-transparent rounded-md font-medium text-white text-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
-                                        Generate Quote
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                        </svg>
-                                    </router-link>
-                                    <div class="w-full sm:w-auto mb-3 sm:mb-0">
-                                        <!-- <SecurityFAQsModal /> -->
-                                    </div>
+                                <div class="mt-10 flex items-center gap-x-6">
+                                    <ContactModal />
                                 </div>
                             </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -158,7 +122,6 @@ eslint-disable no-undef
     <BlackGradient />
     <SectionOne />
     <HomeFooter />
-  </AuthGuard>
 </template>
 
 <script>
@@ -170,32 +133,17 @@ import BlackGradient from '../components/BlackGradient.vue'
 import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import ContactModal from '../components/ContactModal.vue'
+import ContactModalFooter from '../components/ContactModalFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
-import PromoBanner from '../components/PromoBanner.vue'
-import AuthGuard from '../components/AuthGuard.vue'
-import SecurityFAQsModal from '../components/SecurityFAQsModal.vue'
 import { ref } from 'vue'
+
+const isOpen = ref(true)
 
 export default {
   name: 'nmTechnology',
-  data() {
-    return {
-      isOpen: true,
-      showBanner: true
-    }
-  },
-  methods: {
-    // Banner dismissal handler
-    handleBannerDismiss() {
-      this.showBanner = false;
-      console.log('HomePage: Banner dismissed');
-      // Store dismissal in localStorage to remember the user's choice
-      localStorage.setItem('halloweenBannerDismissed', 'true');
-    }
-  },
   components: {
     HomeFooter,
     SectionService,
@@ -208,10 +156,8 @@ export default {
     MobileMenu,
     TopBanner,
     CcTv,
-    TrustedTeams,
-    PromoBanner,
-    AuthGuard,
-    SecurityFAQsModal
+    ContactModalFooter,
+    TrustedTeams
   }
 }
 </script>
