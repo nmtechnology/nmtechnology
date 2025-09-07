@@ -100,13 +100,17 @@ export const cameraProducts = [
   },
   {
     id: 'poe-switch-1',
-    name: '8-Port PoE Switch',
-    description: 'Power over Ethernet switch for connecting IP cameras.',
+    name: 'UniFi 8-Port Pro PoE Switch',
+    description: 'Professional-grade 8-port PoE switch with advanced management features for IP cameras and networking devices.',
     price: null,
-    image: '/images/nvr-recorder.webp', // Using placeholder image
+    image: '/images/unifi-8-port-pro-switch-1.webp',
+    images: [
+      '/images/unifi-8-port-pro-switch-2.webp',
+      '/images/unifi-8-port-pro-switch-3.webp'
+    ],
     category: 'accessory',
     brand: 'Ubiquiti',
-    features: ['8 PoE Ports', 'Managed', 'Easy Setup']
+    features: ['8 PoE Ports', 'Layer 2 Management', 'SFP Uplink Port', 'Easy Setup', 'Silent Operation']
   },
   {
     id: 'wifi-bridge-1',
@@ -223,7 +227,7 @@ export const cameraProducts = [
   },
   {
     id: 'uvc-g4-pro',
-    name: 'UVC G4 Pro Camera',
+    name: 'Unifi G4 Pro Camera',
     description: 'Professional-grade 4K security camera with advanced motion detection and IR night vision.',
     price: null,
     image: '/images/uv-g4-pro-camera-1.webp',
