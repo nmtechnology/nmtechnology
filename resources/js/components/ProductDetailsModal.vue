@@ -43,7 +43,7 @@
         </div>
 
         <!-- Scrollable Content Area -->
-        <div class="bg-gray-800 px-4 py-4 sm:px-6 overflow-y-auto flex-grow">
+        <div class="bg-gray-800 px-4 py-4 sm:px-6 overflow-y-auto flex-grow scrollbar">
           <div class="flex flex-col lg:flex-row gap-6">
             <!-- Product image or carousel -->
             <div class="w-full lg:w-1/2">
@@ -635,5 +635,84 @@ export default {
 
 .bottom-0 {
   bottom: 0;
+}
+
+/* Theme-based scrollbar styles */
+/* General scrollbar styling */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107, 114, 128, 0.5) rgba(31, 41, 55, 0.1);
+}
+
+.theme-green ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-green ::-webkit-scrollbar-track {
+  background: rgba(22, 163, 74, 0.1);
+  border-radius: 4px;
+}
+
+.theme-green ::-webkit-scrollbar-thumb {
+  background: rgba(22, 163, 74, 0.5);
+  border-radius: 4px;
+}
+
+.theme-green ::-webkit-scrollbar-thumb:hover {
+  background: rgba(22, 163, 74, 0.7);
+}
+
+.theme-purple ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-purple ::-webkit-scrollbar-track {
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 4px;
+}
+
+.theme-purple ::-webkit-scrollbar-thumb {
+  background: rgba(147, 51, 234, 0.5);
+  border-radius: 4px;
+}
+
+.theme-purple ::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.7);
+}
+
+.theme-blue ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-blue ::-webkit-scrollbar-track {
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 4px;
+}
+
+.theme-blue ::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.5);
+  border-radius: 4px;
+}
+
+.theme-blue ::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.7);
+}
+
+.theme-yellow ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-yellow ::-webkit-scrollbar-track {
+  background: rgba(234, 179, 8, 0.1);
+  border-radius: 4px;
+}
+
+.theme-yellow ::-webkit-scrollbar-thumb {
+  background: rgba(234, 179, 8, 0.5);
+  border-radius: 4px;
+}
+
+.theme-yellow ::-webkit-scrollbar-thumb:hover {
+  background: rgba(234, 179, 8, 0.7);
 }
 </style>
