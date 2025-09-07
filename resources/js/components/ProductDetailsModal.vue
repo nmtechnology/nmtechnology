@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="product-details-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+  <div v-if="isOpen" class="fixed inset-0 overflow-hidden z-50" aria-labelledby="product-details-title" role="dialog" aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="close"></div>
 
@@ -10,200 +10,206 @@
         v-touch:up="close"
         v-touch:down="close"
         :class="[
-          'inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full mobile-swipe-indicator border-2',
+          'relative mx-auto bg-gray-800 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full mobile-swipe-indicator border-2 flex flex-col max-h-[85vh]',
           themeColor === 'green' ? 'border-green-600/30 theme-green' : 
           themeColor === 'purple' ? 'border-purple-600/30 theme-purple' : 
           themeColor === 'blue' ? 'border-blue-600/30 theme-blue' : 
           themeColor === 'yellow' ? 'border-yellow-600/30 theme-yellow' : 'border-transparent'
         ]">
-        <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6">
-          <div :class="[
-            'flex justify-between items-center mb-4 pb-2 border-b',
-            themeColor === 'green' ? 'border-green-600/30' : 
-            themeColor === 'purple' ? 'border-purple-600/30' : 
-            themeColor === 'blue' ? 'border-blue-600/30' : 
-            themeColor === 'yellow' ? 'border-yellow-600/30' : 'border-gray-700'
-          ]">
-            <h3 class="text-2xl font-bold leading-6" 
-                :class="[
-                  themeColor === 'green' ? 'text-green-400' : 
-                  themeColor === 'purple' ? 'text-purple-400' : 
-                  themeColor === 'blue' ? 'text-blue-400' : 
-                  themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
-                ]" 
-                id="product-details-title">
-              {{ product.name }}
-            </h3>
-            <button @click="close" class="text-gray-400 hover:text-white focus:outline-none">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+        
+        <!-- Fixed Header -->
+        <div :class="[
+          'bg-gray-800 px-4 py-3 flex justify-between items-center border-b sticky top-0 z-10',
+          themeColor === 'green' ? 'border-green-600/30' : 
+          themeColor === 'purple' ? 'border-purple-600/30' : 
+          themeColor === 'blue' ? 'border-blue-600/30' : 
+          themeColor === 'yellow' ? 'border-yellow-600/30' : 'border-gray-700'
+        ]">
+          <h3 class="text-2xl font-bold leading-6 truncate" 
+              :class="[
+                themeColor === 'green' ? 'text-green-400' : 
+                themeColor === 'purple' ? 'text-purple-400' : 
+                themeColor === 'blue' ? 'text-blue-400' : 
+                themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
+              ]" 
+              id="product-details-title">
+            {{ product.name }}
+          </h3>
+          <button @click="close" class="text-gray-400 hover:text-white focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-          <!-- Product details -->
-          <div class="mt-3">
-            <div class="flex flex-col lg:flex-row gap-6">
-              <!-- Product image or carousel -->
-              <div class="w-full lg:w-1/2">
-                <div v-if="product.images && product.images.length > 1" class="relative">
-                  <!-- Image carousel -->
-                  <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72">
-                    <div ref="carouselRef" class="carousel-container flex transition-transform duration-300" 
-                      :style="{ transform: `translateX(-${currentSlide * 100}%)`, width: `${product.images.length * 100}%` }"
-                      v-touch:swipe.left="nextSlide"
-                      v-touch:swipe.right="prevSlide">
-                      <div
-                        v-for="(image, index) in product.images"
-                        :key="index"
-                        class="w-full h-72 flex items-center justify-center flex-shrink-0"
-                        :style="{ width: `${100 / product.images.length}%` }">
-                        <img
-                          :src="image" 
-                          :alt="`${product.name} - Image ${index + 1}`" 
-                          class="max-h-full max-w-full object-contain"
-                          @error="$event.target.src = '/public/images/axis-dome-side.webp'"
-                        />
-                      </div>
+        <!-- Scrollable Content Area -->
+        <div class="bg-gray-800 px-4 py-4 sm:px-6 overflow-y-auto flex-grow">
+          <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Product image or carousel -->
+            <div class="w-full lg:w-1/2">
+              <div v-if="product.images && product.images.length > 1" class="relative">
+                <!-- Image carousel -->
+                <div class="relative overflow-hidden bg-gray-700 rounded-lg h-72">
+                  <div ref="carouselRef" class="carousel-container flex transition-transform duration-300" 
+                    :style="{ transform: `translateX(-${currentSlide * 100}%)`, width: `${product.images.length * 100}%` }"
+                    v-touch:swipe.left="nextSlide"
+                    v-touch:swipe.right="prevSlide">
+                    <div
+                      v-for="(image, index) in product.images"
+                      :key="index"
+                      class="w-full h-72 flex items-center justify-center flex-shrink-0"
+                      :style="{ width: `${100 / product.images.length}%` }">
+                      <img
+                        :src="image" 
+                        :alt="`${product.name} - Image ${index + 1}`" 
+                        class="max-h-full max-w-full object-contain"
+                        @error="$event.target.src = '/public/images/axis-dome-side.webp'"
+                      />
                     </div>
-                    <!-- Navigation arrows -->
-                    <button 
-                      @click="prevSlide" 
-                      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700"
-                      v-if="product.images.length > 1">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button 
-                      @click="nextSlide" 
-                      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700"
-                      v-if="product.images.length > 1">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
                   </div>
-                  <!-- Pagination dots -->
-                  <div class="flex justify-center mt-2 space-x-2" v-if="product.images.length > 1">
-                    <button 
-                      v-for="(_, index) in product.images" 
-                      :key="index" 
-                      @click="goToSlide(index)"
-                      :class="[
-                        'w-2 h-2 rounded-full transition-all focus:outline-none',
-                        currentSlide === index ? 
-                          (themeColor === 'green' ? 'bg-green-500 w-4' : 
-                           themeColor === 'purple' ? 'bg-purple-500 w-4' : 
-                           themeColor === 'blue' ? 'bg-blue-500 w-4' : 
-                           themeColor === 'yellow' ? 'bg-yellow-500 w-4' : 'bg-green-500 w-4') : 'bg-gray-400 hover:bg-gray-300'
-                      ]"
-                      :aria-label="`Go to image ${index + 1}`">
-                    </button>
-                  </div>
+                  <!-- Navigation arrows -->
+                  <button 
+                    @click="prevSlide" 
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-r-md hover:bg-gray-700"
+                    v-if="product.images.length > 1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button 
+                    @click="nextSlide" 
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800/70 text-white p-2 rounded-l-md hover:bg-gray-700"
+                    v-if="product.images.length > 1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
-                <div v-else class="relative overflow-hidden bg-gray-700 rounded-lg h-72 flex items-center justify-center">
-                  <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
+                <!-- Pagination dots -->
+                <div class="flex justify-center mt-2 space-x-2" v-if="product.images.length > 1">
+                  <button 
+                    v-for="(_, index) in product.images" 
+                    :key="index" 
+                    @click="goToSlide(index)"
+                    :class="[
+                      'w-2 h-2 rounded-full transition-all focus:outline-none',
+                      currentSlide === index ? 
+                        (themeColor === 'green' ? 'bg-green-500 w-4' : 
+                         themeColor === 'purple' ? 'bg-purple-500 w-4' : 
+                         themeColor === 'blue' ? 'bg-blue-500 w-4' : 
+                         themeColor === 'yellow' ? 'bg-yellow-500 w-4' : 'bg-green-500 w-4') : 'bg-gray-400 hover:bg-gray-300'
+                    ]"
+                    :aria-label="`Go to image ${index + 1}`">
+                  </button>
                 </div>
               </div>
-              
-              <!-- Product info -->
-              <div class="w-full lg:w-1/2">
-                <div class="mb-4">
-                  <span class="inline-block text-white text-xs px-2 py-1 rounded-full"
-                    :class="{
-                      'bg-green-600': themeColor === 'green',
-                      'bg-purple-600': themeColor === 'purple',
-                      'bg-blue-600': themeColor === 'blue',
-                      'bg-yellow-600': themeColor === 'yellow'
-                    }">{{ product.brand }}</span>
-                  <span class="inline-block text-white text-xs px-2 py-1 rounded-full ml-2"
-                    :class="{
-                      'bg-green-600': themeColor === 'green',
-                      'bg-purple-600': themeColor === 'purple',
-                      'bg-blue-600': themeColor === 'blue',
-                      'bg-yellow-600': themeColor === 'yellow'
-                    }">{{ categoryName }}</span>
-                </div>
-                
-                <p class="text-gray-300 mb-4">{{ product.description }}</p>
-                
-                <h4 class="text-white font-medium mb-2">Key Features:</h4>
-                <ul class="list-disc list-inside mb-4 text-gray-300">
-                  <li v-for="feature in product.features" :key="feature">{{ feature }}</li>
-                </ul>
-                
-                <div class="mt-4">
-                  <span class="text-xl font-bold block" 
-                    :class="{
-                      'text-green-600': themeColor === 'green',
-                      'text-purple-600': themeColor === 'purple',
-                      'text-blue-500': themeColor === 'blue',
-                      'text-yellow-600': themeColor === 'yellow'
-                    }">{{ product.price ? `$${product.price.toFixed(2)}` : 'Call For Price' }}</span>
-                </div>
+              <div v-else class="relative overflow-hidden bg-gray-700 rounded-lg h-72 flex items-center justify-center">
+                <img :src="product.image" :alt="product.name" class="max-h-full max-w-full object-contain" @error="$event.target.src = '/public/images/axis-dome-side.webp'">
               </div>
             </div>
             
-            <!-- Detailed specifications section -->
-            <div v-if="product.specs" class="mt-8 border-t border-gray-700 pt-4">
-              <h4 class="text-white font-medium mb-4">
-                <span v-if="product.category === 'package'" :class="`text-${themeColor}-500`">Package</span>
-                <span v-else-if="product.category === 'security'" :class="`text-${themeColor}-500`">Security System</span>
-                <span v-else-if="product.brand === 'NM Solar'" :class="`text-${themeColor}-500`">Solar Security</span>
-                <span v-else-if="product.category === 'monitoring'" :class="`text-${themeColor}-500`">Monitoring</span>
-                Technical Specifications:
-              </h4>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div v-for="(value, key) in product.specs" :key="key" 
-                     :class="['flex flex-col p-2', 'bg-gray-700/30 rounded']">
-                  <span :class="[
-                    'text-sm', 
-                    themeColor === 'green' ? 'text-green-400' : 
-                    themeColor === 'purple' ? 'text-purple-400' : 
-                    themeColor === 'blue' ? 'text-blue-400' : 
-                    themeColor === 'yellow' ? 'text-yellow-400' : 'text-gray-400'
-                  ]">
-                    {{ formatSpecName(key) }}
-                  </span>
-                  <span class="text-white">{{ value }}</span>
-                </div>
+            <!-- Product info -->
+            <div class="w-full lg:w-1/2">
+              <div class="mb-4">
+                <span class="inline-block text-white text-xs px-2 py-1 rounded-full"
+                  :class="{
+                    'bg-green-600': themeColor === 'green',
+                    'bg-purple-600': themeColor === 'purple',
+                    'bg-blue-600': themeColor === 'blue',
+                    'bg-yellow-600': themeColor === 'yellow'
+                  }">{{ product.brand }}</span>
+                <span class="inline-block text-white text-xs px-2 py-1 rounded-full ml-2"
+                  :class="{
+                    'bg-green-600': themeColor === 'green',
+                    'bg-purple-600': themeColor === 'purple',
+                    'bg-blue-600': themeColor === 'blue',
+                    'bg-yellow-600': themeColor === 'yellow'
+                  }">{{ categoryName }}</span>
               </div>
               
-              <!-- Special call to action based on product category -->
-              <div v-if="product.category === 'package'" 
-                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
-                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Security Solution</h5>
-                <p class="text-gray-300 text-sm">
-                  This package includes everything you need for a complete security setup: cameras, NVR, storage, 
-                  and all necessary cables and mounting hardware. Professional installation available.
-                </p>
-              </div>
+              <p class="text-gray-300 mb-4">{{ product.description }}</p>
               
-              <div v-else-if="product.category === 'security'" 
-                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
-                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Home Security System</h5>
-                <p class="text-gray-300 text-sm">
-                  This security system includes everything you need to protect your home: control panel, sensors,
-                  and mobile app access. Professional installation and monitoring options available.
-                </p>
-              </div>
+              <h4 class="text-white font-medium mb-2">Key Features:</h4>
+              <ul class="list-disc list-inside mb-4 text-gray-300">
+                <li v-for="feature in product.features" :key="feature">{{ feature }}</li>
+              </ul>
               
-              <div v-else-if="product.brand === 'NM Solar'" 
-                   :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
-                <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Solar-Powered Security Solution</h5>
-                <p class="text-gray-300 text-sm">
-                  This solar-powered security system can be deployed anywhere without requiring grid power.
-                  Perfect for remote locations, construction sites, or temporary security needs.
-                </p>
+              <div class="mt-4">
+                <span class="text-xl font-bold block" 
+                  :class="{
+                    'text-green-600': themeColor === 'green',
+                    'text-purple-600': themeColor === 'purple',
+                    'text-blue-500': themeColor === 'blue',
+                    'text-yellow-600': themeColor === 'yellow'
+                  }">{{ product.price ? `$${product.price.toFixed(2)}` : 'Call For Price' }}</span>
               </div>
+            </div>
+          </div>
+          
+          <!-- Detailed specifications section -->
+          <div v-if="product.specs" class="mt-8 border-t border-gray-700 pt-4">
+            <h4 class="text-white font-medium mb-4">
+              <span v-if="product.category === 'package'" :class="`text-${themeColor}-500`">Package</span>
+              <span v-else-if="product.category === 'security'" :class="`text-${themeColor}-500`">Security System</span>
+              <span v-else-if="product.brand === 'NM Solar'" :class="`text-${themeColor}-500`">Solar Security</span>
+              <span v-else-if="product.category === 'monitoring'" :class="`text-${themeColor}-500`">Monitoring</span>
+              Technical Specifications:
+            </h4>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div v-for="(value, key) in product.specs" :key="key" 
+                   :class="['flex flex-col p-2', 'bg-gray-700/30 rounded']">
+                <span :class="[
+                  'text-sm', 
+                  themeColor === 'green' ? 'text-green-400' : 
+                  themeColor === 'purple' ? 'text-purple-400' : 
+                  themeColor === 'blue' ? 'text-blue-400' : 
+                  themeColor === 'yellow' ? 'text-yellow-400' : 'text-gray-400'
+                ]">
+                  {{ formatSpecName(key) }}
+                </span>
+                <span class="text-white">{{ value }}</span>
+              </div>
+            </div>
+            
+            <!-- Special call to action based on product category -->
+            <div v-if="product.category === 'package'" 
+                 :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+              <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Security Solution</h5>
+              <p class="text-gray-300 text-sm">
+                This package includes everything you need for a complete security setup: cameras, NVR, storage, 
+                and all necessary cables and mounting hardware. Professional installation available.
+              </p>
+            </div>
+            
+            <div v-else-if="product.category === 'security'" 
+                 :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+              <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Complete Home Security System</h5>
+              <p class="text-gray-300 text-sm">
+                This security system includes everything you need to protect your home: control panel, sensors,
+                and mobile app access. Professional installation and monitoring options available.
+              </p>
+            </div>
+            
+            <div v-else-if="product.brand === 'NM Solar'" 
+                 :class="`mt-6 bg-${themeColor}-900/20 border border-${themeColor}-600/30 rounded-lg p-4`">
+              <h5 :class="`text-${themeColor}-500 font-semibold mb-2`">Solar-Powered Security Solution</h5>
+              <p class="text-gray-300 text-sm">
+                This solar-powered security system can be deployed anywhere without requiring grid power.
+                Perfect for remote locations, construction sites, or temporary security needs.
+              </p>
             </div>
           </div>
         </div>
         
-        <!-- Modal footer with action buttons -->
-        <div class="bg-gray-900 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <!-- Fixed Footer with action buttons -->
+        <div :class="[
+          'bg-gray-900 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse sticky bottom-0 z-10 border-t',
+          themeColor === 'green' ? 'border-green-600/30' : 
+          themeColor === 'purple' ? 'border-purple-600/30' : 
+          themeColor === 'blue' ? 'border-blue-600/30' : 
+          themeColor === 'yellow' ? 'border-yellow-600/30' : 'border-gray-700'
+        ]">
           <button @click="addToCartAndClose" 
                   class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                   :class="{
@@ -318,16 +324,20 @@ export default {
           },
           onSwipe: ({ deltaY }) => {
             // Apply transform during swipe for visual feedback
-            if (modalPanel.value && Math.abs(deltaY) > 20) {
-              const opacity = Math.max(0.5, 1 - Math.abs(deltaY) / 500);
-              modalPanel.value.style.transform = `translateY(${deltaY}px)`;
+            // Increased threshold from 20 to 50 to reduce sensitivity
+            if (modalPanel.value && Math.abs(deltaY) > 50) {
+              // Reduced the transformation effect by dividing deltaY by 2
+              const transformY = deltaY / 2;
+              const opacity = Math.max(0.7, 1 - Math.abs(deltaY) / 700);
+              modalPanel.value.style.transform = `translateY(${transformY}px)`;
               modalPanel.value.style.opacity = opacity.toString();
             }
           },
           onSwipeEnd: ({ direction, deltaY }) => {
             // Reset styles if swipe wasn't enough to dismiss
             if (modalPanel.value) {
-              if ((direction === 'top' || direction === 'bottom') && Math.abs(deltaY) > 100) {
+              // Increased threshold from 100 to 180 for dismissal to reduce sensitivity
+              if ((direction === 'top' || direction === 'bottom') && Math.abs(deltaY) > 180) {
                 // Close the modal if swiped enough
                 close();
               } else {
@@ -571,7 +581,6 @@ export default {
   100% { transform: translateX(-50%) scaleX(1); opacity: 0.3; }
 }
 
-/* Responsive adjustments for mobile */
 /* Carousel styles */
 .carousel-container {
   display: flex;
@@ -589,17 +598,42 @@ export default {
   to { opacity: 1; }
 }
 
+/* Responsive adjustments for different screen sizes */
 @media (max-width: 640px) {
   .mobile-swipe-indicator {
     margin-top: 2rem;
     width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
+    max-height: 90vh;
+    overflow: hidden;
     border-radius: 1rem 1rem 0 0;
+    display: flex;
+    flex-direction: column;
   }
   
   .mobile-swipe-indicator::after {
     opacity: 0.5;
   }
+}
+
+@media (min-width: 640px) {
+  .mobile-swipe-indicator {
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Fixed header and footer styles */
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
 }
 </style>

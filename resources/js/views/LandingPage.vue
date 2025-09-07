@@ -193,6 +193,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { toastService } from '../services/toastService.js';
 
 const router = useRouter();
 const firstNumber = ref(0);
@@ -258,11 +259,18 @@ const verifyAnswer = () => {
   console.log('Verifying answer:', userAnswerNum, 'Correct answer:', correctAnswerNum);
   
   if (userAnswerNum === correctAnswerNum) {
-    // Correct answer - store verification in local storage and redirect
+    // Correct answer - store verification in local storage and show success message before redirect
     console.log('Correct answer! Redirecting to /home');
     localStorage.setItem('humanVerified', 'true');
     localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
-    router.push('/home');
+    
+    // Show success confirmation message
+    toastService.success('Verification successful! Welcome to NM Technology.');
+    
+    // Short delay before redirect to allow user to see the confirmation message
+    setTimeout(() => {
+      router.push('/home');
+    }, 1500);
   } else {
     attempts.value += 1;
     if (attempts.value >= maxAttempts.value) {
