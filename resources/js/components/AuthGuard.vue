@@ -1,57 +1,115 @@
 <template>
-  <div v-if="isLoading" class="min-h-screen bg-gray-900 flex items-center justify-center">
-    <div class="text-white text-lg">Loading...</div>
+  <div v-if="isLoading" class="fixed inset-0 w-full h-full bg-gray-900 flex flex-col items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-radial from-emerald-500/10 to-transparent pointer-events-none"></div>
+    <div class="logo-container z-10" :class="{ 'visible': showLoadingAnimation }">
+      <img src="/images/nm-technology-logo.webp" alt="NM Technology" class="logo w-48 h-auto mb-8">
+    </div>
+    <div class="loading-text z-10" :class="{ 'visible': showLoadingAnimation }">
+      Welcome to NM Technology
+    </div>
+    <div class="progress-bar-container z-10" :class="{ 'visible': showLoadingAnimation }">
+      <div class="progress-bar"></div>
+    </div>
   </div>
   <slot v-else></slot>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const props = defineProps({
-  requireAuth: {
-    type: Boolean,
-    default: true
-  }
-});
-
-const router = useRouter();
-const isLoading = ref(true);
-
-onMounted(() => {
-  console.log('AuthGuard mounted, requireAuth:', props.requireAuth);
-  
-  if (props.requireAuth) {
-    // Check if user has completed the human verification
-    const humanVerified = localStorage.getItem('humanVerified');
-    const verifiedTimestamp = localStorage.getItem('humanVerifiedTimestamp');
-    
-    console.log('Auth check:', { humanVerified, verifiedTimestamp });
-    
-    if (!humanVerified || !verifiedTimestamp) {
-      // No verification found, redirect to landing page
-      console.log('No verification found, redirecting to landing page');
-      router.push('/');
-      return;
+<script>
+export default {
+  name: 'AuthGuard',
+  data() {
+    return {
+      isLoading: false,
+      showLoadingAnimation: false,
     }
+  },
+  created() {
+    // Check if this is the initial verification
+    const isInitialVerification = localStorage.getItem('isInitialVerification') === 'true';
     
-    // Check if verification has expired (24 hours)
-    const elapsed = Date.now() - parseInt(verifiedTimestamp);
-    const dayInMs = 24 * 60 * 60 * 1000;
-    
-    console.log('Time since verification:', elapsed, 'ms');
-    
-    if (elapsed > dayInMs) {
-      // Verification expired, redirect to landing page
-      console.log('Verification expired, redirecting to landing page');
-      localStorage.removeItem('humanVerified');
-      localStorage.removeItem('humanVerifiedTimestamp');
-      router.push('/');
-      return;
+    if (isInitialVerification) {
+      this.isLoading = true;
+      // Start showing animations after a brief delay
+      setTimeout(() => {
+        this.showLoadingAnimation = true;
+      }, 100);
+      
+      // Remove the initial verification flag
+      localStorage.removeItem('isInitialVerification');
+      
+      // After animations complete, hide loading screen
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3500);
     }
   }
-  
-  isLoading.value = false;
-});
+}
 </script>
+
+<style scoped>
+.logo-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.logo-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo {
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
+}
+
+.loading-text {
+  color: #10b981;
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.2s;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.loading-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-bar-container {
+  width: 300px;
+  height: 4px;
+  background-color: rgba(55, 65, 81, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out 0.4s;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.progress-bar-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #10b981;
+  transition: width 3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.progress-bar-container.visible .progress-bar {
+  width: 100%;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>

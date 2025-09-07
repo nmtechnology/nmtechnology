@@ -1,5 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+    <LoadingScreen v-if="showLoadingScreen" ref="loadingScreen" />
+    
     <!-- Background pattern similar to the main site -->
     <svg class="absolute inset-x-0 top-0 -z-40 h-full w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
         aria-hidden="true">
@@ -187,6 +189,9 @@
       </div>
       <div class="text-xs text-gray-500">Serving all of New Mexico with professional security solutions</div>
     </div>
+
+    <!-- Loading Screen -->
+    <LoadingScreen v-if="showLoadingScreen" />
   </div>
 </template>
 
@@ -194,6 +199,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { toastService } from '../services/toastService.js';
+import LoadingScreen from '../components/LoadingScreen.vue';
 
 const router = useRouter();
 const firstNumber = ref(0);
@@ -203,6 +209,8 @@ const userAnswer = ref(null);
 const errorMessage = ref('');
 const maxAttempts = ref(3);
 const attempts = ref(0);
+const showLoadingScreen = ref(false);
+const loadingScreen = ref(null);
 
 // Generate the operator symbol (+, -, *)
 const operator = computed(() => {
@@ -259,18 +267,20 @@ const verifyAnswer = () => {
   console.log('Verifying answer:', userAnswerNum, 'Correct answer:', correctAnswerNum);
   
   if (userAnswerNum === correctAnswerNum) {
-    // Correct answer - store verification in local storage and show success message before redirect
-    console.log('Correct answer! Redirecting to /home');
     localStorage.setItem('humanVerified', 'true');
     localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
+    localStorage.setItem('isInitialVerification', 'true');
+    showLoadingScreen.value = true;
     
-    // Show success confirmation message
-    toastService.success('Verification successful! Welcome to NM Technology.');
+    // Start fade out after 2.5 seconds (when progress bar is nearly complete)
+    setTimeout(() => {
+      loadingScreen.value?.startLeaving();
+    }, 2500);
     
-    // Short delay before redirect to allow user to see the confirmation message
+    // Navigate to home after the loading and fade-out animations complete
     setTimeout(() => {
       router.push('/home');
-    }, 1500);
+    }, 3000);
   } else {
     attempts.value += 1;
     if (attempts.value >= maxAttempts.value) {

@@ -14,6 +14,7 @@
             height: 100vh;
             margin: 0;
             padding: 20px;
+            overflow: hidden;
         }
         .card {
             background-color: #2d3748;
@@ -23,6 +24,11 @@
             text-align: center;
             max-width: 500px;
             width: 100%;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        .card.fade-out {
+            transform: scale(0.95);
+            opacity: 0;
         }
         h1 {
             color: #10b981;
@@ -37,16 +43,76 @@
             cursor: pointer;
             font-size: 16px;
             margin-top: 20px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         button:hover {
             background-color: #059669;
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background-color: #374151;
+            cursor: not-allowed;
+            transform: none;
         }
         .status {
             margin-top: 20px;
             padding: 15px;
             border-radius: 4px;
             background-color: #374151;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a202c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 1000;
+        }
+        .loading-screen.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .progress-bar {
+            width: 300px;
+            height: 4px;
+            background-color: #374151;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+        }
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background-color: #10b981;
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .loading-screen.visible .progress-bar::after {
+            width: 100%;
+        }
+        .loading-text {
+            color: #10b981;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+        .loading-screen.visible .loading-text {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
