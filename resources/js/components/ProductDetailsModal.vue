@@ -160,6 +160,47 @@
             </div>
             <!-- Single image display -->
             <div v-else class="relative bg-gray-900 h-80 sm:h-[450px] flex items-center justify-center">
+              <!-- Title overlay with subtle gradient -->
+              <div class="absolute inset-0 z-10 pointer-events-none">
+                <div class="absolute inset-0 h-32 bg-gradient-to-b from-gray-900/75 via-gray-900/25 to-transparent"></div>
+                <div class="relative px-6 py-4 flex flex-col pointer-events-auto">
+                  <!-- Title and close button -->
+                  <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold leading-6 text-white max-w-[80%] truncate" 
+                        :class="[
+                          themeColor === 'yellow' ? 'text-yellow-400' : 'text-white'
+                        ]" 
+                        id="product-details-title">
+                      {{ product.name }}
+                    </h3>
+                    <button @click="close" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20 rounded-full p-1 transition-colors">
+                      <span class="sr-only">Close modal</span>
+                      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Category pills -->
+                  <div class="flex gap-2 mt-2">
+                    <span class="inline-block text-white text-xs px-2 py-1 rounded-full bg-opacity-90"
+                      :class="{
+                        'bg-green-600': themeColor === 'green',
+                        'bg-purple-600': themeColor === 'purple',
+                        'bg-blue-600': themeColor === 'blue',
+                        'bg-yellow-600': themeColor === 'yellow'
+                      }">{{ product.brand }}</span>
+                    <span class="inline-block text-white text-xs px-2 py-1 rounded-full bg-opacity-90"
+                      :class="{
+                        'bg-green-600': themeColor === 'green',
+                        'bg-purple-600': themeColor === 'purple',
+                        'bg-blue-600': themeColor === 'blue',
+                        'bg-yellow-600': themeColor === 'yellow'
+                      }">{{ categoryName }}</span>
+                  </div>
+                </div>
+              </div>
+
               <!-- Loading placeholder -->
               <div class="absolute inset-0 bg-gray-800 flex items-center justify-center transition-opacity duration-300" 
                    :class="{ 'opacity-0': imageLoaded }">
