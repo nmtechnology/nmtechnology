@@ -1187,13 +1187,46 @@ export default {
 
 .product-details-modal-fixed {
   position: fixed !important;
-  top: 0;
+  top: 40px;
   left: 0;
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
 }
+
+@media (max-width: 639px) {
+  .product-details-modal-fixed {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .mobile-swipe-indicator {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    min-height: 60vh;
+    max-height: 95vh;
+    box-shadow: none;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .bg-gray-800 {
+    border-radius: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .scrollbar {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+  .sticky.top-0 {
+    position: static !important;
+  }
+  .sticky.bottom-0 {
+    position: static !important;
+  }
+}
+
 </style>
