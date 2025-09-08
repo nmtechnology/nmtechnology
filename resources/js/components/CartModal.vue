@@ -627,4 +627,77 @@ input[type=number] {
 .cart-badge-pulse {
   animation: pulse 1s ease-in-out;
 }
+
+/* NM Technology Theme Enhancements for Quote Cart */
+.bg-gray-800 {
+  background-color: #111827 !important;
+}
+.bg-gray-900 {
+  background-color: #0a0f1c !important;
+}
+.text-white {
+  color: #f3f4f6 !important;
+}
+.text-gray-300 {
+  color: #d1d5db !important;
+}
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+.text-gray-700 {
+  color: #374151 !important;
+}
+.border-gray-700 {
+  border-color: #374151 !important;
+}
+.border-gray-600 {
+  border-color: #4b5563 !important;
+}
+.bg-blue-500 {
+  background-color: #2563eb !important;
+}
+.bg-blue-600 {
+  background-color: #1d4ed8 !important;
+}
+.bg-green-600 {
+  background-color: #22c55e !important;
+}
+.bg-green-700 {
+  background-color: #15803d !important;
+}
+.text-green-400 {
+  color: #4ade80 !important;
+}
+.text-green-500 {
+  color: #22c55e !important;
+}
+.border-green-600 {
+  border-color: #22c55e !important;
+}
+.shadow-xl {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.12), 0 1.5px 4px rgba(22,163,74,0.08);
+}
+/* Button hover and focus states for brand feel */
+button.bg-blue-500:hover, button.bg-blue-500:focus {
+  background-color: #1e40af !important;
+}
+button.bg-green-600:hover, button.bg-green-600:focus {
+  background-color: #16a34a !important;
+}
+button.bg-gray-700:hover, button.bg-gray-700:focus {
+  background-color: #374151 !important;
+}
+button.bg-red-600:hover, button.bg-red-600:focus {
+  background-color: #991b1b !important;
+}
+/* Card and modal border radius for modern look */
+.rounded-lg {
+  border-radius: 14px !important;
+}
+/* Subtle glass effect for modal panels */
+.inline-block.align-bottom.bg-gray-800 {
+  background: linear-gradient(135deg, #111827 80%, #2563eb 100%);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.12), 0 1.5px 4px rgba(22,163,74,0.08);
+  border: 1px solid #374151;
+}
 </style>

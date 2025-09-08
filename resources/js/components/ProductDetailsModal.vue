@@ -1160,7 +1160,7 @@ export default {
 }
 
 .pagination-dot:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid rgb(191, 255, 0);
   outline-offset: 2px;
 }
 

@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\EmailerRecipientController;
 
 // Main entry point - load Vue SPA
 Route::get('/', function () {
@@ -11,6 +12,10 @@ Route::get('/', function () {
 Route::get('/cctv', function () {
     return redirect('/');
 });
+
+// Admin emailer routes
+Route::get('/admin/emailer/add', [EmailerRecipientController::class, 'create'])->name('emailer.create');
+Route::post('/admin/emailer/add', [EmailerRecipientController::class, 'store'])->name('emailer.store');
 
 // Catch all other routes and redirect to the root URL
 Route::get('/{any?}', function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
+use App\Models\EmailerRecipient;
 
 class MailController extends Controller
 {
@@ -24,6 +25,9 @@ class MailController extends Controller
             
             // Send email to service@nmtechnology.us
             Mail::to('service@nmtechnology.us')->send(new ContactMail($details));
+            
+            // Store email for advertising bot
+            EmailerRecipient::firstOrCreate(['email' => $details['email']]);
             
             // Log success
             \Log::info('Contact form email sent successfully');
