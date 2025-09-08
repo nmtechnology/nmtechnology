@@ -1223,7 +1223,7 @@ export default {
 
 .product-details-modal-fixed {
   position: fixed !important;
-  top: 80px;
+  top: 95px;
   left: 0;
   width: 98vw;
   height: 100vh;
