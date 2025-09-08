@@ -1,8 +1,8 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 overflow-hidden z-50" aria-labelledby="product-details-title" role="dialog" aria-modal="true">
+  <div v-if="isOpen" class="product-details-modal-fixed" aria-labelledby="product-details-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:p-0">
-      <!-- Background overlay -->
-      <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="close"></div>
+      <!-- Background overlay (make sure it does NOT block pointer events for modal) -->
+      <div class="fixed inset-0 bg-gray-900" aria-hidden="true" style="pointer-events: none;"></div>
 
       <!-- Modal panel with swipe functionality -->
       <div 
@@ -1183,5 +1183,17 @@ export default {
 
 .carousel-item.active img {
   animation: slideEnter 0.3s ease-out forwards;
+}
+
+.product-details-modal-fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 </style>

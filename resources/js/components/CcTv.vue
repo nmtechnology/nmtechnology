@@ -10,24 +10,11 @@
     </div>
   </PromoBanner>
 
-  <div class="bg-gray-900 min-h-screen flex flex-col relative">
-    <!-- Background Pattern - Lower z-index -->
-    <svg class="fixed inset-x-0 top-0 -z-10 h-screen w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
-        aria-hidden="true">
-      <defs>
-        <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
-          patternUnits="userSpaceOnUse">
-          <path d="M.5 300V.5H200" fill="none" />
-        </pattern>
-      </defs>
-      <svg x="50%" y="-1" class="overflow-visible">
-        <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-          stroke-width="0" />
-      </svg>
-      <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
-    </svg>
 
-    <main class="pt-[60px] pb-[250px] flex-grow relative z-20">
+    <!-- Background Pattern - Lower z-index -->
+
+
+    <main class="pt-[60px] pb-[180px] flex-grow relative z-20">
       <div class="relative">
         <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
           <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative z-20">
@@ -278,12 +265,19 @@
 
     <!-- Recently Viewed Products Footer -->
     <transition name="fade">
-      <div v-if="hasRecentProducts" class="recently-viewed-footer fixed w-full" style="position: fixed; bottom: 0; left: 0; width: 100%; max-height: 200px; z-index: 99;">
+      <div v-if="hasRecentProducts" 
+           class="recently-viewed-footer fixed w-full" 
+           :class="{ 'collapsed': !isRecentlyViewedExpanded }"
+           role="region" 
+           aria-label="Recently viewed products"
+           style="position: fixed; bottom: 0; left: 0; width: 100%; max-height: 45px; z-index: 30;">
         <!-- Toggle button -->
         <button @click="toggleRecentlyViewed"
-          class="absolute -top-8 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-4 py-1.5 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-lg">
+          class="absolute -top-5 right-6 bg-gray-900/90 border border-gray-700 rounded-t-md px-2 py-0.5 text-xs text-gray-300 hover:text-white transition-colors duration-300 hover:bg-gray-800 shadow-md"
+          :aria-expanded="isRecentlyViewedExpanded.toString()"
+          aria-controls="recently-viewed-content">
           {{ isRecentlyViewedExpanded ? 'Hide' : 'Show' }} Recently Viewed
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1 transition-transform duration-300"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 inline ml-1 transition-transform duration-300"
             :class="{'rotate-180': !isRecentlyViewedExpanded}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
@@ -291,32 +285,34 @@
 
         <!-- Footer content with transition -->
         <transition name="slide">
-          <div v-if="isRecentlyViewedExpanded" class="bg-gray-900/90 border-t border-gray-700 py-4" style="max-height: 180px; overflow: hidden;">
+          <div v-if="isRecentlyViewedExpanded" id="recently-viewed-content" class="bg-gray-900/90 border-t border-gray-700 py-0.5" style="max-height: 40px; overflow: hidden;">
             <div class="container mx-auto px-4 md:px-6">
-              <h2 class="text-2xl font-bold text-white mb-4">Recently Viewed Products</h2>
-              <div class="recently-viewed-scroller overflow-x-auto pb-3" style="max-height: 120px;">
-                <div class="flex space-x-4 md:space-x-6" style="min-width: min-content;">
-                  <transition-group name="product-list" tag="div" class="flex space-x-4 md:space-x-6">
+              <h2 class="text-xs font-bold text-white mb-0">Recently Viewed Products</h2>
+              <div class="recently-viewed-scroller overflow-x-auto pb-0.5" style="max-height: 36px;">
+                <div class="flex space-x-1 md:space-x-1.5" style="min-width: min-content;">
+                  <transition-group name="product-list" tag="div" class="flex space-x-0.5 md:space-x-1">
                     <div v-for="product in recentlyViewedProducts" :key="product.id" @click="showProductDetails(product)"
-                      class="recently-viewed-item flex-shrink-0 w-36 sm:w-48 md:w-56 rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 bg-gray-800/60 border"
+                      class="recently-viewed-item flex-shrink-0 w-16 sm:w-18 md:w-20 rounded shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-0.5 bg-gray-800/60 border"
                       :class="[
-                        product.category === 'package' ? 'border-green-600/30 hover:shadow-lg hover:shadow-green-500/20 hover:border-green-500/50' : 
-                        product.category === 'monitoring' ? 'border-purple-600/30 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/50' :
-                        (product.category === 'security' && product.color === 'blue') ? 'border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50' :
-                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'border-yellow-600/30 hover:shadow-lg hover:shadow-yellow-500/20 hover:border-yellow-500/50' : 
-                        'border-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500/50'
-                      ]">
-                      <img :src="product.image" :alt="product.name" class="w-full h-32 object-scale-down p-2 bg-gray-900/50">
-                      <div class="p-3">
+                        product.category === 'package' ? 'border-green-600/30 hover:shadow hover:shadow-green-500/10 hover:border-green-500/40' : 
+                        product.category === 'monitoring' ? 'border-purple-600/30 hover:shadow hover:shadow-purple-500/10 hover:border-purple-500/40' :
+                        (product.category === 'security' && product.color === 'blue') ? 'border-blue-600/30 hover:shadow hover:shadow-blue-500/10 hover:border-blue-500/40' :
+                        (product.brand === 'NM Solar' && product.color === 'yellow') ? 'border-yellow-600/30 hover:shadow hover:shadow-yellow-500/10 hover:border-yellow-500/40' : 
+                        'border-blue-600/30 hover:shadow hover:shadow-blue-500/10 hover:border-blue-500/40'
+                      ]"
+                      role="button"
+                      :aria-label="`View details for ${product.name}`">
+                      <img :src="product.image" :alt="product.name" class="w-full h-7 object-scale-down p-0.5 bg-gray-900/50">
+                      <div class="p-0.5">
                         <h3 :class="[
-                          'text-sm font-medium truncate',
+                          'text-[0.6rem] font-medium truncate leading-tight',
                           product.category === 'package' ? 'text-green-400' : 
                           product.category === 'monitoring' ? 'text-purple-400' : 
                           (product.category === 'security' && product.color === 'blue') ? 'text-blue-400' :
                           (product.brand === 'NM Solar' && product.color === 'yellow') ? 'text-yellow-400' :
                           'text-blue-400'
                         ]">{{ product.name }}</h3>
-                        <p class="text-xs text-gray-400 mt-1">{{ formatTimeAgo(product.timestamp) }}</p>
+                        <p class="text-[0.55rem] text-gray-400 mt-0 leading-tight">{{ formatTimeAgo(product.timestamp) }}</p>
                       </div>
                     </div>
                   </transition-group>
@@ -329,12 +325,12 @@
     </transition>
 
     <!-- Cart Modal -->
-    <CartModal class="relative z-50" />
+    <CartModal class="relative z-50" :key="'cart-modal'" />
 
     <!-- Product Details Modal -->
     <ProductDetailsModal v-if="selectedProduct" :isOpen="productDetailsOpen" :product="selectedProduct" 
-      class="relative z-50" @close="closeProductDetails" />
-  </div>
+      class="relative z-[100]" :key="'product-details-modal'" @close="closeProductDetails" />
+
 </template>
 
 <script>
@@ -350,6 +346,7 @@ import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
 import { recentlyViewedService } from '../services/recentlyViewedService.js';
 import { cameraProducts } from '../data/productData.js';
+import './RecentlyViewedFooter.css';
 
 
 export default {
@@ -374,7 +371,7 @@ export default {
     const hasRecentProducts = computed(() => recentlyViewedService.hasProducts());
     
     // Recently viewed products footer toggle state
-    const isRecentlyViewedExpanded = ref(true);
+    const isRecentlyViewedExpanded = ref(false);
     
     // Package comparison toggle state
     const showPackageComparison = ref(false);
@@ -410,14 +407,29 @@ export default {
           footer.style.bottom = '0';
           footer.style.left = '0';
           footer.style.width = '100%';
-          footer.style.zIndex = '9999';
-          footer.style.maxHeight = '200px';
+          footer.style.zIndex = '40';
+          footer.style.maxHeight = '45px';
+          
+          // Set initial state (collapsed by default)
+          if (!isRecentlyViewedExpanded.value) {
+            footer.classList.add('collapsed');
+          } else {
+            footer.classList.remove('collapsed');
+          }
         }
       };
 
       // Apply immediately and also after a short delay to ensure it works after all rendering
       fixFooterPosition();
       setTimeout(fixFooterPosition, 500);
+      
+      // Also fix position when window is resized
+      window.addEventListener('resize', fixFooterPosition);
+      
+      // Cleanup on component unmount
+      return () => {
+        window.removeEventListener('resize', fixFooterPosition);
+      };
     });
     
     // Get all package products for comparison table
@@ -429,6 +441,21 @@ export default {
     // Toggle recently viewed products footer visibility
     const toggleRecentlyViewed = () => {
       isRecentlyViewedExpanded.value = !isRecentlyViewedExpanded.value;
+      
+      // Auto-hide after 10 seconds if expanded
+      if (isRecentlyViewedExpanded.value) {
+        setTimeout(() => {
+          if (isRecentlyViewedExpanded.value) {
+            isRecentlyViewedExpanded.value = false;
+            try {
+              localStorage.setItem('recentlyViewedExpanded', 'false');
+            } catch (e) {
+              console.error('Error saving auto-hide preference to localStorage:', e);
+            }
+          }
+        }, 10000); // Auto-hide after 10 seconds
+      }
+      
       // Save preference to localStorage
       try {
         localStorage.setItem('recentlyViewedExpanded', isRecentlyViewedExpanded.value ? 'true' : 'false');
@@ -442,6 +469,9 @@ export default {
       const savedPreference = localStorage.getItem('recentlyViewedExpanded');
       if (savedPreference !== null) {
         isRecentlyViewedExpanded.value = savedPreference === 'true';
+      } else {
+        // By default, keep it collapsed
+        isRecentlyViewedExpanded.value = false;
       }
     } catch (e) {
       console.error('Error loading preference from localStorage:', e);
@@ -694,7 +724,18 @@ main {
 
 /* Keep recently viewed footer above content but below modals */
 .recently-viewed-footer.fixed {
-  z-index: 35; /* Adjusted to be above content but below other UI elements */
+  z-index: 40 !important; /* Below modals but above main content */
+  height: auto !important;
+  max-height: 250px !important;
+  background: rgba(17, 24, 39, 0.95) !important;
+  border-top: 1px solid rgba(55, 65, 81, 0.5) !important;
+  box-shadow: 0 -8px 16px -2px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Footer toggle button */
+.recently-viewed-footer .absolute {
+  z-index: 41;
 }
 
 /* Background patterns should stay in back */
@@ -968,7 +1009,7 @@ main {
   bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 9999 !important;
+  z-index: 40 !important; /* Reduced z-index to stay below modals */
   height: auto !important;
   max-height: 250px !important;
   background: rgba(17, 24, 39, 0.95) !important;
@@ -1091,25 +1132,25 @@ svg.fixed {
   left: 0 !important;
   width: 100% !important;
   height: auto !important;
-  max-height: 200px !important;
+  max-height: 120px !important;
   overflow: visible !important;
-  z-index: 9999 !important;
+  z-index: 30 !important;
 }
 
 .recently-viewed-footer > div {
-  max-height: 180px !important;
+  max-height: 100px !important;
   overflow-y: auto !important;
 }
 
 .recently-viewed-scroller {
-  max-height: 120px !important;
+  max-height: 70px !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
 }
 
 /* Make sure content doesn't get hidden behind the footer */
 .bg-gray-900 {
-  padding-bottom: 200px !important;
+  padding-bottom: 150px !important;
 }
 </style>
 
