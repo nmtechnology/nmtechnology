@@ -1181,7 +1181,7 @@ export default {
 .carousel-container {
   display: flex;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  height: 100%;
+  height: 80%;
   will-change: transform;
   touch-action: pan-y;
   position: relative;
