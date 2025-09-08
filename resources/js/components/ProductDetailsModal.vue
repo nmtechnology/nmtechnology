@@ -958,6 +958,42 @@ export default {
   }
 }
 
+@media (max-width: 280px) {
+  .product-details-modal-fixed {
+    align-items: flex-end;
+    padding: 0;
+    top: 56px !important; /* Offset for navbar, adjust as needed */
+    height: calc(100vh - 56px) !important;
+    min-height: 60vh;
+    max-height: 95vh;
+  }
+  .mobile-swipe-indicator {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    min-height: 60vh;
+    max-height: calc(95vh - 56px);
+    box-shadow: none;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .bg-gray-800 {
+    border-radius: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .scrollbar {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+  .sticky.top-0 {
+    position: static !important;
+  }
+  .sticky.bottom-0 {
+    position: static !important;
+  }
+}
+
 @media (min-width: 640px) {
   .mobile-swipe-indicator {
     max-height: 85vh;
