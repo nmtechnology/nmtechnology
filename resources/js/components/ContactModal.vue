@@ -389,7 +389,23 @@
                         {{ validationErrors.message[0] }}
                       </div>
                     </div>
-
+                    <div class="sm:col-span-2">
+                      <label for="fileUpload" class="flex items-center text-sm font-semibold leading-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4zm4 4h8v8H8V8z" />
+                        </svg>
+                        Upload Files (Blueprints, Documents, Images)
+                      </label>
+                      <div class="mt-2">
+                        <input type="file" id="fileUpload" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.bmp,.tiff,.svg,.webp,.zip,.rar,.dwg,.dxf,.xlsx,.xls,.ppt,.pptx,.txt,.csv" @change="handleFileChange" class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700" />
+                        <div v-if="fileErrors.length" class="text-xs text-red-500 mt-1">
+                          <div v-for="err in fileErrors" :key="err">{{ err }}</div>
+                        </div>
+                        <div v-if="selectedFiles.length" class="mt-2 text-xs text-green-400">
+                          <div v-for="file in selectedFiles" :key="file.name">{{ file.name }} ({{ (file.size/1024).toFixed(1) }} KB)</div>
+                        </div>
+                      </div>
+                    </div>
                     <!-- Human Verification - Math Problem -->
                     <div class="sm:col-span-2 mt-2 sm:mt-4">
                       <label class="flex items-center text-sm font-semibold leading-6 text-white">
@@ -526,7 +542,9 @@ export default {
         answer: null
       },
       userMathAnswer: null,
-      mathVerificationError: ''
+      mathVerificationError: '',
+      selectedFiles: [],
+      fileErrors: []
     }
   },
   methods: {
@@ -557,12 +575,24 @@ export default {
         return
       }
       
-      axios.post('/api/send-contact', {
-        firstName: this.form.firstName,
-        lastName: this.form.lastName,
-        phoneNumber: this.form.phoneNumber,
-        email: this.form.email,
-        message: this.form.message
+      // Prepare form data for file upload
+      const formData = new FormData();
+      formData.append('firstName', this.form.firstName);
+      formData.append('lastName', this.form.lastName);
+      formData.append('phoneNumber', this.form.phoneNumber);
+      formData.append('email', this.form.email);
+      formData.append('message', this.form.message);
+      if (this.selectedFiles.length) {
+        this.selectedFiles.forEach((file, idx) => {
+          formData.append('files[]', file);
+        });
+      }
+      // Math verification
+      formData.append('userMathAnswer', this.userMathAnswer);
+      formData.append('mathProblemAnswer', this.mathProblem.answer);
+
+      axios.post('/api/send-contact', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       })
       .then(res => {
         console.log('Success response:', res)
@@ -599,6 +629,8 @@ export default {
       this.form.email = ''
       this.form.message = ''
       this.userMathAnswer = null
+      this.selectedFiles = []
+      this.fileErrors = []
       this.generateMathProblem()
     },
     generateMathProblem () {
@@ -624,6 +656,30 @@ export default {
       this.mathProblem.answer = answer
       this.userMathAnswer = null
       this.mathVerificationError = ''
+    },
+    handleFileChange(e) {
+      this.fileErrors = [];
+      this.selectedFiles = [];
+      const files = Array.from(e.target.files);
+      const allowedTypes = [
+        'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'image/jpeg', 'image/png', 'image/bmp', 'image/tiff', 'image/svg+xml', 'image/webp',
+        'application/zip', 'application/x-rar-compressed',
+        'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        'text/plain', 'text/csv', 'application/octet-stream',
+        'application/acad', 'application/x-autocad', 'application/x-dwg', 'application/x-dxf'
+      ];
+      const maxSize = 10 * 1024 * 1024; // 10MB
+      files.forEach(file => {
+        if (!allowedTypes.includes(file.type) && !file.name.match(/\.(pdf|doc|docx|jpg|jpeg|png|bmp|tiff|svg|webp|zip|rar|dwg|dxf|xlsx|xls|ppt|pptx|txt|csv)$/i)) {
+          this.fileErrors.push(`${file.name}: Unsupported file type.`);
+        } else if (file.size > maxSize) {
+          this.fileErrors.push(`${file.name}: File too large (max 10MB).`);
+        } else {
+          this.selectedFiles.push(file);
+        }
+      });
     },
     closeFromConfirmation() {
       this.showConfirmationScreen = false
