@@ -21,7 +21,7 @@
     <!-- Product Collage - This shows before the verification form -->
     <div class="w-full max-w-4xl px-4 mb-8 animate-fadeIn">
       <h1 class="text-center text-6xl md:text-4xl font-bold text-white mb-4">Advanced Security & Surveillance Solutions
-        from <img class="h-16 w-auto mr-2" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"> Technology!
+        from <img class="h-16 w-auto mr-2 items-center" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo"> Technology!
       </h1>
 
       <!-- Features List -->
