@@ -19,7 +19,7 @@
    
     <!-- Product Collage - This shows before the verification form -->
     <div class="w-full max-w-4xl px-4 mb-8 animate-fadeIn">
-      <h1 class="text-center text-6xl md:text-4xl font-bold text-white mb-4">Advanced Security & Surveillance Solutions</h1>
+      <h1 class="text-center text-6xl md:text-4xl font-bold text-white mb-4">Advanced Security & Surveillance Solutions from NM Technology!</h1>
       
       <!-- Features List -->
       <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
