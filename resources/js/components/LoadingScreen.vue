@@ -14,7 +14,7 @@
 
     <!-- Logo and Text -->
     <div class="logo-container z-10 animate-fadeIn opacity-0" style="animation-delay: 0.2s;">
-      <img src="/public/images/nm-logo-rmbg.webp" alt="NM Technology" class="w-40 h-40 mb-8">
+      <img src="/public/images/nm-logo-rmbg.webp" alt="NM Technology" class="w-50 h-40 mb-8">
     </div>
     
     <div class="welcome-text z-10 animate-fadeIn opacity-0 mb-8" style="animation-delay: 0.5s;">

@@ -16,7 +16,7 @@
       </svg>
       <rect width="100%" height="100%" stroke-width="0" fill="url(#verification-pattern)" />
     </svg>
-    
+   
     <!-- Product Collage - This shows before the verification form -->
     <div class="w-full max-w-4xl px-4 mb-8 animate-fadeIn">
       <h1 class="text-center text-6xl md:text-4xl font-bold text-white mb-4">Advanced Security & Surveillance Solutions</h1>
