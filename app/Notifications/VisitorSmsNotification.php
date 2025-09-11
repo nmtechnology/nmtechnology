@@ -4,6 +4,8 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
+use NotificationChannels\Twilio\TwilioChannel;
+use NotificationChannels\Twilio\TwilioSmsMessage;
 
 class VisitorSmsNotification extends Notification
 {
@@ -18,14 +20,12 @@ class VisitorSmsNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['twilio'];
+        return [TwilioChannel::class];
     }
 
     public function toTwilio($notifiable)
     {
-        return [
-            'to' => $this->phone,
-            'message' => 'New visitor on NM Technology website!'
-        ];
+        return (new TwilioSmsMessage())
+            ->content('New visitor on NM Technology website!');
     }
 }
