@@ -182,7 +182,7 @@ export default {
 
     const showFixedBanner = ref(false)
     const handleScroll = () => {
-      showFixedBanner.value = window.scrollY > window.innerHeight * 0.75
+      showFixedBanner.value = window.scrollY > window.innerHeight * 0.40
     }
 
     onMounted(() => {
