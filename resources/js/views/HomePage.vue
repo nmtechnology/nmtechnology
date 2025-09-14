@@ -54,7 +54,7 @@ eslint-disable no-undef
   <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!
 </h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">
-  NM Technology specializes in <strong class="text-green-400">CCTV installation</strong>, security systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico. Our team provides professional installation, ongoing maintenance, and rapid support to protect your assets, personnel, and data.<br><br>
+  NM Technology specializes in <strong class="text-green-400">CCTV installation & Design</strong>, security systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico. Our team provides professional installation, ongoing maintenance, and rapid support to protect your assets, personnel, and data.<br><br>
   We use advanced security monitoring, smart automation, and local expertise to help you deter threats, automate routine tasks, and ensure peace of mind. Our solutions are trusted by leading organizations and backed by warranties and responsive service.<br><br>
 <span class="text-blue-400">Do you need On-site Representation?</span> NM Technology partners with top-rated nationwide contractors for qualified technician services in New Mexico. We can help you get the work you need done for your customer at the level of professionalism you expect. We can provide a world-class customer service experience for your customers while you maintain their loyalty.
 </p>

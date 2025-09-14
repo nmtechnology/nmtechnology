@@ -34,6 +34,8 @@ class MailController extends Controller
             if ((int)$validated['userMathAnswer'] !== (int)$validated['mathProblemAnswer']) {
                 return response()->json(['errors' => ['math' => ['Incorrect answer to the math problem.']]], 422);
             }
+            // Set session flag for math verification
+            session(['math_verified' => true]);
 
             // Scan files for viruses (pseudo, real scan should use ClamAV or similar)
             $safeFiles = [];
