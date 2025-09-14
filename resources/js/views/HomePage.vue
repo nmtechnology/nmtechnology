@@ -2,7 +2,10 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <TopBanner />
-    <DesertParallax />
+    <div class="relative z-10">
+      <DesertParallax />
+      <div class="absolute inset-0 pointer-events-none" style="height:100%;z-index:-1;"></div>
+    </div>
     <div class="bg-gray-900">
         <main>
             <div class="relative isolate">
