@@ -35,8 +35,10 @@ class MathVerificationController extends Controller
             }
         } catch (\Exception $e) {}
 
-        // Block non-US IPs (case-insensitive, robust)
-        if (!empty($country) && strtolower(trim($country)) !== 'united states') {
+        // Block any country or city not in the United States
+        if (empty($country) || strtolower(trim($country)) !== 'united states') {
+            // Log the blocked IP and country for debugging
+            \Log::info('Blocked non-US visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
             return response()->json([
                 'error' => 'Access restricted to US visitors.',
                 'us_only' => true
