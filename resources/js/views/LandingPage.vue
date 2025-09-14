@@ -284,27 +284,23 @@ const generateMathProblem = () => {
 
 // Verify the user's answer
 const verifyAnswer = () => {
-  // Ensure we're comparing numbers, not strings
   const userAnswerNum = Number(userAnswer.value);
   const correctAnswerNum = Number(correctAnswer.value);
-  
-  console.log('Verifying answer:', userAnswerNum, 'Correct answer:', correctAnswerNum);
-  
+
   if (userAnswerNum === correctAnswerNum) {
-    localStorage.setItem('humanVerified', 'true');
-    localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
-    localStorage.setItem('isInitialVerification', 'true');
-    showLoadingScreen.value = true;
-    
-    // Start fade out after 2.5 seconds (when progress bar is nearly complete)
-    setTimeout(() => {
-      loadingScreen.value?.startLeaving();
-    }, 2500);
-    
-    // Navigate to home after the loading and fade-out animations complete
-    setTimeout(() => {
-      router.push('/home');
-    }, 3000);
+    fetch('/verify-math', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include', // Ensures session is set!
+      body: JSON.stringify({ userAnswer: userAnswerNum, correctAnswer: correctAnswerNum })
+    }).then(() => {
+      localStorage.setItem('humanVerified', 'true');
+      localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
+      localStorage.setItem('isInitialVerification', 'true');
+      showLoadingScreen.value = true;
+      setTimeout(() => { loadingScreen.value?.startLeaving(); }, 2500);
+      setTimeout(() => { router.push('/home'); }, 3000);
+    });
   } else {
     attempts.value += 1;
     if (attempts.value >= maxAttempts.value) {
