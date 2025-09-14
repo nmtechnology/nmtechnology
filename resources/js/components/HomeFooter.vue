@@ -1,30 +1,23 @@
 <template>
-    <footer class="bg-gray-900">
-        <div
-            class="mx-auto max-w-7xl px-3 py-6 md:flex md:items-center md:justify-between lg:px-8"
-        >
-            <div class="flex justify-center space-x-6 md:order-2">
-                <a
-                    v-for="item in navigation"
-                    :key="item.name"
-                    :href="item.href"
-                    class="text-gray-400 hover:text-gray-500"
-                >
-                    <span class="sr-only">{{ item.name }}</span>
-                    <component
-                        :is="item.icon"
-                        class="h-6 w-6"
-                        aria-hidden="true"
-                    />
-                </a>
-            </div>
-            <div class="mt-8 md:order-1 md:mt-0">
-                <p class="text-center text-xs leading-5 text-gray-500">
-                    &copy; 2023 NM Technology, Inc. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
+  <footer class="bg-gray-900 border-t border-green-600/30 py-8 animate-fadeIn">
+    <div class="mx-auto max-w-7xl px-3 md:flex md:items-center md:justify-between lg:px-8">
+      <div class="flex justify-center space-x-6 md:order-2">
+        <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-gray-400 hover:text-green-400 transition-colors duration-200">
+          <span class="sr-only">{{ item.name }}</span>
+          <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+        </a>
+      </div>
+      <div class="mt-8 md:order-1 md:mt-0">
+        <p class="text-center text-xs leading-5 text-gray-500">
+          &copy; 2025 NM Technology, Inc. All rights reserved.<br>
+          <span class="text-green-400">Albuquerque’s #1 Choice for Commercial CCTV Installation & Security Solutions</span>
+        </p>
+        <p class="text-center text-xs text-gray-400 mt-2">
+          We help New Mexico businesses appear in search results for <strong>"CCTV installation Albuquerque"</strong> and related security services. Partner with us for expert installation, local SEO, and ongoing support.
+        </p>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script setup>
@@ -101,3 +94,17 @@ const navigation = [
   }
 ]
 </script>
+
+<style scoped>
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+a:hover {
+  color: #16a34a;
+  transform: scale(1.1);
+}
+</style>

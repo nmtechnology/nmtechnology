@@ -25,16 +25,12 @@
               Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products
             </span>
           </h1>
-          <p class="text-white text-sm mb-10 text-center relative">
+          <p class="text-white text-lg mb-10 text-center relative animate-fadeIn">
             <span v-if="activeCategory === 'package'">
-              Our comprehensive security packages offer everything you need for complete protection. Choose the tier
-              that fits your needs and add it to your quote cart - our team will reach out with detailed pricing and
-              installation options.
+              Protect your property with NM Technology's all-in-one security packages. Our expert team designs, installs, and supports systems for homes, businesses, and franchises across New Mexico.
             </span>
             <span v-else>
-              Here are our most popular products. Select what you need for your project, add them to your quote cart, and
-              when you're ready to check out, our system will send this quote cart to our team as an inquiry. We'll get back
-              to you with pricing and availability as soon as possible.
+              Discover the latest in smart surveillance. Our CCTV solutions help you monitor, deter, and respond to threats—giving you peace of mind and actionable insights, 24/7.
             </span>
           </p>
 
@@ -1151,6 +1147,14 @@ svg.fixed {
 /* Make sure content doesn't get hidden behind the footer */
 .bg-gray-900 {
   padding-bottom: 150px !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
 }
 </style>
 

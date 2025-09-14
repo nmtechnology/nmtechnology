@@ -1,13 +1,14 @@
 <template>
     <Popover>
-      <PopoverButton class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+      <PopoverButton class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-green-500">
         <span>Solutions</span>
-        <ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
+        <ChevronDownIcon class="h-5 w-5 text-lime-400" aria-hidden="true" />
       </PopoverButton>
       <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
         <PopoverPanel class="absolute left-1/2 z-10 mt-5 flex w-screen max-w-min -translate-x-1/2 px-4">
-          <div class="w-56 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
-            <a v-for="item in solutions" :key="item.name" :href="item.href" class="block p-2 hover:text-indigo-600">{{ item.name }}</a>
+          <div class="w-56 shrink rounded-xl bg-gray-900 p-4 text-sm font-semibold leading-6 text-white shadow-lg ring-1 ring-green-600/30">
+            <div class="mb-2 text-green-400 font-bold text-center">Protecting New Mexico with Smart Security</div>
+            <a v-for="item in solutions" :key="item.name" :href="item.href" class="block p-2 rounded hover:text-green-400 hover:bg-gray-800 transition-colors">{{ item.name }}</a>
           </div>
         </PopoverPanel>
       </transition>

@@ -6,14 +6,13 @@
       <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#89c2fc] opacity-20" />
     </div>
     <div class="flex items-center justify-center h-full">
-      <p class="text-sm leading-6 text-white flex items-center">
-        <strong class="font-semibold">Check Us Out On Yelp!</strong><svg viewBox="0 0 2 2"
-          class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+      <p class="text-sm leading-6 text-white flex items-center animate-bannerPulse">
+        <strong class="font-semibold text-green-400 drop-shadow">NM Technology: New Mexico's Security Experts</strong>
+        <svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
           <circle cx="5" cy="5" r="5" />
         </svg>
+        <span class="ml-2 text-lime-400 font-bold">Check Us Out On Yelp!</span>
       </p>
-
-      <!-- <ContactModal @close="handleModalClose" class="ml-2" /> -->
     </div>
   </div>
 </template>
@@ -44,5 +43,13 @@ import { XMarkIcon } from '@heroicons/vue/20/solid'
   max-width: 1400px;
   margin: 0 auto;
   height: 100%;
+}
+
+@keyframes bannerPulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+.animate-bannerPulse {
+  animation: bannerPulse 2.5s infinite;
 }
 </style>
