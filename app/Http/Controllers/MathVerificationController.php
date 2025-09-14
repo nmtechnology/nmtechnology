@@ -103,10 +103,17 @@ class MathVerificationController extends Controller
             $shouldNotify = false;
         }
 
+        // Only notify ONCE: on successful verification, or on first lockout
         if ($shouldNotify) {
-            Notification::route('mail', 'service@nmtis.com')
-                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
+            try {
+                Notification::route('mail', 'service@nmtis.com')
+                    ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
+            } catch (\Exception $e) {
+                \Log::error('Notification error: ' . $e->getMessage());
+                return response()->json(['error' => 'Notification error: ' . $e->getMessage()], 500);
+            }
         }
+
         $stat->save();
         return response()->json(['success' => $correct, 'locked_out' => !$correct && $attempts >= 6]);
     }
