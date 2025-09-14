@@ -49,23 +49,23 @@ eslint-disable no-undef
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
                                
-<h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">NM Technology is changing the way you are
-     <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!</h1>
-<p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">When our customers use our integrated technology to protect their home or business,
-                                    they can automate routine tasks and create
-                                    customized settings based around thier lifestyle or business functionalities. 
-                                    By offering a full range of
-                                    security monitoring services and products that address
-                                    both physical and cyber threats, we can
-                                    protect residents and organizations of all types and sizes.
-                                    We protect their personell, assets, and data. In
-                                    addition, we offer warranties for ongoing maintenance and
-                                    support services to ensure that these
-                                    systems continue to function effectively
-                                    over time. Contact us today so we can get started.</p>
+<h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">
+  NM Technology is Albuquerque's Trusted Commercial CCTV & Security System Installation Experts, We Are changing the way New Mexicans are
+  <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!
+</h1>
+<p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">
+  NM Technology specializes in <strong class="text-green-400">CCTV installation</strong>, security systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico. Our team provides professional installation, ongoing maintenance, and rapid support to protect your assets, personnel, and data.<br><br>
+  We use advanced security monitoring, smart automation, and local expertise to help you deter threats, automate routine tasks, and ensure peace of mind. Our solutions are trusted by leading organizations and backed by warranties and responsive service.<br><br>
+<span class="text-blue-400">Do you need On-site Representation?</span> NM Technology partners with top-rated nationwide contractors for qualified technician services in New Mexico. We can help you get the work you need done for your customer at the level of professionalism you expect. We can provide a world-class customer service experience for your customers while you maintain their loyalty.
+</p>
                                 
-                                <div class="mt-10 flex items-center gap-x-6">
-                                    <ContactModal />
+                                <div class="mt-10 flex items-center gap-x-4 w-full sm:w-auto">
+                                    <button @click="openContactModal" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">
+                                        Contact Us 
+                                    </button>
+                                    <button @click="generateQuote" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-md transition">
+                                        Make A Quote
+                                    </button>
                                 </div>
                             </div>
                             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -122,6 +122,7 @@ eslint-disable no-undef
     <BlackGradient />
     <SectionOne />
     <HomeFooter />
+    <ContactModal ref="contactModalRef" />
 </template>
 
 <script>
@@ -132,13 +133,14 @@ import DesertParallax from '../components/DesertParallax.vue'
 import BlackGradient from '../components/BlackGradient.vue'
 import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
-import ContactModal from '../components/ContactModal.vue'
-import ContactModalFooter from '../components/ContactModalFooter.vue'
+
 import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
+import ContactModal from '../components/ContactModal.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isOpen = ref(true)
 
@@ -152,12 +154,49 @@ export default {
     BlackGradient,
     DesertParallax,
     WorkCollage,
-    ContactModal,
     MobileMenu,
     TopBanner,
     CcTv,
-    ContactModalFooter,
+    ContactModal,
     TrustedTeams
+  },
+  setup() {
+    const contactModalRef = ref(null)
+    
+    const router = useRouter()
+    const openContactModal = () => {
+      if (contactModalRef.value) {
+        contactModalRef.value.openModalFromOptions()
+      }
+    }
+
+    const generateQuote = () => {
+      router.push('/cctv')
+    }
+    
+    return {
+      contactModalRef,
+      openContactModal,
+      generateQuote
+    }
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  text-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+  letter-spacing: 0.01em;
+  animation: fadeIn 1.2s ease-out;
+}
+
+p {
+  animation: fadeIn 1.4s ease-out 0.2s;
+  line-height: 1.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>

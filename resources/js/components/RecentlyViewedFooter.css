@@ -1,0 +1,199 @@
+/* Specific styles for the Recently Viewed Products footer */
+.recently-viewed-footer {
+  position: static !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 45px !important;  /* Further reduced from 60px */
+  z-index: 40 !important; /* Keep consistent with CcTv.vue style */
+  background: rgba(17, 24, 39, 0.9) !important;
+  border-top: 1px solid rgba(55, 65, 81, 0.4) !important;
+  box-shadow: 0 -2px 8px -2px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  overflow: visible !important;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  pointer-events: auto;
+  will-change: transform; /* Performance optimization */
+  content-visibility: auto; /* Paint optimization */
+}
+
+.recently-viewed-footer.sticky-visible {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 40 !important;
+}
+
+.recently-viewed-footer > div {
+  max-height: 40px !important; /* Further reduced from 50px */
+  overflow-y: auto !important;
+}
+
+.recently-viewed-footer .container {
+  position: relative;
+  height: 100%;
+  max-height: 40px; /* Further reduced from 50px */
+  overflow-y: auto;
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+
+/* Add class for collapsed state */
+.recently-viewed-footer.collapsed {
+  transform: translateY(calc(100% - 2px)) !important; /* Show only 2px hint of the footer instead of 4px */
+  pointer-events: none; /* Prevent interaction when collapsed except for the handle */
+  box-shadow: 0 -1px 3px -1px rgba(0, 0, 0, 0.1) !important; /* Smaller shadow when collapsed */
+  opacity: 0.95; /* Slightly more transparent when collapsed */
+}
+
+/* Make sure the toggle button is still clickable when footer is collapsed */
+.recently-viewed-footer.collapsed .absolute {
+  pointer-events: auto;
+}
+
+.recently-viewed-scroller {
+  max-height: 36px !important; /* Further reduced from 40px */
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding-bottom: 0.125rem;
+  margin-bottom: 0 !important;
+  will-change: scroll-position; /* Performance optimization */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: thin; /* Thinner scrollbar for Firefox */
+}
+
+.recently-viewed-footer button.absolute {
+  z-index: 31;
+  position: absolute;
+  top: -20px !important; /* Smaller button positioning */
+  right: 24px !important;
+  padding-top: 0.125rem !important;
+  padding-bottom: 0.125rem !important;
+  font-size: 0.65rem !important; /* Slightly smaller font */
+  line-height: 1;
+}
+
+.recently-viewed-item {
+  transition: all 0.2s ease;
+}
+
+.recently-viewed-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Main content area padding to prevent content from being hidden behind footer */
+main {
+  padding-bottom: 80px !important; /* Further reduced to match the even smaller footer */
+}
+
+/* Recently viewed item image size */
+.recently-viewed-item img {
+  max-height: 28px !important; /* Further reduced size from 32px */
+  object-fit: scale-down;
+  padding: 0.5px !important;
+}
+
+/* Product name in recently viewed items */
+.recently-viewed-item h3 {
+  font-size: 0.6rem !important; /* Smaller font */
+  line-height: 0.8rem !important;
+  margin-bottom: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-top: 0 !important;
+}
+
+/* Time ago text in recently viewed items */
+.recently-viewed-item p {
+  font-size: 0.55rem !important; /* Even smaller font */
+  opacity: 0.6;
+  margin: 0 !important;
+  line-height: 0.7rem !important;
+}
+
+/* Animation for slide transitions */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.25s ease;
+  max-height: 45px !important; /* Further reduced from 60px */
+  overflow: hidden;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Make the footer items more compact */
+.recently-viewed-item {
+  width: auto !important;
+  max-width: 70px !important; /* Further limit width from 80px */
+  min-width: 55px !important; /* Set a minimum width from 60px */
+}
+
+.recently-viewed-item .p-1,
+.recently-viewed-item .p-2 {
+  padding: 0.1rem !important; /* Further reduce padding */
+}
+
+/* Default to collapsed state */
+body:not(.recently-viewed-active) .recently-viewed-footer {
+  transform: translateY(calc(100% - 2px)) !important;
+}
+
+/* Add hover detection to auto-expand when near the footer */
+@media (min-width: 640px) {
+  .recently-viewed-footer.collapsed:hover {
+    transform: translateY(calc(100% - 10px)) !important; /* Show a peek preview on hover */
+    transition: transform 0.2s ease-out;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 639px) {
+  .recently-viewed-footer {
+    max-height: 40px !important;
+  }
+  
+  .recently-viewed-footer > div {
+    max-height: 35px !important;
+  }
+  
+  .recently-viewed-scroller {
+    max-height: 32px !important;
+  }
+  
+  .recently-viewed-item {
+    max-width: 60px !important;
+    min-width: 45px !important;
+  }
+  
+  .recently-viewed-footer button.absolute {
+    top: -18px !important;
+    right: 16px !important;
+    font-size: 0.6rem !important;
+    padding: 0.1rem 0.5rem !important;
+  }
+  
+  .recently-viewed-item h3 {
+    font-size: 0.55rem !important;
+    line-height: 0.7rem !important;
+  }
+  
+  .recently-viewed-item p {
+    font-size: 0.5rem !important;
+    line-height: 0.65rem !important;
+  }
+}
