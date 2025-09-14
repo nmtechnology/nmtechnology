@@ -22,19 +22,32 @@ class MathVerificationController extends Controller
         $visitType = $correct ? 'Entered site' : 'Failed verification';
 
         // Geo lookup
+        $country = null;
         try {
             $geo = @json_decode(file_get_contents('http://ip-api.com/json/' . $ip), true);
             if (isset($geo['country']) && isset($geo['city'])) {
                 $location = $geo['city'] . ', ' . $geo['country'];
+                $country = $geo['country'];
             } elseif (isset($geo['country'])) {
                 $location = $geo['country'];
+                $country = $geo['country'];
             }
         } catch (\Exception $e) {}
+
+        // Block non-US IPs
+        if ($country !== 'United States') {
+            return response()->json([
+                'error' => 'Access restricted to US visitors.',
+                'us_only' => true
+            ], 403);
+        }
 
         // Lockout logic
         $stat = VisitorStat::where('ip', $ip)->first();
         $now = now();
+        $shouldNotify = false;
         if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
+            // Already locked out, do not notify again
             return response()->json(['locked_out' => true], 403);
         }
         if (!$stat) {
@@ -51,21 +64,20 @@ class MathVerificationController extends Controller
             $stat->last_visited = $now;
         }
 
-        // If failed 6+ times, lock out for 24h
-        if (!$correct && $attempts >= 6) {
+        // Only notify ONCE: on successful verification, or on first lockout
+        if ($correct) {
+            $shouldNotify = true;
+        } else if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
+            // Only notify on first lockout event
             $stat->locked_out_until = $now->addHours(24);
-            $stat->save();
-            Notification::route('mail', 'service@nmtis.com')
-                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts));
-            return response()->json(['locked_out' => true], 403);
+            $shouldNotify = true;
         }
 
-        // Only notify/record on actual verification event
-        if ($correct || (!$correct && $attempts >= 6)) {
+        if ($shouldNotify) {
             Notification::route('mail', 'service@nmtis.com')
                 ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts));
         }
         $stat->save();
-        return response()->json(['success' => $correct, 'locked_out' => false]);
+        return response()->json(['success' => $correct, 'locked_out' => !$correct && $attempts >= 6]);
     }
 }

@@ -316,6 +316,10 @@ const verifyAnswer = async () => {
       body: JSON.stringify(payload)
     });
     const data = await response.json();
+    if (data.us_only) {
+      errorMessage.value = "Access restricted to US visitors.";
+      return;
+    }
     if (data.locked_out) {
       isLockedOut.value = true;
       errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
