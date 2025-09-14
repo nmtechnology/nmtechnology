@@ -2,9 +2,10 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <nav><!-- Your navbar here --></nav>
-    <TopBanner />
-    <div class="fixed top-0 left-0 w-full h-64 sm:h-96 z-0">
+    <div class="relative w-full h-[75vh]">
       <DesertParallax />
+      <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
+      <TopBanner v-else class="absolute left-0 w-full z-20" style="top:75vh;" />
     </div>
     <div class="relative z-10 bg-gray-900" style="margin-top:24rem;">
         <main>
@@ -143,7 +144,7 @@ import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 // Import logAction from shared util if needed
 
@@ -179,8 +180,18 @@ export default {
       router.push('/cctv')
     }
 
+    const showFixedBanner = ref(false)
+    const handleScroll = () => {
+      showFixedBanner.value = window.scrollY > window.innerHeight * 0.75
+    }
+
     onMounted(() => {
+      window.addEventListener('scroll', handleScroll)
       logAction('HomePage', 'Page visited')
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll)
     })
 
     // Example: log other actions
@@ -191,7 +202,8 @@ export default {
     return {
       contactModalRef,
       openContactModal,
-      generateQuote
+      generateQuote,
+      showFixedBanner
     }
   }
 }
