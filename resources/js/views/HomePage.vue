@@ -50,8 +50,8 @@ eslint-disable no-undef
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
                                
 <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-20 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">
-  NM Technology is Albuquerque's Trusted Commercial CCTV & Security System Installation Experts, We Are changing the way New Mexicans are
-  <span class="text-green-600 dark:text-blue-500">protected and served</span> here in New Mexico!
+  NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are changing the way New Mexicans are
+  <span class="text-green-600 dark:text-blue-500">protected and served</span>right here in New Mexico!
 </h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">
   NM Technology specializes in <strong class="text-green-400">CCTV installation & design</strong>, security systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico. Our team provides professional low voltage installation in New Mexico, we provide ongoing maintenance, and rapid support to protect your assets, personnel, and data.<br><br>
