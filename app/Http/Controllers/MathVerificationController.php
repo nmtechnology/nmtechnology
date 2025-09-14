@@ -99,6 +99,13 @@ class MathVerificationController extends Controller
             session(['math_time_spent' => $timeSpent]);
             session(['math_landing_page' => $landingPage]);
 
+            // On successful math verification, start a new session log for this visitor
+            if ($correct) {
+                session(['visitor_verified' => true]);
+                session(['visitor_log_start' => now()->toDateTimeString()]);
+                session(['visitor_actions' => []]); // initialize actions array
+            }
+
             // Only notify ONCE: on successful verification
             if ($correct && !session('visitor_notified')) {
                 Notification::route('mail', 'service@nmtis.com')
@@ -123,13 +130,41 @@ class MathVerificationController extends Controller
         }
     }
 
-    // New endpoint for when visitor leaves the site
+    public function logAction(Request $request)
+    {
+        $ip = $request->ip();
+        $page = $request->input('page');
+        $details = $request->input('details', null);
+        $timestamp = now();
+        // Only log actions if visitor has verified
+        if (session('visitor_verified')) {
+            $stat = VisitorStat::where('ip', $ip)->first();
+            $action = new \App\Models\VisitorAction([
+                'visitor_stat_id' => $stat ? $stat->id : null,
+                'ip' => $ip,
+                'page' => $page,
+                'timestamp' => $timestamp,
+                'details' => $details,
+            ]);
+            $action->save();
+            // Also store in session for individual report
+            $actions = session('visitor_actions', []);
+            $actions[] = [
+                'page' => $page,
+                'timestamp' => $timestamp->toDateTimeString(),
+                'details' => $details,
+            ];
+            session(['visitor_actions' => $actions]);
+        }
+        return response()->json(['logged' => true]);
+    }
+
     public function leftSite(Request $request)
     {
         $ip = $request->ip();
         $stat = VisitorStat::where('ip', $ip)->first();
-        // Fetch all actions for this visitor
-        $actions = VisitorAction::where('ip', $ip)->orderBy('timestamp')->get();
+        // Fetch all actions for this visitor from session (individual session report)
+        $actions = session('visitor_actions', []);
         if (!session('visitor_notified')) {
             $location = $stat ? $stat->location : 'Unknown';
             $userAgent = $request->header('User-Agent');
@@ -141,6 +176,8 @@ class MathVerificationController extends Controller
                 ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage, $actions));
             session(['visitor_notified' => true]);
         }
+        // Clear session log for this visitor
+        session()->forget(['visitor_verified', 'visitor_log_start', 'visitor_actions']);
         return response()->json(['notified' => true]);
     }
 
@@ -199,23 +236,5 @@ class MathVerificationController extends Controller
     private function getReportStyles()
     {
         return 'body{background:#111;font-family:sans-serif;}h1,h2{font-family:sans-serif;}table{border-radius:8px;overflow:hidden;}th,td{border:none;}';
-    }
-
-    public function logAction(Request $request)
-    {
-        $ip = $request->ip();
-        $page = $request->input('page');
-        $details = $request->input('details', null);
-        $timestamp = now();
-        $stat = VisitorStat::where('ip', $ip)->first();
-        $action = new \App\Models\VisitorAction([
-            'visitor_stat_id' => $stat ? $stat->id : null,
-            'ip' => $ip,
-            'page' => $page,
-            'timestamp' => $timestamp,
-            'details' => $details,
-        ]);
-        $action->save();
-        return response()->json(['logged' => true]);
     }
 }

@@ -42,5 +42,28 @@
     @else
         <p style="color:#fff;">No page actions recorded for this visitor.</p>
     @endif
+    <h2 style="color:#10b981;margin-top:2rem;">Visitor Actions / Pages Visited (This Session)</h2>
+    @if($actions && count($actions))
+        <table style="width:100%;border-collapse:collapse;background:#222;color:#fff;margin-bottom:2rem;">
+            <thead>
+                <tr style="background:#10b981;color:#fff;">
+                    <th style="padding:8px;">Page</th>
+                    <th style="padding:8px;">Timestamp</th>
+                    <th style="padding:8px;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($actions as $action)
+                    <tr>
+                        <td style="padding:8px;">{{ is_array($action) ? $action['page'] : $action->page }}</td>
+                        <td style="padding:8px;">{{ is_array($action) ? $action['timestamp'] : $action->timestamp }}</td>
+                        <td style="padding:8px;">{{ is_array($action) ? $action['details'] : $action->details }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p style="color:#fff;">No page actions recorded for this visitor session.</p>
+    @endif
     <div style="text-align:center;color:{{ $themeColor }};font-size:1rem;margin-top:2rem;">&copy; {{ now()->year }} NM Technology. All rights reserved.</div>
 </div>

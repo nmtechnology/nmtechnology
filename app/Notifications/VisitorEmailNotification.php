@@ -18,7 +18,7 @@ class VisitorEmailNotification extends Notification
     public $experience;
     public $actions;
 
-    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null, $landingPage = null, $experience = null, $actions = null)
+    public function __construct($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage, $actions = null)
     {
         $this->ip = $ip;
         $this->location = $location;
@@ -29,7 +29,6 @@ class VisitorEmailNotification extends Notification
         $this->timeSpent = $timeSpent;
         $this->attempts = $attempts;
         $this->landingPage = $landingPage;
-        $this->experience = $experience;
         $this->actions = $actions;
     }
 
@@ -41,7 +40,7 @@ class VisitorEmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('New Website Visitor')
+            ->subject('NM Technology Visitor Notification')
             ->view('emails.visitor_notification', [
                 'ip' => $this->ip,
                 'location' => $this->location,
@@ -52,7 +51,6 @@ class VisitorEmailNotification extends Notification
                 'timeSpent' => $this->timeSpent,
                 'attempts' => $this->attempts,
                 'landingPage' => $this->landingPage,
-                'experience' => $this->experience,
                 'actions' => $this->actions,
             ]);
     }
