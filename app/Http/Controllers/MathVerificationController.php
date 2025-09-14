@@ -27,6 +27,7 @@ class MathVerificationController extends Controller
 
             // Geo lookup
             $country = null;
+            $geo = [];
             try {
                 $geo = @json_decode(file_get_contents('http://ip-api.com/json/' . $ip), true);
                 if (isset($geo['country']) && isset($geo['city'])) {
@@ -40,20 +41,29 @@ class MathVerificationController extends Controller
 
             // Block any country or city not in the United States, and block any city from China
             if (empty($country) || strtolower(trim($country)) !== 'united states' || strtolower(trim($country)) === 'china') {
-                // Log the blocked IP and country for debugging
                 \Log::info('Blocked non-US or China visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
+                // Only notify ONCE per session for block event
+                if (!session('visitor_notified')) {
+                    Notification::route('mail', 'service@nmtis.com')
+                        ->notify(new VisitorEmailNotification($ip, $location, 'blocked', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                    session(['visitor_notified' => true]);
+                }
                 return response()->json([
                     'error' => 'Access restricted to US visitors.',
                     'us_only' => true
                 ], 403);
             }
 
-            // Only collect stats and notify for landing page verification
             $stat = VisitorStat::where('ip', $ip)->first();
             $now = now();
             $shouldNotify = false;
-            // Only notify if math verification is completed (success or lockout)
             if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
+                // Only notify ONCE per session for lockout event
+                if (!session('visitor_notified')) {
+                    Notification::route('mail', 'service@nmtis.com')
+                        ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                    session(['visitor_notified' => true]);
+                }
                 return response()->json(['locked_out' => true], 403);
             }
             if (!$stat) {
@@ -84,35 +94,23 @@ class MathVerificationController extends Controller
                 $stat->landing_page = $landingPage;
             }
 
-            // Set session data for notification middleware
             session(['math_attempts' => $attempts]);
             session(['math_time_spent' => $timeSpent]);
             session(['math_landing_page' => $landingPage]);
 
-            // Only notify ONCE: on successful verification, or on first lockout
-            if ($correct) {
-                session(['math_verified' => true]);
-                $shouldNotify = true;
-            } else if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
-                // Only notify if lockout is being set now
-                if (!$stat->locked_out_until || $now->gt($stat->locked_out_until)) {
-                    $stat->locked_out_until = $now->addHours(24);
-                    $shouldNotify = true;
-                } else {
-                    $shouldNotify = false;
-                }
-            } else {
-                $shouldNotify = false;
+            // Only notify ONCE: on successful verification
+            if ($correct && !session('visitor_notified')) {
+                Notification::route('mail', 'service@nmtis.com')
+                    ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
+                session(['visitor_notified' => true]);
             }
-
-            // Only notify ONCE: on successful verification, or on first lockout
-            if ($shouldNotify) {
-                try {
+            // Lockout logic
+            if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
+                $stat->locked_out_until = $now->addHours(24);
+                if (!session('visitor_notified')) {
                     Notification::route('mail', 'service@nmtis.com')
-                        ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
-                } catch (\Exception $e) {
-                    \Log::error('Notification error: ' . $e->getMessage());
-                    return response()->json(['error' => 'Notification error: ' . $e->getMessage()], 500);
+                        ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                    session(['visitor_notified' => true]);
                 }
             }
 
@@ -122,6 +120,25 @@ class MathVerificationController extends Controller
             \Log::error('verify-math fatal error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
             return response()->json(['error' => 'Fatal error: ' . $e->getMessage()], 500);
         }
+    }
+
+    // New endpoint for when visitor leaves the site
+    public function leftSite(Request $request)
+    {
+        $ip = $request->ip();
+        $stat = VisitorStat::where('ip', $ip)->first();
+        if (!session('visitor_notified')) {
+            $location = $stat ? $stat->location : 'Unknown';
+            $userAgent = $request->header('User-Agent');
+            $referer = $request->header('Referer');
+            $attempts = $stat ? $stat->attempts : null;
+            $timeSpent = $stat ? $stat->time_spent : null;
+            $landingPage = $stat ? $stat->landing_page : ($referer ?? 'unknown');
+            Notification::route('mail', 'service@nmtis.com')
+                ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage));
+            session(['visitor_notified' => true]);
+        }
+        return response()->json(['notified' => true]);
     }
 
     public function sendTrafficReport()
