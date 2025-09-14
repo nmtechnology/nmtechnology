@@ -224,6 +224,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { toastService } from '../services/toastService.js';
 import LoadingScreen from '../components/LoadingScreen.vue';
+import { logAction, startVisitorSession } from '../utils/analytics.js';
 
 const router = useRouter();
 const firstNumber = ref(0);
@@ -336,6 +337,8 @@ const verifyAnswer = async () => {
     localStorage.setItem('humanVerified', 'true');
     localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
     localStorage.setItem('isInitialVerification', 'true');
+    // Start visitor session tracking
+    startVisitorSession();
     showLoadingScreen.value = true;
     setTimeout(() => {
       loadingScreen.value?.startLeaving();
@@ -360,6 +363,11 @@ const verifyAnswer = async () => {
     }
   }
 };
+
+// Example: log button click
+function onContactClick() {
+  logAction('ContactButton', 'Clicked contact button');
+}
 
 // Generate a math problem when the component mounts
 onMounted(() => {

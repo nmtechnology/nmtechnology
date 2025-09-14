@@ -139,8 +139,9 @@ import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+// Import logAction from shared util if needed
 
 const isOpen = ref(true)
 
@@ -172,6 +173,15 @@ export default {
 
     const generateQuote = () => {
       router.push('/cctv')
+    }
+
+    onMounted(() => {
+      logAction('HomePage', 'Page visited')
+    })
+
+    // Example: log other actions
+    function onPromoBannerClick() {
+      logAction('PromoBanner', 'Clicked promo banner')
     }
     
     return {
