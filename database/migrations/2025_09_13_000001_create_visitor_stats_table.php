@@ -12,6 +12,8 @@ return new class extends Migration {
             $table->string('location')->nullable();
             $table->integer('visits')->default(1);
             $table->timestamp('last_visited')->nullable();
+            $table->integer('fail_count')->default(0);
+            $table->timestamp('blocked_until')->nullable();
             $table->timestamps();
         });
     }

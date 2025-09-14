@@ -30,9 +30,37 @@ class MailController extends Controller
                 'files.*' => 'file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,bmp,tiff,svg,webp,zip,rar,dwg,dxf,xlsx,xls,ppt,pptx,txt,csv',
             ]);
 
+            $ip = $request->ip();
+            $stat = \App\Models\VisitorStat::where('ip', $ip)->first();
+            if ($stat) {
+                // If blocked, deny access
+                if ($stat->blocked_until && now()->lessThan($stat->blocked_until)) {
+                    return response()->json(['errors' => ['blocked' => ['Too many failed attempts. Try again later.']]], 403);
+                }
+            }
             // Math verification
             if ((int)$validated['userMathAnswer'] !== (int)$validated['mathProblemAnswer']) {
+                // Track failed attempt
+                if ($stat) {
+                    $stat->fail_count = ($stat->fail_count ?? 0) + 1;
+                    if ($stat->fail_count >= 6) {
+                        $stat->blocked_until = now()->addHours(24); // Block for 24 hours
+                    }
+                    $stat->save();
+                } else {
+                    \App\Models\VisitorStat::create([
+                        'ip' => $ip,
+                        'fail_count' => 1,
+                    ]);
+                }
                 return response()->json(['errors' => ['math' => ['Incorrect answer to the math problem.']]], 422);
+            } else {
+                // On success, reset fail count
+                if ($stat) {
+                    $stat->fail_count = 0;
+                    $stat->blocked_until = null;
+                    $stat->save();
+                }
             }
             // Set session flag for math verification
             session(['math_verified' => true]);
