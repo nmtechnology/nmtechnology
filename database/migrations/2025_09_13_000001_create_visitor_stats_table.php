@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('location')->nullable();
             $table->integer('visits')->default(1);
             $table->timestamp('last_visited')->nullable();
+            $table->timestamp('locked_out_until')->nullable(); // Add lockout timestamp
             $table->timestamps();
         });
     }

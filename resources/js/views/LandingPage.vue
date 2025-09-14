@@ -232,9 +232,12 @@ const operatorType = ref('');
 const userAnswer = ref(null);
 const errorMessage = ref('');
 const maxAttempts = ref(3);
-const attempts = ref(0);
+const attempts = ref(0); // Attempts for current problem
+const totalAttempts = ref(0); // Total attempts across all problems
 const showLoadingScreen = ref(false);
 const loadingScreen = ref(null);
+const startTime = ref(Date.now());
+const isLockedOut = ref(false);
 
 // Generate the operator symbol (+, -, *)
 const operator = computed(() => {
@@ -283,25 +286,54 @@ const generateMathProblem = () => {
 };
 
 // Verify the user's answer
-const verifyAnswer = () => {
-  // Ensure we're comparing numbers, not strings
+const verifyAnswer = async () => {
+  if (isLockedOut.value) {
+    errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+    return;
+  }
   const userAnswerNum = Number(userAnswer.value);
   const correctAnswerNum = Number(correctAnswer.value);
-  
-  console.log('Verifying answer:', userAnswerNum, 'Correct answer:', correctAnswerNum);
-  
+  totalAttempts.value += 1;
+
+  // Calculate time spent on page
+  const timeSpentMs = Date.now() - startTime.value;
+  const timeSpentSec = Math.floor(timeSpentMs / 1000);
+
+  // Prepare payload for backend
+  const payload = {
+    answer: userAnswerNum,
+    correct: userAnswerNum === correctAnswerNum,
+    time_spent: timeSpentSec,
+    attempts: totalAttempts.value
+  };
+
+  // Send verification attempt to backend
+  let response;
+  try {
+    response = await fetch('/api/verify-math', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    if (data.locked_out) {
+      isLockedOut.value = true;
+      errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+      return;
+    }
+  } catch (e) {
+    errorMessage.value = "Verification service unavailable. Please try again later.";
+    return;
+  }
+
   if (userAnswerNum === correctAnswerNum) {
     localStorage.setItem('humanVerified', 'true');
     localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
     localStorage.setItem('isInitialVerification', 'true');
     showLoadingScreen.value = true;
-    
-    // Start fade out after 2.5 seconds (when progress bar is nearly complete)
     setTimeout(() => {
       loadingScreen.value?.startLeaving();
     }, 2500);
-    
-    // Navigate to home after the loading and fade-out animations complete
     setTimeout(() => {
       router.push('/home');
     }, 3000);
@@ -315,24 +347,26 @@ const verifyAnswer = () => {
       errorMessage.value = `Incorrect answer. You have ${maxAttempts.value - attempts.value} attempts remaining.`;
       userAnswer.value = null;
     }
+    // If totalAttempts reaches 6, lock out
+    if (totalAttempts.value >= 6) {
+      isLockedOut.value = true;
+      errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+    }
   }
 };
 
 // Generate a math problem when the component mounts
 onMounted(() => {
-  // Check if already verified recently (within 24 hours)
   const verifiedTimestamp = localStorage.getItem('humanVerifiedTimestamp');
   if (verifiedTimestamp) {
     const elapsed = Date.now() - parseInt(verifiedTimestamp);
     const dayInMs = 24 * 60 * 60 * 1000;
-    
     if (elapsed < dayInMs) {
-      // Already verified within the last 24 hours, redirect to homepage
       router.push('/home');
       return;
     }
   }
-  
+  startTime.value = Date.now();
   generateMathProblem();
 });
 </script>

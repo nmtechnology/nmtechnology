@@ -12,8 +12,10 @@ class VisitorEmailNotification extends Notification
     public $userAgent;
     public $referer;
     public $visitType;
+    public $timeSpent;
+    public $attempts;
 
-    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null)
+    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null)
     {
         $this->ip = $ip;
         $this->location = $location;
@@ -21,6 +23,8 @@ class VisitorEmailNotification extends Notification
         $this->userAgent = $userAgent;
         $this->referer = $referer;
         $this->visitType = $visitType;
+        $this->timeSpent = $timeSpent;
+        $this->attempts = $attempts;
     }
 
     public function via($notifiable)
@@ -38,6 +42,8 @@ class VisitorEmailNotification extends Notification
             ->line('IP Address: ' . $this->ip)
             ->line('Location: ' . $this->location)
             ->line('Math Verification Status: ' . $this->mathStatus)
+            ->line('Number of Attempts: ' . ($this->attempts ?? 'Unknown'))
+            ->line('Time Spent on Page: ' . ($this->timeSpent ?? 'Unknown'))
             ->line('User Agent: ' . ($this->userAgent ?: 'Unknown'))
             ->line('Referer: ' . ($this->referer ?: 'Unknown'))
             ->line('Visit Type: ' . ($this->visitType ?: 'Unknown'))

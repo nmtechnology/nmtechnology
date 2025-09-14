@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\EmailerRecipientController;
 use App\Http\Controllers\VisitorStatsController;
+use App\Http\Controllers\MathVerificationController;
 
 // Main entry point - load Vue SPA
 Route::get('/', function () {
@@ -20,6 +21,9 @@ Route::post('/admin/emailer/add', [EmailerRecipientController::class, 'store'])-
 
 // Visitor stats route
 Route::get('/visitor-stats', [VisitorStatsController::class, 'index'])->middleware('auth');
+
+// Math verification API route
+Route::post('/api/verify-math', [MathVerificationController::class, 'verify']);
 
 // Catch all other routes and redirect to the root URL
 Route::get('/{any?}', function () {
