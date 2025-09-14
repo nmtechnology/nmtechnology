@@ -42,7 +42,8 @@ class MathVerificationController extends Controller
             ], 403);
         }
 
-        // Lockout logic
+        // Only collect stats and notify for landing page verification
+        // This endpoint is only called from LandingPage.vue, so no need to check route
         $stat = VisitorStat::where('ip', $ip)->first();
         $now = now();
         $shouldNotify = false;
@@ -57,11 +58,23 @@ class MathVerificationController extends Controller
                 'visits' => 1,
                 'last_visited' => $now,
                 'locked_out_until' => null,
+                'user_agent' => $userAgent,
+                'referer' => $referer,
+                'time_spent' => $timeSpent,
+                'attempts' => $attempts,
+                'math_status' => $mathStatus,
+                'visit_type' => $visitType,
             ]);
         } else {
             $stat->visits += 1;
             $stat->location = $location;
             $stat->last_visited = $now;
+            $stat->user_agent = $userAgent;
+            $stat->referer = $referer;
+            $stat->time_spent = $timeSpent;
+            $stat->attempts = $attempts;
+            $stat->math_status = $mathStatus;
+            $stat->visit_type = $visitType;
         }
 
         // Only notify ONCE: on successful verification, or on first lockout
