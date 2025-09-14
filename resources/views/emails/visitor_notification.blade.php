@@ -5,6 +5,9 @@
     $borderColor = '#10b981';
 @endphp
 <div style="background:{{ $bgColor }};color:{{ $textColor }};font-family:sans-serif;padding:2rem;border-radius:12px;max-width:600px;margin:auto;">
+    <div style="text-align:center;margin-bottom:2rem;">
+        <img src="https://nmtechnology.net/images/nmtis-logo.png" alt="NM Technology Logo" style="height:60px;max-width:220px;display:inline-block;">
+    </div>
     <h2 style="color:{{ $themeColor }};font-size:2rem;text-align:center;margin-bottom:1rem;">New Website Visitor</h2>
     <table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">
         <tr><td style="color:{{ $themeColor }};font-weight:bold;padding:8px;">Time</td><td style="padding:8px;">{{ now()->toDateTimeString() }}</td></tr>

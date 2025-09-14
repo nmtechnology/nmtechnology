@@ -185,12 +185,38 @@ class MathVerificationController extends Controller
     {
         $now = Carbon::now();
         $periods = [
+            'Today' => $now->copy()->startOfDay(),
             '7 Days' => $now->copy()->subDays(7),
             '30 Days' => $now->copy()->subDays(30),
             '1 Year' => $now->copy()->subYear(),
         ];
         $reportHtml = '<html><head><style>' . $this->getReportStyles() . '</style></head><body>';
+        $reportHtml .= '<div style="text-align:center;margin-bottom:2rem;"><img src="https://nmtechnology.net/images/nmtis-logo.png" alt="NM Technology Logo" style="height:60px;max-width:220px;display:inline-block;"></div>';
         $reportHtml .= '<h1 style="color:#10b981;font-size:2rem;text-align:center;margin-bottom:1rem;">NM Technology Visitor Traffic Report</h1>';
+
+        // Daily chart data
+        $dailyStats = VisitorStat::where('last_visited', '>=', $now->copy()->subDays(7))->get();
+        $dailyCounts = [];
+        for ($i = 0; $i < 7; $i++) {
+            $date = $now->copy()->subDays($i)->format('Y-m-d');
+            $dailyCounts[$date] = 0;
+        }
+        foreach ($dailyStats as $stat) {
+            $date = Carbon::parse($stat->last_visited)->format('Y-m-d');
+            if (isset($dailyCounts[$date])) {
+                $dailyCounts[$date] += $stat->visits;
+            }
+        }
+        $reportHtml .= '<h2 style="color:#fff;background:#10b981;padding:0.5rem 1rem;border-radius:8px;">Daily Visits (Past 7 Days)</h2>';
+        $reportHtml .= '<canvas id="dailyVisitsChart" style="width:100%;max-width:600px;height:300px;margin:0 auto 2rem auto;background:#222;border-radius:8px;"></canvas>';
+        $reportHtml .= '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+        $reportHtml .= '<script>const ctx = document.getElementById("dailyVisitsChart").getContext("2d");'
+            . 'new Chart(ctx, {'
+            . 'type: "bar",'
+            . 'data: {labels: ' . json_encode(array_reverse(array_keys($dailyCounts))) . ', datasets: [{label: "Visits", data: ' . json_encode(array_reverse(array_values($dailyCounts))) . ', backgroundColor: "#10b981"}]},'
+            . 'options: {scales: {y: {beginAtZero: true}}, plugins: {legend: {display: false}}}});'
+            . '</script>';
+
         foreach ($periods as $label => $start) {
             $stats = VisitorStat::where('last_visited', '>=', $start)->get();
             $reportHtml .= '<h2 style="color:#fff;background:#10b981;padding:0.5rem 1rem;border-radius:8px;">' . $label . '</h2>';
