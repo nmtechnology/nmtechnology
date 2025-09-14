@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\VisitorStat;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\VisitorEmailNotification;
+use Carbon\Carbon;
 
 class MathVerificationController extends Controller
 {
@@ -85,8 +86,15 @@ class MathVerificationController extends Controller
         if ($correct) {
             $shouldNotify = true;
         } else if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
-            $stat->locked_out_until = $now->addHours(24);
-            $shouldNotify = true;
+            // Only notify if lockout is being set now
+            if (!$stat->locked_out_until || $now->gt($stat->locked_out_until)) {
+                $stat->locked_out_until = $now->addHours(24);
+                $shouldNotify = true;
+            } else {
+                $shouldNotify = false;
+            }
+        } else {
+            $shouldNotify = false;
         }
 
         if ($shouldNotify) {
