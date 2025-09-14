@@ -83,6 +83,11 @@ class MathVerificationController extends Controller
             $stat->landing_page = $landingPage;
         }
 
+        // Set session data for notification middleware
+        session(['math_attempts' => $attempts]);
+        session(['math_time_spent' => $timeSpent]);
+        session(['math_landing_page' => $landingPage]);
+
         // Only notify ONCE: on successful verification, or on first lockout
         if ($correct) {
             $shouldNotify = true;
