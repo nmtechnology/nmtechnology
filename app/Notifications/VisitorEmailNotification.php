@@ -15,8 +15,9 @@ class VisitorEmailNotification extends Notification
     public $timeSpent;
     public $attempts;
     public $landingPage;
+    public $experience;
 
-    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null, $landingPage = null)
+    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null, $landingPage = null, $experience = null)
     {
         $this->ip = $ip;
         $this->location = $location;
@@ -27,6 +28,7 @@ class VisitorEmailNotification extends Notification
         $this->timeSpent = $timeSpent;
         $this->attempts = $attempts;
         $this->landingPage = $landingPage;
+        $this->experience = $experience;
     }
 
     public function via($notifiable)
@@ -48,6 +50,7 @@ class VisitorEmailNotification extends Notification
                 'timeSpent' => $this->timeSpent,
                 'attempts' => $this->attempts,
                 'landingPage' => $this->landingPage,
+                'experience' => $this->experience,
             ]);
     }
 }

@@ -17,6 +17,7 @@
         <tr><td style="color:{{ $themeColor }};font-weight:bold;padding:8px;">Referer</td><td style="padding:8px;">{{ $referer ?? 'Unknown' }}</td></tr>
         <tr><td style="color:{{ $themeColor }};font-weight:bold;padding:8px;">Visit Type</td><td style="padding:8px;">{{ $visitType ?? 'Unknown' }}</td></tr>
         <tr><td style="color:{{ $themeColor }};font-weight:bold;padding:8px;">Landing Page</td><td style="padding:8px;">{{ $landingPage ?? 'Unknown' }}</td></tr>
+        <tr><td style="color:{{ $themeColor }};font-weight:bold;padding:8px;">Visitor Experience</td><td style="padding:8px;">{{ $experience ?? 'Unknown' }}</td></tr>
     </table>
     <div style="text-align:center;color:{{ $themeColor }};font-size:1rem;margin-top:2rem;">&copy; {{ now()->year }} NM Technology. All rights reserved.</div>
 </div>
