@@ -1,5 +1,5 @@
 <template>
-    <h6 class="text-lime-400 text-bold text-center text-4xl drop-shadow-lg animate-fadeIn">QSR Franchise Security Systems</h6>
+    <h6 class="text-white text-bold text-center text-4xl drop-shadow-lg animate-fadeIn">QSR Franchise Security Systems</h6>
     <p class="text-center text-gray-300 text-lg mb-6 animate-fadeIn-delay">Protecting restaurants, retail, and franchises across New Mexico with advanced CCTV and access control solutions.</p>
     <div class="container bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
         <div class="-m-1 flex flex-wrap md:-m-2">
@@ -33,7 +33,7 @@
             </div>
         </div>
         <br>
-        <h1 class="text-bold text-lime-400 text-center text-4xl drop-shadow-lg animate-fadeIn">Commercial Retail CCTV</h1>
+        <h1 class="text-bold text-white text-center text-4xl drop-shadow-lg animate-fadeIn">Commercial Retail CCTV</h1>
         <p class="text-center text-gray-300 text-lg mb-6 animate-fadeIn-delay">Comprehensive video surveillance for retail, offices, and commercial spaces. Deter theft, monitor operations, and keep your business secure 24/7.</p>
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
@@ -68,7 +68,7 @@
         <br>
         <br>
         <br>
-        <h1 class="text-bold text-lime-400 text-center text-4xl">Commercial Fire Alarm Service & Installation</h1>
+        <h1 class="text-bold text-white text-center text-4xl">Commercial Fire Alarm Service & Installation</h1>
         <br>
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
