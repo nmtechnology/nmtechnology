@@ -58,6 +58,6 @@ class VisitorEmailNotification extends Notification
         $body .= '</div>';
         return (new MailMessage)
             ->subject('New Website Visitor')
-            ->view(['html' => $body]);
+            ->html($body);
     }
 }
