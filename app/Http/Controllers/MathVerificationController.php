@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\VisitorEmailNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use App\Models\VisitorAction;
 
 class MathVerificationController extends Controller
 {
@@ -127,6 +128,8 @@ class MathVerificationController extends Controller
     {
         $ip = $request->ip();
         $stat = VisitorStat::where('ip', $ip)->first();
+        // Fetch all actions for this visitor
+        $actions = VisitorAction::where('ip', $ip)->orderBy('timestamp')->get();
         if (!session('visitor_notified')) {
             $location = $stat ? $stat->location : 'Unknown';
             $userAgent = $request->header('User-Agent');
@@ -135,7 +138,7 @@ class MathVerificationController extends Controller
             $timeSpent = $stat ? $stat->time_spent : null;
             $landingPage = $stat ? $stat->landing_page : ($referer ?? 'unknown');
             Notification::route('mail', 'service@nmtis.com')
-                ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage));
+                ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage, $actions));
             session(['visitor_notified' => true]);
         }
         return response()->json(['notified' => true]);
@@ -196,5 +199,23 @@ class MathVerificationController extends Controller
     private function getReportStyles()
     {
         return 'body{background:#111;font-family:sans-serif;}h1,h2{font-family:sans-serif;}table{border-radius:8px;overflow:hidden;}th,td{border:none;}';
+    }
+
+    public function logAction(Request $request)
+    {
+        $ip = $request->ip();
+        $page = $request->input('page');
+        $details = $request->input('details', null);
+        $timestamp = now();
+        $stat = VisitorStat::where('ip', $ip)->first();
+        $action = new \App\Models\VisitorAction([
+            'visitor_stat_id' => $stat ? $stat->id : null,
+            'ip' => $ip,
+            'page' => $page,
+            'timestamp' => $timestamp,
+            'details' => $details,
+        ]);
+        $action->save();
+        return response()->json(['logged' => true]);
     }
 }
