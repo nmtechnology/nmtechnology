@@ -2,10 +2,10 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <nav><!-- Your navbar here --></nav>
-    <div class="relative w-full h-[75vh]">
+    <div class="relative w-full h-[55vh]">
       <DesertParallax />
       <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
-      <TopBanner v-else class="absolute left-0 w-full z-20" style="top:75vh;" />
+      <TopBanner v-else class="absolute left-0 w-full z-20" style="top:5vh;" />
     </div>
     <div class="relative z-10 bg-gray-900" style="margin-top:24rem;">
         <main>
