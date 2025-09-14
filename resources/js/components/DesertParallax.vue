@@ -33,6 +33,7 @@ onMounted(() => {
 .desert-parallax-img {
   opacity: 0;
   animation: fadeIn 1.2s ease-out forwards;
+  background-image: fixed;
 }
 
 @keyframes fadeIn {
