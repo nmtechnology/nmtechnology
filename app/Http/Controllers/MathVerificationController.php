@@ -90,6 +90,7 @@ class MathVerificationController extends Controller
 
         // Only notify ONCE: on successful verification, or on first lockout
         if ($correct) {
+            session(['math_verified' => true]);
             $shouldNotify = true;
         } else if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
             // Only notify if lockout is being set now
