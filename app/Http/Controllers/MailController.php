@@ -30,14 +30,6 @@ class MailController extends Controller
                 'files.*' => 'file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,bmp,tiff,svg,webp,zip,rar,dwg,dxf,xlsx,xls,ppt,pptx,txt,csv',
             ]);
 
-            $ip = $request->ip();
-            $stat = \App\Models\VisitorStat::where('ip', $ip)->first();
-            if ($stat) {
-                // If blocked, deny access
-                if ($stat->blocked_until && now()->lessThan($stat->blocked_until)) {
-                    return response()->json(['errors' => ['blocked' => ['Too many failed attempts. Try again later.']]], 403);
-                }
-            }
             // Math verification
             if ((int)$validated['userMathAnswer'] !== (int)$validated['mathProblemAnswer']) {
                 return response()->json(['errors' => ['math' => ['Incorrect answer to the math problem.']]], 422);
