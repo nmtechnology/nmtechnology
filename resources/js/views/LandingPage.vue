@@ -304,7 +304,8 @@ const verifyAnswer = async () => {
     answer: userAnswerNum,
     correct: userAnswerNum === correctAnswerNum,
     time_spent: timeSpentSec,
-    attempts: totalAttempts.value
+    attempts: totalAttempts.value,
+    landing_page: window.location.pathname
   };
 
   // Send verification attempt to backend

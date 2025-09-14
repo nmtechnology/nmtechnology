@@ -20,6 +20,7 @@ class MathVerificationController extends Controller
         $correct = $request->input('correct');
         $mathStatus = $correct ? 'success' : 'failed';
         $visitType = $correct ? 'Entered site' : 'Failed verification';
+        $landingPage = $request->input('landing_page', $referer ?? 'unknown');
 
         // Geo lookup
         $country = null;
@@ -43,12 +44,11 @@ class MathVerificationController extends Controller
         }
 
         // Only collect stats and notify for landing page verification
-        // This endpoint is only called from LandingPage.vue, so no need to check route
         $stat = VisitorStat::where('ip', $ip)->first();
         $now = now();
         $shouldNotify = false;
+        // Only notify if math verification is completed (success or lockout)
         if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
-            // Already locked out, do not notify again
             return response()->json(['locked_out' => true], 403);
         }
         if (!$stat) {
@@ -64,6 +64,7 @@ class MathVerificationController extends Controller
                 'attempts' => $attempts,
                 'math_status' => $mathStatus,
                 'visit_type' => $visitType,
+                'landing_page' => $landingPage,
             ]);
         } else {
             $stat->visits += 1;
@@ -75,20 +76,20 @@ class MathVerificationController extends Controller
             $stat->attempts = $attempts;
             $stat->math_status = $mathStatus;
             $stat->visit_type = $visitType;
+            $stat->landing_page = $landingPage;
         }
 
         // Only notify ONCE: on successful verification, or on first lockout
         if ($correct) {
             $shouldNotify = true;
         } else if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
-            // Only notify on first lockout event
             $stat->locked_out_until = $now->addHours(24);
             $shouldNotify = true;
         }
 
         if ($shouldNotify) {
             Notification::route('mail', 'service@nmtis.com')
-                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts));
+                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
         }
         $stat->save();
         return response()->json(['success' => $correct, 'locked_out' => !$correct && $attempts >= 6]);
