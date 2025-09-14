@@ -314,7 +314,8 @@ const verifyAnswer = async () => {
     response = await fetch('/api/verify-math', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      credentials: 'same-origin'
     });
     const data = await response.json();
     if (data.us_only) {
