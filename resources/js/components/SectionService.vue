@@ -22,7 +22,7 @@
             <h2 class="text-3xl font-bold text-green-500 mb-6 text-center animate-fadeIn">Why Choose NM Technology for Commercial CCTV Installation?</h2>
             <p class="text-lg text-gray-300 text-center mb-10 animate-fadeIn-delay">
                 We provide expert <strong class="text-green-400">CCTV installation</strong>, security systems, and smart automation for businesses and homes in Albuquerque and across New Mexico. Our certified technicians deliver rapid service, ongoing support, and tailored solutions to protect your property, assets, and data.<br><br>
-                NM Technology partners with leading local SEO agencies to ensure our services appear in search results for <strong>"CCTV installation Albuquerque"</strong> and related security keywords. Contact us for a free security audit and discover why we’re trusted by top organizations statewide.
+                NM Technology partners with leading vendors and security technology manufacturers to offer you leading industry options to enforce a security strategy that gives you the peace of mind you have been looking for! <strong>"CCTV installation Albuquerque"</strong> and related security keywords. Contact us for a free security audit and discover why we’re trusted by top organizations statewide.
             </p>
             <div class="flex flex-wrap justify-center gap-8 mt-8">
                 <img src="/public/images/ubiquity-logo.webp" class="h-12 object-contain grayscale hover:grayscale-0 transition-all" alt="Ubiquity" />
