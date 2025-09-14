@@ -13,13 +13,19 @@ class BlockNonUSVisitors
         $ip = $request->header('X-Forwarded-For') ?? $request->ip();
         $ip = explode(',', $ip)[0]; // In case of multiple IPs
         $country = null;
+        $city = null;
         try {
             $geo = @json_decode(file_get_contents('http://ip-api.com/json/' . trim($ip)), true);
             if (isset($geo['country'])) {
                 $country = strtolower(trim($geo['country']));
             }
+            if (isset($geo['city'])) {
+                $city = strtolower(trim($geo['city']));
+            }
         } catch (\Exception $e) {}
-        if ($country !== 'united states') {
+        // Block non-US visitors and any city from China
+        if ($country !== 'united states' || $country === 'china') {
+            \Log::info('Blocked visitor', ['ip' => $ip, 'country' => $country, 'city' => $city]);
             return response('Access restricted to US visitors.', 403);
         }
         return $next($request);
