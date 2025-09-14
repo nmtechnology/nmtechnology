@@ -8,15 +8,11 @@ class VisitorEmailNotification extends Notification
 {
     public $ip;
     public $location;
-    public $mathStatus;
-    public $isBot;
 
-    public function __construct($ip, $location, $mathStatus = 'not attempted', $isBot = false)
+    public function __construct($ip, $location)
     {
         $this->ip = $ip;
         $this->location = $location;
-        $this->mathStatus = $mathStatus;
-        $this->isBot = $isBot;
     }
 
     public function via($notifiable)
@@ -33,8 +29,6 @@ class VisitorEmailNotification extends Notification
             ->line('Time: ' . now()->toDateTimeString())
             ->line('IP Address: ' . $this->ip)
             ->line('Location: ' . $this->location)
-            ->line('Math Verification Status: ' . $this->mathStatus)
-            ->line('Bot Detection: ' . ($this->isBot ? 'Likely bot' : 'Human'))
             ->action('View Site', url('/'))
             ->line('This is an automated notification from NM Technology.');
     }

@@ -22,9 +22,6 @@ Route::post('/admin/emailer/add', [EmailerRecipientController::class, 'store'])-
 // Visitor stats route
 Route::get('/visitor-stats', [VisitorStatsController::class, 'index'])->middleware('auth');
 
-// Math verification API endpoint
-Route::post('/verify-math', [MathVerificationController::class, 'verify']);
-
 // Catch all other routes and redirect to the root URL
 Route::get('/{any?}', function () {
     return redirect('/');
