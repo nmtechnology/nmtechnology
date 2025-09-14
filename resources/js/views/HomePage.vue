@@ -1,6 +1,7 @@
 eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
+    <nav><!-- Your navbar here --></nav>
     <TopBanner />
     <div class="fixed top-0 left-0 w-full h-64 sm:h-96 z-0">
       <DesertParallax />
