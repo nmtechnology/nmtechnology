@@ -2,7 +2,7 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <TopBanner />
-    <div class="absolute top-0 left-0 w-full z-0">
+    <div class="relative w-full">
       <DesertParallax />
     </div>
     <div class="relative z-10 bg-gray-900">
@@ -25,19 +25,19 @@ eslint-disable no-undef
                 </svg>
                 <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
                     aria-hidden="true">
-                    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#9689fc] opacity-30"
+                    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#3b71ab] to-[#d289fc] opacity-30"
                         style="
                             clip-path: polygon(
                                 63.1% 29.5%,
                                 100% 17.1%,
                                 76.6% 3%,
-                                69.4% 0%,
+                                80.4% 0%,
                                 44.6% 4.7%,
                                 40.5% 25.3%,
                                 59.8% 49%,
                                 55.2% 57.8%,
                                 44.4% 57.2%,
-                                27.8% 47.9%,
+                                56.8% 47.9%,
                                 35.1% 81.5%,
                                 0% 97.7%,
                                 39.2% 100%,
