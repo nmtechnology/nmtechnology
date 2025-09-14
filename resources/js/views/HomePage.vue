@@ -2,11 +2,10 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <TopBanner />
-    <div class="relative z-10">
+    <div class="absolute top-0 left-0 w-full z-0">
       <DesertParallax />
-      <div class="absolute inset-0 pointer-events-none" style="height:100%;z-index:-1;"></div>
     </div>
-    <div class="bg-gray-900">
+    <div class="relative z-10 bg-gray-900">
         <main>
             <div class="relative isolate">
                 <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
