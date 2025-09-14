@@ -36,28 +36,18 @@ class VisitorEmailNotification extends Notification
 
     public function toMail($notifiable)
     {
-        $themeColor = '#10b981';
-        $bgColor = '#222';
-        $textColor = '#fff';
-        $borderColor = '#10b981';
-        $body = '<div style="background:' . $bgColor . ';color:' . $textColor . ';font-family:sans-serif;padding:2rem;border-radius:12px;max-width:600px;margin:auto;">';
-        $body .= '<h2 style="color:' . $themeColor . ';font-size:2rem;text-align:center;margin-bottom:1rem;">New Website Visitor</h2>';
-        $body .= '<table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Time</td><td style="padding:8px;">' . now()->toDateTimeString() . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">IP Address</td><td style="padding:8px;">' . e($this->ip) . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Location</td><td style="padding:8px;">' . e($this->location) . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Math Verification Status</td><td style="padding:8px;">' . e($this->mathStatus) . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Number of Attempts</td><td style="padding:8px;">' . e($this->attempts ?? 'Unknown') . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Time Spent on Page</td><td style="padding:8px;">' . e($this->timeSpent ?? 'Unknown') . 's</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">User Agent</td><td style="padding:8px;">' . e($this->userAgent ?: 'Unknown') . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Referer</td><td style="padding:8px;">' . e($this->referer ?: 'Unknown') . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Visit Type</td><td style="padding:8px;">' . e($this->visitType ?: 'Unknown') . '</td></tr>';
-        $body .= '<tr><td style="color:' . $themeColor . ';font-weight:bold;padding:8px;">Landing Page</td><td style="padding:8px;">' . e($this->landingPage ?: 'Unknown') . '</td></tr>';
-        $body .= '</table>';
-        $body .= '<div style="text-align:center;color:' . $themeColor . ';font-size:1rem;margin-top:2rem;">&copy; ' . now()->year . ' NM Technology. All rights reserved.</div>';
-        $body .= '</div>';
         return (new MailMessage)
             ->subject('New Website Visitor')
-            ->html($body);
+            ->view('emails.visitor_notification', [
+                'ip' => $this->ip,
+                'location' => $this->location,
+                'mathStatus' => $this->mathStatus,
+                'userAgent' => $this->userAgent,
+                'referer' => $this->referer,
+                'visitType' => $this->visitType,
+                'timeSpent' => $this->timeSpent,
+                'attempts' => $this->attempts,
+                'landingPage' => $this->landingPage,
+            ]);
     }
 }
