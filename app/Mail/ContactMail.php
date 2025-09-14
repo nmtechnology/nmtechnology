@@ -36,21 +36,12 @@ class ContactMail extends Mailable
 
     public function build()
     {
-        $email = $this->from('patrick@nmtechnology.us', 'NM Technology Website')
-            ->replyTo($this->details['email'], $this->details['firstName'] . ' ' . $this->details['lastName'])
-            ->subject('New Contact Form Submission from Website')
-            ->view('emails.contact');
-        // Attach files if present
-        if (!empty($this->details['files'])) {
-            foreach ($this->details['files'] as $file) {
-                $email->attach($file->getRealPath(), [
-                    'as' => $file->getClientOriginalName(),
-                    'mime' => $file->getMimeType(),
-                ]);
-            }
-        }
-        return $email;
+        return $this->from($this->details['email'])
+            ->view('welcome');
     }
+
+    // return $this->subject('Website Message')->view('emails.message')
+    //         ->view('welcome');
 
     /**
      * Get the attachments for the message.

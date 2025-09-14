@@ -1,9 +1,9 @@
 <template>
-    <section class="relative isolate overflow-hidden py-24 sm:py-32 bg-gray-900">
+    <div class="relative isolate overflow-hidden py-24 sm:py-32">
         <img
             src="/public/images/spaceman.webp"
             alt="spaceman-image"
-            class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80 animate-fadeIn"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
             <div
@@ -35,18 +35,32 @@
                     "
                 />
             </div>
-            <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-lime-400 mb-4 animate-fadeIn">
-                    Commercial Security & CCTV Installation for New Mexico Businesses
+            <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+                <div class="flex lg:flex-1">
+                    <img
+                        class="h-12 w-auto flex"
+                        src="/public/images/nm-logo-rmbg.webp"
+                        alt="nmtechnology-logo"
+                    />
+                    <p class="text-lg mt-3 -space-x-0 font-bold leading-6 text-white flex-initial">
+                        Technology
+                    </p>
+                </div>
+                <br />
+                <br />
+                <h2 class="text-base font-semibold leading-8 text-lime-400">
+                    Our track record
                 </h2>
-                <p class="text-lg text-gray-300 mb-8 animate-fadeIn-delay">
-                    NM Technology delivers advanced security solutions, including
-                    <strong class="text-green-400">CCTV installation</strong>, fire alarms, and network
-                    infrastructure. Our Albuquerque-based team is trusted by hundreds of corporations and
-                    franchises for reliable, rapid service and ongoing support.<br /><br />
-                    We help you automate safety, reduce theft, and protect your business with the latest
-                    technology. Contact us for a free consultation and discover why we’re New Mexico’s
-                    preferred security partner.
+                <p
+                    class="mt-2 text-3xl font-bold tracking-tight text-green-600 sm:text-4xl"
+                >
+                    Trusted by hundreds of corporations worldwide
+                </p>
+                <p class="mt-6 text-lg leading-8 text-gray-200">
+                    Join countless satisfied national contractors and clients who have leveraged our
+                    services to enhance safety and drive efficient
+                    change. Whether it's improving workplace safety, reducing theft and asset loss, or 
+                    protecting your home or business we've got you covered.
                 </p>
             </div>
             <dl
@@ -66,7 +80,7 @@
                 </div>
             </dl>
         </div>
-    </section>
+    </div>
 </template>
 
 <script setup>
@@ -77,17 +91,3 @@ const stats = [
   { id: 4, name: 'Customer Revenue Saved', value: '$309,003+' }
 ]
 </script>
-
-<style scoped>
-.animate-fadeIn {
-  animation: fadeIn 1.2s ease-out;
-}
-.animate-fadeIn-delay {
-  animation: fadeIn 1.4s ease-out 0.3s forwards;
-  opacity: 0;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>

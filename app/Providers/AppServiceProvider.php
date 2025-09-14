@@ -11,7 +11,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Twilio macro removed
+        Twilio::macro('sendSms', function ($to, $message) {
+            return $this->messages->create($to, [
+                'from' => config('services.twilio.from'),
+                'body' => $message,
+            ]);
+        });
     }
 
     /**
