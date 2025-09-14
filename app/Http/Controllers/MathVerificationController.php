@@ -6,6 +6,7 @@ use App\Models\VisitorStat;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\VisitorEmailNotification;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class MathVerificationController extends Controller
 {
@@ -103,5 +104,62 @@ class MathVerificationController extends Controller
         }
         $stat->save();
         return response()->json(['success' => $correct, 'locked_out' => !$correct && $attempts >= 6]);
+    }
+
+    public function sendTrafficReport()
+    {
+        $now = Carbon::now();
+        $periods = [
+            '7 Days' => $now->copy()->subDays(7),
+            '30 Days' => $now->copy()->subDays(30),
+            '1 Year' => $now->copy()->subYear(),
+        ];
+        $reportHtml = '<html><head><style>' . $this->getReportStyles() . '</style></head><body>';
+        $reportHtml .= '<h1 style="color:#10b981;font-size:2rem;text-align:center;margin-bottom:1rem;">NM Technology Visitor Traffic Report</h1>';
+        foreach ($periods as $label => $start) {
+            $stats = VisitorStat::where('last_visited', '>=', $start)->get();
+            $reportHtml .= '<h2 style="color:#fff;background:#10b981;padding:0.5rem 1rem;border-radius:8px;">' . $label . '</h2>';
+            $reportHtml .= '<table style="width:100%;border-collapse:collapse;margin-bottom:2rem;">';
+            $reportHtml .= '<thead><tr style="background:#222;color:#10b981;">'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">IP</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Location</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Attempts</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Time Spent</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Math Status</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">User Agent</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Referer</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Visit Type</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Landing Page</th>'
+                . '<th style="padding:8px;border-bottom:1px solid #10b981;">Last Visited</th>'
+                . '</tr></thead><tbody>';
+            foreach ($stats as $stat) {
+                $reportHtml .= '<tr style="background:#333;color:#fff;">'
+                    . '<td style="padding:8px;">' . e($stat->ip) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->location) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->attempts) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->time_spent) . 's</td>'
+                    . '<td style="padding:8px;">' . e($stat->math_status) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->user_agent) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->referer) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->visit_type) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->landing_page) . '</td>'
+                    . '<td style="padding:8px;">' . e($stat->last_visited) . '</td>'
+                    . '</tr>';
+            }
+            $reportHtml .= '</tbody></table>';
+        }
+        $reportHtml .= '<div style="text-align:center;color:#10b981;font-size:1rem;margin-top:2rem;">&copy; ' . $now->year . ' NM Technology. All rights reserved.</div>';
+        $reportHtml .= '</body></html>';
+        Mail::raw([], function ($message) use ($reportHtml) {
+            $message->to('service@nmtis.com')
+                ->subject('NM Technology Visitor Traffic Report')
+                ->setBody($reportHtml, 'text/html');
+        });
+        return response()->json(['sent' => true]);
+    }
+
+    private function getReportStyles()
+    {
+        return 'body{background:#111;font-family:sans-serif;}h1,h2{font-family:sans-serif;}table{border-radius:8px;overflow:hidden;}th,td{border:none;}';
     }
 }

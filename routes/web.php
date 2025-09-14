@@ -27,6 +27,9 @@ Route::post('/admin/emailer/add', [EmailerRecipientController::class, 'store'])-
 // Visitor stats route
 Route::get('/visitor-stats', [VisitorStatsController::class, 'index'])->middleware('auth');
 
+// Route to trigger sending the traffic report email
+Route::post('/send-traffic-report', [MathVerificationController::class, 'sendTrafficReport']);
+
 // Catch all other routes and redirect to the root URL
 Route::get('/{any?}', function () {
     return redirect('/');
