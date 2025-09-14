@@ -112,7 +112,7 @@
     <div class="email-container">
         <div class="logo-container">
             <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
-                <img src="https://nmtechnology.us/images/nm-logo-rmbg.webp" alt="nmtechnology-logo" class="logo">
+                <img src="https://nmtechnology.us/images/nm-logo-rmbg.webp" alt="nmtechnology-logo" class="logo" size="16x16">
                 <a href="https://nmtechnology.us" class="company-name">Technology</a>
             </div>
         </div>
