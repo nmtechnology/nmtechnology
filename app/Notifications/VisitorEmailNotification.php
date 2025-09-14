@@ -14,8 +14,9 @@ class VisitorEmailNotification extends Notification
     public $visitType;
     public $timeSpent;
     public $attempts;
+    public $landingPage;
 
-    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null)
+    public function __construct($ip, $location, $mathStatus = 'unknown', $userAgent = null, $referer = null, $visitType = null, $timeSpent = null, $attempts = null, $landingPage = null)
     {
         $this->ip = $ip;
         $this->location = $location;
@@ -25,6 +26,7 @@ class VisitorEmailNotification extends Notification
         $this->visitType = $visitType;
         $this->timeSpent = $timeSpent;
         $this->attempts = $attempts;
+        $this->landingPage = $landingPage;
     }
 
     public function via($notifiable)
