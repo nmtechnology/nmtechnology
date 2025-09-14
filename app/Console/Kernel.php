@@ -14,6 +14,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('emailer:send-weekly')->weeklyOn(1, '8:00'); // Every Monday 8am
+
+        $schedule->call(function () {
+            \App\Http\Controllers\MathVerificationController::sendDailyTrafficReport();
+        })->dailyAt('20:00')->timezone('America/Denver'); // 8pm MST
     }
 
     /**
