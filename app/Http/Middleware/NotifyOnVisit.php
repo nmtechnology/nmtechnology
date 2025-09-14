@@ -28,8 +28,12 @@ class NotifyOnVisit
                 }
             } catch (\Exception $e) {}
             
+            // Get extra data from session if available
+            $attempts = session('math_attempts', 'Unknown');
+            $timeSpent = session('math_time_spent', 'Unknown');
+            $landingPage = session('math_landing_page', 'Unknown');
             Notification::route('mail', 'service@nmtis.com')
-                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType));
+                ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
             $stat = VisitorStat::where('ip', $ip)->first();
             if ($stat) {
                 $stat->visits += 1;
