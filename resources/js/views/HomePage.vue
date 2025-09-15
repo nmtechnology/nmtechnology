@@ -56,7 +56,7 @@ eslint-disable no-undef
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-6">
                                
 <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-10 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">
-  NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are Changing The Way New Mexicans are
+  NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are Changing The Way You Are
   <span class="text-green-600 dark:text-blue-500">Protected and Served</span> Right Here in New Mexico!
 </h1>
 <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400">
