@@ -3,7 +3,7 @@
         <img
             src="/public/images/spaceman.webp"
             alt="spaceman-image"
-            class="absolute inset-0 z-20 h-full w-full object-cover opacity-80 animate-fadeIn"
+            class="absolute inset-0 h-full w-full object-cover opacity-80 animate-fadeIn"
         />
         <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
             <div
