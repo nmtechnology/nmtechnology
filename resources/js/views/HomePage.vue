@@ -236,7 +236,7 @@ export default {
 }
 @media (max-width: 640px) {
   .fixed-parallax {
-    height: 32vh;
+    height: 75vh;
   }
   .mx-auto.max-w-7xl {
     padding-top: 2rem !important;
