@@ -3,7 +3,7 @@ eslint-disable no-undef
 <template>
     <nav><!-- Your navbar here --></nav>
     <div class="relative w-full h-[55vh]">
-      <DesertParallax class="fixed-parallax" />
+      <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
       <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
       <TopBanner v-else class="fixed left-0 w-full z-20" style="top:8vh;" />
     </div>
@@ -183,8 +183,10 @@ export default {
 
     const showFixedBanner = ref(false)
     const isMobile = ref(false)
+    const isVerySmallScreen = ref(false)
     const checkMobile = () => {
       isMobile.value = window.innerWidth < 640
+      isVerySmallScreen.value = window.innerWidth < 350
     }
     const handleScroll = () => {
       showFixedBanner.value = window.scrollY > window.innerHeight * 0.45
@@ -215,7 +217,8 @@ export default {
       openContactModal,
       generateQuote,
       showFixedBanner,
-      isMobile
+      isMobile,
+      isVerySmallScreen
     }
   }
 }
