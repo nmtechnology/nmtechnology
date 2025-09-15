@@ -10,7 +10,7 @@
     <!-- Optional: Add a title or tagline here for more engagement -->
     <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
       <h2 class="text-2xl sm:text-4xl font-bold text-white drop-shadow-lg animate-fadeIn">New Mexico Security Starts Here</h2>
-      <p class="mt-2 text-base text-gray-200 animate-fadeIn-delay">Desert-tested, trusted by New Mexico homes & businesses</p>
+      <p class="mt-2 text-base text-lime-400 animate-fadeIn-delay">Desert-tested, trusted by New Mexico homes & businesses</p>
     </div>
   </div>
 </template>
