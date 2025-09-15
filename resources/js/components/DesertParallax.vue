@@ -37,7 +37,7 @@ onMounted(() => {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 75vh;
+  height: 95vh;
   overflow: hidden;
   z-index: -1;
 }
