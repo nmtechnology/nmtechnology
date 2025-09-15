@@ -7,7 +7,7 @@
     </div>
     <div class="flex items-center justify-center h-full">
       <p class="text-sm leading-6 text-white flex items-center animate-bannerPulse">
-        <strong class="font-semibold text-blue-400 drop-shadow">NM Technology: New Mexico's Security Experts</strong>
+        <strong class="font-semibold text-blue-400 drop-shadow">New Mexico's Security Experts</strong>
         <svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
           <circle cx="5" cy="5" r="5" />
         </svg>
