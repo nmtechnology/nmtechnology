@@ -51,7 +51,7 @@ eslint-disable no-undef
                 </div>
                 <div class="overflow-hidden">
                     <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:pt-32 lg:px-8 lg:pt-24"
-                         :class="isMobile ? 'pt-16 pb-12' : 'pt-36 pb-32'">
+                         :class="isMobile ? 'pt-16 pb-12' : 'pt-24 pb-24'">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-6">
                                
