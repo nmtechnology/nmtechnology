@@ -231,7 +231,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 75vh;
-  z-index: 1;
+  z-index: 0;
   background-image: fixed;
 }
 @media (max-width: 640px) {
