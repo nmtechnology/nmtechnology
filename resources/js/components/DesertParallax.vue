@@ -47,7 +47,7 @@ onMounted(() => {
   left: 0;
   width: 100vw;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
