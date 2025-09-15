@@ -7,10 +7,10 @@
       alt="Desert"
     >
     <div class="parallax-gradient"></div>
-    <div class="parallax-content">
+    <!-- <div class="parallax-content">
       <h2 class="parallax-title">New Mexico Security Starts Here</h2>
       <p class="parallax-tagline">Desert-tested, trusted by New Mexico homes & businesses</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
