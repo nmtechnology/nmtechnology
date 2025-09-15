@@ -2,7 +2,7 @@ eslint-disable comma-dangle
 eslint-disable no-undef
 <template>
     <nav><!-- Your navbar here --></nav>
-    <div class="relative w-full h-[55vh]">
+    <div class="relative w-full h-[20vh]">
       <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
       <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
       <TopBanner v-else class="fixed left-0 w-full z-20" style="top:8vh;" />
@@ -230,7 +230,7 @@ export default {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 55vh;
+  height: 75vh;
   z-index: 1;
   background-attachment: fixed;
 }
