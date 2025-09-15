@@ -1,5 +1,5 @@
 <template>
-    <section class="relative isolate overflow-hidden py-24 sm:py-32 bg-gray-900">
+    <section class="z-40 relative isolate overflow-hidden py-24 sm:py-32 bg-gray-900">
         <img
             src="/public/images/spaceman.webp"
             alt="spaceman-image"

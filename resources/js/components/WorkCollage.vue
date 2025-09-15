@@ -1,7 +1,7 @@
 <template>
     <h6 class="text-white text-bold text-center text-4xl drop-shadow-lg animate-fadeIn">QSR Franchise Security Systems</h6>
     <p class="text-center text-gray-300 text-lg mb-6 animate-fadeIn-delay">Protecting restaurants, retail, and franchises across New Mexico with advanced CCTV and access control solutions.</p>
-    <div class="container bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
+    <div class="container z-40 bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
@@ -105,6 +105,7 @@
         <br>
         <h1 class="text-bold text-lime-400 text-center text-4xl">On-site Representation</h1>
         <br>
+<div class="container z-40  bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
@@ -134,7 +135,7 @@
                         src="/public/images/cctv-corner.webp" />
                 </div>
             </div>
-        </div>
+        </div></div>
     </div>
     <section class="bg-gray-900 py-16 animate-fadeIn">
         <h2 class="text-3xl font-bold text-green-400 text-center mb-8 drop-shadow-lg">Commercial CCTV Installation & Security Projects</h2>
