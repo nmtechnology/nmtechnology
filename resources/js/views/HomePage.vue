@@ -3,11 +3,11 @@ eslint-disable no-undef
 <template>
     <nav><!-- Your navbar here --></nav>
     <div class="relative w-full h-[55vh]">
-      <DesertParallax />
+      <DesertParallax class="fixed-parallax" />
       <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
       <TopBanner v-else class="fixed left-0 w-full z-20" style="top:8vh;" />
     </div>
-    <div class="relative z-10 bg-gray-900" style="margin-top:24rem;">
+    <div class="relative z-10 bg-gray-900" :style="{ marginTop: isMobile ? '8rem' : '18rem' }">
         <main>
             <div class="relative isolate">
                 <svg class="absolute inset-x-0 top-0 -z-40 h-[84rem] w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
@@ -50,9 +50,10 @@ eslint-disable no-undef
                         "></div>
                 </div>
                 <div class="overflow-hidden">
-                    <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+                    <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:pt-32 lg:px-8 lg:pt-24"
+                         :class="isMobile ? 'pt-16 pb-12' : 'pt-36 pb-32'">
                         <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-10">
+                            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl sm:mt-6">
                                
 <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-10 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white">
   NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are Changing The Way New Mexicans are
@@ -144,7 +145,7 @@ import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 // Import logAction from shared util if needed
 
@@ -181,17 +182,27 @@ export default {
     }
 
     const showFixedBanner = ref(false)
+    const isMobile = ref(false)
+    const checkMobile = () => {
+      isMobile.value = window.innerWidth < 640
+    }
     const handleScroll = () => {
       showFixedBanner.value = window.scrollY > window.innerHeight * 0.45
+    }
+    const handleResize = () => {
+      checkMobile()
     }
 
     onMounted(() => {
       window.addEventListener('scroll', handleScroll)
+      window.addEventListener('resize', checkMobile)
+      checkMobile()
       logAction('HomePage', 'Page visited')
     })
 
     onUnmounted(() => {
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', checkMobile)
     })
 
     // Example: log other actions
@@ -203,13 +214,32 @@ export default {
       contactModalRef,
       openContactModal,
       generateQuote,
-      showFixedBanner
+      showFixedBanner,
+      isMobile
     }
   }
 }
 </script>
 
 <style scoped>
+.fixed-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 55vh;
+  z-index: 1;
+  background-attachment: fixed;
+}
+@media (max-width: 640px) {
+  .fixed-parallax {
+    height: 32vh;
+  }
+  .mx-auto.max-w-7xl {
+    padding-top: 2rem !important;
+    padding-bottom: 1rem !important;
+  }
+}
 h1 {
   text-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
   letter-spacing: 0.01em;

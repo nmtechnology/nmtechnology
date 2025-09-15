@@ -1,7 +1,8 @@
 <template>
-  <div class="relative w-full h-64 sm:h-96 overflow-hidden">
+  <div :class="['relative w-full', fixedImage ? 'h-[55vh]' : 'h-64 sm:h-96']">
     <img
-      class="mx-auto w-full h-full object-cover bg-fixed bg-center bg-no-repeat shadow-lg desert-parallax-img"
+      class="mx-auto w-full h-full object-cover bg-center bg-no-repeat shadow-lg desert-parallax-img"
+      :class="fixedImage ? 'bg-fixed' : ''"
       src="/public/images/desert.webp"
       alt="Desert"
     >
@@ -15,12 +16,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { defineProps, onMounted } from 'vue'
+const props = defineProps({ fixedImage: Boolean })
 
 onMounted(() => {
   // Parallax effect for desktop
   const img = document.querySelector('.desert-parallax-img')
-  if (img && window.innerWidth > 640) {
+  if (img && window.innerWidth > 640 && !props.fixedImage) {
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY
       img.style.transform = `translateY(${scrolled * 0.15}px)`
@@ -33,7 +35,6 @@ onMounted(() => {
 .desert-parallax-img {
   opacity: 0;
   animation: fadeIn 1.2s ease-out forwards;
-  background-image: fixed;
 }
 
 @keyframes fadeIn {
