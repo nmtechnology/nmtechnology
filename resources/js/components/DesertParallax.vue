@@ -1,56 +1,106 @@
 <template>
-  <div :class="['relative w-full', fixedImage ? 'h-[55vh]' : 'h-64 sm:h-96']">
+  <div :class="['parallax-container', fixedImage ? 'h-[55vh]' : 'h-64 sm:h-96']">
     <img
-      class="mx-auto w-full h-full object-cover bg-center bg-no-repeat shadow-lg desert-parallax-img"
+      class="parallax-img"
       :class="fixedImage ? 'bg-fixed' : ''"
       src="/public/images/desert.webp"
       alt="Desert"
     >
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-    <!-- Optional: Add a title or tagline here for more engagement -->
-    <div class="absolute bottom-1  left-1/2 transform -translate-x-1/2 text-center w-full px-4">
-      <h2 class="text-2xl sm:text-4xl font-bold text-white drop-shadow-lg animate-fadeIn">New Mexico Security Starts Here</h2>
-      <p class="mt-2 text-base text-yellow-400 animate-fadeIn-delay">Desert-tested, trusted by New Mexico homes & businesses</p>
+    <div class="parallax-gradient"></div>
+    <div class="parallax-content">
+      <h2 class="parallax-title">New Mexico Security Starts Here</h2>
+      <p class="parallax-tagline">Desert-tested, trusted by New Mexico homes & businesses</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, onMounted } from 'vue'
+import { defineProps, onMounted, onUnmounted } from 'vue'
 const props = defineProps({ fixedImage: Boolean })
 
 onMounted(() => {
-  // Parallax effect for desktop
-  const img = document.querySelector('.desert-parallax-img')
+  const img = document.querySelector('.parallax-img')
+  let scrollHandler = null
   if (img && window.innerWidth > 640 && !props.fixedImage) {
-    window.addEventListener('scroll', () => {
+    scrollHandler = () => {
       const scrolled = window.scrollY
       img.style.transform = `translateY(${scrolled * 0.15}px)`
-    })
+    }
+    window.addEventListener('scroll', scrollHandler)
   }
 })
 </script>
 
 <style scoped>
-.desert-parallax-img {
+.parallax-container {
+  position: relative;
+  width: 100vw;
+  height: 75vh;
+  overflow: hidden;
+  z-index: 0;
+}
+.parallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
+  z-index: 0;
 }
-
+.bg-fixed {
+  background-attachment: fixed;
+}
+.parallax-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.parallax-content {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+  z-index: 2;
+}
+.parallax-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(16,185,129,0.15);
+  animation: fadeIn 1.2s ease-out;
+}
+.parallax-tagline {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #FFD700;
+  animation: fadeIn 1.2s ease-out 0.5s forwards;
+  opacity: 0;
+}
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
 }
-
 @media (max-width: 640px) {
-  .desert-parallax-img {
+  .parallax-container {
+    height: 32vh;
+  }
+  .parallax-img {
     min-height: 400px;
     object-position: center;
   }
 }
-
-.animate-fadeIn-delay {
-  animation: fadeIn 1.2s ease-out 0.5s forwards;
-  opacity: 0;
+@media (max-width: 350px) {
+  .parallax-container {
+    display: none;
+  }
 }
 </style>
