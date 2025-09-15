@@ -44,7 +44,7 @@ onMounted(() => {
 
 @media (max-width: 640px) {
   .desert-parallax-img {
-    min-height: 220px;
+    min-height: 400px;
     object-position: center;
   }
 }
