@@ -226,13 +226,13 @@ export default {
 
 <style scoped>
 .fixed-parallax {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 75vh;
   z-index: 1;
-  background-attachment: fixed;
+  background-image: fixed;
 }
 @media (max-width: 640px) {
   .fixed-parallax {
