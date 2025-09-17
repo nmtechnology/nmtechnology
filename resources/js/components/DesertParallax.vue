@@ -40,14 +40,17 @@ onMounted(() => {
   height: 95vh;
   overflow: hidden;
   z-index: -1; /* Use -1 to ensure the parallax is always behind all content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .parallax-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  position: relative;
+  width: auto;
   height: 100%;
-  object-fit: fill;
+  max-width: 100vw;
+  max-height: 100%;
+  object-fit: contain;
   object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
