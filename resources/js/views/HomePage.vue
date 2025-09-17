@@ -8,33 +8,86 @@ eslint-disable no-undef
   <!-- Hero Section overlays the parallax -->
   <section class="relative flex flex-col items-center justify-center w-full min-h-[95vh] z-10 text-center px-4">
     <div class="max-w-3xl mx-auto mt-32 sm:mt-40">
-      <h1 class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-10 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white drop-shadow-lg animate-fadeIn">
-        NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are Changing The Way You Are
+      <h1
+        class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-10 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white drop-shadow-lg animate-fadeIn">
+        NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are
+        Changing The Way You Are
         <span class="text-green-600 dark:text-blue-500">Protected and Served</span> Right Here in New Mexico!
       </h1>
       <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400 animate-fadeIn-delay">
-        NM Technology specializes in <strong class="text-green-400">CCTV installation & design</strong>, security systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico. Our team provides professional low voltage installation in New Mexico, we provide ongoing maintenance, and rapid support to protect your assets, personnel, and data.<br><br>
-        We use advanced security monitoring, smart automation, and local expertise to help you deter the threats that exist in New Mexico. We automate routine tasks and ensure peace of mind for our customers. Our solutions are trusted by leading organizations and backed by warranties and responsive service.<br><br>
-        <span class="text-blue-400">Do you need On-site Representation?</span> NM Technology partners with top-rated nationwide contractors for qualified technician services here in New Mexico. We can help you get the work you need done for your customer at the level of professionalism you expect. We can provide a world-class customer service experience for your customers while you maintain their loyalty.
+        NM Technology specializes in <strong class="text-green-400">CCTV installation & design</strong>, security
+        systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico.
+        Our team provides professional low voltage installation in New Mexico, we provide ongoing maintenance, and rapid
+        support to protect your assets, personnel, and data.<br><br>
+        We use advanced security monitoring, smart automation, and local expertise to help you deter the threats that
+        exist in New Mexico. We automate routine tasks and ensure peace of mind for our customers. Our solutions are
+        trusted by leading organizations and backed by warranties and responsive service.<br><br>
+        <span class="text-blue-400">Do you need On-site Representation?</span> NM Technology partners with top-rated
+        nationwide contractors for qualified technician services here in New Mexico. We can help you get the work you
+        need done for your customer at the level of professionalism you expect. We can provide a world-class customer
+        service experience for your customers while you maintain their loyalty.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center gap-x-4 w-full sm:w-auto">
-        <button @click="openContactModal" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">
+        <button @click="openContactModal"
+          class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">
           Contact Us
         </button>
-        <button @click="generateQuote" class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-md transition">
+        <button @click="generateQuote"
+          class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-md transition">
           Make A Quote
         </button>
       </div>
     </div>
     <!-- Hero images row (optional, can be styled as needed) -->
     <div class="flex flex-wrap justify-center gap-8 mt-16 z-10">
-      <img src="/public/images/google-doorbellcam.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/security-cam-1.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/smart-access-control.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
+      <img src="/public/images/google-doorbellcam.webp" alt=""
+        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
+      <img src="/public/images/security-cam-1.webp" alt=""
+        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
+      <img src="/public/images/smart-access-control.webp" alt=""
+        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
       <img src="/public/images/IT-rack.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
       <img src="/public/images/code-dev.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
     </div>
   </section>
+  <svg
+    class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
+    aria-hidden="true">
+    <defs>
+      <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
+        patternUnits="userSpaceOnUse">
+        <path d="M.5 200V.5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="50%" y="-1" class="overflow-visible">
+      <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+        stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+  </svg>
+  <div class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+    aria-hidden="true">
+    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="
+                            clip-path: polygon(
+                                63.1% 29.5%,
+                                100% 17.1%,
+                                76.6% 3%,
+                                49.4% 0%,
+                                44.6% 4.7%,
+                                54.5% 25.3%,
+                                59.8% 49%,
+                                55.2% 57.8%,
+                                44.4% 57.2%,
+                                27.8% 47.9%,
+                                35.1% 81.5%,
+                                0% 97.7%,
+                                39.2% 100%,
+                                35.2% 81.4%,
+                                97.2% 52.8%,
+                                63.1% 29.5%
+                            );
+                        "></div>
+  </div>
   <!-- Main content flows after hero -->
   <SectionService />
   <BlackGradient />
