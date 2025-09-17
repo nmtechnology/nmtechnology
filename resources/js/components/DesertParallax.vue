@@ -50,7 +50,7 @@ onMounted(() => {
   height: 100%;
   max-width: 100vw;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
