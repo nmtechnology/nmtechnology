@@ -39,7 +39,7 @@ onMounted(() => {
   width: 100vw;
   height: 95vh;
   overflow: hidden;
-  z-index: -19;
+  z-index: 0; /* Set to 0 to ensure it's at the back of the stacking context. Adjust other containers to have higher z-index if needed. */
 }
 .parallax-img {
   position: absolute;
