@@ -1,7 +1,7 @@
 <template>
   <div class="fixed overflow-hidden bg-gray-900 px-6 py-2 sm:px-3.5 z-40 w-full h-12">
     <!-- Simplified background with reduced visual impact -->
-    <div class="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-xl"
+    <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-xl"
       aria-hidden="true">
       <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#f489fc] opacity-20" />
     </div>
