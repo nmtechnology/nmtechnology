@@ -35,7 +35,7 @@
         <br>
         <h1 class="text-bold text-white text-center text-4xl drop-shadow-lg animate-fadeIn">Commercial Retail CCTV</h1>
         <p class="text-center text-gray-300 text-lg mb-6 animate-fadeIn-delay">Comprehensive video surveillance for retail, offices, and commercial spaces. Deter theft, monitor operations, and keep your business secure 24/7.</p>
-        <div class="-m-1 flex flex-wrap md:-m-2">
+        <div class="-m-1 flex flex-wrap md:-m-2 z-40">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
@@ -70,7 +70,7 @@
         <br>
         <h1 class="text-bold text-white text-center text-4xl">Commercial Fire Alarm Service & Installation</h1>
         <br>
-        <div class="-m-1 flex flex-wrap md:-m-2">
+        <div class="-m-1 flex flex-wrap md:-m-2 z-40">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
                     <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
@@ -103,9 +103,9 @@
         <br>
         <br>
         <br>
-        <h1 class="text-bold text-lime-400 text-center text-4xl">On-site Representation</h1>
+        <h1 class="text-bold text-lime-400 text-center text-4xl z-40">On-site Representation</h1>
         <br>
-<div class="container z-40  bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
+<div class="container z-40 bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 rounded-xl shadow-xl">
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
@@ -143,7 +143,7 @@
             NM Technology is Albuquerque’s leader in <strong class="text-green-400">CCTV installation</strong>, security systems, and smart automation. Our portfolio showcases work for restaurants, retail, offices, and industrial sites across New Mexico.<br><br>
             We deliver rapid service, expert installation, and ongoing support—helping businesses protect assets, reduce theft, and appear in search results for <strong>"CCTV installation Albuquerque"</strong> and related security services.
         </p>
-        <div class="container bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24">
+        <div class="container bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24 z-40">
             <div class="-m-1 flex flex-wrap md:-m-2">
                 <div class="flex w-1/2 flex-wrap">
                     <div class="w-1/2 p-1 md:p-2">
