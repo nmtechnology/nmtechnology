@@ -51,7 +51,7 @@ eslint-disable no-undef
     </div>
   </section>
   <svg
-    class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
+    class="absolute inset-x-0 top-60 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
     aria-hidden="true">
     <defs>
       <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
