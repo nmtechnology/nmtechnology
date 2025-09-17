@@ -3,8 +3,8 @@ eslint-disable no-undef
 <template>
   <nav><!-- Your navbar here --></nav>
   <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
-  <TopBanner v-if="showFixedBanner" class="fixed top-10 left-0 w-full z-20" />
-  <TopBanner v-else class="fixed left-0 w-full z-20" style="top: 8vh;" />
+  <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
+  <TopBanner v-else class="fixed left-0 w-full z-20" style="top: 6vh;" />
   <!-- Hero Section overlays the parallax -->
   <section class="relative flex flex-col items-center justify-center w-full min-h-[95vh] z-10 text-center px-4">
     <div class="max-w-3xl mx-auto mt-32 sm:mt-40">
