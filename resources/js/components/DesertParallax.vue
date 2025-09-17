@@ -39,7 +39,7 @@ onMounted(() => {
   width: 100vw;
   height: 95vh;
   overflow: hidden;
-  z-index: -1;
+  z-index: -19;
 }
 .parallax-img {
   position: absolute;

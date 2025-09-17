@@ -138,9 +138,9 @@
         </div></div>
     </div>
     <section class="bg-gray-900 py-16 animate-fadeIn">
-        <h2 class="text-3xl font-bold text-green-400 text-center mb-8 drop-shadow-lg">Commercial CCTV Installation & Security Projects</h2>
+        <h2 class="text-3xl font-bold text-green-400 text-center mb-8 drop-shadow-lg">CCTV Installation & Security Projects</h2>
         <p class="text-lg text-gray-300 text-center mb-10 animate-fadeIn-delay">
-            NM Technology is Albuquerque’s leader in <strong class="text-green-400">commercial CCTV installation</strong>, security systems, and smart automation. Our portfolio showcases work for restaurants, retail, offices, and industrial sites across New Mexico.<br><br>
+            NM Technology is Albuquerque’s leader in <strong class="text-green-400">CCTV installation</strong>, security systems, and smart automation. Our portfolio showcases work for restaurants, retail, offices, and industrial sites across New Mexico.<br><br>
             We deliver rapid service, expert installation, and ongoing support—helping businesses protect assets, reduce theft, and appear in search results for <strong>"CCTV installation Albuquerque"</strong> and related security services.
         </p>
         <div class="container bg-gray-900 mx-auto mb-12 px-5 py-2 lg:px-32 lg:pt-24">
