@@ -1,9 +1,9 @@
 <template>
-  <div class="fixed overflow-hidden bg-gray-900 px-6 py-2 sm:px-3.5 z-40 w-full h-12">
+  <div class="fixed top-4 overflow-hidden bg-gray-900 px-6 py-2 sm:px-3.5 z-40 w-full h-12">
     <!-- Simplified background with reduced visual impact -->
     <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-xl"
       aria-hidden="true">
-      <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#f489fc] opacity-20" />
+      <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#4b74d5] to-[#f489fc] opacity-20" />
     </div>
     <div class="flex items-center justify-center h-full">
       <p class="text-sm leading-6 text-white flex items-center animate-bannerPulse">
