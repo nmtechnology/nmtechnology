@@ -49,6 +49,10 @@ eslint-disable no-undef
                             );
                         "></div>
                 </div>
+                <div class="absolute left-1/2 right-0 top-0 -z-40 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+                    aria-hidden="true">
+                    <div class="aspect-[577/310] w-[30rem] bg-gradient-to-r from-[#67cbf2] to-[#89c2fc] opacity-20 hidden sm:block" data-v-dec6a3ce=""></div>
+                </div>
                 <div class="overflow-hidden">
                     <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:pt-32 lg:px-8 lg:pt-24"
                          :class="isMobile ? 'pt-16 pb-12' : 'pt-24 pb-24'">
