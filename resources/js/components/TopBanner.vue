@@ -34,7 +34,7 @@ import { XMarkIcon } from '@heroicons/vue/20/solid'
 /* Responsive adjustments */
 @media (min-width: 768px) {
   .fixed.overflow-hidden {
-    height: 48px; /* Keep consistent height on larger screens */
+    height: 98px; /* Keep consistent height on larger screens */
   }
 }
 
