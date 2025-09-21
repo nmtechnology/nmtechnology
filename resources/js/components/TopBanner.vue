@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-4 overflow-hidden bg-gray-900 px-6 py-2 sm:px-3.5 z-40 w-full h-12">
+  <div class="fixed top-14 overflow-hidden bg-gray-900 px-6 py-2 sm:px-3.5 z-30 w-full h-12">
     <!-- Simplified background with reduced visual impact -->
     <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 -translate-y-1/2 transform-gpu blur-xl"
       aria-hidden="true">

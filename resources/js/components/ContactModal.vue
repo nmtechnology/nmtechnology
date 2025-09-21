@@ -495,7 +495,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            d="M12 19l9 2-9-18-9 18-9-2zm0 0v-8" />
                         </svg>
                         Send Message
                       </span>
@@ -718,12 +718,12 @@ export default {
     justify-content: center;
     align-items: flex-start;
     overflow-y: auto;
-    z-index: 50;
+    z-index: 100; /* Increased z-index to be above everything else */
     padding: 1rem;
 }
 
 .modal-content {
-    margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
+    margin-top: 2rem; /* Reduced top margin */
     margin-bottom: 2rem;
     width: 100%;
     max-width: 1200px;
@@ -732,6 +732,8 @@ export default {
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     animation: modalSlideDown 0.3s ease-out;
     border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    max-height: calc(100vh - 4rem); /* Ensure modal doesn't exceed viewport height */
+    overflow-y: auto; /* Add scrolling to the modal content itself */
 }
 
 .modal-header {
