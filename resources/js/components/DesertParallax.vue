@@ -1,5 +1,6 @@
 <template>
-  <div :class="['parallax-container', fixedImage ? 'h-[55vh]' : 'h-64 sm:h-96']">
+  <div :class="['parallax-container', fixedImage ? 'h-[55vh]' : 'h-screen']">
+    <div class="parallax-overlay"></div>
     <img
       class="parallax-img"
       :class="fixedImage ? 'bg-fixed' : ''"
@@ -7,10 +8,6 @@
       alt="Desert"
     >
     <div class="parallax-gradient"></div>
-    <!-- <div class="parallax-content">
-      <h2 class="parallax-title">New Mexico Security Starts Here</h2>
-      <p class="parallax-tagline">Desert-tested, trusted by New Mexico homes & businesses</p>
-    </div> -->
   </div>
 </template>
 
@@ -28,6 +25,12 @@ onMounted(() => {
     }
     window.addEventListener('scroll', scrollHandler)
   }
+  
+  return () => {
+    if (scrollHandler) {
+      window.removeEventListener('scroll', scrollHandler)
+    }
+  }
 })
 </script>
 
@@ -36,78 +39,65 @@ onMounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 95vh;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
-  z-index: -999;
-  /* Much lower z-index to ensure it's behind everything */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: -1000; /* Far back in the stacking order */
 }
-.parallax-img {
-  position: relative;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
-  width: auto;
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  max-width: 100vw;
-  max-height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -998;
+}
+
+.parallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
-  z-index: -10;
+  z-index: -999;
 }
+
 .bg-fixed {
   background-attachment: fixed;
 }
+
 .parallax-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
   pointer-events: none;
-  z-index: 1;
+  z-index: -997;
 }
-.parallax-content {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  width: 100%;
-  padding: 0 1rem;
-  z-index: 2;
-}
-.parallax-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(16,185,129,0.15);
-  animation: fadeIn 1.2s ease-out;
-}
-.parallax-tagline {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #FFD700;
-  animation: fadeIn 1.2s ease-out 0.5s forwards;
-  opacity: 0;
-}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
 }
+
 @media (max-width: 640px) {
   .parallax-container {
-    height: 32vh;
+    height: 100vh;
   }
   .parallax-img {
-    min-height: 400px;
+    height: 100%;
     object-position: center;
   }
 }
+
 @media (max-width: 350px) {
   .parallax-container {
-    display: none;
+    height: 100vh;
   }
 }
 </style>

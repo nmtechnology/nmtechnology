@@ -1,99 +1,70 @@
-eslint-disable comma-dangle
-eslint-disable no-undef
 <template>
-  <nav><!-- Your navbar here --></nav>
-  <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
-  <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-20" />
-  <TopBanner v-else class="fixed left-0 w-full z-20" style="top: 6vh;" />
-  <!-- Hero Section overlays the parallax -->
-  <section class="relative flex flex-col items-center justify-center w-full min-h-[95vh] z-10 text-center px-4">
-    <div class="max-w-3xl mx-auto mt-32 sm:mt-40">
-      <h1
-        class="tracking-tight text-gray-300 sm:text-6xl 2xl:mt-10 mt-10 mb-4 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl dark:text-white drop-shadow-lg animate-fadeIn">
-        NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, We Are
-        Changing The Way You Are
-        <span class="text-green-600 dark:text-blue-500">Protected and Served</span> Right Here in New Mexico!
-      </h1>
-      <p class="text-lg font-normal text-gray-400 lg:text-xl dark:text-gray-400 animate-fadeIn-delay">
-        NM Technology specializes in <strong class="text-green-400">CCTV installation & design</strong>, security
-        systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico.
-        Our team provides professional low voltage installation in New Mexico, we provide ongoing maintenance, and rapid
-        support to protect your assets, personnel, and data.<br><br>
-        We use advanced security monitoring, smart automation, and local expertise to help you deter the threats that
-        exist in New Mexico. We automate routine tasks and ensure peace of mind for our customers. Our solutions are
-        trusted by leading organizations and backed by warranties and responsive service.<br><br>
-        <span class="text-blue-400">Do you need On-site Representation?</span> NM Technology partners with top-rated
-        nationwide contractors for qualified technician services here in New Mexico. We can help you get the work you
-        need done for your customer at the level of professionalism you expect. We can provide a world-class customer
-        service experience for your customers while you maintain their loyalty.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center gap-x-4 w-full sm:w-auto">
-        <button @click="openContactModal"
-          class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-green-600 px-6 py-3 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 rounded-md transition">
-          Contact Us
-        </button>
-        <button @click="generateQuote"
-          class="flex-1 sm:flex-none text-base font-semibold leading-6 bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 rounded-md transition">
-          Make A Quote
-        </button>
+  <div class="site-wrapper">
+    <!-- Fixed elements -->
+    <nav><!-- Your navbar here --></nav>
+    <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
+    <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-50" />
+    <TopBanner v-else class="fixed left-0 w-full z-50" style="top: 1rem;" />
+    
+    <!-- Main Content Starts -->
+    <main class="site-content">
+      <!-- Hero Section -->
+      <section class="hero-section relative flex flex-col items-center justify-center min-h-screen w-full z-10 text-center px-4 py-16 md:py-24">
+        <div class="max-w-5xl mx-auto mt-20 sm:mt-32">
+          <h1 class="tracking-tight text-gray-100 sm:text-6xl mt-10 mb-6 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl animate-fadeIn">
+            NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts
+            <span class="text-green-500 block mt-2">Protected and Served</span> Right Here in New Mexico!
+          </h1>
+          
+          <p class="text-lg font-normal text-gray-300 lg:text-xl animate-fadeIn-delay max-w-4xl mx-auto">
+            NM Technology specializes in <strong class="text-green-400">CCTV installation & design</strong>, security
+            systems, and integrated technology solutions for businesses and homes in Albuquerque and throughout New Mexico.
+            Our team provides professional low voltage installation in New Mexico, we provide ongoing maintenance, and rapid
+            support to protect your assets, personnel, and data.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <button @click="openContactModal"
+              class="w-full sm:w-auto text-base font-semibold leading-6 bg-green-600 px-8 py-3 text-white shadow-lg hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 rounded-md transition-all duration-300 transform hover:scale-105">
+              Contact Us
+            </button>
+            <button @click="generateQuote"
+              class="w-full sm:w-auto text-base font-semibold leading-6 bg-blue-600 px-8 py-3 text-white shadow-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md transition-all duration-300 transform hover:scale-105 mt-4 sm:mt-0">
+              Make A Quote
+            </button>
+          </div>
+        </div>
+        
+        <!-- Hero Footer with brand icons -->
+        <div class="hero-footer absolute bottom-0 left-0 right-0 py-8">
+          <div class="flex flex-wrap justify-center gap-8">
+            <img src="/public/images/google-doorbellcam.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
+            <img src="/public/images/security-cam-1.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
+            <img src="/public/images/smart-access-control.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
+          </div>
+        </div>
+      </section>
+      
+      <!-- Services Section (with background effect) -->
+      <div class="section-divider">
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#111827" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
       </div>
-    </div>
-    <!-- Hero images row (optional, can be styled as needed) -->
-    <div class="flex flex-wrap justify-center gap-8 mt-16 z-10">
-      <img src="/public/images/google-doorbellcam.webp" alt=""
-        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/security-cam-1.webp" alt=""
-        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/smart-access-control.webp" alt=""
-        class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/IT-rack.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-      <img src="/public/images/code-dev.webp" alt="" class="w-32 rounded-xl bg-gray-900/5 object-cover shadow-lg" />
-    </div>
-  </section>
-  <svg
-    class="fixed inset-x-0 top-60 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(35rem_28rem_at_center,white,transparent)]"
-    aria-hidden="true">
-    <defs>
-      <pattern id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84" width="200" height="200" x="50%" y="-1"
-        patternUnits="userSpaceOnUse">
-        <path d="M.5 200V.5H200" fill="none" />
-      </pattern>
-    </defs>
-    <svg x="50%" y="-1" class="overflow-visible fixed">
-      <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-        stroke-width="0" />
-    </svg>
-    <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
-  </svg>
-  <div class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-    aria-hidden="true">
-    <div class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="
-                            clip-path: polygon(
-                                63.1% 29.5%,
-                                100% 17.1%,
-                                76.6% 3%,
-                                49.4% 0%,
-                                44.6% 4.7%,
-                                54.5% 25.3%,
-                                59.8% 49%,
-                                55.2% 57.8%,
-                                44.4% 57.2%,
-                                27.8% 47.9%,
-                                35.1% 81.5%,
-                                0% 97.7%,
-                                39.2% 100%,
-                                35.2% 81.4%,
-                                97.2% 52.8%,
-                                63.1% 29.5%
-                            );
-                        "></div>
+      
+      <!-- Main Content Sections -->
+      <SectionService class="content-section" />
+      <BlackGradient class="content-section" />
+      <SectionOne class="content-section" />
+      
+      <!-- Footer -->
+      <HomeFooter />
+    </main>
+    
+    <!-- Modals -->
+    <ContactModal ref="contactModalRef" />
   </div>
-  <!-- Main content flows after hero -->
-  <SectionService />
-  <BlackGradient />
-  <SectionOne />
-  <HomeFooter />
-  <ContactModal ref="contactModalRef" />
 </template>
 
 <script setup>
@@ -112,69 +83,114 @@ import ContactModal from '../components/ContactModal.vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-const contactModalRef = ref(null)
-const router = useRouter()
+const contactModalRef = ref(null);
+const router = useRouter();
 const openContactModal = () => {
   if (contactModalRef.value) {
-    contactModalRef.value.openModalFromOptions()
+    contactModalRef.value.openModalFromOptions();
   }
-}
+};
 const generateQuote = () => {
-  router.push('/cctv')
-}
-const showFixedBanner = ref(false)
-const isMobile = ref(false)
-const isVerySmallScreen = ref(false)
+  router.push('/cctv');
+};
+const showFixedBanner = ref(false);
+const isMobile = ref(false);
+const isVerySmallScreen = ref(false);
 const checkMobile = () => {
-  isMobile.value = window.innerWidth < 640
-  isVerySmallScreen.value = window.innerWidth < 280
-}
+  isMobile.value = window.innerWidth < 640;
+  isVerySmallScreen.value = window.innerWidth < 280;
+};
 const handleScroll = () => {
-  showFixedBanner.value = window.scrollY > window.innerHeight * 0.45
-}
+  showFixedBanner.value = window.scrollY > window.innerHeight * 0.45;
+};
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  window.addEventListener('resize', checkMobile)
-  checkMobile()
-})
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', checkMobile);
+  checkMobile();
+});
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('resize', checkMobile)
-})
+  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('resize', checkMobile);
+});
 </script>
 
 <style scoped>
+.site-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.site-content {
+  position: relative;
+  z-index: 10;
+}
+
 .fixed-parallax {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 75vh;
-  z-index: 0;
-  background-image: fixed;
-}
-@media (max-width: 640px) {
-  .fixed-parallax {
-    height: 75vh;
-  }
-  .mx-auto.max-w-7xl {
-    padding-top: 2rem !important;
-    padding-bottom: 1rem !important;
-  }
-}
-h1 {
-  text-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
-  letter-spacing: 0.01em;
-  animation: fadeIn 1.2s ease-out;
+  height: 100vh;
+  z-index: -1000;
 }
 
-p {
-  animation: fadeIn 1.4s ease-out 0.2s;
-  line-height: 1.7;
+/* Hero Section Styling */
+.hero-section {
+  position: relative;
+  padding-bottom: 6rem;
+  overflow: hidden;
+  background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
+/* Section Divider Styling */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  z-index: 5;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Content Section Styling */
+.content-section {
+  position: relative;
+  z-index: 20;
+  background-color: #111827;
+}
+
+/* Animation Classes */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.animate-fadeIn-delay {
+  animation: fadeIn 1.4s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: 90vh;
+  }
+  
+  .section-divider {
+    height: 80px;
+  }
 }
 </style>
