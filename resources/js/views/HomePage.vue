@@ -73,7 +73,7 @@
         </svg>
       </div>
       
-      <SectionOne class="content-section" />
+      <SectionOne class="content-section" /><Pricing class="content-section" /><CcTv class="content-section" />
       
       <!-- Footer -->
       <HomeFooter />
@@ -93,6 +93,7 @@ import HomeFooter from '../components/HomeFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
+import Pricing from '../components/Pricing.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
