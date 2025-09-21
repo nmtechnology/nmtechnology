@@ -5,11 +5,12 @@
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="cartStore.closeCart()"></div>
 
       <!-- Modal panel -->
-      <div class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full md:max-w-xl lg:max-w-2xl">
+      <div class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full md:max-w-xl lg:max-w-2xl border border-gray-700">
         <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-medium leading-6 text-white" id="modal-title">
-              <i class="fas fa-shopping-cart mr-2"></i>Your Quote Cart
+              <i class="fas fa-shopping-cart mr-2 text-green-400"></i>
+              <span class="text-green-300">Your Quote Cart</span>
             </h3>
             <button @click="cartStore.closeCart()" class="text-gray-400 hover:text-white focus:outline-none">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -25,27 +26,27 @@
             </div>
             <div v-else>
               <!-- Cart items list -->
-              <div class="max-h-96 overflow-y-auto pr-2">
-                <div v-for="item in cartStore.getItems()" :key="item.id" class="flex items-center border-b border-gray-700 py-4">
-                  <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-700">
+              <div class="max-h-96 overflow-y-auto pr-2 space-y-3">
+                <div v-for="item in cartStore.getItems()" :key="item.id" class="cart-item-card flex items-center p-3 rounded-lg border border-gray-700">
+                  <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-700 bg-gray-900">
                     <img :src="item.image" :alt="item.name" class="h-full w-full object-cover object-center">
                   </div>
                   <div class="ml-4 flex flex-1 flex-col">
                     <div class="flex justify-between text-base font-medium text-white">
-                      <h3>{{ item.name }}</h3>
-                      <p class="ml-4">{{ item.price ? `$${item.price.toFixed(2)}` : 'Call for price' }}</p>
+                      <h3 class="truncate">{{ item.name }}</h3>
+                      <p class="ml-4 text-green-300">{{ item.price ? `$${item.price.toFixed(2)}` : 'Call for price' }}</p>
                     </div>
                     <div class="flex flex-1 items-center justify-between text-sm mt-2">
                       <!-- Quantity selector -->
                       <div class="flex items-center">
-                        <button @click="decreaseQuantity(item)" class="bg-gray-700 text-white px-2 rounded-l-md">-</button>
+                        <button @click="decreaseQuantity(item)" class="qty-btn rounded-l-md">-</button>
                         <input type="number" min="1" v-model.number="item.quantity" @change="updateQuantity(item)"
-                               class="bg-gray-600 text-white text-center w-12 px-1 py-1 border-0">
-                        <button @click="increaseQuantity(item)" class="bg-gray-700 text-white px-2 rounded-r-md">+</button>
+                               class="qty-input text-center" />
+                        <button @click="increaseQuantity(item)" class="qty-btn rounded-r-md">+</button>
                       </div>
                       <!-- Remove button -->
                       <div class="flex">
-                        <button @click="removeItem(item.id)" class="font-medium text-red-400 hover:text-red-300">
+                        <button @click="removeItem(item.id)" class="font-medium text-red-400 hover:text-red-300 ml-4">
                           Remove
                         </button>
                       </div>
@@ -75,15 +76,15 @@
         <div class="bg-gray-900 px-4 py-3 sm:px-6">
           <div class="sm:flex sm:flex-row-reverse">
             <button v-if="cartStore.getItems().length > 0" @click="checkout" 
-                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    class="w-full inline-flex justify-center rounded-md shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
               Request Quote
             </button>
             <button @click="cartStore.closeCart()" 
-                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-transparent text-base font-medium text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
               Continue Shopping
             </button>
             <button v-if="cartStore.getItems().length > 0" @click="cartStore.clearCart()" 
-                    class="mt-3 w-full inline-flex justify-center rounded-md border border-red-700 shadow-sm px-4 py-2 bg-gray-700 text-base font-medium text-red-400 hover:text-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:w-auto sm:text-sm">
+                    class="mt-3 w-full inline-flex justify-center rounded-md border border-red-700 shadow-sm px-4 py-2 bg-transparent text-base font-medium text-red-400 hover:text-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:w-auto sm:text-sm">
               Clear Quote Cart
             </button>
           </div>
@@ -540,164 +541,54 @@ export default {
   background-color: #6B7280;
 }
 
-/* Remove arrows from number input */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+/* Quantity controls and item card styling to match site theme */
+.cart-item-card {
+  background: rgba(17,24,39,0.45); /* subtle translucent layering */
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+.qty-btn {
+  background: #1f2937; /* gray-800 */
+  color: #fff;
+  padding: 6px 10px;
+  border: 1px solid rgba(156,163,175,0.08);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-/* Item animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 20px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.qty-btn:hover { background: #374151; }
+
+.qty-input {
+  width: 48px;
+  padding: 6px 8px;
+  background: #111827;
+  color: #fff;
+  border-top: 1px solid rgba(156,163,175,0.06);
+  border-bottom: 1px solid rgba(156,163,175,0.06);
+  outline: none;
 }
 
-.flex.items-center.border-b {
-  animation: fadeInUp 0.3s ease-out;
+/* Outlined / transparent button utility consistent with theme */
+.button-outlined {
+  background: transparent;
+  border: 1px solid rgba(156,163,175,0.08);
+  color: #d1fae5;
 }
 
-/* Responsive improvements for mobile */
+/* Ensure images and truncated names behave nicely */
+.cart-item-card img { object-fit: cover; }
+.cart-item-card h3 { max-width: 38ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* small responsive tweaks */
 @media (max-width: 640px) {
-  /* Increase touch targets for mobile */
-  button {
-    min-height: 42px;
-    padding: 8px 16px;
-  }
-  
-  /* Improve form fields for touch */
-  input, textarea, select {
-    font-size: 16px !important;  /* Prevent iOS zoom on focus */
-    padding: 10px !important;
-  }
-  
-  /* Better spacing for mobile form */
-  .space-y-4 {
-    margin-bottom: 24px;
-  }
-  
-  /* Make quantity controls easier to tap */
-  .flex.items-center button {
-    min-width: 36px;
-  }
-  
-  /* Adjust product image size for mobile */
-  .h-16.w-16 {
-    height: 64px;
-    width: 64px;
-  }
-  
-  /* Improve cart item layout on small screens */
-  .flex.items-center.border-b {
-    padding: 12px 0;
-    flex-wrap: wrap;
-  }
-  
-  .flex.items-center.border-b .flex.flex-1.flex-col {
-    margin-left: 12px;
-    flex: 1;
-    min-width: 0;
-  }
-}
-
-/* Add animation for the cart badge */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.cart-badge-pulse {
-  animation: pulse 1s ease-in-out;
+  .qty-input { width: 56px; }
+  .cart-item-card { flex-direction: row; }
 }
 
 /* NM Technology Theme Enhancements for Quote Cart */
-.bg-gray-800 {
-  background-color: #111827 !important;
-}
-.bg-gray-900 {
-  background-color: #0a0f1c !important;
-}
-.text-white {
-  color: #f3f4f6 !important;
-}
-.text-gray-300 {
-  color: #d1d5db !important;
-}
-.text-gray-400 {
-  color: #9ca3af !important;
-}
-.text-gray-700 {
-  color: #374151 !important;
-}
-.border-gray-700 {
-  border-color: #374151 !important;
-}
-.border-gray-600 {
-  border-color: #4b5563 !important;
-}
-.bg-blue-500 {
-  background-color: #2563eb !important;
-}
-.bg-blue-600 {
-  background-color: #1d4ed8 !important;
-}
-.bg-green-600 {
-  background-color: #22c55e !important;
-}
-.bg-green-700 {
-  background-color: #15803d !important;
-}
-.text-green-400 {
-  color: #4ade80 !important;
-}
-.text-green-500 {
-  color: #22c55e !important;
-}
-.border-green-600 {
-  border-color: #22c55e !important;
-}
-.shadow-xl {
-  box-shadow: 0 8px 32px rgba(37,99,235,0.12), 0 1.5px 4px rgba(22,163,74,0.08);
-}
-/* Button hover and focus states for brand feel */
-button.bg-blue-500:hover, button.bg-blue-500:focus {
-  background-color: #1e40af !important;
-}
-button.bg-green-600:hover, button.bg-green-600:focus {
-  background-color: #16a34a !important;
-}
-button.bg-gray-700:hover, button.bg-gray-700:focus {
-  background-color: #374151 !important;
-}
-button.bg-red-600:hover, button.bg-red-600:focus {
-  background-color: #991b1b !important;
-}
-/* Card and modal border radius for modern look */
-.rounded-lg {
-  border-radius: 14px !important;
-}
-/* Subtle glass effect for modal panels */
-.inline-block.align-bottom.bg-gray-800 {
-  background: linear-gradient(135deg, #111827 80%, #2563eb 100%);
-  box-shadow: 0 8px 32px rgba(37,99,235,0.12), 0 1.5px 4px rgba(22,163,74,0.08);
-  border: 1px solid #374151;
-}
+.bg-gray-800 { background-color: #111827 !important; }
+.bg-gray-900 { background-color: #0b1220 !important; }
+.text-white { color: #f3f4f6 !important; }
+.text-gray-300 { color: #d1d5db !important; }
+.text-gray-400 { color: #9ca3af !important; }
+.border-gray-700 { border-color: #374151 !important; }
 </style>
