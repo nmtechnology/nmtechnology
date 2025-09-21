@@ -27,7 +27,7 @@
             <span class="text-sm font-semibold leading-6 text-gray-400">{{ frequency.priceSuffix }}</span>
           </p>
 
-          <a :href="tier.href" :aria-describedby="tier.id" :class="[tier.mostPopular ? 'bg-green-600 text-white shadow-sm hover:bg-green-500' : 'text-green-500 ring-1 ring-inset ring-green-700 hover:ring-green-500', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600']">Buy plan</a>
+          <button @click="addPlanToCart(tier)" type="button" :aria-describedby="tier.id" :class="[tier.mostPopular ? 'bg-green-600 text-white shadow-sm hover:bg-green-500' : 'text-green-500 ring-1 ring-inset ring-green-700 hover:ring-green-500', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600']">Buy plan</button>
 
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300">
             <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3 items-start">
@@ -46,6 +46,8 @@ import { ref, computed } from 'vue'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon } from '@heroicons/vue/20/solid'
 import { cameraProducts } from '../data/productData.js'
+import { cartStore } from '../store/cartStore.js'
+import { toastService } from '../services/toastService.js'
 
 const frequencies = [
   { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
@@ -78,9 +80,26 @@ const tiers = computed(() => {
       description: prod.description || '',
       features: prod.features || [],
       mostPopular: prod.mostPopular || false,
+      // add raw numeric price and image for cart operations
+      numericPrice: numericPrice,
+      image: prod.image || null
     }
   })
 })
+
+const addPlanToCart = (tier) => {
+  const item = {
+    id: tier.id,
+    name: tier.name,
+    image: tier.image,
+    // pass numeric price when available, otherwise null so cart subtotal logic can detect
+    price: (typeof tier.numericPrice === 'number') ? tier.numericPrice : null
+  }
+
+  cartStore.addItem(item)
+  cartStore.openCart()
+  toastService.success(`Added ${tier.name} to quote cart!`)
+}
 </script>
 
 <style scoped>
