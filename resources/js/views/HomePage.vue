@@ -63,7 +63,7 @@
         </svg>
       </div>
       
-      <BlackGradient class="content-section" />
+      <BlackGradient class="content-section" /><TrustedTeams class="content-section" />
       
       <!-- Yet Another Stylish Section Divider with Green Border -->
       <div class="section-divider">
@@ -86,11 +86,9 @@
 
 <script setup>
 import SectionService from '../components/SectionService.vue'
-import HomeGrecaptcha from '../components/HomeGrecaptcha.vue'
 import SectionOne from '../components/SectionOne.vue'
 import DesertParallax from '../components/DesertParallax.vue'
 import BlackGradient from '../components/BlackGradient.vue'
-import WorkCollage from '../components/WorkCollage.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
 import CcTv from '../components/CcTv.vue'
