@@ -73,7 +73,7 @@
         </svg>
       </div>
       
-      <SectionOne class="content-section" /><Pricing class="content-section" /><CcTv class="content-section" />
+      <SectionOne class="content-section" /><Pricing class="content-section" />
       
       <!-- Footer -->
       <HomeFooter />
@@ -91,7 +91,6 @@ import DesertParallax from '../components/DesertParallax.vue'
 import BlackGradient from '../components/BlackGradient.vue'
 import HomeFooter from '../components/HomeFooter.vue'
 import TopBanner from '../components/TopBanner.vue'
-import CcTv from '../components/CcTv.vue'
 import MobileMenu from '../components/MobileMenu.vue'
 import Pricing from '../components/Pricing.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'

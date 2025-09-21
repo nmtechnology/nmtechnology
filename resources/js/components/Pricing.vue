@@ -38,65 +38,43 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
   import { CheckIcon } from '@heroicons/vue/20/solid'
+  import { cameraProducts } from '../data/productData.js'
   
   const frequencies = [
     { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
     { value: 'annually', label: 'Annually', priceSuffix: '/year' },
   ]
-  const tiers = [
-    {
-      name: 'Hobby',
-      id: 'tier-hobby',
-      href: '#',
-      price: { monthly: '$15', annually: '$144' },
-      description: 'The essentials to provide your best work for clients.',
-      features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics'],
-      mostPopular: false,
-    },
-    {
-      name: 'Freelancer',
-      id: 'tier-freelancer',
-      href: '#',
-      price: { monthly: '$30', annually: '$288' },
-      description: 'The essentials to provide your best work for clients.',
-      features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics', '48-hour support response time'],
-      mostPopular: false,
-    },
-    {
-      name: 'Startup',
-      id: 'tier-startup',
-      href: '#',
-      price: { monthly: '$60', annually: '$576' },
-      description: 'A plan that scales with your rapidly growing business.',
-      features: [
-        '25 products',
-        'Up to 10,000 subscribers',
-        'Advanced analytics',
-        '24-hour support response time',
-        'Marketing automations',
-      ],
-      mostPopular: true,
-    },
-    {
-      name: 'Enterprise',
-      id: 'tier-enterprise',
-      href: '#',
-      price: { monthly: '$90', annually: '$864' },
-      description: 'Dedicated support and infrastructure for your company.',
-      features: [
-        'Unlimited products',
-        'Unlimited subscribers',
-        'Advanced analytics',
-        '1-hour, dedicated support response time',
-        'Marketing automations',
-        'Custom reporting tools',
-      ],
-      mostPopular: false,
-    },
-  ]
   
   const frequency = ref(frequencies[0])
+  
+  const monitoringProducts = computed(() => {
+    return cameraProducts.filter(p => p.category === 'monitoring' || p.recurring === true)
+  })
+  
+  const tiers = computed(() => {
+    return monitoringProducts.value.map(prod => {
+      // determine numeric monthly price if available
+      const numericPrice = (typeof prod.price === 'number')
+        ? prod.price
+        : (prod.specs && typeof prod.specs.monthlyFee === 'string')
+          ? parseFloat(prod.specs.monthlyFee.replace(/[^0-9.]/g, ''))
+          : null
+  
+      const monthlyStr = numericPrice ? `$${numericPrice}` : (prod.price ? `$${prod.price}` : (prod.specs?.monthlyFee ?? 'Call for price'))
+      const annuallyStr = numericPrice ? `$${(numericPrice * 12).toFixed(2)}` : (prod.annualPrice ? `$${prod.annualPrice}` : 'Call for price')
+  
+      return {
+        name: prod.name,
+        id: prod.id,
+        href: prod.href || '#',
+        price: { monthly: monthlyStr, annually: annuallyStr },
+        description: prod.description || '',
+        features: prod.features || [],
+        mostPopular: prod.mostPopular || false,
+      }
+    })
+  })
   </script>
