@@ -3,8 +3,8 @@
     <!-- Fixed elements -->
     <nav class="fixed top-0 left-0 w-full z-50"><!-- Your navbar here --></nav>
     <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
-    <TopBanner v-if="showFixedBanner" class="fixed top-0 left-0 w-full z-30" />
-    <TopBanner v-else class="fixed left-0 w-full z-30" style="top: 3.5rem;" />
+    <!-- Single TopBanner instance - positioning handled inside component to avoid class conflicts -->
+    <TopBanner v-show="showFixedBanner" />
     
     <!-- Main Content Starts -->
     <main class="site-content">
@@ -164,7 +164,8 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   height: 150px;
-  z-index: 5;
+  /* Place the divider above standard content sections so the curvy SVG creates a visible border */
+  z-index: 40;
   margin: 2rem 0;
 }
 
@@ -173,7 +174,8 @@ onUnmounted(() => {
   height: 3px;
   width: 100%;
   top: 50%;
-  z-index: 6;
+  /* Ensure the green border sits above the wave and content */
+  z-index: 42;
   box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
 }
 
@@ -182,7 +184,8 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 5;
+  /* Wave should render above content but below the thin divider line for a layered effect */
+  z-index: 41;
   filter: drop-shadow(0 -1px 2px rgba(74, 222, 128, 0.4));
 }
 
@@ -194,6 +197,12 @@ onUnmounted(() => {
   margin: 2rem 0;
   border-radius: 0.5rem;
   overflow: hidden;
+}
+
+/* Ensure hero footer images don't cover CTA buttons */
+.hero-footer img {
+  position: relative;
+  z-index: 5; /* lower than CTA buttons (z-20) so buttons remain interactive */
 }
 
 /* Animation Classes */
