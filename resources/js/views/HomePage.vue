@@ -12,7 +12,7 @@
       <section class="hero-section relative flex flex-col items-center justify-center min-h-screen w-full z-10 text-center px-4 py-16 md:py-24">
         <div class="max-w-5xl mx-auto mt-20 sm:mt-32">
           <h1 class="tracking-tight text-gray-100 sm:text-6xl mt-10 mb-6 text-4xl font-extrabold leading-none md:text-5xl lg:text-6xl animate-fadeIn">
-            NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts
+            NM Technology is Albuquerque's Trusted Commercial CCTV, Security & Fire Systems Installation Experts, we are changing the way you are
             <span class="text-green-500 block mt-2">Protected and Served</span> Right Here in New Mexico!
           </h1>
           
