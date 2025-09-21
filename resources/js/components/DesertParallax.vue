@@ -39,7 +39,8 @@ onMounted(() => {
   width: 100vw;
   height: 95vh;
   overflow: hidden;
-  z-index: -20; /* Use -1 to ensure the parallax is always behind all content */
+  z-index: -999;
+  /* Much lower z-index to ensure it's behind everything */
   display: flex;
   align-items: center;
   justify-content: center;

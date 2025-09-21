@@ -188,6 +188,8 @@
   opacity: 0;
 }
 img {
-  transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 30;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 </style>
