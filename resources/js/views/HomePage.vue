@@ -166,6 +166,7 @@ onUnmounted(() => {
   /* Place the divider above standard content sections so the curvy SVG creates a visible border */
   z-index: 40;
   margin: 2rem 0;
+  margin-bottom: -12;
 }
 
 .divider-border {
