@@ -3,9 +3,9 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <h2 class="text-base font-semibold leading-7 text-green-400">Pricing</h2>
-        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-100 sm:text-5xl">Pricing plans for teams of&nbsp;all&nbsp;sizes</p>
+        <p class="mt-2 text-4xl font-bold tracking-tight text-gray-100 sm:text-5xl">Pricing plans for homes and businesses of&nbsp;all&nbsp;sizes</p>
       </div>
-      <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.</p>
+      <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">Choose an affordable plan that’s packed with the best features for protecting your loved ones, loyal customers and assets.</p>
 
       <div class="mt-16 flex justify-center">
         <RadioGroup v-model="frequency" class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-700">

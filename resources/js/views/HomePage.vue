@@ -26,11 +26,11 @@
           <!-- CTA Buttons - Increased z-index to ensure they're clickable -->
           <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full relative z-20">
             <button @click="openContactModal"
-              class="w-full sm:w-auto text-base font-semibold leading-6 bg-green-600 px-8 py-3 text-white shadow-lg hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 rounded-md transition-all duration-300 transform hover:scale-105">
+              class="w-full sm:w-auto text-base font-semibold leading-6 bg-transparent border-2 border-green-600 px-8 py-3 text-green-400 hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400 rounded-md transition-all duration-300 transform hover:scale-105">
               Contact Us
             </button>
             <button @click="generateQuote"
-              class="w-full sm:w-auto text-base font-semibold leading-6 bg-blue-600 px-8 py-3 text-white shadow-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md transition-all duration-300 transform hover:scale-105 mt-4 sm:mt-0">
+              class="w-full sm:w-auto text-base font-semibold leading-6 bg-transparent border-2 border-blue-600 px-8 py-3 text-blue-400 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md transition-all duration-300 transform hover:scale-105 mt-4 sm:mt-0">
               Make A Quote
             </button>
           </div>
