@@ -46,6 +46,7 @@ onMounted(() => {
 }
 .parallax-img {
   position: relative;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
   width: auto;
   height: 100%;
   max-width: 100vw;
@@ -54,7 +55,7 @@ onMounted(() => {
   object-position: center;
   opacity: 0;
   animation: fadeIn 2.5s ease-out forwards;
-  z-index: 0;
+  z-index: -10;
 }
 .bg-fixed {
   background-attachment: fixed;
