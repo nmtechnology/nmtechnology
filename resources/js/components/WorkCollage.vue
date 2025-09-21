@@ -5,29 +5,29 @@
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-lg hover:scale-105 hover:shadow-green-500/30 transition-all duration-300"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-lg hover:scale-105 hover:shadow-green-500/30 transition-all duration-300 z-10"
                         src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-lime-400/30 transition-all duration-300"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-lime-400/30 transition-all duration-300 z-10"
                         src="/public/images/mobile-lock.webp" />
                 </div>
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-blue-400/30 transition-all duration-300"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-blue-400/30 transition-all duration-300 z-10"
                         src="/public/images/retail-clothing-cctv.webp" />
                 </div>
             </div>
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-400/30 transition-all duration-300"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-400/30 transition-all duration-300 z-10"
                         src="/public/images/cctv-store.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-blue-400/30 transition-all duration-300"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-blue-400/30 transition-all duration-300 z-10"
                         src="/public/images/cctv-restaurant.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center hover:scale-105 hover:shadow-lime-400/30 transition-all duration-300"
+                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center hover:scale-105 hover:shadow-lime-400/30 transition-all duration-300 z-10"
                         src="/public/images/cctv-corner.webp" />
                 </div>
             </div>
@@ -38,29 +38,29 @@
         <div class="-m-1 flex flex-wrap md:-m-2 z-40">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-highway.webp" />
                 </div>
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/retail-clothing-cctv.webp" />
                 </div>
             </div>
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-store.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-restaurant.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/cctv-corner.webp" />
                 </div>
             </div>
@@ -73,29 +73,29 @@
         <div class="-m-1 flex flex-wrap md:-m-2 z-40">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-highway.webp" />
                 </div>
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/retail-clothing-cctv.webp" />
                 </div>
             </div>
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-store.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-restaurant.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/cctv-corner.webp" />
                 </div>
             </div>
@@ -109,29 +109,29 @@
         <div class="-m-1 flex flex-wrap md:-m-2">
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-highway.webp" />
                 </div>
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/retail-clothing-cctv.webp" />
                 </div>
             </div>
             <div class="flex w-1/2 flex-wrap">
                 <div class="w-full p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-store.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl"
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl z-10"
                         src="/public/images/cctv-restaurant.webp" />
                 </div>
                 <div class="w-1/2 p-1 md:p-2">
-                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center"
+                    <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center z-10"
                         src="/public/images/cctv-corner.webp" />
                 </div>
             </div>
@@ -147,24 +147,24 @@
             <div class="-m-1 flex flex-wrap md:-m-2">
                 <div class="flex w-1/2 flex-wrap">
                     <div class="w-1/2 p-1 md:p-2">
-                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
+                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" />
                     </div>
                     <div class="w-1/2 p-1 md:p-2">
-                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/mobile-lock.webp" />
+                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/mobile-lock.webp" />
                     </div>
                     <div class="w-full p-1 md:p-2">
-                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/cctv-highway.webp" />
+                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/cctv-highway.webp" />
                     </div>
                 </div>
                 <div class="flex w-1/2 flex-wrap">
                     <div class="w-full p-1 md:p-2">
-                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/cctv-store.webp" />
+                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/cctv-store.webp" />
                     </div>
                     <div class="w-1/2 p-1 md:p-2">
-                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/cctv-restaurant.webp" />
+                        <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/cctv-restaurant.webp" />
                     </div>
                     <div class="w-1/2 p-1 md:p-2">
-                        <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300" src="/public/images/cctv-corner.webp" />
+                        <img alt='gallery' class="block h-full w-full rounded-lg object-cover object-center shadow-2xl hover:scale-105 hover:shadow-green-500/30 transition duration-300 z-10" src="/public/images/cctv-corner.webp" />
                     </div>
                 </div>
             </div>
