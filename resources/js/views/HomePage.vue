@@ -39,9 +39,9 @@
         <!-- Hero Footer with brand icons -->
         <div class="hero-footer absolute bottom-0 left-0 right-0 py-8 z-10">
           <div class="flex flex-wrap justify-center gap-8">
-            <img src="/public/images/google-doorbellcam.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
-            <img src="/public/images/security-cam-1.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
-            <img src="/public/images/smart-access-control.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
+            <img src="/public/images/google-doorbellcam.webp" alt="" class="h-32 w-32 object-cover rounded-lg shadow-lg" />
+            <img src="/public/images/security-cam-1.webp" alt="" class="h-32 w-32 object-cover rounded-lg shadow-lg" />
+            <img src="/public/images/smart-access-control.webp" alt="" class="h-32 w-32 object-cover rounded-lg shadow-lg" />
           </div>
         </div>
       </section>
@@ -116,7 +116,7 @@ import MobileMenu from '../components/MobileMenu.vue'
 import Pricing from '../components/Pricing.vue'
 import TrustedTeams from '../components/TrustedTeams.vue'
 import ContactModal from '../components/ContactModal.vue'
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, provide } from 'vue'
 import { useRouter } from 'vue-router'
 
 const contactModalRef = ref(null);
@@ -126,6 +126,9 @@ const openContactModal = () => {
     contactModalRef.value.openModalFromOptions();
   }
 };
+
+// Provide the openContactModal function to child components
+provide('openContactModal', openContactModal);
 const generateQuote = () => {
   router.push('/cctv');
 };

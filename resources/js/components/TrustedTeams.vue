@@ -8,8 +8,8 @@
                 onsite within 24 hours and getting the issue resolved. We can service cctv security cameras, security systems, fire alarms and data network infrastructure. These are crucial components that keep you running!
             </p>
             <div class="mt-8 flex items-center gap-x-6">
-              <a href="#" class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Create account</a>
-              <a href="#" class="text-sm font-semibold text-white">Contact us <span aria-hidden="true">&rarr;</span></a>
+              <a @click="openContactModal" href="#" class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition duration-300 transform hover:scale-105">Contact Us</a>
+              <a href="#" class="text-sm font-semibold text-white hover:text-green-400 transition duration-300">Learn more <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
           <div class="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
@@ -51,12 +51,29 @@
   </template>
   
 
-<script>
+<script setup>
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
   LockClosedIcon
 } from '@heroicons/vue/20/solid'
+import { inject } from 'vue'
+
+// Inject the contact modal function from the parent component
+const openContactModal = inject('openContactModal', () => {
+  // If not provided, try to find ContactModal in the parent component
+  const parentApp = document.querySelector('#app').__vue_app__
+  if (parentApp && parentApp._context) {
+    // Try to find any ContactModal component and call its open method
+    const contactModal = document.querySelector('#contactModal')
+    if (contactModal && contactModal.__vueParentComponent) {
+      contactModal.__vueParentComponent.proxy.openModalFromOptions()
+    } else {
+      // Fallback to scrolling to the footer contact form
+      document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+})
 
 const features = [
   {
