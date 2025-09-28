@@ -92,10 +92,18 @@
       Commercial Fire Alarm Service & Installation
     </h2>
     <div class="text-center mb-10">
-      <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-md shadow-lg transition-all duration-300 transform hover:scale-105">
+      <button @click="openContactModal"
+        class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition duration-300 transform hover:scale-105">
         Request a Quote
       </button>
     </div>
+import { inject } from 'vue'
+
+// Inject the contact modal function from the parent component
+const openContactModal = inject('openContactModal', () => {
+  // Fallback: scroll to footer if modal not available
+  document.querySelector('footer')?.scrollIntoView({ behavior: 'smooth' })
+})
     
     <!-- On-site Section -->
     <h2 class="text-lime-400 text-bold text-center text-3xl md:text-4xl drop-shadow-lg mt-20 mb-8">
