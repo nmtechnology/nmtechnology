@@ -36,7 +36,7 @@
           </div>
         </div>
         
-        <!-- Hero Footer with brand icons - Lower z-index so they don't cover buttons -->
+        <!-- Hero Footer with brand icons -->
         <div class="hero-footer absolute bottom-0 left-0 right-0 py-8 z-10">
           <div class="flex flex-wrap justify-center gap-8">
             <img src="/public/images/google-doorbellcam.webp" alt="" class="h-16 w-16 object-cover rounded-lg shadow-lg" />
@@ -46,34 +46,55 @@
         </div>
       </section>
       
-      <!-- Stylish Section Divider with Green Border -->
-      <div class="section-divider">
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <!-- Elegant wave transition to next section -->
+      <div class="wave-transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path fill="#111827" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
       
-      <!-- Main Content Sections -->
-      <SectionService class="content-section" />
+      <!-- Our Services & Partnerships Section -->
+      <section class="section-container">
+        <div class="section-content">
+          <SectionService class="content-section with-padding" />
+        </div>
+      </section>
       
-      <!-- Another Stylish Section Divider with Green Border -->
-      <div class="section-divider">
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="transform: rotate(180deg);">
-          <path fill="#111827" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,234.7C672,235,768,213,864,202.7C960,192,1056,192,1152,176C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-      </div>
+      <!-- Technology Highlights Section -->
+      <section class="section-container bg-gradient-accent">
+        <div class="section-content">
+          <BlackGradient class="content-section with-padding" />
+        </div>
+      </section>
       
-      <BlackGradient class="content-section" /><TrustedTeams class="content-section" />
+      <!-- Trusted Teams Section -->
+      <section class="section-container">
+        <div class="section-content">
+          <TrustedTeams class="content-section with-padding" />
+        </div>
+      </section>
       
-      <!-- Yet Another Stylish Section Divider with Green Border -->
-      <div class="section-divider">
-        <div class="divider-border bg-green-400"></div>
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <!-- Wave separator before final sections -->
+      <div class="wave-transition accent-wave">
+        <div class="divider-line bg-green-400"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path fill="#111827" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,122.7C960,139,1056,149,1152,144C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>
       
-      <SectionOne class="content-section" /><Pricing class="content-section" />
+      <!-- Commercial Services & Pricing Section -->
+      <section class="section-container">
+        <div class="section-content">
+          <SectionOne class="content-section with-padding" />
+        </div>
+      </section>
+      
+      <!-- Pricing Section -->
+      <section class="section-container bg-gradient-accent-reverse">
+        <div class="section-content">
+          <Pricing class="content-section with-padding" />
+        </div>
+      </section>
       
       <!-- Footer -->
       <HomeFooter />
@@ -158,33 +179,54 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
-/* Section Divider Styling */
-.section-divider {
+/* Section Container Styling */
+.section-container {
+  position: relative;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.section-container.bg-gradient-accent {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(5, 46, 22, 0.95) 100%);
+}
+
+.section-container.bg-gradient-accent-reverse {
+  background: linear-gradient(135deg, rgba(5, 46, 22, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+}
+
+.section-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Wave Transition Styling */
+.wave-transition {
   position: relative;
   width: 100%;
   height: 150px;
-  /* Place the divider above standard content sections so the curvy SVG creates a visible border */
   z-index: 40;
-  margin: 2rem 0;
-  margin-bottom: -12;
+  margin-bottom: -1px;
 }
 
-.divider-border {
+.wave-transition.accent-wave {
+  margin-top: 3rem;
+}
+
+.divider-line {
   position: absolute;
   height: 3px;
   width: 100%;
   top: 50%;
-  /* Ensure the green border sits above the wave and content */
   z-index: 42;
   box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
 }
 
-.wave {
+.wave-transition svg {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  /* Wave should render above content but below the thin divider line for a layered effect */
   z-index: 41;
   filter: drop-shadow(0 -1px 2px rgba(74, 222, 128, 0.4));
 }
@@ -193,10 +235,19 @@ onUnmounted(() => {
 .content-section {
   position: relative;
   z-index: 20;
-  background-color: #111827;
-  margin: 2rem 0;
+  background-color: transparent;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.content-section.with-padding {
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.content-section:hover {
+  transform: translateY(-5px);
 }
 
 /* Ensure hero footer images don't cover CTA buttons */
@@ -228,9 +279,17 @@ onUnmounted(() => {
     min-height: 90vh;
   }
   
-  .section-divider {
+  .wave-transition {
     height: 80px;
-    margin: 1rem 0;
+  }
+  
+  .section-container {
+    padding: 1rem 0;
+  }
+  
+  .content-section.with-padding {
+    padding: 1rem;
+    margin: 0.75rem 0;
   }
 }
 </style>
