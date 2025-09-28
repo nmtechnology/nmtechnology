@@ -46,11 +46,13 @@
         </div>
       </section>
       
-      <!-- Elegant wave transition to next section -->
-      <div class="wave-transition">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#111827" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+
+      <!-- Elegant wave transition to next section (moved up, with gradient overlay) -->
+      <div class="wave-transition wave-transition--gradient">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="margin-top:-40px;">
+          <path fill="#111827" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,220,203,576,208C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
+        <div class="wave-gradient-overlay"></div>
       </div>
       
       <!-- Our Services & Partnerships Section -->
@@ -204,12 +206,28 @@ onUnmounted(() => {
 }
 
 /* Wave Transition Styling */
+
 .wave-transition {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 110px;
   z-index: 40;
   margin-bottom: -1px;
+}
+
+.wave-transition--gradient {
+  height: 110px;
+}
+
+.wave-gradient-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(17,24,39,0.01) 0%, rgba(17,24,39,0.7) 60%, rgba(17,24,39,0) 100%);
+  z-index: 42;
 }
 
 .wave-transition.accent-wave {
@@ -218,11 +236,11 @@ onUnmounted(() => {
 
 .divider-line {
   position: absolute;
-  height: 3px;
+  height: 8px;
   width: 100%;
   top: 50%;
   z-index: 42;
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+  box-shadow: 0 0 10px rgba(38, 255, 0, 0.6);
 }
 
 .wave-transition svg {
@@ -231,7 +249,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   z-index: 41;
-  filter: drop-shadow(0 -1px 2px rgba(74, 222, 128, 0.4));
+  filter: drop-shadow(0 -1px 2px rgba(38, 255, 0, 0.4));
 }
 
 /* Content Section Styling */
