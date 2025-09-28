@@ -45,7 +45,7 @@ class MathVerificationController extends Controller
                 \Log::info('Blocked non-US or China visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
                 // Only notify ONCE per session for block event
                 if (!session('visitor_notified')) {
-                    Notification::route('mail', 'service@nmtis.com')
+                    Notification::route('mail', 'service@nmtechnology.us')
                         ->notify(new VisitorEmailNotification($ip, $location, 'blocked', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
                     session(['visitor_notified' => true]);
                 }
@@ -61,7 +61,7 @@ class MathVerificationController extends Controller
             if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
                 // Only notify ONCE per session for lockout event
                 if (!session('visitor_notified')) {
-                    Notification::route('mail', 'service@nmtis.com')
+                    Notification::route('mail', 'service@nmtechnology.us')
                         ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
                     session(['visitor_notified' => true]);
                 }
@@ -172,7 +172,7 @@ class MathVerificationController extends Controller
             $attempts = $stat ? $stat->attempts : null;
             $timeSpent = $stat ? $stat->time_spent : null;
             $landingPage = $stat ? $stat->landing_page : ($referer ?? 'unknown');
-            Notification::route('mail', 'service@nmtis.com')
+            Notification::route('mail', 'service@nmtechnology.us')
                 ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage, $actions));
             session(['visitor_notified' => true]);
         }
@@ -252,7 +252,7 @@ class MathVerificationController extends Controller
         $reportHtml .= '<div style="text-align:center;color:#10b981;font-size:1rem;margin-top:2rem;">&copy; ' . $now->year . ' NM Technology. All rights reserved.</div>';
         $reportHtml .= '</body></html>';
         Mail::raw([], function ($message) use ($reportHtml) {
-            $message->to('service@nmtis.com')
+            $message->to('service@nmtechnology.us')
                 ->subject('NM Technology Visitor Traffic Report')
                 ->setBody($reportHtml, 'text/html');
         });
@@ -299,7 +299,7 @@ class MathVerificationController extends Controller
         $reportHtml .= '<div style="text-align:center;color:#10b981;font-size:1rem;margin-top:2rem;">&copy; ' . $now->year . ' NM Technology. All rights reserved.</div>';
         $reportHtml .= '</body></html>';
         Mail::raw([], function ($message) use ($reportHtml) {
-            $message->to('service@nmtis.com')
+            $message->to('service@nmtechnology.us')
                 ->subject('NM Technology Daily Visitor Report')
                 ->setBody($reportHtml, 'text/html');
         });

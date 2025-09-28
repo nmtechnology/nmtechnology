@@ -41,7 +41,7 @@ class NotifyOnVisit
                 } else if ($attempts !== 'Unknown' && $attempts >= 5) {
                     $experience = 'bad';
                 }
-                Notification::route('mail', 'service@nmtis.com')
+                Notification::route('mail', 'service@nmtechnology.us')
                     ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage, $experience));
                 // Reset session so only one notification per verification
                 session()->forget('math_verified');
