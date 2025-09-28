@@ -90,7 +90,7 @@
       </section>
       
       <!-- Pricing Section -->
-      <section class="section-container bg-gradient-accent-reverse">
+      <section class="section-container bg-gray-900">
         <div class="section-content">
           <Pricing class="content-section with-padding" />
         </div>
