@@ -9,13 +9,15 @@
     </p>
     
     <!-- Main Gallery - Modern Card-Based Layout -->
-    <div class="relative container bg-gray-900/80 backdrop-blur-sm mx-auto mb-16 px-4 py-8 sm:px-6 lg:px-8 rounded-xl shadow-xl">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div class="relative container bg-gray-900/80 backdrop-blur-sm mx-auto mb-10 sm:mb-16 px-3 sm:px-6 lg:px-8 py-6 sm:py-8 rounded-xl shadow-xl">
+      <!-- Gallery grid with improved mobile layout -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         <div class="gallery-card">
           <img 
             src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp" 
             alt="Security Camera" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>HD CCTV Systems</span>
@@ -27,6 +29,7 @@
             src="/public/images/mobile-lock.webp" 
             alt="Mobile Security" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>Mobile Access Control</span>
@@ -38,6 +41,7 @@
             src="/public/images/retail-clothing-cctv.webp" 
             alt="Retail CCTV" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>Retail Security</span>
@@ -49,6 +53,7 @@
             src="/public/images/cctv-store.webp" 
             alt="Store CCTV" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>Store Surveillance</span>
@@ -60,6 +65,7 @@
             src="/public/images/cctv-restaurant.webp" 
             alt="Restaurant CCTV" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>Restaurant Security</span>
@@ -71,6 +77,7 @@
             src="/public/images/cctv-corner.webp" 
             alt="Corner CCTV" 
             class="gallery-image"
+            loading="lazy"
           />
           <div class="gallery-overlay">
             <span>Corner Monitoring</span>
@@ -80,18 +87,18 @@
     </div>
     
     <!-- Commercial Section -->
-    <h2 class="text-white text-bold text-center text-3xl md:text-4xl drop-shadow-lg animate-fadeIn mt-20 mb-6">
+    <h2 class="text-white text-bold text-center text-3xl md:text-4xl drop-shadow-lg animate-fadeIn mt-12 sm:mt-20 mb-4 sm:mb-6">
       Commercial Retail CCTV
     </h2>
-    <p class="text-center text-gray-300 text-lg mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4">
+    <p class="text-center text-gray-300 text-base sm:text-lg mb-8 sm:mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4">
       Comprehensive video surveillance for retail, offices, and commercial spaces. Deter theft, monitor operations, and keep your business secure 24/7.
     </p>
     
     <!-- Fire Alarm Section -->
-    <h2 class="text-white text-bold text-center text-3xl md:text-4xl drop-shadow-lg mt-20 mb-6">
+    <h2 class="text-white text-bold text-center text-2xl sm:text-3xl md:text-4xl drop-shadow-lg mt-12 sm:mt-20 mb-4 sm:mb-6">
       Commercial Fire Alarm Service & Installation
     </h2>
-    <div class="text-center mb-10">
+    <div class="text-center mb-8 sm:mb-10">
       <button @click="openContactModal"
         class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition duration-300 transform hover:scale-105">
         Request a Quote
@@ -195,7 +202,35 @@ const openContactModal = inject('openContactModal', () => {
 
 @media (max-width: 640px) {
   .gallery-card {
-    height: 250px;
+    height: 200px;
+  }
+  
+  h2.text-4xl {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  
+  h2.text-3xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  p.text-lg {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-card {
+    height: 180px;
+  }
+  
+  .gallery-overlay {
+    padding: 1rem 0.75rem;
+    transform: translateY(0);
+    opacity: 0.9;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
   }
 }
 </style>
