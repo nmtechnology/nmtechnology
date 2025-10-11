@@ -44,6 +44,35 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php -S localhost:8000 -t public"
+        ],
+        "build": [
+            "npm run build"
+        ],
+        "dev-setup": [
+            "composer install",
+            "npm install",
+            "@php artisan key:generate",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --force",
+            "npm run build"
+        ],
+        "cache-clear": [
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear"
+        ],
+        "dev-bypass-on": [
+            "echo 'BYPASS_IP_BLOCKING=true' >> .env",
+            "@php artisan config:clear"
+        ],
+        "dev-bypass-off": [
+            "sed -i '' '/BYPASS_IP_BLOCKING=true/d' .env",
+            "@php artisan config:clear"
         ]
     },
     "extra": {
@@ -58,8 +87,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
-        }
+        },
+        "process-timeout": 0
     },
     "minimum-stability": "stable",
     "prefer-stable": true
-}
+} 
