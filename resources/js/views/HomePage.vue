@@ -569,6 +569,74 @@ onUnmounted(() => {
   background: #0a0f1a;
 }
 
+/* Modern Glowing Orb Background Effects */
+.site-wrapper::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.08) 0%,
+      transparent 25%
+    ),
+    radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 30%);
+  animation: orbitGlow 30s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+@keyframes orbitGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(5%, -5%) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-5%, 5%) rotate(240deg);
+    opacity: 0.5;
+  }
+}
+
+/* Mesh Gradient Overlay */
+.site-wrapper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(74, 222, 128, 0.02) 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      225deg,
+      transparent 0%,
+      rgba(34, 197, 94, 0.015) 50%,
+      transparent 100%
+    );
+  z-index: 1;
+  pointer-events: none;
+  animation: meshShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshShift {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
 .site-content {
   position: relative;
   z-index: 10;
@@ -625,21 +693,45 @@ onUnmounted(() => {
   }
 }
 
-/* Enhanced Security Hero Section with Parallax Support */
+/* Enhanced Security Hero Section with Modern Glow */
 .hero-section {
   position: relative;
   min-height: 90vh;
   padding: 8rem 0 6rem;
   overflow: hidden;
   background: radial-gradient(
-      circle at 30% 20%,
-      rgba(74, 222, 128, 0.08) 0%,
-      transparent 50%
+      ellipse at 30% 20%,
+      rgba(74, 222, 128, 0.12) 0%,
+      transparent 40%
     ),
-    radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(10, 15, 26, 0.3) 0%, rgba(15, 23, 42, 0.6) 100%);
+    radial-gradient(ellipse at 70% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(10, 15, 26, 0.2) 0%, rgba(15, 23, 42, 0.7) 100%);
   animation: heroGlow 10s ease-in-out infinite alternate;
   backdrop-filter: blur(0.5px);
+}
+
+/* Floating light particles effect */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(34, 197, 94, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0.1;
+  animation: particleFloat 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
 }
 
 @keyframes heroGlow {
@@ -698,13 +790,20 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      circle at 120% 50%,
-      rgba(74, 222, 128, 0.06) 0%,
+      ellipse 900px 700px at 120% 50%,
+      rgba(74, 222, 128, 0.1) 0%,
       transparent 50%
     ),
-    radial-gradient(circle at -20% 50%, rgba(34, 197, 94, 0.04) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 700px 900px at -20% 50%,
+      rgba(34, 197, 94, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle 500px at 50% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
   pointer-events: none;
   animation: sectionGlow 15s ease-in-out infinite alternate;
+  filter: blur(50px);
+  z-index: 0;
 }
 
 /* Security Grid Pattern Overlay */
@@ -772,18 +871,46 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-/* Enhanced Security Card Design with Tech Elements */
+/* Enhanced Security Card with Modern Glass & Glow */
 .security-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.95));
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.95)),
+    radial-gradient(circle at top right, rgba(74, 222, 128, 0.03), transparent 60%);
   border: 1px solid rgba(74, 222, 128, 0.2);
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(74, 222, 128, 0.08), inset 0 0 0 1px rgba(74, 222, 128, 0.03);
+    0 0 0 1px rgba(74, 222, 128, 0.05), inset 0 1px 0 rgba(74, 222, 128, 0.1),
+    inset 0 0 20px rgba(74, 222, 128, 0.02);
   overflow: hidden;
+}
+
+/* Glowing inner light effect */
+.security-card > *:first-child::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.08) 0%, transparent 60%);
+  animation: innerGlow 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes innerGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(10%, -10%) scale(1.1);
+    opacity: 0.6;
+  }
 }
 
 /* Corner Brackets - Security Tech Style */
@@ -856,11 +983,14 @@ onUnmounted(() => {
 }
 
 .security-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(74, 222, 128, 0.4);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-    0 15px 30px -10px rgba(74, 222, 128, 0.2), 0 0 40px rgba(74, 222, 128, 0.1),
-    inset 0 1px 0 rgba(74, 222, 128, 0.15);
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(74, 222, 128, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 20px 40px -10px rgba(74, 222, 128, 0.3), 0 0 60px rgba(74, 222, 128, 0.15),
+    0 0 100px rgba(16, 185, 129, 0.1), inset 0 1px 0 rgba(74, 222, 128, 0.2),
+    inset 0 0 30px rgba(74, 222, 128, 0.05);
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(15, 23, 42, 0.98)),
+    radial-gradient(circle at top right, rgba(74, 222, 128, 0.08), transparent 60%);
 }
 
 .security-card:hover::before {
@@ -897,26 +1027,38 @@ onUnmounted(() => {
   }
 }
 
-/* Featured card with enhanced effects */
+/* Featured card with enhanced glow effects */
 .security-card.featured {
   background: linear-gradient(
-    135deg,
-    rgba(22, 163, 74, 0.15),
-    rgba(17, 24, 39, 0.95),
-    rgba(15, 23, 42, 0.95)
-  );
-  border: 1px solid rgba(74, 222, 128, 0.25);
+      135deg,
+      rgba(22, 163, 74, 0.18),
+      rgba(17, 24, 39, 0.98),
+      rgba(15, 23, 42, 0.95)
+    ),
+    radial-gradient(ellipse at top left, rgba(74, 222, 128, 0.1), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(34, 197, 94, 0.08), transparent 50%);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(74, 222, 128, 0.15), inset 0 1px 0 rgba(74, 222, 128, 0.15),
+    inset 0 0 25px rgba(74, 222, 128, 0.05);
 }
 
 .security-card.featured::before {
   background: linear-gradient(
     45deg,
-    rgba(74, 222, 128, 0.3),
-    rgba(34, 197, 94, 0.2),
-    rgba(74, 222, 128, 0.3),
-    rgba(34, 197, 94, 0.2)
+    rgba(74, 222, 128, 0.35),
+    rgba(34, 197, 94, 0.25),
+    rgba(16, 185, 129, 0.3),
+    rgba(34, 197, 94, 0.25)
   );
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+.security-card.featured:hover {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 25px 50px -12px rgba(74, 222, 128, 0.4), 0 0 80px rgba(74, 222, 128, 0.2),
+    0 0 120px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(74, 222, 128, 0.25),
+    inset 0 0 40px rgba(74, 222, 128, 0.08);
 }
 
 .security-card.featured:hover::before {
@@ -961,19 +1103,37 @@ onUnmounted(() => {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    rgba(74, 222, 128, 0.3),
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmerMove 3s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 200%;
+  }
 }
 
 .security-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(74, 222, 128, 0.2),
-    0 4px 6px -2px rgba(74, 222, 128, 0.1);
-  border-color: rgba(74, 222, 128, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(74, 222, 128, 0.3),
+    0 4px 6px -2px rgba(74, 222, 128, 0.15), 0 0 20px rgba(74, 222, 128, 0.2);
+  border-color: rgba(74, 222, 128, 0.5);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.15));
 }
 
 .security-badge:hover::before {
-  left: 100%;
+  animation-duration: 1s;
 }
 
 .security-badge svg {
@@ -1244,6 +1404,30 @@ button {
   .divider-line {
     height: 2px;
   }
+}
+
+/* Noise Texture Overlay for Depth */
+.site-content::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: overlay;
+}
+
+/* Aurora-like gradient animation */
+.hero-section,
+.security-section {
+  position: relative;
+}
+
+.hero-section > *:not(::before):not(::after),
+.security-section > *:not(::before):not(::after) {
+  position: relative;
+  z-index: 2;
 }
 
 /* Animation Classes */
