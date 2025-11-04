@@ -362,35 +362,30 @@
       </div>
 
       <!-- Our Services & Partnerships Section -->
-      <section class="modern-section py-12 sm:py-16 md:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="modern-card">
-            <SectionService />
-          </div>
+      <section class="section-wrapper bg-gray-900">
+        <div class="section-inner">
+          <div class="section-border-accent"></div>
+          <SectionService />
         </div>
       </section>
 
       <!-- Technology Highlights Section -->
-      <section
-        class="modern-section bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 sm:py-16 md:py-20"
-      >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="modern-card">
-            <BlackGradient />
-          </div>
+      <section class="section-wrapper section-dark">
+        <div class="section-inner">
+          <div class="section-border-accent"></div>
+          <BlackGradient />
         </div>
       </section>
 
       <!-- Trusted Teams Section -->
-      <section class="modern-section py-12 sm:py-16 md:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="modern-card">
-            <TrustedTeams />
-          </div>
+      <section class="section-wrapper bg-gray-900">
+        <div class="section-inner">
+          <div class="section-border-accent"></div>
+          <TrustedTeams />
         </div>
       </section>
 
-      <!-- Wave separator before final sections (improved for all screen sizes) -->
+      <!-- Wave separator before final sections -->
       <div class="wave-transition accent-wave">
         <div class="divider-line bg-green-400"></div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave-svg">
@@ -403,20 +398,18 @@
       </div>
 
       <!-- Commercial Services & Pricing Section -->
-      <section class="modern-section py-12 sm:py-16 md:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="modern-card">
-            <SectionOne />
-          </div>
+      <section class="section-wrapper bg-gray-900">
+        <div class="section-inner">
+          <div class="section-border-accent"></div>
+          <SectionOne />
         </div>
       </section>
 
       <!-- Pricing Section -->
-      <section class="modern-section bg-gray-900 py-12 sm:py-16 md:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="modern-card">
-            <Pricing />
-          </div>
+      <section class="section-wrapper section-dark">
+        <div class="section-inner">
+          <div class="section-border-accent"></div>
+          <Pricing />
         </div>
       </section>
 
@@ -524,60 +517,81 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
-/* Modern Section Styling */
-.modern-section {
+/* Clean Section Styling */
+.section-wrapper {
   position: relative;
-  width: 100%;
+  padding: 4rem 0;
+  overflow: hidden;
 }
 
-/* Modern Card Design */
-.modern-card {
-  background: rgba(17, 24, 39, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(75, 85, 99, 0.3);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+.section-wrapper.section-dark {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
 }
 
-.modern-card:hover {
-  border-color: rgba(74, 222, 128, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+.section-inner {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* Elegant border accent */
+.section-border-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.section-wrapper:first-of-type .section-border-accent {
+  display: none;
+}
+
+/* Responsive padding */
 @media (min-width: 640px) {
-  .modern-card {
-    padding: 2rem;
-    border-radius: 1.5rem;
+  .section-wrapper {
+    padding: 5rem 0;
+  }
+
+  .section-inner {
+    padding: 0 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .modern-card {
-    padding: 2.5rem;
+  .section-wrapper {
+    padding: 6rem 0;
+  }
+
+  .section-inner {
+    padding: 0 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .modern-card {
-    padding: 3rem;
+  .section-wrapper {
+    padding: 7rem 0;
   }
 }
 
-/* Modern Wave Transition Styling */
-
+/* Wave Transition Styling */
 .wave-transition {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 60px;
   z-index: 40;
   margin-bottom: -1px;
 }
 
 .wave-transition--gradient {
-  height: 80px;
+  height: 60px;
 }
 
 .wave-gradient-overlay {
@@ -585,28 +599,34 @@ onUnmounted(() => {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 40px;
+  height: 30px;
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(17, 24, 39, 0.01) 0%,
-    rgba(17, 24, 39, 0.7) 60%,
+    rgba(17, 24, 39, 0) 0%,
+    rgba(17, 24, 39, 0.5) 60%,
     rgba(17, 24, 39, 0) 100%
   );
   z-index: 42;
 }
 
 .wave-transition.accent-wave {
-  margin-top: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .divider-line {
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 100%;
   top: 50%;
   z-index: 42;
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.5) 50%,
+    transparent 100%
+  );
 }
 
 .wave-svg {
@@ -623,45 +643,37 @@ onUnmounted(() => {
 
 @media (min-width: 640px) {
   .wave-transition {
-    height: 100px;
+    height: 80px;
   }
 
   .wave-transition--gradient {
-    height: 100px;
+    height: 80px;
   }
 
   .wave-gradient-overlay {
-    height: 50px;
-  }
-
-  .wave-transition.accent-wave {
-    margin-top: 2rem;
+    height: 40px;
   }
 
   .divider-line {
-    height: 4px;
+    height: 2px;
   }
 }
 
 @media (min-width: 768px) {
   .wave-transition {
-    height: 110px;
+    height: 90px;
   }
 
   .wave-transition--gradient {
-    height: 110px;
+    height: 90px;
   }
 
   .wave-gradient-overlay {
-    height: 60px;
-  }
-
-  .wave-transition.accent-wave {
-    margin-top: 3rem;
+    height: 45px;
   }
 
   .divider-line {
-    height: 5px;
+    height: 2px;
   }
 }
 
