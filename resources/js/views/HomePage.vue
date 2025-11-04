@@ -566,7 +566,7 @@ onUnmounted(() => {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
-  background: radial-gradient(circle at 10% 0%, #111827 0%, #0f172a 100%);
+  background: #0a0f1a;
 }
 
 .site-content {
@@ -574,16 +574,58 @@ onUnmounted(() => {
   z-index: 10;
 }
 
+/* Enhanced Desert Parallax Background */
 .fixed-parallax {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1000;
+  z-index: 0;
+  opacity: 0.25;
+  filter: brightness(0.7) contrast(1.1);
+  transition: opacity 0.5s ease;
 }
 
-/* Enhanced Security Hero Section */
+.fixed-parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 15, 26, 0.4) 0%,
+    rgba(15, 23, 42, 0.7) 50%,
+    rgba(10, 15, 26, 0.9) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fixed-parallax::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(74, 222, 128, 0.03) 0%,
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.02) 0%, transparent 40%);
+  z-index: 2;
+  pointer-events: none;
+  animation: parallaxGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes parallaxGlow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Enhanced Security Hero Section with Parallax Support */
 .hero-section {
   position: relative;
   min-height: 90vh;
@@ -591,12 +633,13 @@ onUnmounted(() => {
   overflow: hidden;
   background: radial-gradient(
       circle at 30% 20%,
-      rgba(74, 222, 128, 0.05) 0%,
+      rgba(74, 222, 128, 0.08) 0%,
       transparent 50%
     ),
-    radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.8) 0%, #0f172a 100%);
+    radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(10, 15, 26, 0.3) 0%, rgba(15, 23, 42, 0.6) 100%);
   animation: heroGlow 10s ease-in-out infinite alternate;
+  backdrop-filter: blur(0.5px);
 }
 
 @keyframes heroGlow {
@@ -641,7 +684,11 @@ onUnmounted(() => {
 .security-section {
   position: relative;
   padding: 6rem 1.5rem;
-  background: linear-gradient(165deg, #0f172a 0%, #111827 100%);
+  background: linear-gradient(
+    165deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(17, 24, 39, 0.95) 100%
+  );
   overflow: hidden;
   border-bottom: 1px solid rgba(74, 222, 128, 0.1);
 }
@@ -652,12 +699,35 @@ onUnmounted(() => {
   inset: 0;
   background: radial-gradient(
       circle at 120% 50%,
-      rgba(74, 222, 128, 0.05) 0%,
+      rgba(74, 222, 128, 0.06) 0%,
       transparent 50%
     ),
-    radial-gradient(circle at -20% 50%, rgba(34, 197, 94, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at -20% 50%, rgba(34, 197, 94, 0.04) 0%, transparent 50%);
   pointer-events: none;
   animation: sectionGlow 15s ease-in-out infinite alternate;
+}
+
+/* Security Grid Pattern Overlay */
+.security-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.3;
+  animation: gridPulse 20s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 @keyframes sectionGlow {
@@ -702,18 +772,36 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-/* Enhanced Security Card Design */
+/* Enhanced Security Card Design with Tech Elements */
 .security-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.9));
-  border: 1px solid rgba(74, 222, 128, 0.15);
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(74, 222, 128, 0.2);
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(20px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(74, 222, 128, 0.05);
+    inset 0 1px 0 rgba(74, 222, 128, 0.08), inset 0 0 0 1px rgba(74, 222, 128, 0.03);
   overflow: hidden;
+}
+
+/* Corner Brackets - Security Tech Style */
+.security-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: linear-gradient(90deg, rgba(74, 222, 128, 0.15) 0, transparent 20px),
+    linear-gradient(180deg, rgba(74, 222, 128, 0.15) 0, transparent 20px),
+    linear-gradient(270deg, rgba(74, 222, 128, 0.15) 0, transparent 20px),
+    linear-gradient(0deg, rgba(74, 222, 128, 0.15) 0, transparent 20px);
+  background-size: 60px 2px, 2px 60px, 60px 2px, 2px 60px;
+  background-position: top left, top left, bottom right, bottom right;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* Animated gradient border effect */
@@ -769,9 +857,10 @@ onUnmounted(() => {
 
 .security-card:hover {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(74, 222, 128, 0.3);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4),
-    0 15px 30px -10px rgba(74, 222, 128, 0.15), inset 0 1px 0 rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 15px 30px -10px rgba(74, 222, 128, 0.2), 0 0 40px rgba(74, 222, 128, 0.1),
+    inset 0 1px 0 rgba(74, 222, 128, 0.15);
 }
 
 .security-card:hover::before {
@@ -780,6 +869,32 @@ onUnmounted(() => {
 
 .security-card:hover::after {
   opacity: 1;
+}
+
+/* Scan Line Effect on Hover */
+.security-card > * {
+  position: relative;
+}
+
+.security-card:hover > *::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(74, 222, 128, 0.1), transparent);
+  animation: scanLine 2s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes scanLine {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 /* Featured card with enhanced effects */
@@ -1067,6 +1182,20 @@ button {
     rgba(74, 222, 128, 0.5) 50%,
     transparent 100%
   );
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3), 0 0 20px rgba(74, 222, 128, 0.2);
+  animation: dividerPulse 3s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scaleX(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 .wave-svg {
