@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden">
+  <div
+    class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden"
+  >
     <LoadingScreen v-if="showLoadingScreen" ref="loadingScreen" />
 
     <!-- Modern animated background with grid -->
     <div class="absolute inset-0 -z-10">
       <!-- Animated grid pattern -->
-      <svg
-        class="absolute inset-0 h-full w-full stroke-green-500/5"
-        aria-hidden="true">
+      <svg class="absolute inset-0 h-full w-full stroke-green-500/5" aria-hidden="true">
         <defs>
           <pattern id="modern-grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M0 40V.5H40" fill="none" stroke-width="0.5" />
@@ -15,10 +15,14 @@
         </defs>
         <rect width="100%" height="100%" fill="url(#modern-grid)" />
       </svg>
-      
+
       <!-- Glowing orbs for depth -->
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div
+        class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"
+      ></div>
     </div>
 
     <!-- Product Collage - Modern card design -->
@@ -26,185 +30,379 @@
       <!-- Header with better alignment -->
       <div class="text-center mb-8">
         <div class="inline-flex items-center justify-center mb-6">
-          <img class="h-20 w-auto mr-3" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+          <img
+            class="h-20 w-auto mr-3"
+            src="/public/images/nm-logo-rmbg.webp"
+            alt="nmtechnology-logo"
+          />
           <div class="flex flex-col items-start">
             <span class="text-4xl md:text-5xl font-bold text-white">Technology</span>
-            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase">Security Solutions</span>
+            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase"
+              >Security Solutions</span
+            >
           </div>
         </div>
-        <h1 class="text-2xl md:text-3xl font-bold text-white mb-4 max-w-3xl mx-auto leading-tight">
-          Advanced Security & Surveillance Solutions for <span class="text-green-400">New Mexico</span>
+        <h1
+          class="text-2xl md:text-3xl font-bold text-white mb-4 max-w-3xl mx-auto leading-tight"
+        >
+          Advanced Security & Surveillance Solutions for
+          <span class="text-green-400">New Mexico</span>
         </h1>
+      </div>
 
-      <!-- Features List -->
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
-        <div class="flex items-center text-green-400 text-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd" />
-          </svg>
-          <span>Professional Installation</span>
+      <!-- Features List with modern cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+        <div
+          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+        >
+          <div
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <span class="text-white font-medium text-sm">Professional Installation</span>
         </div>
-        <div class="flex items-center text-green-400 text-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd" />
-          </svg>
-          <span>24/7 Support</span>
+        <div
+          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+        >
+          <div
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <span class="text-white font-medium text-sm">24/7 Support</span>
         </div>
-        <div class="flex items-center text-green-400 text-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd" />
-          </svg>
-          <span>Custom Solutions</span>
+        <div
+          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+        >
+          <div
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <span class="text-white font-medium text-sm">Custom Solutions</span>
         </div>
       </div>
 
-      <!-- Product Gallery -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-6">
-        <!-- Camera Images with Hover Effects -->
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/axis-bullet-cam.webp" alt="Bullet Camera"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+      <!-- Product Gallery with modern cards -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-8">
+        <!-- Camera Images with Modern Hover Effects -->
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/axis-bullet-cam.webp"
+            alt="Bullet Camera"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">Bullet Camera</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Bullet Camera</span>
+              <span class="text-green-400 text-xs">High-Resolution Surveillance</span>
+            </div>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/axis-dome.webp" alt="Dome Camera"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/axis-dome.webp"
+            alt="Dome Camera"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">Dome Camera</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Dome Camera</span>
+              <span class="text-green-400 text-xs">360° Coverage</span>
+            </div>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/cctv-corner.webp" alt="Corner CCTV"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/cctv-corner.webp"
+            alt="Corner CCTV"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">Corner Installation</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block"
+                >Corner Installation</span
+              >
+              <span class="text-green-400 text-xs">Strategic Positioning</span>
+            </div>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/google-doorbellcam.webp" alt="Doorbell Camera"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/google-doorbellcam.webp"
+            alt="Doorbell Camera"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">Doorbell Camera</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Doorbell Camera</span>
+              <span class="text-green-400 text-xs">Smart Home Integration</span>
+            </div>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/nvr-recorder.webp" alt="NVR System"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/nvr-recorder.webp"
+            alt="NVR System"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">NVR Recording System</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">NVR Recording</span>
+              <span class="text-green-400 text-xs">24/7 Recording System</span>
+            </div>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-lg group h-44 md:h-52">
-          <img src="/public/images/smart-access-control.webp" alt="Smart Access"
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/smart-access-control.webp"
+            alt="Smart Access"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-            <span class="text-white font-semibold text-sm">Smart Access Control</span>
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block"
+                >Smart Access Control</span
+              >
+              <span class="text-green-400 text-xs">Keyless Entry Systems</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Brands Section -->
-      <div class="flex flex-wrap justify-center gap-4 mt-2 mb-6">
-        <img src="/public/images/axiscomm-logo.webp" alt="Axis Communications"
-          class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/honeywell-logo.webp" alt="Honeywell"
-          class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/DSC-logo.webp" alt="DSC" class="h-8 grayscale hover:grayscale-0 transition-all">
-        <img src="/public/images/ubiquity-logo.webp" alt="Ubiquiti"
-          class="h-8 grayscale hover:grayscale-0 transition-all">
-      </div>
-
-      <div class="text-center">
-        <p class="text-gray-300 text-sm md:text-base font-medium mb-2">Securing homes and businesses across New Mexico
+      <!-- Brands Section with modern card -->
+      <div
+        class="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 mb-8"
+      >
+        <p
+          class="text-center text-gray-400 text-xs uppercase tracking-wider mb-4 font-semibold"
+        >
+          Trusted Brands
         </p>
-        <p class="text-white text-base md:text-lg font-semibold mb-4">Complete verification below to explore our full
-          product range</p>
-        <div class="inline-block animate-bounce">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          <img
+            src="/public/images/axiscomm-logo.webp"
+            alt="Axis Communications"
+            class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+          />
+          <img
+            src="/public/images/honeywell-logo.webp"
+            alt="Honeywell"
+            class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+          />
+          <img
+            src="/public/images/DSC-logo.webp"
+            alt="DSC"
+            class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+          />
+          <img
+            src="/public/images/ubiquity-logo.webp"
+            alt="Ubiquiti"
+            class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+          />
+        </div>
+      </div>
+
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-gray-300 text-base md:text-lg font-medium mb-3">
+          Securing homes and businesses across
+          <span class="text-green-400 font-bold">New Mexico</span>
+        </p>
+        <p
+          class="text-white text-lg md:text-xl font-bold mb-6 flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+              clip-rule="evenodd"
+            />
           </svg>
+          Verify Access to Continue
+        </p>
+        <div class="inline-flex items-center gap-2 text-sm text-gray-400">
+          <span class="animate-bounce">↓</span>
+          <span>Complete verification below</span>
+          <span class="animate-bounce">↓</span>
         </div>
       </div>
     </div>
 
-    <!-- Content -->
+    <!-- Verification Form - Modern Glass Design -->
     <div
-      class="w-full max-w-md space-y-8 bg-gray-800 p-8 rounded-lg shadow-xl relative z-10 border border-gray-700 animate-form-appear">
-      <!-- Logo and Header -->
-      <div class="flex flex-col items-center">
-        <div class="flex items-center">
-          <img class="h-16 w-auto mr-2" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-          <span class="italic text-lg font-extrabold text-white -ml-5">Technology</span>
-        </div>
-        <h2 class="mt-6 text-center text-2xl font-bold text-white">
-          <span class="text-green-500">Security</span> Specialists
-        </h2>
-        <div class="border-b border-green-500/30 w-16 mx-auto my-3"></div>
-        <p class="mt-2 text-center text-sm text-gray-300">
-          Please solve the math problem to access our full product catalog
-        </p>
-      </div>
+      class="w-full max-w-lg space-y-6 bg-gray-800/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl relative z-10 border border-gray-700/50 animate-form-appear"
+    >
+      <!-- Decorative gradient border effect -->
+      <div
+        class="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/10 to-blue-500/10 -z-10 blur-xl"
+      ></div>
 
-      <!-- Security Badge -->
-      <div class="flex items-center justify-center mb-2">
-        <div class="flex items-center justify-center bg-gray-700/50 rounded-full p-2 w-12 h-12">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd" />
-          </svg>
+      <!-- Logo and Header -->
+      <div class="flex flex-col items-center space-y-4">
+        <div class="relative">
+          <!-- Security Badge with Glow -->
+          <div
+            class="absolute inset-0 bg-green-500/20 rounded-full blur-2xl animate-pulse"
+          ></div>
+          <div
+            class="relative flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-4 w-20 h-20 border border-green-500/30 shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-green-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+            <span class="text-green-400">Security</span> Verification
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto mb-3 rounded-full"
+          ></div>
+          <p class="text-sm text-gray-300 max-w-sm">
+            Solve the problem below to verify you're human and access our catalog
+          </p>
         </div>
       </div>
 
       <!-- Verification Form -->
-      <form class="mt-4 space-y-6" @submit.prevent="verifyAnswer">
-        <div class="space-y-4">
-          <div class="bg-gray-700/50 p-4 rounded-lg">
-            <label for="answer" class="block text-center text-xl font-medium text-white mb-4">
-              {{ firstNumber }} {{ operator }} {{ secondNumber }} = ?
+      <form class="space-y-6" @submit.prevent="verifyAnswer">
+        <div class="space-y-5">
+          <div
+            class="bg-gradient-to-br from-gray-700/70 to-gray-800/70 p-6 rounded-2xl border border-gray-600/50 shadow-inner"
+          >
+            <label for="answer" class="block text-center mb-6">
+              <span
+                class="text-gray-400 text-sm font-medium mb-3 block uppercase tracking-wider"
+                >Math Challenge</span
+              >
+              <div
+                class="text-4xl md:text-5xl font-bold text-white mb-2 font-mono tracking-tight"
+              >
+                {{ firstNumber }} {{ operator }} {{ secondNumber }} = ?
+              </div>
+              <div
+                class="w-16 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto rounded-full"
+              ></div>
             </label>
             <div class="mt-2">
-              <input id="answer" name="answer" type="number" v-model.number="userAnswer" required
+              <input
+                id="answer"
+                name="answer"
+                type="number"
+                v-model.number="userAnswer"
+                required
                 class="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-green-600 text-center text-xl"
-                placeholder="Enter your answer" autofocus />
+                placeholder="Enter your answer"
+                autofocus
+              />
             </div>
           </div>
 
           <!-- Error Message -->
-          <div v-if="errorMessage"
-            class="text-center text-red-500 text-sm p-2 bg-red-500/10 rounded-md border border-red-500/20">
+          <div
+            v-if="errorMessage"
+            class="text-center text-red-500 text-sm p-2 bg-red-500/10 rounded-md border border-red-500/20"
+          >
             {{ errorMessage }}
           </div>
 
           <!-- Submit Button -->
           <div>
-            <button type="submit"
+            <button
+              type="submit"
               class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors relative overflow-hidden group"
-              @click="verifyAnswer">
+              @click="verifyAnswer"
+            >
               <span class="relative z-10">Verify & Continue</span>
               <span
-                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-500 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-500 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></span>
             </button>
           </div>
         </div>
@@ -212,18 +410,29 @@
 
       <!-- Footer Text -->
       <div class="text-center text-xs text-gray-400 bg-gray-700/30 py-2 px-4 rounded-md">
-        <p>This verification helps us protect our website and customers from automated traffic.</p>
+        <p>
+          This verification helps us protect our website and customers from automated
+          traffic.
+        </p>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="mt-8 text-center">
       <div class="flex items-center justify-center gap-4 mb-3">
-        <img src="/public/images/zia-symbol.webp" alt="New Mexico Zia Symbol" class="h-6 w-6 opacity-50" />
-        <p class="text-sm text-gray-400">&copy; {{ new Date().getFullYear() }} NM Technology. All rights reserved.</p>
+        <img
+          src="/public/images/zia-symbol.webp"
+          alt="New Mexico Zia Symbol"
+          class="h-6 w-6 opacity-50"
+        />
+        <p class="text-sm text-gray-400">
+          &copy; {{ new Date().getFullYear() }} NM Technology. All rights reserved.
+        </p>
         <img src="/public/images/usa-flag.webp" alt="USA Flag" class="h-6 opacity-50" />
       </div>
-      <div class="text-xs text-gray-500">Serving all of New Mexico with professional security solutions</div>
+      <div class="text-xs text-gray-500">
+        Serving all of New Mexico with professional security solutions
+      </div>
     </div>
 
     <!-- Loading Screen -->
@@ -232,18 +441,18 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import { toastService } from '../services/toastService.js';
-import LoadingScreen from '../components/LoadingScreen.vue';
-import { logAction, startVisitorSession } from '../utils/analytics.js';
+import { ref, computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { toastService } from "../services/toastService.js";
+import LoadingScreen from "../components/LoadingScreen.vue";
+import { logAction, startVisitorSession } from "../utils/analytics.js";
 
 const router = useRouter();
 const firstNumber = ref(0);
 const secondNumber = ref(0);
-const operatorType = ref('');
+const operatorType = ref("");
 const userAnswer = ref(null);
-const errorMessage = ref('');
+const errorMessage = ref("");
 const maxAttempts = ref(3);
 const attempts = ref(0); // Attempts for current problem
 const totalAttempts = ref(0); // Total attempts across all problems
@@ -255,20 +464,28 @@ const isLockedOut = ref(false);
 // Generate the operator symbol (+, -, *)
 const operator = computed(() => {
   switch (operatorType.value) {
-    case 'add': return '+';
-    case 'subtract': return '-';
-    case 'multiply': return '×';
-    default: return '+';
+    case "add":
+      return "+";
+    case "subtract":
+      return "-";
+    case "multiply":
+      return "×";
+    default:
+      return "+";
   }
 });
 
 // Calculate the correct answer
 const correctAnswer = computed(() => {
   switch (operatorType.value) {
-    case 'add': return firstNumber.value + secondNumber.value;
-    case 'subtract': return firstNumber.value - secondNumber.value;
-    case 'multiply': return firstNumber.value * secondNumber.value;
-    default: return 0;
+    case "add":
+      return firstNumber.value + secondNumber.value;
+    case "subtract":
+      return firstNumber.value - secondNumber.value;
+    case "multiply":
+      return firstNumber.value * secondNumber.value;
+    default:
+      return 0;
   }
 });
 
@@ -276,32 +493,33 @@ const correctAnswer = computed(() => {
 const generateMathProblem = () => {
   // Reset fields
   userAnswer.value = null;
-  errorMessage.value = '';
-  
+  errorMessage.value = "";
+
   // Choose a random operation (add, subtract, or multiply)
-  const operations = ['add', 'subtract', 'multiply'];
+  const operations = ["add", "subtract", "multiply"];
   operatorType.value = operations[Math.floor(Math.random() * operations.length)];
-  
+
   // Generate appropriate numbers based on the operation
-  if (operatorType.value === 'add') {
+  if (operatorType.value === "add") {
     // Addition: numbers between 1 and 20
     firstNumber.value = Math.floor(Math.random() * 20) + 1;
     secondNumber.value = Math.floor(Math.random() * 20) + 1;
-  } else if (operatorType.value === 'subtract') {
+  } else if (operatorType.value === "subtract") {
     // Subtraction: ensure first number is larger (no negative results)
-    firstNumber.value = Math.floor(Math.random() * 15) + 6;  // 6 to 20
-    secondNumber.value = Math.floor(Math.random() * firstNumber.value) + 1;  // 1 to firstNumber
+    firstNumber.value = Math.floor(Math.random() * 15) + 6; // 6 to 20
+    secondNumber.value = Math.floor(Math.random() * firstNumber.value) + 1; // 1 to firstNumber
   } else {
     // Multiplication: smaller numbers to keep it simple
-    firstNumber.value = Math.floor(Math.random() * 9) + 1;  // 1 to 9
-    secondNumber.value = Math.floor(Math.random() * 9) + 1;  // 1 to 9
+    firstNumber.value = Math.floor(Math.random() * 9) + 1; // 1 to 9
+    secondNumber.value = Math.floor(Math.random() * 9) + 1; // 1 to 9
   }
 };
 
 // Verify the user's answer
 const verifyAnswer = async () => {
   if (isLockedOut.value) {
-    errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+    errorMessage.value =
+      "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
     return;
   }
   const userAnswerNum = Number(userAnswer.value);
@@ -318,17 +536,17 @@ const verifyAnswer = async () => {
     correct: userAnswerNum === correctAnswerNum,
     time_spent: timeSpentSec,
     attempts: totalAttempts.value,
-    landing_page: window.location.pathname
+    landing_page: window.location.pathname,
   };
 
   // Send verification attempt to backend
   let response;
   try {
-    response = await fetch('/api/verify-math', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    response = await fetch("/api/verify-math", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      credentials: 'same-origin'
+      credentials: "same-origin",
     });
     const data = await response.json();
     if (data.us_only) {
@@ -337,7 +555,8 @@ const verifyAnswer = async () => {
     }
     if (data.locked_out) {
       isLockedOut.value = true;
-      errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+      errorMessage.value =
+        "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
       return;
     }
   } catch (e) {
@@ -346,9 +565,9 @@ const verifyAnswer = async () => {
   }
 
   if (userAnswerNum === correctAnswerNum) {
-    localStorage.setItem('humanVerified', 'true');
-    localStorage.setItem('humanVerifiedTimestamp', Date.now().toString());
-    localStorage.setItem('isInitialVerification', 'true');
+    localStorage.setItem("humanVerified", "true");
+    localStorage.setItem("humanVerifiedTimestamp", Date.now().toString());
+    localStorage.setItem("isInitialVerification", "true");
     // Start visitor session tracking
     startVisitorSession();
     showLoadingScreen.value = true;
@@ -356,7 +575,7 @@ const verifyAnswer = async () => {
       loadingScreen.value?.startLeaving();
     }, 2500);
     setTimeout(() => {
-      router.push('/home');
+      router.push("/home");
     }, 3000);
   } else {
     attempts.value += 1;
@@ -365,30 +584,33 @@ const verifyAnswer = async () => {
       attempts.value = 0;
       generateMathProblem();
     } else {
-      errorMessage.value = `Incorrect answer. You have ${maxAttempts.value - attempts.value} attempts remaining.`;
+      errorMessage.value = `Incorrect answer. You have ${
+        maxAttempts.value - attempts.value
+      } attempts remaining.`;
       userAnswer.value = null;
     }
     // If totalAttempts reaches 6, lock out
     if (totalAttempts.value >= 6) {
       isLockedOut.value = true;
-      errorMessage.value = "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
+      errorMessage.value =
+        "You have been locked out due to too many failed attempts. Please try again in 24 hours.";
     }
   }
 };
 
 // Example: log button click
 function onContactClick() {
-  logAction('ContactButton', 'Clicked contact button');
+  logAction("ContactButton", "Clicked contact button");
 }
 
 // Generate a math problem when the component mounts
 onMounted(() => {
-  const verifiedTimestamp = localStorage.getItem('humanVerifiedTimestamp');
+  const verifiedTimestamp = localStorage.getItem("humanVerifiedTimestamp");
   if (verifiedTimestamp) {
     const elapsed = Date.now() - parseInt(verifiedTimestamp);
     const dayInMs = 24 * 60 * 60 * 1000;
     if (elapsed < dayInMs) {
-      router.push('/home');
+      router.push("/home");
       return;
     }
   }
@@ -425,13 +647,17 @@ onMounted(() => {
 }
 
 .bg-gray-800::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, rgba(255,255,255,0) 60%);
+  background: radial-gradient(
+    circle,
+    rgba(52, 211, 153, 0.1) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
   animation: rotate 30s linear infinite;
   z-index: -1;
 }
