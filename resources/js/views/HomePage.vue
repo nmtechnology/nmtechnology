@@ -362,69 +362,40 @@
       </div>
 
       <!-- Our Services & Partnerships Section -->
-      <section class="tech-section">
-        <div class="tech-background">
-          <div class="circuit-lines"></div>
-          <div class="data-points"></div>
-        </div>
-        <div class="tech-container">
-          <div class="tech-panel">
-            <div class="panel-header">
-              <div class="header-line"></div>
-              <div class="status-indicator"></div>
-            </div>
-            <SectionService />
-            <div class="panel-footer">
-              <div class="footer-line"></div>
+      <section class="modern-section">
+        <div class="section-content">
+          <div class="card-wrapper">
+            <div class="card-frame">
+              <SectionService />
             </div>
           </div>
         </div>
       </section>
 
       <!-- Technology Highlights Section -->
-      <section class="tech-section tech-dark">
-        <div class="tech-background">
-          <div class="circuit-lines"></div>
-          <div class="data-points"></div>
-        </div>
-        <div class="tech-container">
-          <div class="tech-panel tech-highlight">
-            <div class="panel-header">
-              <div class="header-line"></div>
-              <div class="status-indicator active"></div>
-            </div>
-            <BlackGradient />
-            <div class="panel-footer">
-              <div class="footer-line"></div>
+      <section class="modern-section dark">
+        <div class="section-content">
+          <div class="card-wrapper featured">
+            <div class="card-frame accent">
+              <BlackGradient />
             </div>
           </div>
         </div>
       </section>
 
       <!-- Trusted Teams Section -->
-      <section class="tech-section">
-        <div class="tech-background">
-          <div class="circuit-lines"></div>
-          <div class="data-points"></div>
-        </div>
-        <div class="tech-container">
-          <div class="tech-panel">
-            <div class="panel-header">
-              <div class="header-line"></div>
-              <div class="status-indicator"></div>
-            </div>
-            <TrustedTeams />
-            <div class="panel-footer">
-              <div class="footer-line"></div>
+      <section class="modern-section">
+        <div class="section-content">
+          <div class="card-wrapper">
+            <div class="card-frame">
+              <TrustedTeams />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Digital Divider -->
-      <div class="digital-divider">
-        <div class="divider-grid"></div>
-        <div class="divider-pulse"></div>
+      <!-- Modern Divider -->
+      <div class="modern-divider">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave-svg">
           <path
             fill="#111827"
@@ -435,40 +406,22 @@
       </div>
 
       <!-- Commercial Services & Pricing Section -->
-      <section class="tech-section">
-        <div class="tech-background">
-          <div class="circuit-lines"></div>
-          <div class="data-points"></div>
-        </div>
-        <div class="tech-container">
-          <div class="tech-panel">
-            <div class="panel-header">
-              <div class="header-line"></div>
-              <div class="status-indicator"></div>
-            </div>
-            <SectionOne />
-            <div class="panel-footer">
-              <div class="footer-line"></div>
+      <section class="modern-section">
+        <div class="section-content">
+          <div class="card-wrapper">
+            <div class="card-frame">
+              <SectionOne />
             </div>
           </div>
         </div>
       </section>
 
       <!-- Pricing Section -->
-      <section class="tech-section tech-dark">
-        <div class="tech-background">
-          <div class="circuit-lines"></div>
-          <div class="data-points"></div>
-        </div>
-        <div class="tech-container">
-          <div class="tech-panel tech-highlight">
-            <div class="panel-header">
-              <div class="header-line"></div>
-              <div class="status-indicator active"></div>
-            </div>
-            <Pricing />
-            <div class="panel-footer">
-              <div class="footer-line"></div>
+      <section class="modern-section dark">
+        <div class="section-content">
+          <div class="card-wrapper featured">
+            <div class="card-frame accent">
+              <Pricing />
             </div>
           </div>
         </div>
@@ -578,59 +531,30 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
-/* Tech-Inspired Section Styling */
+/* Modern Section Styling - Minimalist with Bold Accents */
 .tech-section {
   position: relative;
-  padding: 3rem 0;
-  background: #0f172a;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1a2e4a 100%);
   overflow: hidden;
 }
 
 .tech-section.tech-dark {
-  background: #050b14;
+  background: linear-gradient(135deg, #050b14 0%, #0f1d2e 100%);
 }
 
-/* Animated Tech Background */
 .tech-background {
   position: absolute;
   inset: 0;
-  opacity: 0.15;
-  overflow: hidden;
+  opacity: 0;
 }
 
 .circuit-lines {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(90deg, rgba(74, 222, 128, 0.1) 1px, transparent 1px),
-    linear-gradient(rgba(74, 222, 128, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: circuitMove 20s linear infinite;
-}
-
-@keyframes circuitMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(50px, 50px);
-  }
+  display: none;
 }
 
 .data-points {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.3) 2px, transparent 2px);
-  background-size: 100px 100px;
-  animation: dataFlow 15s linear infinite;
-}
-
-@keyframes dataFlow {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100px);
-  }
+  display: none;
 }
 
 /* Tech Container */
@@ -642,40 +566,63 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-/* Tech Panel Design */
+/* Modern Panel with Minimalist Design */
 .tech-panel {
   position: relative;
   background: linear-gradient(
-    145deg,
-    rgba(17, 24, 39, 0.95) 0%,
-    rgba(31, 41, 55, 0.9) 100%
+    135deg,
+    rgba(20, 30, 48, 0.7) 0%,
+    rgba(15, 23, 42, 0.8) 100%
   );
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  border-left: 3px solid rgba(74, 222, 128, 0.5);
-  padding: 2.5rem 1.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-  transition: all 0.3s ease;
+  border: 2px solid rgba(74, 222, 128, 0);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
 
-.tech-panel.tech-highlight {
-  border-color: rgba(74, 222, 128, 0.4);
-  border-left-color: rgba(74, 222, 128, 0.8);
-  background: linear-gradient(
-    145deg,
-    rgba(22, 163, 74, 0.05) 0%,
-    rgba(17, 24, 39, 0.95) 50%,
-    rgba(17, 24, 39, 0.9) 100%
-  );
-  box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
+.tech-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.tech-panel:hover::before {
+  left: 100%;
 }
 
 .tech-panel:hover {
-  transform: translateX(5px);
-  border-left-width: 4px;
-  box-shadow: -5px 0 20px rgba(74, 222, 128, 0.2);
+  border-color: rgba(74, 222, 128, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(22, 163, 74, 0.12) 0%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  box-shadow: 0 15px 50px rgba(74, 222, 128, 0.2);
+  transform: translateY(-8px);
 }
 
-/* Panel Header with Status Indicator */
+.tech-panel.tech-highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 163, 74, 0.15) 0%,
+    rgba(20, 30, 48, 0.8) 100%
+  );
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 0 40px rgba(74, 222, 128, 0.12);
+}
+
+.tech-panel.tech-highlight:hover {
+  box-shadow: 0 20px 60px rgba(74, 222, 128, 0.25);
+  border-color: rgba(74, 222, 128, 0.7);
+}
+
+/* Panel Header */
 .panel-header {
   position: relative;
   display: flex;
@@ -687,59 +634,38 @@ onUnmounted(() => {
 
 .header-line {
   flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(74, 222, 128, 0.6) 0%, transparent 100%);
-  position: relative;
-  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  display: none;
 }
 
 .header-line::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.8), transparent);
-  animation: scanLine 3s ease-in-out infinite;
+  display: none;
 }
 
-@keyframes scanLine {
-  0%,
-  100% {
-    left: -100%;
+@keyframes none {
+  0% {
+    opacity: 0;
   }
-  50% {
-    left: 100%;
+  100% {
+    opacity: 0;
   }
 }
 
 .status-indicator {
-  width: 12px;
-  height: 12px;
-  background: rgba(74, 222, 128, 0.3);
+  width: 10px;
+  height: 10px;
+  background: rgba(74, 222, 128, 0.4);
   border: 2px solid rgba(74, 222, 128, 0.6);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
 }
 
 .status-indicator.active {
-  background: rgba(74, 222, 128, 0.8);
-  border-color: rgba(74, 222, 128, 1);
-  box-shadow: 0 0 15px rgba(74, 222, 128, 0.8);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
+  background: #4ade80;
+  border-color: #22c55e;
+  box-shadow: 0 0 16px rgba(74, 222, 128, 0.6);
+  animation: none;
 }
 
 /* Panel Footer */
@@ -749,13 +675,9 @@ onUnmounted(() => {
 }
 
 .footer-line {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(74, 222, 128, 0.3) 50%,
-    transparent 100%
-  );
+  height: 0;
+  opacity: 0;
+  display: none;
 }
 
 /* Digital Divider */
@@ -767,33 +689,17 @@ onUnmounted(() => {
 }
 
 .divider-grid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(90deg, rgba(74, 222, 128, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(74, 222, 128, 0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.3;
+  display: none;
 }
 
 .divider-pulse {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(74, 222, 128, 0.6) 50%,
-    transparent 100%
-  );
-  transform: translateY(-50%);
+  display: none;
 }
 
 /* Responsive Design */
 @media (min-width: 640px) {
   .tech-section {
-    padding: 4rem 0;
+    padding: 3.5rem 1.5rem;
   }
 
   .tech-container {
@@ -801,17 +707,14 @@ onUnmounted(() => {
   }
 
   .tech-panel {
-    padding: 3rem 2rem;
-  }
-
-  .circuit-lines {
-    background-size: 60px 60px;
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
   }
 }
 
 @media (min-width: 768px) {
   .tech-section {
-    padding: 5rem 0;
+    padding: 4rem 2rem;
   }
 
   .tech-container {
@@ -819,36 +722,33 @@ onUnmounted(() => {
   }
 
   .tech-panel {
-    padding: 4rem 3rem;
-  }
-
-  .circuit-lines {
-    background-size: 80px 80px;
-  }
-
-  .data-points {
-    background-size: 120px 120px;
+    padding: 3rem 2.5rem;
+    border-radius: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .tech-section {
-    padding: 6rem 0;
+    padding: 5rem 2rem;
   }
 
   .tech-panel {
-    padding: 5rem 4rem;
+    padding: 3.5rem 3rem;
   }
 
   .status-indicator {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
 }
 
 @media (min-width: 1280px) {
   .tech-section {
-    padding: 7rem 0;
+    padding: 6rem 2rem;
+  }
+
+  .tech-panel {
+    padding: 4rem 3.5rem;
   }
 } /* Wave Transition Styling */
 .wave-transition {
