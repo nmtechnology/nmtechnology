@@ -361,35 +361,68 @@
         <div class="wave-gradient-overlay"></div>
       </div>
 
-      <!-- Our Services & Partnerships Section -->
-      <section class="modern-section">
-        <div class="section-content">
-          <div class="card-wrapper">
-            <div class="card-frame">
-              <SectionService />
-            </div>
+      <!-- Services Section -->
+      <section class="security-section" ref="serviceSection" id="services">
+        <div class="security-container">
+          <div class="security-badge">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-2.88 8.76-7 10.13-4.12-1.37-7-5.46-7-10.13v-4.7l7-3.12z"
+              />
+            </svg>
+            Our Security Solutions
+          </div>
+          <div class="security-card">
+            <SectionService />
           </div>
         </div>
       </section>
 
-      <!-- Technology Highlights Section -->
-      <section class="modern-section dark">
-        <div class="section-content">
-          <div class="card-wrapper featured">
-            <div class="card-frame accent">
-              <BlackGradient />
-            </div>
+      <!-- Product Showcase -->
+      <section class="security-section dark" ref="productSection" id="products">
+        <div class="security-container">
+          <div class="security-badge">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                d="M12 16.5l4-4h-3v-9h-2v9H8l4 4zm9-13h-6v1.99h6v14.03H3V5.49h6V3.5H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+            Featured Products
+          </div>
+          <div class="security-card featured">
+            <BlackGradient />
           </div>
         </div>
       </section>
 
-      <!-- Trusted Teams Section -->
-      <section class="modern-section">
-        <div class="section-content">
-          <div class="card-wrapper">
-            <div class="card-frame">
-              <TrustedTeams />
-            </div>
+      <!-- Partners & Certifications -->
+      <section class="security-section" ref="trustedTeamsSection" id="partners">
+        <div class="security-container">
+          <div class="security-badge">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"
+              />
+            </svg>
+            Trusted Partners
+          </div>
+          <div class="security-card">
+            <TrustedTeams />
           </div>
         </div>
       </section>
@@ -405,30 +438,56 @@
         </svg>
       </div>
 
-      <!-- Commercial Services & Pricing Section -->
-      <section class="modern-section">
-        <div class="section-content">
-          <div class="card-wrapper">
-            <div class="card-frame">
-              <SectionOne />
-            </div>
+      <!-- Commercial Solutions -->
+      <section class="security-section dark" ref="section1" id="commercial">
+        <div class="security-container">
+          <div class="security-badge">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
+              />
+            </svg>
+            Commercial Security
+          </div>
+          <div class="security-card">
+            <SectionOne />
           </div>
         </div>
       </section>
 
-      <!-- Pricing Section -->
-      <section class="modern-section dark">
-        <div class="section-content">
-          <div class="card-wrapper featured">
-            <div class="card-frame accent">
-              <Pricing />
-            </div>
+      <!-- Pricing & Packages -->
+      <section class="security-section" ref="pricingSection" id="pricing">
+        <div class="security-container">
+          <div class="security-badge">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"
+              />
+            </svg>
+            Packages & Pricing
+          </div>
+          <div class="security-card featured">
+            <Pricing />
           </div>
         </div>
       </section>
 
-      <!-- Footer -->
-      <HomeFooter />
+      <!-- Footer with Security Focus -->
+      <div
+        class="bg-gradient-to-b from-gray-900 to-gray-950 border-t border-green-600/10"
+      >
+        <HomeFooter />
+      </div>
     </main>
 
     <!-- Modals -->
@@ -507,6 +566,7 @@ onUnmounted(() => {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
+  background: radial-gradient(circle at 10% 0%, #111827 0%, #0f172a 100%);
 }
 
 .site-content {
@@ -523,232 +583,198 @@ onUnmounted(() => {
   z-index: -1000;
 }
 
-/* Hero Section Styling */
+/* Modern Security Hero Section */
 .hero-section {
   position: relative;
-  padding-bottom: 6rem;
+  min-height: 90vh;
+  padding: 8rem 0 6rem;
   overflow: hidden;
-  background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(74, 222, 128, 0.03) 0%,
+      transparent 70%
+    ),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, #0f172a 100%);
 }
 
-/* Modern Section Styling - Minimalist with Bold Accents */
-.tech-section {
-  position: relative;
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #0f172a 0%, #1a2e4a 100%);
-  overflow: hidden;
-}
-
-.tech-section.tech-dark {
-  background: linear-gradient(135deg, #050b14 0%, #0f1d2e 100%);
-}
-
-.tech-background {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-
-.circuit-lines {
-  display: none;
-}
-
-.data-points {
-  display: none;
-}
-
-/* Tech Container */
-.tech-container {
-  position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  z-index: 1;
-}
-
-/* Modern Panel with Minimalist Design */
-.tech-panel {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(20, 30, 48, 0.7) 0%,
-    rgba(15, 23, 42, 0.8) 100%
-  );
-  border: 2px solid rgba(74, 222, 128, 0);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  overflow: hidden;
-}
-
-.tech-panel::before {
+.hero-section::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+}
+
+/* Security Section Styling */
+.security-section {
+  position: relative;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(165deg, #0f172a 0%, #111827 100%);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+.security-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 120% 50%,
+    rgba(74, 222, 128, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.security-section.dark {
+  background: linear-gradient(165deg, #0a0f1a 0%, #0f172a 100%);
+}
+
+/* Modern Security Container */
+.security-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+/* Security Card Design */
+.security-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.9));
+  border: 1px solid rgba(74, 222, 128, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.security-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.security-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.security-card.featured {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.security-card.featured::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.1), transparent);
-  transition: left 0.6s ease;
-}
-
-.tech-panel:hover::before {
-  left: 100%;
-}
-
-.tech-panel:hover {
-  border-color: rgba(74, 222, 128, 0.5);
-  background: linear-gradient(
-    135deg,
-    rgba(22, 163, 74, 0.12) 0%,
-    rgba(15, 23, 42, 0.9) 100%
+  background: radial-gradient(
+    circle at top right,
+    rgba(74, 222, 128, 0.1),
+    transparent 70%
   );
-  box-shadow: 0 15px 50px rgba(74, 222, 128, 0.2);
-  transform: translateY(-8px);
+  border-radius: 1rem;
+  pointer-events: none;
 }
 
-.tech-panel.tech-highlight {
-  background: linear-gradient(
-    135deg,
-    rgba(22, 163, 74, 0.15) 0%,
-    rgba(20, 30, 48, 0.8) 100%
-  );
-  border-color: rgba(74, 222, 128, 0.4);
-  box-shadow: 0 0 40px rgba(74, 222, 128, 0.12);
-}
-
-.tech-panel.tech-highlight:hover {
-  box-shadow: 0 20px 60px rgba(74, 222, 128, 0.25);
-  border-color: rgba(74, 222, 128, 0.7);
-}
-
-/* Panel Header */
-.panel-header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* Card Icons */
+.security-icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
   margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
 }
 
-.header-line {
-  flex: 1;
-  height: 0;
-  opacity: 0;
-  display: none;
+/* Security Badge */
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(74, 222, 128, 0.2);
 }
 
-.header-line::after {
-  display: none;
-}
-
-@keyframes none {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.status-indicator {
-  width: 10px;
-  height: 10px;
-  background: rgba(74, 222, 128, 0.4);
-  border: 2px solid rgba(74, 222, 128, 0.6);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
-}
-
-.status-indicator.active {
-  background: #4ade80;
-  border-color: #22c55e;
-  box-shadow: 0 0 16px rgba(74, 222, 128, 0.6);
-  animation: none;
-}
-
-/* Panel Footer */
-.panel-footer {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-}
-
-.footer-line {
-  height: 0;
-  opacity: 0;
-  display: none;
-}
-
-/* Digital Divider */
-.digital-divider {
-  position: relative;
-  height: 100px;
-  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
-  overflow: hidden;
-}
-
-.divider-grid {
-  display: none;
-}
-
-.divider-pulse {
-  display: none;
+.security-badge svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.375rem;
 }
 
 /* Responsive Design */
-@media (min-width: 640px) {
-  .tech-section {
-    padding: 3.5rem 1.5rem;
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 6rem 0 4rem;
+    min-height: 80vh;
   }
 
-  .tech-container {
-    padding: 0 1.5rem;
+  .security-section {
+    padding: 3rem 1rem;
   }
 
-  .tech-panel {
-    padding: 2.5rem 2rem;
-    border-radius: 1.25rem;
+  .security-container {
+    padding: 0 1rem;
+  }
+
+  .security-card {
+    padding: 2rem 1.5rem;
   }
 }
 
-@media (min-width: 768px) {
-  .tech-section {
-    padding: 4rem 2rem;
+@media (min-width: 641px) and (max-width: 1023px) {
+  .security-section {
+    padding: 4rem 1.5rem;
   }
 
-  .tech-container {
-    padding: 0 2rem;
-  }
-
-  .tech-panel {
-    padding: 3rem 2.5rem;
-    border-radius: 1.5rem;
+  .security-card {
+    padding: 2.5rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .tech-section {
-    padding: 5rem 2rem;
+  .hero-section {
+    min-height: 90vh;
   }
 
-  .tech-panel {
-    padding: 3.5rem 3rem;
+  .security-section {
+    padding: 6rem 2rem;
   }
 
-  .status-indicator {
-    width: 12px;
-    height: 12px;
+  .security-card {
+    padding: 3rem 2.5rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .tech-section {
-    padding: 6rem 2rem;
+  .security-section {
+    padding: 7rem 2rem;
   }
 
-  .tech-panel {
-    padding: 4rem 3.5rem;
+  .security-card {
+    padding: 3.5rem 3rem;
   }
 } /* Wave Transition Styling */
 .wave-transition {
