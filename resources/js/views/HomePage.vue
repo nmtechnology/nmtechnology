@@ -386,11 +386,71 @@
         </div>
       </section>
 
-      <!-- Components -->
-      <Pricing />
-      <BlackGradient />
-      <SectionService />
-      <SectionOne />
+      <!-- Components with Better Organization -->
+      
+      <!-- Services Section -->
+      <section class="relative bg-gray-900 py-16 sm:py-24">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"></div>
+        <div class="relative">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
+            <div class="mx-auto max-w-2xl text-center">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Services</h2>
+              <p class="mt-4 text-lg leading-8 text-gray-300">
+                Comprehensive security solutions tailored to your needs
+              </p>
+            </div>
+          </div>
+          <SectionService />
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+        <div class="relative">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
+            <div class="mx-auto max-w-2xl text-center">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Products</h2>
+              <p class="mt-4 text-lg leading-8 text-gray-300">
+                Industry-leading security equipment and technology
+              </p>
+            </div>
+          </div>
+          <BlackGradient />
+        </div>
+      </section>
+
+      <!-- Commercial Solutions Section -->
+      <section class="relative bg-gray-900 py-16 sm:py-24">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"></div>
+        <div class="relative">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
+            <div class="mx-auto max-w-2xl text-center">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Commercial Solutions</h2>
+              <p class="mt-4 text-lg leading-8 text-gray-300">
+                Enterprise-grade security for businesses of all sizes
+              </p>
+            </div>
+          </div>
+          <SectionOne />
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+        <div class="relative">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
+            <div class="mx-auto max-w-2xl text-center">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Pricing Plans</h2>
+              <p class="mt-4 text-lg leading-8 text-gray-300">
+                Flexible packages designed for your budget
+              </p>
+            </div>
+          </div>
+          <Pricing />
+        </div>
+      </section>
+
+      <!-- Footer -->
       <HomeFooter />
     </main>
 
