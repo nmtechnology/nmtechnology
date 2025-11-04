@@ -362,26 +362,47 @@
       </div>
 
       <!-- Our Services & Partnerships Section -->
-      <section class="section-wrapper bg-gray-900">
-        <div class="section-inner">
-          <div class="section-border-accent"></div>
-          <SectionService />
+      <section class="content-section">
+        <div class="content-container">
+          <div class="content-box">
+            <div class="box-corner top-left"></div>
+            <div class="box-corner top-right"></div>
+            <div class="box-corner bottom-left"></div>
+            <div class="box-corner bottom-right"></div>
+            <div class="content-wrapper">
+              <SectionService />
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Technology Highlights Section -->
-      <section class="section-wrapper section-dark">
-        <div class="section-inner">
-          <div class="section-border-accent"></div>
-          <BlackGradient />
+      <section class="content-section alt-bg">
+        <div class="content-container">
+          <div class="content-box highlighted">
+            <div class="box-corner top-left"></div>
+            <div class="box-corner top-right"></div>
+            <div class="box-corner bottom-left"></div>
+            <div class="box-corner bottom-right"></div>
+            <div class="content-wrapper">
+              <BlackGradient />
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Trusted Teams Section -->
-      <section class="section-wrapper bg-gray-900">
-        <div class="section-inner">
-          <div class="section-border-accent"></div>
-          <TrustedTeams />
+      <section class="content-section">
+        <div class="content-container">
+          <div class="content-box">
+            <div class="box-corner top-left"></div>
+            <div class="box-corner top-right"></div>
+            <div class="box-corner bottom-left"></div>
+            <div class="box-corner bottom-right"></div>
+            <div class="content-wrapper">
+              <TrustedTeams />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -398,18 +419,32 @@
       </div>
 
       <!-- Commercial Services & Pricing Section -->
-      <section class="section-wrapper bg-gray-900">
-        <div class="section-inner">
-          <div class="section-border-accent"></div>
-          <SectionOne />
+      <section class="content-section">
+        <div class="content-container">
+          <div class="content-box">
+            <div class="box-corner top-left"></div>
+            <div class="box-corner top-right"></div>
+            <div class="box-corner bottom-left"></div>
+            <div class="box-corner bottom-right"></div>
+            <div class="content-wrapper">
+              <SectionOne />
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Pricing Section -->
-      <section class="section-wrapper section-dark">
-        <div class="section-inner">
-          <div class="section-border-accent"></div>
-          <Pricing />
+      <section class="content-section alt-bg">
+        <div class="content-container">
+          <div class="content-box highlighted">
+            <div class="box-corner top-left"></div>
+            <div class="box-corner top-right"></div>
+            <div class="box-corner bottom-left"></div>
+            <div class="box-corner bottom-right"></div>
+            <div class="content-wrapper">
+              <Pricing />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -517,71 +552,191 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
-/* Clean Section Styling */
-.section-wrapper {
+/* Modern Content Section Styling */
+.content-section {
   position: relative;
-  padding: 4rem 0;
-  overflow: hidden;
+  padding: 2rem 0;
+  background: #111827;
 }
 
-.section-wrapper.section-dark {
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+.content-section.alt-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
 }
 
-.section-inner {
-  position: relative;
-  max-width: 80rem;
+.content-container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Elegant border accent */
-.section-border-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
+/* Modern Box Design with Corner Accents */
+.content-box {
+  position: relative;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(74, 222, 128, 0.3) 50%,
-    transparent 100%
+    135deg,
+    rgba(17, 24, 39, 0.8) 0%,
+    rgba(31, 41, 55, 0.6) 100%
   );
+  border: 1px solid rgba(75, 85, 99, 0.2);
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.section-wrapper:first-of-type .section-border-accent {
-  display: none;
+.content-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.1),
+    transparent,
+    rgba(59, 130, 246, 0.1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-/* Responsive padding */
+.content-box.highlighted {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 163, 74, 0.05) 0%,
+    rgba(17, 24, 39, 0.8) 50%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+  border-color: rgba(74, 222, 128, 0.2);
+}
+
+.content-box:hover {
+  transform: translateY(-4px);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px -10px rgba(74, 222, 128, 0.1);
+}
+
+/* Corner Accent Elements */
+.box-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(74, 222, 128, 0.6);
+  transition: all 0.3s ease;
+}
+
+.box-corner.top-left {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-top-left-radius: 0.5rem;
+}
+
+.box-corner.top-right {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  border-top-right-radius: 0.5rem;
+}
+
+.box-corner.bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.box-corner.bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.content-box:hover .box-corner {
+  width: 40px;
+  height: 40px;
+  border-color: rgba(74, 222, 128, 0.9);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
 @media (min-width: 640px) {
-  .section-wrapper {
-    padding: 5rem 0;
+  .content-section {
+    padding: 3rem 0;
   }
 
-  .section-inner {
+  .content-container {
     padding: 0 1.5rem;
+  }
+
+  .content-box {
+    padding: 3rem 2rem;
+    border-radius: 0.75rem;
+  }
+
+  .box-corner {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content-box:hover .box-corner {
+    width: 50px;
+    height: 50px;
   }
 }
 
 @media (min-width: 768px) {
-  .section-wrapper {
-    padding: 6rem 0;
+  .content-section {
+    padding: 4rem 0;
   }
 
-  .section-inner {
+  .content-container {
     padding: 0 2rem;
+  }
+
+  .content-box {
+    padding: 4rem 3rem;
+    border-radius: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .section-wrapper {
-    padding: 7rem 0;
+  .content-section {
+    padding: 5rem 0;
+  }
+
+  .content-box {
+    padding: 5rem 4rem;
+  }
+
+  .box-corner {
+    width: 35px;
+    height: 35px;
+  }
+
+  .content-box:hover .box-corner {
+    width: 60px;
+    height: 60px;
   }
 }
 
-/* Wave Transition Styling */
+@media (min-width: 1280px) {
+  .content-section {
+    padding: 6rem 0;
+  }
+} /* Wave Transition Styling */
 .wave-transition {
   position: relative;
   width: 100%;
