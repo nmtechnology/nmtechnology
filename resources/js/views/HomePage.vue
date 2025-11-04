@@ -583,18 +583,29 @@ onUnmounted(() => {
   z-index: -1000;
 }
 
-/* Modern Security Hero Section */
+/* Enhanced Security Hero Section */
 .hero-section {
   position: relative;
   min-height: 90vh;
   padding: 8rem 0 6rem;
   overflow: hidden;
   background: radial-gradient(
-      circle at 50% 50%,
-      rgba(74, 222, 128, 0.03) 0%,
-      transparent 70%
+      circle at 30% 20%,
+      rgba(74, 222, 128, 0.05) 0%,
+      transparent 50%
     ),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, #0f172a 100%);
+    radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.8) 0%, #0f172a 100%);
+  animation: heroGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%;
+  }
 }
 
 .hero-section::before {
@@ -603,14 +614,33 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(74, 222, 128, 0.5) 30%,
+    rgba(74, 222, 128, 0.8) 50%,
+    rgba(74, 222, 128, 0.5) 70%,
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+  animation: lineShimmer 3s ease-in-out infinite;
 }
 
-/* Security Section Styling */
+@keyframes lineShimmer {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Enhanced Security Section Styling */
 .security-section {
   position: relative;
-  padding: 5rem 1.5rem;
+  padding: 6rem 1.5rem;
   background: linear-gradient(165deg, #0f172a 0%, #111827 100%);
   overflow: hidden;
   border-bottom: 1px solid rgba(74, 222, 128, 0.1);
@@ -621,15 +651,46 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 120% 50%,
-    rgba(74, 222, 128, 0.03) 0%,
-    transparent 50%
-  );
+      circle at 120% 50%,
+      rgba(74, 222, 128, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at -20% 50%, rgba(34, 197, 94, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  animation: sectionGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes sectionGlow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.security-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.2), transparent);
   pointer-events: none;
 }
 
 .security-section.dark {
   background: linear-gradient(165deg, #0a0f1a 0%, #0f172a 100%);
+}
+
+.security-section.dark::before {
+  background: radial-gradient(
+      circle at -20% 50%,
+      rgba(74, 222, 128, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at 120% 50%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
 }
 
 /* Modern Security Container */
@@ -641,56 +702,110 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-/* Security Card Design */
+/* Enhanced Security Card Design */
 .security-card {
   position: relative;
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.9));
-  border: 1px solid rgba(74, 222, 128, 0.1);
-  border-radius: 1rem;
+  border: 1px solid rgba(74, 222, 128, 0.15);
+  border-radius: 1.5rem;
   padding: 2.5rem 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(74, 222, 128, 0.05);
+  overflow: hidden;
+}
+
+/* Animated gradient border effect */
+.security-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(74, 222, 128, 0.15),
+    rgba(34, 197, 94, 0.1),
+    rgba(74, 222, 128, 0.15),
+    rgba(34, 197, 94, 0.1)
+  );
+  background-size: 300% 300%;
+  border-radius: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: gradientShift 8s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .security-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), transparent);
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.2),
+    rgba(34, 197, 94, 0.05),
+    transparent
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
 }
 
 .security-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(74, 222, 128, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 15px 30px -10px rgba(74, 222, 128, 0.15), inset 0 1px 0 rgba(74, 222, 128, 0.1);
 }
 
+.security-card:hover::before {
+  opacity: 1;
+}
+
+.security-card:hover::after {
+  opacity: 1;
+}
+
+/* Featured card with enhanced effects */
 .security-card.featured {
-  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(15, 23, 42, 0.95));
-  border: 1px solid rgba(74, 222, 128, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(22, 163, 74, 0.15),
+    rgba(17, 24, 39, 0.95),
+    rgba(15, 23, 42, 0.95)
+  );
+  border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
 .security-card.featured::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at top right,
-    rgba(74, 222, 128, 0.1),
-    transparent 70%
+  background: linear-gradient(
+    45deg,
+    rgba(74, 222, 128, 0.3),
+    rgba(34, 197, 94, 0.2),
+    rgba(74, 222, 128, 0.3),
+    rgba(34, 197, 94, 0.2)
   );
-  border-radius: 1rem;
-  pointer-events: none;
+  opacity: 0.6;
+}
+
+.security-card.featured:hover::before {
+  opacity: 1;
 }
 
 /* Card Icons */
@@ -704,24 +819,107 @@ onUnmounted(() => {
   box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
 }
 
-/* Security Badge */
+/* Enhanced Security Badge */
 .security-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(74, 222, 128, 0.1);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(34, 197, 94, 0.1));
   color: #4ade80;
   font-size: 0.875rem;
-  font-weight: 600;
-  padding: 0.375rem 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
   border-radius: 9999px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(74, 222, 128, 0.2);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  box-shadow: 0 4px 6px -1px rgba(74, 222, 128, 0.1),
+    0 2px 4px -1px rgba(74, 222, 128, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.security-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.security-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(74, 222, 128, 0.2),
+    0 4px 6px -2px rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.security-badge:hover::before {
+  left: 100%;
 }
 
 .security-badge svg {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.375rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: 0.5rem;
+  filter: drop-shadow(0 0 4px rgba(74, 222, 128, 0.5));
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Smooth Scroll Enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Section Transitions */
+.security-section,
+.security-card,
+.security-badge {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays for sections */
+.security-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.security-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.security-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.security-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.security-section:nth-child(5) {
+  animation-delay: 0.5s;
 }
 
 /* Responsive Design */
@@ -741,40 +939,87 @@ onUnmounted(() => {
 
   .security-card {
     padding: 2rem 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .security-badge {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.875rem;
   }
 }
 
 @media (min-width: 641px) and (max-width: 1023px) {
   .security-section {
-    padding: 4rem 1.5rem;
+    padding: 4.5rem 1.5rem;
   }
 
   .security-card {
-    padding: 2.5rem 2rem;
+    padding: 2.75rem 2.25rem;
+    border-radius: 1.375rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section {
-    min-height: 90vh;
+    min-height: 92vh;
   }
 
-  .security-section {
-    padding: 6rem 2rem;
-  }
-
-  .security-card {
-    padding: 3rem 2.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
   .security-section {
     padding: 7rem 2rem;
   }
 
   .security-card {
     padding: 3.5rem 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .security-section {
+    padding: 8rem 2rem;
+  }
+
+  .security-card {
+    padding: 4rem 3.5rem;
+  }
+
+  .security-badge {
+    font-size: 0.9375rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+/* Add smooth transitions for all interactive elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improve focus states for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(74, 222, 128, 0.5);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Enhanced hover effects for links and buttons */
+a,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle parallax effect on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .security-section::before {
+    animation: parallaxFloat 20s ease-in-out infinite;
+  }
+}
+
+@keyframes parallaxFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
   }
 } /* Wave Transition Styling */
 .wave-transition {
