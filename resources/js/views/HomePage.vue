@@ -278,19 +278,20 @@
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                 <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  We're changing the way you are protected.
+                  We're changing the way you are protected and Served Right Here In
+                  <h1 class="text-yellow-400">New Mexico</h1>
                 </h1>
                 <p
                   class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
                 >
                   By utilizing integrated technology here in New Mexico to protect your
-                  home or business, you can automate routine tasks and create customized
-                  settings based on your preferences. By offering a full range of security
-                  services and products that address both physical and cyber threats, we
-                  can protect organizations of all types and sizes protect their people,
-                  assets, and data. In addition, we offer ongoing maintenance and support
-                  services to ensure that these systems continue to function effectively
-                  over time.
+                  home or business, customers can automate routine tasks and create
+                  customized settings based on your preferences. By offering a full range
+                  of security services and products that address both physical and cyber
+                  threats, we can protect organizations of all types and sizes protect
+                  their people, assets, and data. In addition, we offer ongoing
+                  maintenance and support services to ensure that these systems continue
+                  to function effectively over time.
                 </p>
 
                 <div class="mt-10 flex items-center gap-x-6">
