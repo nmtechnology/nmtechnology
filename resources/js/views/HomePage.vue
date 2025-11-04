@@ -243,7 +243,7 @@
         <div class="max-w-5xl mx-auto mt-24 sm:mt-32 md:mt-40">
           <!-- Modern Badge -->
           <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-6 animate-fadeIn"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500-500/10 border border-blue-500/20 mb-6 animate-fadeIn"
           >
             <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path
