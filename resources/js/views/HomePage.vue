@@ -361,124 +361,58 @@
         <div class="wave-gradient-overlay"></div>
       </div>
 
-      <!-- Services Section -->
-      <section class="security-section" ref="serviceSection" id="services">
-        <div class="security-container">
-          <div class="security-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-2.88 8.76-7 10.13-4.12-1.37-7-5.46-7-10.13v-4.7l7-3.12z"
-              />
-            </svg>
-            Our Security Solutions
+      <!-- Services Section - New Layout -->
+      <section class="content-section" ref="serviceSection" id="services">
+        <div class="content-wrapper">
+          <div class="section-header">
+            <span class="section-tag">Our Services</span>
+            <div class="section-line"></div>
           </div>
-          <div class="security-card">
-            <SectionService />
-          </div>
+          <SectionService />
         </div>
       </section>
 
-      <!-- Product Showcase -->
-      <section class="security-section dark" ref="productSection" id="products">
-        <div class="security-container">
-          <div class="security-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                d="M12 16.5l4-4h-3v-9h-2v9H8l4 4zm9-13h-6v1.99h6v14.03H3V5.49h6V3.5H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2z"
-              />
-            </svg>
-            Featured Products
+      <!-- Product Showcase - New Layout -->
+      <section class="content-section alt" ref="productSection" id="products">
+        <div class="content-wrapper">
+          <div class="section-header">
+            <span class="section-tag">Featured Products</span>
+            <div class="section-line"></div>
           </div>
-          <div class="security-card featured">
-            <BlackGradient />
-          </div>
+          <BlackGradient />
         </div>
       </section>
 
-      <!-- Partners & Certifications -->
-      <section class="security-section" ref="trustedTeamsSection" id="partners">
-        <div class="security-container">
-          <div class="security-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"
-              />
-            </svg>
-            Trusted Partners
+      <!-- Partners & Certifications - New Layout -->
+      <section class="content-section" ref="trustedTeamsSection" id="partners">
+        <div class="content-wrapper">
+          <div class="section-header">
+            <span class="section-tag">Trusted Partners</span>
+            <div class="section-line"></div>
           </div>
-          <div class="security-card">
-            <TrustedTeams />
-          </div>
+          <TrustedTeams />
         </div>
       </section>
 
-      <!-- Modern Divider -->
-      <div class="modern-divider">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave-svg">
-          <path
-            fill="#111827"
-            fill-opacity="1"
-            d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,122.7C960,139,1056,149,1152,144C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
-
-      <!-- Commercial Solutions -->
-      <section class="security-section dark" ref="section1" id="commercial">
-        <div class="security-container">
-          <div class="security-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"
-              />
-            </svg>
-            Commercial Security
+      <!-- Commercial Solutions - New Layout -->
+      <section class="content-section alt" ref="section1" id="commercial">
+        <div class="content-wrapper">
+          <div class="section-header">
+            <span class="section-tag">Commercial Solutions</span>
+            <div class="section-line"></div>
           </div>
-          <div class="security-card">
-            <SectionOne />
-          </div>
+          <SectionOne />
         </div>
       </section>
 
-      <!-- Pricing & Packages -->
-      <section class="security-section" ref="pricingSection" id="pricing">
-        <div class="security-container">
-          <div class="security-badge">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-4 h-4"
-            >
-              <path
-                d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"
-              />
-            </svg>
-            Packages & Pricing
+      <!-- Pricing & Packages - New Layout -->
+      <section class="content-section" ref="pricingSection" id="pricing">
+        <div class="content-wrapper">
+          <div class="section-header">
+            <span class="section-tag">Pricing Plans</span>
+            <div class="section-line"></div>
           </div>
-          <div class="security-card featured">
-            <Pricing />
-          </div>
+          <Pricing />
         </div>
       </section>
 
@@ -772,198 +706,155 @@ onUnmounted(() => {
   }
 }
 
-/* Enhanced Security Section Styling */
-.security-section {
+/* Modern Content Section Layout */
+.content-section {
   position: relative;
-  padding: 6rem 1.5rem;
+  padding: 8rem 2rem;
   background: linear-gradient(
     165deg,
     rgba(15, 23, 42, 0.95) 0%,
     rgba(17, 24, 39, 0.95) 100%
   );
   overflow: hidden;
-  border-bottom: 1px solid rgba(74, 222, 128, 0.1);
 }
 
-.security-section::before {
+.content-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      ellipse 900px 700px at 120% 50%,
-      rgba(74, 222, 128, 0.1) 0%,
-      transparent 50%
+      ellipse 1000px 800px at 50% 0%,
+      rgba(74, 222, 128, 0.08) 0%,
+      transparent 60%
     ),
     radial-gradient(
-      ellipse 700px 900px at -20% 50%,
-      rgba(34, 197, 94, 0.08) 0%,
+      circle 600px at 100% 100%,
+      rgba(34, 197, 94, 0.04) 0%,
       transparent 50%
-    ),
-    radial-gradient(circle 500px at 50% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    );
   pointer-events: none;
   animation: sectionGlow 15s ease-in-out infinite alternate;
-  filter: blur(50px);
+  filter: blur(60px);
   z-index: 0;
-}
-
-/* Security Grid Pattern Overlay */
-.security-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  opacity: 0.3;
-  animation: gridPulse 20s ease-in-out infinite;
-}
-
-@keyframes gridPulse {
-  0%,
-  100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.4;
-  }
 }
 
 @keyframes sectionGlow {
   0% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
   100% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 
-.security-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.2), transparent);
-  pointer-events: none;
-}
-
-.security-section.dark {
+/* Alternating section style */
+.content-section.alt {
   background: linear-gradient(165deg, #0a0f1a 0%, #0f172a 100%);
 }
 
-.security-section.dark::before {
+.content-section.alt::before {
   background: radial-gradient(
-      circle at -20% 50%,
-      rgba(74, 222, 128, 0.04) 0%,
-      transparent 50%
+      ellipse 1000px 800px at 50% 100%,
+      rgba(74, 222, 128, 0.06) 0%,
+      transparent 60%
     ),
-    radial-gradient(circle at 120% 50%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
+    radial-gradient(circle 500px at 0% 0%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
 }
 
-/* Modern Security Container */
-.security-container {
+/* Content wrapper */
+.content-wrapper {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1.5rem;
   z-index: 1;
 }
 
-/* Modern Security Card with Gradient Backgrounds */
-.security-card {
+/* Section header with tag and line */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.section-tag {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.95) 0%,
-    rgba(17, 24, 39, 0.98) 50%,
-    rgba(15, 23, 42, 0.95) 100%
-  );
-  border: 1px solid rgba(74, 222, 128, 0.08);
-  border-radius: 1.5rem;
-  padding: 2.5rem 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.05));
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
-/* Subtle gradient overlay - no glow */
-.security-card::before {
+.section-tag::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      circle at 0% 0%,
-      rgba(74, 222, 128, 0.04) 0%,
-      transparent 50%
-    ),
-    radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.03) 0%, transparent 50%);
-  border-radius: 1.5rem;
-  pointer-events: none;
-  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmerMove 3s ease-in-out infinite;
 }
 
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+@keyframes shimmerMove {
+  to {
+    transform: translateX(100%);
   }
 }
 
-.security-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 1.5rem;
-  padding: 1px;
+.section-line {
+  flex: 1;
+  height: 1px;
   background: linear-gradient(
-    135deg,
-    rgba(74, 222, 128, 0.2),
-    rgba(34, 197, 94, 0.05),
-    transparent
+    90deg,
+    rgba(74, 222, 128, 0.3) 0%,
+    rgba(74, 222, 128, 0.1) 50%,
+    transparent 100%
   );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
-}
-
-.security-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(74, 222, 128, 0.15);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.98) 0%,
-    rgba(22, 163, 74, 0.06) 50%,
-    rgba(15, 23, 42, 0.98) 100%
-  );
-}
-
-.security-card:hover::before {
-  background: radial-gradient(
-      circle at 0% 0%,
-      rgba(74, 222, 128, 0.08) 0%,
-      transparent 50%
-    ),
-    radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.06) 0%, transparent 50%);
-}
-
-/* Card content positioning */
-.security-card > * {
   position: relative;
-  z-index: 1;
 }
 
-/* Featured card with gradient backgrounds */
+.section-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .section-line {
+    width: 100%;
+  }
+
+  .content-section {
+    padding: 4rem 1.5rem;
+  }
+}
 .security-card.featured {
   background: linear-gradient(
     135deg,
