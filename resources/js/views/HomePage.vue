@@ -350,7 +350,7 @@
                 <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                   <div class="relative">
                     <img
-                      src="/public/images/it-rack.webp"
+                      src="/public/images/IT-rack.webp"
                       alt=""
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
@@ -360,7 +360,7 @@
                   </div>
                   <div class="relative">
                     <img
-                      src="/public/images/nvr-recorder.webp"
+                      src="/public/images/code-dev.webp"
                       alt=""
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
