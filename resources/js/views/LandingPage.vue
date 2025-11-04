@@ -1,28 +1,40 @@
 <template>
-  <div class="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden">
     <LoadingScreen v-if="showLoadingScreen" ref="loadingScreen" />
 
-    <!-- Background pattern similar to the main site -->
-    <svg
-      class="absolute inset-x-0 top-0 -z-40 h-full w-full stroke-slate-600 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
-      aria-hidden="true">
-      <defs>
-        <pattern id="verification-pattern" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-          <path d="M.5 300V.5H200" fill="none" />
-        </pattern>
-      </defs>
-      <svg x="50%" y="-1" class="overflow-visible">
-        <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-          stroke-width="0" />
+    <!-- Modern animated background with grid -->
+    <div class="absolute inset-0 -z-10">
+      <!-- Animated grid pattern -->
+      <svg
+        class="absolute inset-0 h-full w-full stroke-green-500/5"
+        aria-hidden="true">
+        <defs>
+          <pattern id="modern-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M0 40V.5H40" fill="none" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#modern-grid)" />
       </svg>
-      <rect width="100%" height="100%" stroke-width="0" fill="url(#verification-pattern)" />
-    </svg>
+      
+      <!-- Glowing orbs for depth -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </div>
 
-    <!-- Product Collage - This shows before the verification form -->
-    <div class="w-full max-w-4xl px-4 mb-8 animate-fadeIn">
-      <h1 class="text-center text-6xl md:text-4xl font-bold text-white mb-4">Advanced Security & Surveillance Solutions
-        from <img class="h-16 w-auto mr-2 -ml-2 justify-center" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">Technology!
-      </h1>
+    <!-- Product Collage - Modern card design -->
+    <div class="w-full max-w-6xl px-4 mb-12 animate-fadeIn">
+      <!-- Header with better alignment -->
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center mb-6">
+          <img class="h-20 w-auto mr-3" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+          <div class="flex flex-col items-start">
+            <span class="text-4xl md:text-5xl font-bold text-white">Technology</span>
+            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase">Security Solutions</span>
+          </div>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-bold text-white mb-4 max-w-3xl mx-auto leading-tight">
+          Advanced Security & Surveillance Solutions for <span class="text-green-400">New Mexico</span>
+        </h1>
 
       <!-- Features List -->
       <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
