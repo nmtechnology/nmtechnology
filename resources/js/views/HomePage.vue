@@ -362,53 +362,69 @@
       </div>
 
       <!-- Our Services & Partnerships Section -->
-      <section class="content-section">
-        <div class="content-container">
-          <div class="content-box">
-            <div class="box-corner top-left"></div>
-            <div class="box-corner top-right"></div>
-            <div class="box-corner bottom-left"></div>
-            <div class="box-corner bottom-right"></div>
-            <div class="content-wrapper">
-              <SectionService />
+      <section class="tech-section">
+        <div class="tech-background">
+          <div class="circuit-lines"></div>
+          <div class="data-points"></div>
+        </div>
+        <div class="tech-container">
+          <div class="tech-panel">
+            <div class="panel-header">
+              <div class="header-line"></div>
+              <div class="status-indicator"></div>
+            </div>
+            <SectionService />
+            <div class="panel-footer">
+              <div class="footer-line"></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Technology Highlights Section -->
-      <section class="content-section alt-bg">
-        <div class="content-container">
-          <div class="content-box highlighted">
-            <div class="box-corner top-left"></div>
-            <div class="box-corner top-right"></div>
-            <div class="box-corner bottom-left"></div>
-            <div class="box-corner bottom-right"></div>
-            <div class="content-wrapper">
-              <BlackGradient />
+      <section class="tech-section tech-dark">
+        <div class="tech-background">
+          <div class="circuit-lines"></div>
+          <div class="data-points"></div>
+        </div>
+        <div class="tech-container">
+          <div class="tech-panel tech-highlight">
+            <div class="panel-header">
+              <div class="header-line"></div>
+              <div class="status-indicator active"></div>
+            </div>
+            <BlackGradient />
+            <div class="panel-footer">
+              <div class="footer-line"></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Trusted Teams Section -->
-      <section class="content-section">
-        <div class="content-container">
-          <div class="content-box">
-            <div class="box-corner top-left"></div>
-            <div class="box-corner top-right"></div>
-            <div class="box-corner bottom-left"></div>
-            <div class="box-corner bottom-right"></div>
-            <div class="content-wrapper">
-              <TrustedTeams />
+      <section class="tech-section">
+        <div class="tech-background">
+          <div class="circuit-lines"></div>
+          <div class="data-points"></div>
+        </div>
+        <div class="tech-container">
+          <div class="tech-panel">
+            <div class="panel-header">
+              <div class="header-line"></div>
+              <div class="status-indicator"></div>
+            </div>
+            <TrustedTeams />
+            <div class="panel-footer">
+              <div class="footer-line"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Wave separator before final sections -->
-      <div class="wave-transition accent-wave">
-        <div class="divider-line bg-green-400"></div>
+      <!-- Digital Divider -->
+      <div class="digital-divider">
+        <div class="divider-grid"></div>
+        <div class="divider-pulse"></div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave-svg">
           <path
             fill="#111827"
@@ -419,30 +435,40 @@
       </div>
 
       <!-- Commercial Services & Pricing Section -->
-      <section class="content-section">
-        <div class="content-container">
-          <div class="content-box">
-            <div class="box-corner top-left"></div>
-            <div class="box-corner top-right"></div>
-            <div class="box-corner bottom-left"></div>
-            <div class="box-corner bottom-right"></div>
-            <div class="content-wrapper">
-              <SectionOne />
+      <section class="tech-section">
+        <div class="tech-background">
+          <div class="circuit-lines"></div>
+          <div class="data-points"></div>
+        </div>
+        <div class="tech-container">
+          <div class="tech-panel">
+            <div class="panel-header">
+              <div class="header-line"></div>
+              <div class="status-indicator"></div>
+            </div>
+            <SectionOne />
+            <div class="panel-footer">
+              <div class="footer-line"></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Pricing Section -->
-      <section class="content-section alt-bg">
-        <div class="content-container">
-          <div class="content-box highlighted">
-            <div class="box-corner top-left"></div>
-            <div class="box-corner top-right"></div>
-            <div class="box-corner bottom-left"></div>
-            <div class="box-corner bottom-right"></div>
-            <div class="content-wrapper">
-              <Pricing />
+      <section class="tech-section tech-dark">
+        <div class="tech-background">
+          <div class="circuit-lines"></div>
+          <div class="data-points"></div>
+        </div>
+        <div class="tech-container">
+          <div class="tech-panel tech-highlight">
+            <div class="panel-header">
+              <div class="header-line"></div>
+              <div class="status-indicator active"></div>
+            </div>
+            <Pricing />
+            <div class="panel-footer">
+              <div class="footer-line"></div>
             </div>
           </div>
         </div>
@@ -552,189 +578,277 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.8) 70%, #111827);
 }
 
-/* Modern Content Section Styling */
-.content-section {
+/* Tech-Inspired Section Styling */
+.tech-section {
   position: relative;
-  padding: 2rem 0;
-  background: #111827;
-}
-
-.content-section.alt-bg {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-}
-
-.content-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Modern Box Design with Corner Accents */
-.content-box {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.8) 0%,
-    rgba(31, 41, 55, 0.6) 100%
-  );
-  border: 1px solid rgba(75, 85, 99, 0.2);
-  border-radius: 0.5rem;
-  padding: 2rem 1.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 3rem 0;
+  background: #0f172a;
   overflow: hidden;
 }
 
-.content-box::before {
-  content: "";
+.tech-section.tech-dark {
+  background: #050b14;
+}
+
+/* Animated Tech Background */
+.tech-background {
   position: absolute;
   inset: 0;
-  border-radius: 0.5rem;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(74, 222, 128, 0.1),
-    transparent,
-    rgba(59, 130, 246, 0.1)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
+  opacity: 0.15;
+  overflow: hidden;
 }
 
-.content-box.highlighted {
-  background: linear-gradient(
-    135deg,
-    rgba(22, 163, 74, 0.05) 0%,
-    rgba(17, 24, 39, 0.8) 50%,
-    rgba(59, 130, 246, 0.05) 100%
-  );
-  border-color: rgba(74, 222, 128, 0.2);
-}
-
-.content-box:hover {
-  transform: translateY(-4px);
-  border-color: rgba(74, 222, 128, 0.4);
-  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px -10px rgba(74, 222, 128, 0.1);
-}
-
-/* Corner Accent Elements */
-.box-corner {
+.circuit-lines {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  border-color: rgba(74, 222, 128, 0.6);
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(74, 222, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(74, 222, 128, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: circuitMove 20s linear infinite;
+}
+
+@keyframes circuitMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.data-points {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.3) 2px, transparent 2px);
+  background-size: 100px 100px;
+  animation: dataFlow 15s linear infinite;
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+/* Tech Container */
+.tech-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  z-index: 1;
+}
+
+/* Tech Panel Design */
+.tech-panel {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.95) 0%,
+    rgba(31, 41, 55, 0.9) 100%
+  );
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-left: 3px solid rgba(74, 222, 128, 0.5);
+  padding: 2.5rem 1.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   transition: all 0.3s ease;
 }
 
-.box-corner.top-left {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-top-left-radius: 0.5rem;
+.tech-panel.tech-highlight {
+  border-color: rgba(74, 222, 128, 0.4);
+  border-left-color: rgba(74, 222, 128, 0.8);
+  background: linear-gradient(
+    145deg,
+    rgba(22, 163, 74, 0.05) 0%,
+    rgba(17, 24, 39, 0.95) 50%,
+    rgba(17, 24, 39, 0.9) 100%
+  );
+  box-shadow: 0 0 30px rgba(74, 222, 128, 0.1);
 }
 
-.box-corner.top-right {
-  top: -1px;
-  right: -1px;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-top-right-radius: 0.5rem;
+.tech-panel:hover {
+  transform: translateX(5px);
+  border-left-width: 4px;
+  box-shadow: -5px 0 20px rgba(74, 222, 128, 0.2);
 }
 
-.box-corner.bottom-left {
-  bottom: -1px;
-  left: -1px;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-  border-bottom-left-radius: 0.5rem;
-}
-
-.box-corner.bottom-right {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  border-bottom-right-radius: 0.5rem;
-}
-
-.content-box:hover .box-corner {
-  width: 40px;
-  height: 40px;
-  border-color: rgba(74, 222, 128, 0.9);
-}
-
-.content-wrapper {
+/* Panel Header with Status Indicator */
+.panel-header {
   position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.header-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(74, 222, 128, 0.6) 0%, transparent 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.8), transparent);
+  animation: scanLine 3s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+  0%,
+  100% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  background: rgba(74, 222, 128, 0.3);
+  border: 2px solid rgba(74, 222, 128, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.status-indicator.active {
+  background: rgba(74, 222, 128, 0.8);
+  border-color: rgba(74, 222, 128, 1);
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Panel Footer */
+.panel-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.footer-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Digital Divider */
+.digital-divider {
+  position: relative;
+  height: 100px;
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  overflow: hidden;
+}
+
+.divider-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(74, 222, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(74, 222, 128, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
+
+.divider-pulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.6) 50%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
 }
 
 /* Responsive Design */
 @media (min-width: 640px) {
-  .content-section {
-    padding: 3rem 0;
+  .tech-section {
+    padding: 4rem 0;
   }
 
-  .content-container {
+  .tech-container {
     padding: 0 1.5rem;
   }
 
-  .content-box {
+  .tech-panel {
     padding: 3rem 2rem;
-    border-radius: 0.75rem;
   }
 
-  .box-corner {
-    width: 30px;
-    height: 30px;
-  }
-
-  .content-box:hover .box-corner {
-    width: 50px;
-    height: 50px;
+  .circuit-lines {
+    background-size: 60px 60px;
   }
 }
 
 @media (min-width: 768px) {
-  .content-section {
-    padding: 4rem 0;
+  .tech-section {
+    padding: 5rem 0;
   }
 
-  .content-container {
+  .tech-container {
     padding: 0 2rem;
   }
 
-  .content-box {
+  .tech-panel {
     padding: 4rem 3rem;
-    border-radius: 1rem;
+  }
+
+  .circuit-lines {
+    background-size: 80px 80px;
+  }
+
+  .data-points {
+    background-size: 120px 120px;
   }
 }
 
 @media (min-width: 1024px) {
-  .content-section {
-    padding: 5rem 0;
+  .tech-section {
+    padding: 6rem 0;
   }
 
-  .content-box {
+  .tech-panel {
     padding: 5rem 4rem;
   }
 
-  .box-corner {
-    width: 35px;
-    height: 35px;
-  }
-
-  .content-box:hover .box-corner {
-    width: 60px;
-    height: 60px;
+  .status-indicator {
+    width: 14px;
+    height: 14px;
   }
 }
 
 @media (min-width: 1280px) {
-  .content-section {
-    padding: 6rem 0;
+  .tech-section {
+    padding: 7rem 0;
   }
 } /* Wave Transition Styling */
 .wave-transition {
