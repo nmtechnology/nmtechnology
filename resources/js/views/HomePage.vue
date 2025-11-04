@@ -571,6 +571,74 @@ onUnmounted(() => {
   }
 }
 
+/* Modern Glowing Orb Background Effects */
+.site-wrapper::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.08) 0%,
+      transparent 25%
+    ),
+    radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 25%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 30%);
+  animation: orbitGlow 30s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+@keyframes orbitGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(5%, -5%) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-5%, 5%) rotate(240deg);
+    opacity: 0.5;
+  }
+}
+
+/* Mesh Gradient Overlay */
+.site-wrapper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(74, 222, 128, 0.02) 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      225deg,
+      transparent 0%,
+      rgba(34, 197, 94, 0.015) 50%,
+      transparent 100%
+    );
+  z-index: 1;
+  pointer-events: none;
+  animation: meshShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshShift {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
 .site-content {
   position: relative;
   z-index: 10;
@@ -627,51 +695,65 @@ onUnmounted(() => {
   }
 }
 
-/* Clean Modern Hero Section */
+/* Enhanced Security Hero Section with Modern Glow */
 .hero-section {
   position: relative;
   min-height: 90vh;
   padding: 8rem 0 6rem;
   overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 15, 26, 0.5) 0%,
-    rgba(15, 23, 42, 0.9) 100%
-  );
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: radial-gradient(
-    ellipse 1000px 700px at 50% 0%,
-    rgba(74, 222, 128, 0.1) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
+      ellipse at 30% 20%,
+      rgba(74, 222, 128, 0.12) 0%,
+      transparent 40%
+    ),
+    radial-gradient(ellipse at 70% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(10, 15, 26, 0.2) 0%, rgba(15, 23, 42, 0.7) 100%);
+  animation: heroGlow 10s ease-in-out infinite alternate;
+  backdrop-filter: blur(0.5px);
 }
 
-/* Subtle dot pattern */
+/* Floating light particles effect */
 .hero-section::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(74, 222, 128, 0.15) 1px,
-    transparent 1px
-  );
-  background-size: 50px 50px;
-  opacity: 0.3;
+  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(34, 197, 94, 0.3) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0.1;
+  animation: particleFloat 40s linear infinite;
   pointer-events: none;
 }
 
-/* Clean Modern Content Section Layout */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes heroGlow {
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%;
+  }
+}
+
+/* Enhanced Security Section Styling */
 .content-section {
   position: relative;
-  padding: 8rem 2rem;
-  background: #0f172a;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(
+    165deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(17, 24, 39, 0.95) 100%
+  );
   overflow: hidden;
   border-bottom: 1px solid rgba(74, 222, 128, 0.1);
 }
@@ -681,25 +763,65 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    ellipse 800px 600px at 50% -10%,
-    rgba(74, 222, 128, 0.08) 0%,
-    transparent 70%
-  );
+      ellipse 900px 700px at 120% 50%,
+      rgba(74, 222, 128, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 700px 900px at -20% 50%,
+      rgba(34, 197, 94, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle 500px at 50% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
   pointer-events: none;
+  animation: sectionGlow 15s ease-in-out infinite alternate;
+  filter: blur(50px);
   z-index: 0;
 }
 
-/* Alternating section style */
+/* Security Grid Pattern Overlay */
+.content-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.3;
+  animation: gridPulse 20s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes sectionGlow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
 .content-section.alt {
-  background: linear-gradient(180deg, #0a0f1a 0%, #0f172a 100%);
+  background: linear-gradient(165deg, #0a0f1a 0%, #0f172a 100%);
 }
 
 .content-section.alt::before {
   background: radial-gradient(
-    ellipse 900px 700px at 50% 100%,
-    rgba(34, 197, 94, 0.06) 0%,
-    transparent 70%
-  );
+      circle at -20% 50%,
+      rgba(74, 222, 128, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(circle at 120% 50%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
 }
 
 /* Content wrapper */
