@@ -278,7 +278,7 @@
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                 <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  We're changing the way you are protected and Served Right Here In
+                  We're changing the way you are protected and Served Right Here In <img src="/public/images/zia-symbol.webp" alt="New Mexico Logo"></img>
                   <h1 class="text-yellow-400">New Mexico</h1>
                 </h1>
                 <p
