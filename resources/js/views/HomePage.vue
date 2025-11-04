@@ -350,7 +350,7 @@
                 <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                   <div class="relative">
                     <img
-                      src="/public/images/axis-bullet-cam.webp"
+                      src="/public/images/it-rack.webp"
                       alt=""
                       class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                     />
@@ -377,7 +377,6 @@
 
       <!-- Components -->
       <Pricing />
-      <DesertParallax />
       <BlackGradient />
       <SectionService />
       <SectionOne />
@@ -392,7 +391,6 @@
 <script setup>
 import SectionService from "../components/SectionService.vue";
 import SectionOne from "../components/SectionOne.vue";
-import DesertParallax from "../components/DesertParallax.vue";
 import BlackGradient from "../components/BlackGradient.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
