@@ -627,20 +627,36 @@ onUnmounted(() => {
   }
 }
 
-/* Enhanced Security Hero Section with Modern Glow */
+/* Enhanced Security Hero Section with Rich Gradients */
 .hero-section {
   position: relative;
   min-height: 90vh;
   padding: 8rem 0 6rem;
   overflow: hidden;
   background: radial-gradient(
-      ellipse at 30% 20%,
-      rgba(74, 222, 128, 0.12) 0%,
-      transparent 40%
+      ellipse 1400px 900px at 30% 20%,
+      rgba(74, 222, 128, 0.25) 0%,
+      rgba(34, 197, 94, 0.15) 25%,
+      transparent 50%
     ),
-    radial-gradient(ellipse at 70% 80%, rgba(34, 197, 94, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(10, 15, 26, 0.2) 0%, rgba(15, 23, 42, 0.7) 100%);
+    radial-gradient(
+      ellipse 1200px 800px at 70% 80%,
+      rgba(22, 163, 74, 0.2) 0%,
+      rgba(16, 185, 129, 0.12) 25%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle 1000px at 50% 0%,
+      rgba(16, 185, 129, 0.15) 0%,
+      rgba(5, 150, 105, 0.08) 30%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 15, 26, 0.3) 0%,
+      rgba(15, 23, 42, 0.8) 50%,
+      rgba(10, 15, 26, 0.95) 100%
+    );
   animation: heroGlow 10s ease-in-out infinite alternate;
   backdrop-filter: blur(0.5px);
 }
@@ -650,11 +666,11 @@ onUnmounted(() => {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(34, 197, 94, 0.3) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(74, 222, 128, 0.5) 2px, transparent 2px),
+    radial-gradient(circle, rgba(34, 197, 94, 0.4) 1.5px, transparent 1.5px);
   background-size: 50px 50px, 80px 80px;
   background-position: 0 0, 40px 40px;
-  opacity: 0.1;
+  opacity: 0.15;
   animation: particleFloat 40s linear infinite;
   pointer-events: none;
 }
@@ -706,14 +722,17 @@ onUnmounted(() => {
   }
 }
 
-/* Modern Content Section Layout */
+/* Modern Content Section Layout with Rich Gradients */
 .content-section {
   position: relative;
   padding: 8rem 2rem;
   background: linear-gradient(
     165deg,
-    rgba(15, 23, 42, 0.95) 0%,
-    rgba(17, 24, 39, 0.95) 100%
+    #0f172a 0%,
+    #1e293b 25%,
+    #0f172a 50%,
+    #164e3c 75%,
+    #0f172a 100%
   );
   overflow: hidden;
 }
@@ -723,42 +742,103 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-      ellipse 1000px 800px at 50% 0%,
-      rgba(74, 222, 128, 0.08) 0%,
+      ellipse 1200px 900px at 50% 0%,
+      rgba(74, 222, 128, 0.2) 0%,
+      rgba(34, 197, 94, 0.12) 30%,
       transparent 60%
     ),
     radial-gradient(
-      circle 600px at 100% 100%,
-      rgba(34, 197, 94, 0.04) 0%,
+      circle 800px at 100% 100%,
+      rgba(22, 163, 74, 0.15) 0%,
+      rgba(16, 185, 129, 0.08) 25%,
       transparent 50%
-    );
+    ),
+    radial-gradient(circle 600px at 0% 50%, rgba(74, 222, 128, 0.1) 0%, transparent 50%);
   pointer-events: none;
   animation: sectionGlow 15s ease-in-out infinite alternate;
-  filter: blur(60px);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.content-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.03) 0%,
+    transparent 25%,
+    rgba(34, 197, 94, 0.04) 50%,
+    transparent 75%,
+    rgba(16, 185, 129, 0.03) 100%
+  );
+  pointer-events: none;
+  animation: gradientShift 20s ease-in-out infinite alternate;
   z-index: 0;
 }
 
 @keyframes sectionGlow {
   0% {
-    opacity: 0.4;
+    opacity: 0.6;
   }
   100% {
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 
-/* Alternating section style */
+@keyframes gradientShift {
+  0% {
+    transform: translateX(0%) translateY(0%);
+  }
+  50% {
+    transform: translateX(5%) translateY(-5%);
+  }
+  100% {
+    transform: translateX(-5%) translateY(5%);
+  }
+}
+
+/* Alternating section style with different gradient palette */
 .content-section.alt {
-  background: linear-gradient(165deg, #0a0f1a 0%, #0f172a 100%);
+  background: linear-gradient(
+    165deg,
+    #0a0f1a 0%,
+    #1a2332 25%,
+    #0a0f1a 50%,
+    #14532d 75%,
+    #0a0f1a 100%
+  );
 }
 
 .content-section.alt::before {
   background: radial-gradient(
-      ellipse 1000px 800px at 50% 100%,
-      rgba(74, 222, 128, 0.06) 0%,
+      ellipse 1200px 900px at 50% 100%,
+      rgba(34, 197, 94, 0.18) 0%,
+      rgba(22, 163, 74, 0.1) 30%,
       transparent 60%
     ),
-    radial-gradient(circle 500px at 0% 0%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+    radial-gradient(
+      circle 700px at 0% 0%,
+      rgba(16, 185, 129, 0.12) 0%,
+      rgba(5, 150, 105, 0.06) 25%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle 900px at 100% 50%,
+      rgba(74, 222, 128, 0.08) 0%,
+      transparent 50%
+    );
+}
+
+.content-section.alt::after {
+  background: linear-gradient(
+    -135deg,
+    rgba(34, 197, 94, 0.04) 0%,
+    transparent 25%,
+    rgba(16, 185, 129, 0.05) 50%,
+    transparent 75%,
+    rgba(22, 163, 74, 0.03) 100%
+  );
 }
 
 /* Content wrapper */
@@ -791,12 +871,18 @@ onUnmounted(() => {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #4ade80;
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.05));
-  border: 1px solid rgba(74, 222, 128, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.2) 0%,
+    rgba(34, 197, 94, 0.15) 50%,
+    rgba(16, 185, 129, 0.1) 100%
+  );
+  border: 1px solid rgba(74, 222, 128, 0.3);
   border-radius: 9999px;
   white-space: nowrap;
   transition: all 0.3s ease;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .section-tag::before {
@@ -816,14 +902,17 @@ onUnmounted(() => {
 
 .section-line {
   flex: 1;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
     90deg,
-    rgba(74, 222, 128, 0.3) 0%,
-    rgba(74, 222, 128, 0.1) 50%,
+    rgba(74, 222, 128, 0.5) 0%,
+    rgba(34, 197, 94, 0.3) 25%,
+    rgba(16, 185, 129, 0.2) 50%,
+    rgba(22, 163, 74, 0.1) 75%,
     transparent 100%
   );
   position: relative;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
 }
 
 .section-line::after {
@@ -832,11 +921,22 @@ onUnmounted(() => {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  background: #4ade80;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
   border-radius: 50%;
-  box-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.8), 0 0 40px rgba(74, 222, 128, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.8), 0 0 40px rgba(74, 222, 128, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(74, 222, 128, 1), 0 0 60px rgba(74, 222, 128, 0.6);
+  }
 }
 
 /* Responsive adjustments */
