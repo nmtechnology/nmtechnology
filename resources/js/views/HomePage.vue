@@ -277,10 +277,20 @@
               class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center"
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  <span class="text-white">We're Changing The Way You Are</span> <span class="text-green-400">Protected and Served</span> <span class="text-white">Right Here In</span> <img class="w-16 h-16" src="/public/images/zia-symbol.webp" alt="New Mexico Logo"></img> <span class="text-yellow-400">New Mexico</span>
+                <h1
+                  class="text-4xl font-bold tracking-tight text-white sm:text-6xl flex flex-wrap items-center gap-2"
+                >
+                  <span class="text-white">We're Changing The Way You Are</span>
+                  <span class="text-green-400">Protected and Served</span>
+                  <span class="text-white">Right Here In</span>
+                  <img
+                    class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
+                    src="/public/images/zia-symbol.webp"
+                    alt="New Mexico Logo"
+                  />
+                  <span class="text-yellow-400">New Mexico</span>
                 </h1>
-                
+
                 <p
                   class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
                 >
