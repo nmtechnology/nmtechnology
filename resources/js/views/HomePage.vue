@@ -1,24 +1,22 @@
 <template>
   <div class="site-wrapper">
-    <!-- Modern Navigation Bar -->
-    <nav
-      class="modern-navbar fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-green-500/20"
-    >
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900 border-b border-green-600/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
-          <!-- Logo Section -->
-          <div class="flex items-center gap-3">
-            <img
-              src="/public/images/nm-logo-rmbg.webp"
-              alt="NM Technology"
-              class="h-12 w-auto"
-            />
-            <div class="hidden sm:flex flex-col">
-              <span class="text-xl font-bold text-white">Technology</span>
-              <span class="text-xs text-green-400 font-semibold tracking-wider uppercase"
-                >& Integration Solutions</span
+          <!-- Logo Section - Matching quote route style -->
+          <div class="flex items-center">
+            <router-link to="/home" class="relative flex items-center group">
+              <img
+                class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
+                src="/public/images/nm-logo-rmbg.webp"
+                alt="nmtechnology-logo"
+              />
+              <span
+                class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
+                >Technology</span
               >
-            </div>
+            </router-link>
           </div>
 
           <!-- Action Buttons -->
@@ -343,48 +341,6 @@ onUnmounted(() => {
   width: 100vw;
   height: 100vh;
   z-index: -1000;
-}
-
-/* Modern Navigation Bar */
-.modern-navbar {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  animation: slideDown 0.5s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.modern-navbar button {
-  position: relative;
-  overflow: hidden;
-}
-
-.modern-navbar button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.modern-navbar button:hover::before {
-  width: 300px;
-  height: 300px;
 }
 
 /* Hero Section Styling */
