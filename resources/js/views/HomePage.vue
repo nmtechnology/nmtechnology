@@ -288,7 +288,7 @@
                     src="/public/images/zia-symbol.webp"
                     alt="New Mexico Logo"
                   />
-                  <span class="text-yellow-400">New Mexico</span>
+                  <span class="text-white">New Mexico</span>
                 </h1>
 
                 <p
