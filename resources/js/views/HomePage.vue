@@ -210,218 +210,178 @@
       </div>
     </div>
 
-    <DesertParallax v-if="!isVerySmallScreen" class="fixed-parallax" />
-    <!-- Single TopBanner instance - positioning handled inside component to avoid class conflicts -->
-    <TopBanner v-show="showFixedBanner" />
-
     <!-- Main Content Starts -->
-    <main class="site-content">
-      <!-- Hero Section with Modern Design -->
-      <section
-        class="hero-section relative flex flex-col items-center justify-center min-h-screen w-full z-10 text-center px-4 py-10 sm:py-16 md:py-24"
-      >
-        <!-- Animated background grid -->
-        <div class="absolute inset-0 -z-10">
-          <svg
-            class="absolute inset-0 h-full w-full stroke-green-500/5"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="hero-grid"
-                width="40"
-                height="40"
-                patternUnits="userSpaceOnUse"
-              >
-                <path d="M0 40V.5H40" fill="none" stroke-width="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+    <main class="site-content bg-gray-900">
+      <!-- Hero Section - Old Template Style -->
+      <section class="relative isolate">
+        <svg
+          class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
+          aria-hidden="true"
+        >
+          <defs>
+            <pattern
+              id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+              width="200"
+              height="200"
+              x="50%"
+              y="-1"
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M.5 200V.5H200" fill="none" />
+            </pattern>
+          </defs>
+          <svg x="50%" y="-1" class="overflow-visible">
+            <path
+              d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+              stroke-width="0"
+            />
           </svg>
-        </div>
-
-        <div class="max-w-5xl mx-auto mt-24 sm:mt-32 md:mt-40">
-          <!-- Modern Badge -->
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500-500/10 border border-blue-500/20 mb-6 animate-fadeIn"
-          >
-            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span
-              class="text-xs sm:text-sm font-semibold text-green-400 tracking-wide uppercase"
-              >Trusted in New Mexico</span
-            >
-          </div>
-
-          <h1
-            class="tracking-tight text-gray-100 mb-6 sm:mb-8 text-3xl sm:text-4xl font-extrabold leading-tight sm:leading-none md:text-5xl lg:text-6xl animate-fadeIn"
-          >
-            Albuquerque's Trusted
-            <span class="text-green-400 block mt-2">Commercial CCTV & Security</span>
-            <span class="text-white block mt-2">Installation Experts</span>
-          </h1>
-
-          <p
-            class="text-base sm:text-lg font-normal text-gray-300 lg:text-xl animate-fadeIn-delay max-w-4xl mx-auto px-1 sm:px-4 leading-relaxed"
-          >
-            Professional
-            <strong class="text-green-400">CCTV installation & design</strong>, security
-            systems, and integrated technology solutions for businesses and homes
-            throughout New Mexico. Expert low voltage installation, ongoing maintenance,
-            and rapid support to protect your assets.
-          </p>
-
-          <!-- Modern CTA Buttons -->
-          <div
-            class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 w-full relative z-20 px-2"
-          >
-            <button
-              @click="openContactModal"
-              class="group w-full sm:w-auto text-sm sm:text-base font-semibold px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-            >
-              <svg
-                class="w-5 h-5 group-hover:rotate-12 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              Contact Us Today
-            </button>
-            <button
-              @click="generateQuote"
-              class="group w-full sm:w-auto text-sm sm:text-base font-semibold px-8 py-4 bg-gray-800 hover:bg-gray-700 border-2 border-blue-500 text-blue-400 hover:text-blue-300 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-            >
-              <svg
-                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Get Free Quote
-            </button>
-          </div>
-        </div>
-
-        <!-- Modern Product Showcase -->
-        <div class="hero-footer absolute bottom-0 left-0 right-0 py-6 sm:py-10 z-10">
-          <div class="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
-            <div class="group">
-              <img
-                src="/public/images/google-doorbellcam.webp"
-                alt="Smart Doorbell"
-                class="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 object-cover rounded-xl shadow-xl border-2 border-gray-700 group-hover:border-green-500 group-hover:scale-105 transition-all duration-300"
-              />
-            </div>
-            <div class="group">
-              <img
-                src="/public/images/security-cam-1.webp"
-                alt="Security Camera"
-                class="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 object-cover rounded-xl shadow-xl border-2 border-gray-700 group-hover:border-blue-500 group-hover:scale-105 transition-all duration-300"
-              />
-            </div>
-            <div class="group">
-              <img
-                src="/public/images/smart-access-control.webp"
-                alt="Access Control"
-                class="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 object-cover rounded-xl shadow-xl border-2 border-gray-700 group-hover:border-green-500 group-hover:scale-105 transition-all duration-300"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Elegant wave transition to next section (improved for all screen sizes) -->
-      <div class="wave-transition wave-transition--gradient">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave-svg">
-          <path
-            fill="#111827"
-            fill-opacity="1"
-            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
+          <rect
+            width="100%"
+            height="100%"
+            stroke-width="0"
+            fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
+          />
         </svg>
-        <div class="wave-gradient-overlay"></div>
-      </div>
+        <div
+          class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+          aria-hidden="true"
+        >
+          <div
+            class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+            style="
+              clip-path: polygon(
+                63.1% 29.5%,
+                100% 17.1%,
+                76.6% 3%,
+                48.4% 0%,
+                44.6% 4.7%,
+                54.5% 25.3%,
+                59.8% 49%,
+                55.2% 57.8%,
+                44.4% 57.2%,
+                27.8% 47.9%,
+                35.1% 81.5%,
+                0% 97.7%,
+                39.2% 100%,
+                35.2% 81.4%,
+                97.2% 52.8%,
+                63.1% 29.5%
+              );
+            "
+          ></div>
+        </div>
+        <div class="overflow-hidden">
+          <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+            <div
+              class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center"
+            >
+              <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                  We're changing the way you are protected.
+                </h1>
+                <p
+                  class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
+                >
+                  By utilizing integrated technology here in New Mexico to protect your
+                  home or business, you can automate routine tasks and create customized
+                  settings based on your preferences. By offering a full range of security
+                  services and products that address both physical and cyber threats, we
+                  can protect organizations of all types and sizes protect their people,
+                  assets, and data. In addition, we offer ongoing maintenance and support
+                  services to ensure that these systems continue to function effectively
+                  over time.
+                </p>
 
-      <!-- Services Section - New Layout -->
-      <section class="content-section" ref="serviceSection" id="services">
-        <div class="content-wrapper">
-          <div class="section-header">
-            <span class="section-tag">Our Services</span>
-            <div class="section-line"></div>
+                <div class="mt-10 flex items-center gap-x-6">
+                  <button
+                    @click="openContactModal"
+                    class="rounded-md bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-all duration-300"
+                  >
+                    Get started
+                  </button>
+                  <button
+                    @click="generateQuote"
+                    class="rounded-md bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all duration-300"
+                  >
+                    Get Quote
+                  </button>
+                </div>
+              </div>
+              <div
+                class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
+              >
+                <div
+                  class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80"
+                >
+                  <div class="relative">
+                    <img
+                      src="/public/images/google-doorbellcam.webp"
+                      alt=""
+                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                    ></div>
+                  </div>
+                </div>
+                <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+                  <div class="relative">
+                    <img
+                      src="/public/images/security-cam-1.webp"
+                      alt=""
+                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                    ></div>
+                  </div>
+                  <div class="relative">
+                    <img
+                      src="/public/images/smart-access-control.webp"
+                      alt=""
+                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                    ></div>
+                  </div>
+                </div>
+                <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+                  <div class="relative">
+                    <img
+                      src="/public/images/axis-bullet-cam.webp"
+                      alt=""
+                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                    ></div>
+                  </div>
+                  <div class="relative">
+                    <img
+                      src="/public/images/nvr-recorder.webp"
+                      alt=""
+                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <SectionService />
         </div>
       </section>
 
-      <!-- Product Showcase - New Layout -->
-      <section class="content-section alt" ref="productSection" id="products">
-        <div class="content-wrapper">
-          <div class="section-header">
-            <span class="section-tag">Featured Products</span>
-            <div class="section-line"></div>
-          </div>
-          <BlackGradient />
-        </div>
-      </section>
-
-      <!-- Partners & Certifications - New Layout -->
-      <section class="content-section" ref="trustedTeamsSection" id="partners">
-        <div class="content-wrapper">
-          <div class="section-header">
-            <span class="section-tag">Trusted Partners</span>
-            <div class="section-line"></div>
-          </div>
-          <TrustedTeams />
-        </div>
-      </section>
-
-      <!-- Commercial Solutions - New Layout -->
-      <section class="content-section alt" ref="section1" id="commercial">
-        <div class="content-wrapper">
-          <div class="section-header">
-            <span class="section-tag">Commercial Solutions</span>
-            <div class="section-line"></div>
-          </div>
-          <SectionOne />
-        </div>
-      </section>
-
-      <!-- Pricing & Packages - New Layout -->
-      <section class="content-section" ref="pricingSection" id="pricing">
-        <div class="content-wrapper">
-          <div class="section-header">
-            <span class="section-tag">Pricing Plans</span>
-            <div class="section-line"></div>
-          </div>
-          <Pricing />
-        </div>
-      </section>
-
-      <!-- Footer with Security Focus -->
-      <div
-        class="bg-gradient-to-b from-gray-900 to-gray-950 border-t border-green-600/10"
-      >
-        <HomeFooter />
-      </div>
+      <!-- Components -->
+      <Pricing />
+      <DesertParallax />
+      <BlackGradient />
+      <SectionService />
+      <SectionOne />
+      <HomeFooter />
     </main>
 
     <!-- Modals -->
@@ -435,12 +395,9 @@ import SectionOne from "../components/SectionOne.vue";
 import DesertParallax from "../components/DesertParallax.vue";
 import BlackGradient from "../components/BlackGradient.vue";
 import HomeFooter from "../components/HomeFooter.vue";
-import TopBanner from "../components/TopBanner.vue";
-import MobileMenu from "../components/MobileMenu.vue";
 import Pricing from "../components/Pricing.vue";
-import TrustedTeams from "../components/TrustedTeams.vue";
 import ContactModal from "../components/ContactModal.vue";
-import { ref, onMounted, onUnmounted, computed, provide } from "vue";
+import { ref, provide } from "vue";
 import { useRouter } from "vue-router";
 
 const contactModalRef = ref(null);
@@ -473,26 +430,6 @@ const generateQuote = () => {
 const isActiveRoute = (href) => {
   return router.currentRoute.value.path === href;
 };
-
-const showFixedBanner = ref(false);
-const isMobile = ref(false);
-const isVerySmallScreen = ref(false);
-const checkMobile = () => {
-  isMobile.value = window.innerWidth < 640;
-  isVerySmallScreen.value = window.innerWidth < 280;
-};
-const handleScroll = () => {
-  showFixedBanner.value = window.scrollY > window.innerHeight * 0.45;
-};
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", checkMobile);
-  checkMobile();
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-  window.removeEventListener("resize", checkMobile);
-});
 </script>
 
 <style scoped>
