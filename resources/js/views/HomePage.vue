@@ -278,8 +278,8 @@
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                 <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  <span class="text-white">We're Changing The Way You Are</span> <span class="text-green-400">Protected and Served</span> <span class="text-white">Right Here In</span> <img class="w-16 h-16" src="/public/images/zia-symbol.webp" alt="New Mexico Logo"></img>
-                 </h1> <h1 class="text-yellow-400">New Mexico</h1>
+                  <span class="text-white">We're Changing The Way You Are</span> <span class="text-green-400">Protected and Served</span> <span class="text-white">Right Here In</span> <img class="w-16 h-16" src="/public/images/zia-symbol.webp" alt="New Mexico Logo"></img> <span class="text-yellow-400">New Mexico</span>
+                </h1>
                 
                 <p
                   class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
