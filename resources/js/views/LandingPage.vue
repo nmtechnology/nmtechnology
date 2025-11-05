@@ -49,13 +49,13 @@
 
         <div class="inline-flex items-center justify-center mb-6">
           <img
-            class="h-20 w-auto mr-3"
+            class="h-20 w-auto mr-2 transition-transform duration-300"
             src="/public/images/nm-logo-rmbg.webp"
             alt="nmtechnology-logo"
           />
-          <div class="flex flex-col items-start">
-            <span class="text-4xl md:text-5xl font-bold text-white">Technology</span>
-            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase"
+          <div class="flex flex-col items-start -ml-5">
+            <span class="italic text-4xl md:text-5xl font-extrabold text-white transition-colors duration-300">Technology</span>
+            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase ml-0.5"
               >Security Solutions</span
             >
           </div>

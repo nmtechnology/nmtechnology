@@ -47,10 +47,11 @@
                       style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)" />
                   </div>
                 </div>
-                <div class="grid grid-rows-1 p-4 sm:p-8 lg:p-12">
-                  <img class="h-10 sm:h-12" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-                  <a href="#" class="text-sm italic font-bold leading-6 text-white flex-initial">Technology</a>
-                  <br>
+                <div class="p-4 sm:p-8 lg:p-12">
+                  <div class="flex items-center mb-6">
+                    <img class="h-10 sm:h-12 w-auto mr-2 transition-transform duration-300" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+                    <span class="italic text-lg sm:text-xl font-extrabold text-white -ml-5 transition-colors duration-300">Technology</span>
+                  </div>
                   <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-green-500">Security Service Request</h2>
                   <p class="mt-2 text-sm sm:text-base text-gray-300">Get expert security solutions tailored to your
                     needs. Our team specializes in CCTV installation, monitoring systems, and comprehensive security
