@@ -51,7 +51,8 @@
             >Security & Infrastructure</span
           ><span
             class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"
-            >Solutions</span
+          >
+            Solutions</span
           >
         </h2>
 

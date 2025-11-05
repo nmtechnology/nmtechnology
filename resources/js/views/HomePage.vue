@@ -77,13 +77,19 @@
                     class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
                     >Protected and Served</span
                   >
-                  <span class="text-white">Right Here In</span>
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"
+                    >Right Here In</span
+                  >
                   <img
                     class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
                     src="/public/images/zia-symbol.webp"
                     alt="New Mexico Logo"
                   />
-                  <span class="text-white">New Mexico</span>
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"
+                    >New Mexico</span
+                  >
                 </h1>
 
                 <p
