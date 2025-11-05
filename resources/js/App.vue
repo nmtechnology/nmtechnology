@@ -106,31 +106,14 @@
         @close="mobileMenuOpen = false" 
         :open="mobileMenuOpen"
       >
-        <div class="fixed inset-0 z-40">
-          <TransitionChild
-            as="template"
-            enter="transition ease-out duration-200"
-            enter-from="opacity-0"
-            enter-to="opacity-100"
-            leave="transition ease-in duration-150"
-            leave-from="opacity-100"
-            leave-to="opacity-0"
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm z-40" aria-hidden="true" />
+        
+        <!-- Panel container -->
+        <div class="fixed inset-0 z-40 flex justify-end">
+          <DialogPanel
+            class="relative w-full sm:max-w-sm bg-black px-6 py-6 border-l-4 border-green-600 shadow-2xl overflow-y-auto"
           >
-            <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm" />
-          </TransitionChild>
-          
-          <TransitionChild
-            as="template"
-            enter="transition ease-out duration-300"
-            enter-from="transform translate-x-full"
-            enter-to="transform translate-x-0"
-            leave="transition ease-in duration-200"
-            leave-from="transform translate-x-0"
-            leave-to="transform translate-x-full"
-          >
-            <DialogPanel
-              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl"
-            >
             <div class="flex items-center justify-between mb-6">
               <div class="flex items-center">
                 <router-link to="/home" class="relative flex items-center">
@@ -317,7 +300,6 @@
               </div>
             </div>
           </DialogPanel>
-        </TransitionChild>
         </div>
       </Dialog>
     </header>
