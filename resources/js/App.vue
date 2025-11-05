@@ -2,7 +2,7 @@
   <div>
     <header
       v-if="!isLandingPage"
-      class="fixed inset-x-0 top-0 z-50 bg-gray-900/10 backdrop-blur-md border-b border-green-600/30"
+      class="fixed inset-x-0 top-0 z-50 bg-black backdrop-blur-md border-b border-green-600/30"
     >
       <nav
         class="flex items-center justify-between h-20 p-6 lg:px-8 w-screen max-w-7xl mx-auto"
