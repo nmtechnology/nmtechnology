@@ -1,14 +1,8 @@
 <!-- eslint-disable no-mixed-spaces-and-tabs -->
 <!-- eslint-disable no-tabs -->
 <template>
-  <div class="root w-full">
-    <button class="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 bg-green-600 border border-transparent rounded-md font-medium text-white text-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300" @click="openModalFromOptions">
-      Contact Us
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    </button>
-    <teleport to="body">
+  <!-- Modal is opened via inject/provide from parent components (navbar, footer, etc.) -->
+  <teleport to="body">
       <div class="modal" v-if="isOpen" @click.self="closeModal">
         <!-- TAILWIND FORM START -->
         <div class="isolate bg-gray-900 modal-content">
@@ -516,7 +510,6 @@
         </div>
       </div>
     </teleport>
-  </div>
 </template>
 
 <script>
