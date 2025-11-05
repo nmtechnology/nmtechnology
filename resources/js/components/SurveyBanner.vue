@@ -4,8 +4,9 @@
       v-if="isVisible && !isDismissed"
       class="fixed top-20 left-0 right-0 z-40 bg-gradient-to-r from-green-600 via-green-500 to-lime-500 shadow-2xl border-b-4 border-green-700"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div class="flex items-center justify-between flex-wrap gap-4">
+      <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4">
+        <!-- Desktop Layout -->
+        <div class="hidden sm:flex items-center justify-between gap-4">
           <!-- Icon and Message -->
           <div class="flex items-center gap-4 flex-1 min-w-0">
             <div class="flex-shrink-0">
@@ -24,10 +25,10 @@
               </svg>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-white font-bold text-lg sm:text-xl mb-1">
+              <h3 class="text-white font-bold text-lg lg:text-xl mb-1">
                 🎉 Coming Soon: Online Store & Customer Portal!
               </h3>
-              <p class="text-white/90 text-sm sm:text-base">
+              <p class="text-white/90 text-sm lg:text-base">
                 {{ currentQuestion.text }}
               </p>
             </div>
@@ -39,7 +40,7 @@
               v-if="!showThankYou"
               @click="submitAnswer('yes')"
               :disabled="isSubmitting"
-              class="px-6 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              class="px-5 lg:px-6 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base whitespace-nowrap"
             >
               {{ isSubmitting ? "Submitting..." : "Yes! 👍" }}
             </button>
@@ -47,7 +48,7 @@
               v-if="!showThankYou"
               @click="submitAnswer('no')"
               :disabled="isSubmitting"
-              class="px-6 py-2 bg-white/20 text-white border-2 border-white rounded-lg font-semibold hover:bg-white/30 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              class="px-5 lg:px-6 py-2 bg-white/20 text-white border-2 border-white rounded-lg font-semibold hover:bg-white/30 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base whitespace-nowrap"
             >
               {{ isSubmitting ? "Submitting..." : "Not Sure 🤔" }}
             </button>
@@ -68,23 +69,85 @@
           </div>
         </div>
 
-        <!-- Thank You Message -->
+        <!-- Mobile Layout -->
+        <div class="sm:hidden">
+          <!-- Header with close button -->
+          <div class="flex items-start justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2 flex-1 min-w-0">
+              <svg
+                class="w-6 h-6 text-white animate-pulse flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              <h3 class="text-white font-bold text-base leading-tight">
+                🎉 Coming Soon!
+              </h3>
+            </div>
+            <button
+              @click="dismiss"
+              class="p-1.5 text-white/80 hover:text-white hover:bg-white/20 rounded-full transition-colors duration-200 flex-shrink-0"
+              aria-label="Dismiss banner"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Question text -->
+          <p class="text-white/95 text-sm font-medium mb-3 leading-relaxed">
+            {{ currentQuestion.text }}
+          </p>
+
+          <!-- Action buttons full width on mobile -->
+          <div v-if="!showThankYou" class="flex flex-col gap-2">
+            <button
+              @click="submitAnswer('yes')"
+              :disabled="isSubmitting"
+              class="w-full px-4 py-2.5 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 active:scale-98 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            >
+              {{ isSubmitting ? "Submitting..." : "Yes! 👍" }}
+            </button>
+            <button
+              @click="submitAnswer('no')"
+              :disabled="isSubmitting"
+              class="w-full px-4 py-2.5 bg-white/20 text-white border-2 border-white rounded-lg font-semibold hover:bg-white/30 active:scale-98 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            >
+              {{ isSubmitting ? "Submitting..." : "Not Sure 🤔" }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Thank You Message (shared between layouts) -->
         <transition name="fade">
           <div
             v-if="showThankYou"
-            class="mt-4 p-4 bg-white/20 backdrop-blur-sm rounded-lg border-2 border-white/40"
+            class="mt-3 sm:mt-4 p-3 sm:p-4 bg-white/20 backdrop-blur-sm rounded-lg border-2 border-white/40"
           >
-            <p class="text-white font-semibold text-center">
+            <p class="text-white font-semibold text-center text-sm sm:text-base">
               🙏 Thank you for your feedback! Your response helps us build better features
               for you.
             </p>
           </div>
         </transition>
 
-        <!-- Progress Indicator -->
+        <!-- Progress Indicator (shared between layouts) -->
         <div v-if="!showThankYou" class="mt-3 flex items-center gap-2">
-          <span class="text-white/80 text-xs font-medium"
-            >Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</span
+          <span class="text-white/80 text-xs font-medium whitespace-nowrap"
+            >{{ currentQuestionIndex + 1 }}/{{ questions.length }}</span
           >
           <div class="flex-1 h-1.5 bg-white/30 rounded-full overflow-hidden">
             <div
