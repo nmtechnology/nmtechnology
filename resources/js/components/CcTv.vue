@@ -14,18 +14,36 @@
     <!-- Background Pattern - Lower z-index -->
 
 
-    <main class="pt-[60px] pb-[180px] flex-grow relative z-20">
+    <main class="pt-[60px] pb-[180px] flex-grow relative z-20 bg-gradient-to-b from-black via-gray-900 to-gray-900">
+      <!-- Decorative Background Blurs -->
+      <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+      
       <div class="relative">
-        <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20 bg-gray-900/40 rounded-lg backdrop-blur-lg shadow-xl">
-          <h1 class="text-4xl font-extrabold text-center text-white mb-8 relative z-20">
+        <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
+          <!-- Badge -->
+          <div class="flex justify-center mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm">
+              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-sm font-semibold text-green-400">Advanced Security Solutions</span>
+            </div>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-8 relative z-20">
             <span v-if="activeCategory === 'package'">
-              Complete <span class="text-green-500">Security Packages</span>
+              <span class="text-white">Complete </span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Security Packages</span>
             </span>
             <span v-else>
-              Intelligent <span class="text-green-600 dark:text-blue-500">CCTV</span> Security Products
+              <span class="text-white">Intelligent </span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">CCTV</span>
+              <span class="text-white"> Security Products</span>
             </span>
           </h1>
-          <p class="text-white text-lg mb-10 text-center relative animate-fadeIn">
+          <p class="text-gray-300 text-lg mb-10 text-center relative animate-fadeIn max-w-4xl mx-auto leading-relaxed">
             <span v-if="activeCategory === 'package'">
               Protect your property with NM Technology's all-in-one security packages. Our expert team designs, installs, and supports systems for homes, businesses, and franchises across New Mexico.
             </span>
@@ -41,11 +59,11 @@
 
           <!-- Special Package Info Box -->
           <div v-if="activeCategory === 'package'" id="package-section"
-            class="bg-green-900/20 border border-green-600/30 rounded-lg p-4 mb-8">
+            class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 rounded-2xl p-6 mb-8 shadow-xl ring-1 ring-green-500/20">
             <div class="flex flex-col md:flex-row items-center gap-4">
               <div class="flex-1">
-                <h3 class="text-green-500 text-lg font-bold mb-2">Complete Security Solutions</h3>
-                <p class="text-gray-300 text-sm">
+                <h3 class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-xl font-bold mb-3">Complete Security Solutions</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
                   Our security packages are designed to provide complete coverage for properties of all sizes. Each
                   package includes cameras, recording equipment, storage, and all necessary accessories. As you move
                   up in tiers, you'll get higher resolution, more storage, and additional advanced features.
@@ -53,9 +71,9 @@
               </div>
               <div class="flex-shrink-0">
                 <button @click="showPackageComparison = !showPackageComparison"
-                  class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                  class="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white px-5 py-3 rounded-lg flex items-center gap-2 shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105 font-semibold">
                   <span>Compare All Packages</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300"
                     :class="{'rotate-180': showPackageComparison}" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -107,14 +125,16 @@
 
             <div v-for="(brandGroup, brand) in groupedProducts || {}" :key="brand" class="mb-16" v-else
               :id="brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null">
-              <h2 class="text-left text-wrap text-green-600 text-bold text-2xl font-extrabold mb-5">{{ brand }}</h2>
+              <h2 class="text-left text-wrap text-2xl font-extrabold mb-6">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">{{ brand }}</span>
+              </h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="product in brandGroup" :key="product.id"
-                  :class="['rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer',
-                      product.category === 'package' ? 'bg-gray-800/70 border border-green-600/30' : 
-                      product.category === 'monitoring' ? 'bg-gray-800/70 border border-purple-600/30' :
-                      (product.category === 'security' && product.color === 'blue') ? 'bg-gray-800/70 border border-blue-600/30' :
-                      (product.brand === 'NM Solar' && product.color === 'yellow') ? 'bg-gray-800/70 border border-yellow-600/30' : 'bg-gray-800/50']"
+                  :class="['rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
+                      product.category === 'package' ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20' : 
+                      product.category === 'monitoring' ? 'border border-purple-500/30 hover:border-purple-500/50 hover:shadow-purple-500/20 ring-1 ring-purple-500/20' :
+                      (product.category === 'security' && product.color === 'blue') ? 'border border-blue-500/30 hover:border-blue-500/50 hover:shadow-blue-500/20 ring-1 ring-blue-500/20' :
+                      (product.brand === 'NM Solar' && product.color === 'yellow') ? 'border border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-yellow-500/20 ring-1 ring-yellow-500/20' : 'border border-green-500/20 hover:border-green-500/40 hover:shadow-green-500/10']"
                   @click="showProductDetails(product)"
                   role="button"
                   :aria-label="`View details for ${product.name}`">
@@ -209,16 +229,16 @@
                     </div>
                     <div class="flex gap-2 mt-4">
                       <button @click.stop="addToCart(product)" :class="[
-                                'flex-1 py-2 rounded-l text-white transition-colors flex items-center justify-center',
+                                'flex-1 py-3 rounded-lg text-white font-semibold transition-all duration-300 flex items-center justify-center shadow-lg transform hover:scale-105',
                                 product.category === 'package' 
-                                  ? 'bg-green-600 hover:bg-green-700' 
+                                  ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-green-500/30' 
                                   : product.category === 'monitoring'
-                                    ? 'bg-purple-600 hover:bg-purple-700'
+                                    ? 'bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-purple-500/30'
                                     : (product.category === 'security' && product.color === 'blue')
-                                      ? 'bg-blue-600 hover:bg-blue-700'
+                                      ? 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30'
                                       : (product.brand === 'NM Solar' && product.color === 'yellow')
-                                        ? 'bg-yellow-600 hover:bg-yellow-700'
-                                        : 'bg-blue-500 hover:bg-blue-600'
+                                        ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 shadow-yellow-500/30'
+                                        : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30'
                               ]">
                         <span v-if="product.category === 'package'" class="mr-1">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -230,15 +250,15 @@
                       </button>
                       <button @click.stop="showProductDetails(product)" 
                               :class="[
-                                'px-3 py-2 rounded-r transition-all duration-200 cursor-pointer border',
+                                'px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer border transform hover:scale-105',
                                 product.category === 'package' 
-                                  ? 'border-green-600/50 hover:border-green-500 text-green-500 hover:text-green-400 hover:bg-green-900/20' 
+                                  ? 'border-green-500/50 hover:border-green-400 text-green-400 hover:text-green-300 hover:bg-green-900/20' 
                                   : product.category === 'monitoring'
-                                    ? 'border-purple-600/50 hover:border-purple-500 text-purple-500 hover:text-purple-400 hover:bg-purple-900/20'
+                                    ? 'border-purple-500/50 hover:border-purple-400 text-purple-400 hover:text-purple-300 hover:bg-purple-900/20'
                                     : (product.category === 'security' && product.color === 'blue')
-                                      ? 'border-blue-600/50 hover:border-blue-500 text-blue-500 hover:text-blue-400 hover:bg-blue-900/20'
+                                      ? 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20'
                                       : (product.brand === 'NM Solar' && product.color === 'yellow')
-                                        ? 'border-yellow-600/50 hover:border-yellow-500 text-yellow-500 hover:text-yellow-400 hover:bg-yellow-900/20'
+                                        ? 'border-yellow-500/50 hover:border-yellow-400 text-yellow-400 hover:text-yellow-300 hover:bg-yellow-900/20'
                                         : 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20'
                               ]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

@@ -37,11 +37,11 @@
         </div>
 
         <h2 class="text-4xl sm:text-5xl font-bold mb-6 animate-fadeIn">
-          <span class="text-white">Professional Installation &</span>
+          <span class="text-white">Professional</span>
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
           >
-            Service</span
+            Installation & Service</span
           >
         </h2>
         <p
