@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header v-if="!isLandingPage" class="fixed inset-x-0 top-0 h-20 bg-gray-900 z-30 border-b border-green-600/30">
+    <header v-if="!isLandingPage" class="fixed inset-x-0 top-0 h-20 bg-gray-900/90 backdrop-blur-md z-30 border-b border-green-600/30">
       <nav class="flex items-center justify-between p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
@@ -37,20 +37,21 @@
         </div>
         
         <!-- Desktop cart and login buttons -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
-          <div class="mr-1" v-if="isRouteActive('/cctv')">
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
+          <div v-if="isRouteActive('/cctv')">
             <SecurityFAQsModal />
           </div>
-          <div class="mr-1" v-if="isRouteActive('/home')">
+          <div v-if="isRouteActive('/home')">
             <ContactModal />
           </div>
           
-          <button @click="openCart" class="group p-2 text-white hover:text-green-400 relative rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-200 group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button @click="openCart" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
+            <span>Cart</span>
             <transition name="cart-badge">
-              <span v-if="cartItemCount > 0" class="cart-badge absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-md">{{ cartItemCount }}</span>
+              <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg">{{ cartItemCount }}</span>
             </transition>
           </button>
           <!-- <a href="#" class="text-sm font-semibold leading-6 text-white group relative overflow-hidden px-4 py-2 rounded-md">
@@ -115,23 +116,24 @@
                 <!-- Mobile cart button -->
                 <button 
                   @click="openCartAndCloseMenu" 
-                  class="flex items-center px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
+                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02] relative"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
+                  <span>View Cart</span>
                   <transition name="cart-badge">
-                    <span v-if="cartItemCount > 0" class="ml-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{{ cartItemCount }}</span>
+                    <span v-if="cartItemCount > 0" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg">{{ cartItemCount }}</span>
                   </transition>
                 </button>
 
                 <!-- Contact Us Button - only on home page -->
-                <div v-if="isRouteActive('/home')" class="mt-6 px-4">
+                <div v-if="isRouteActive('/home')" class="mt-4">
                   <ContactModal />
                 </div>
                 
                 <!-- Security FAQs Button - only on CCTV page -->
-                <div v-if="isRouteActive('/cctv')" class="mt-6 px-4">
+                <div v-if="isRouteActive('/cctv')" class="mt-4">
                   <SecurityFAQsModal />
                 </div>
               </div>
