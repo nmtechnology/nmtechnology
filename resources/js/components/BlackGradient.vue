@@ -1,9 +1,12 @@
 <template>
     <div
-        class="relative isolate overflow-hidden py-24 sm:py-32 bg-gradient-to-t from-black from-33% via-black via-33% to-gray-900 to-33%"
+        class="relative isolate overflow-hidden py-24 sm:py-32 bg-gradient-to-b from-black via-gray-900 to-gray-900"
     >
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl" aria-hidden="true"></div>
+        <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl" aria-hidden="true"></div>
+        
         <div
-            class="absolute -bottom-8 -left-96 -z-10 transform-gpu blur-3xl sm:-bottom-64 sm:-left-40 lg:-bottom-32 lg:left-8 xl:-left-10"
+            class="absolute -bottom-8 -left-96 -z-10 transform-gpu blur-3xl sm:-bottom-64 sm:-left-40 lg:-bottom-32 lg:left-8 xl:-left-10 opacity-0"
             aria-hidden="true"
         >
             <div class="aspect-[1266/975] w-[00.125rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
@@ -28,11 +31,23 @@
                     );
                 "></div>
         </div>
-        <div class="relative w-full h-32 sm:h-40 bg-gradient-to-r from-gray-900 via-blue-900 to-green-900 animate-gradientMove">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-green-400 drop-shadow-lg animate-fadeIn text-center">
-                    Albuquerque’s Trusted Experts for Commercial CCTV & Security
+        <div class="relative max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md rounded-3xl border border-green-500/30 p-12 sm:p-16 shadow-2xl ring-2 ring-green-500/20 shadow-green-500/20 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
+                    <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-semibold text-green-400">Serving New Mexico</span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
+                    <span class="text-white">Albuquerque's Trusted Experts for</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Commercial CCTV & Security</span>
                 </h2>
+                
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Professional installation and 24/7 service for all your security infrastructure needs across New Mexico
+                </p>
             </div>
         </div>
     </div>
@@ -40,14 +55,6 @@
 <script setup></script>
 
 <style scoped>
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-.animate-gradientMove {
-  background-size: 200% 200%;
-  animation: gradientMove 12s linear infinite;
-}
 .animate-fadeIn {
   animation: fadeIn 1.2s ease-out;
 }

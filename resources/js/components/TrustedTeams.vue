@@ -27,10 +27,15 @@
         <!-- Left Column - Main Content -->
         <div class="mx-auto w-full max-w-xl lg:mx-0">
           <div
-            class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-green-500/20 shadow-xl"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm p-8 rounded-2xl border border-green-500/20 shadow-2xl ring-2 ring-green-500 shadow-green-500/20 relative"
           >
-            <h3 class="text-2xl font-bold text-white mb-4">
-              Complete Installation & Service Excellence
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-green-500 to-lime-500 text-white text-xs font-bold rounded-full shadow-lg">
+              SERVICE EXCELLENCE
+            </div>
+            <h3 class="text-2xl font-bold mb-4">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">
+                Complete Installation & Service Excellence
+              </span>
             </h3>
             <p class="text-lg text-gray-300 leading-relaxed mb-6">
               Our certified technicians handle installation and ongoing service for CCTV surveillance systems, security systems, fire alarm systems, access control, and structured cabling. We respond within 24 hours and work directly with national contractors to deliver top-notch service every time—keeping your critical security infrastructure operational.
@@ -38,7 +43,7 @@
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <button
                 @click="openContactModal"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
               >
                 <svg
                   class="w-5 h-5"
@@ -57,11 +62,11 @@
               </button>
               <a
                 href="#"
-                class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold transition-colors duration-300"
+                class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold transition-colors duration-300 group"
               >
                 Learn more
                 <svg
-                  class="w-5 h-5"
+                  class="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -81,7 +86,7 @@
         <!-- Right Column - Partner Logos -->
         <div class="mx-auto w-full max-w-xl lg:mx-0">
           <div
-            class="bg-gray-800/30 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50"
+            class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm p-8 rounded-2xl border border-green-500/20"
           >
             <p class="text-sm font-semibold text-green-400 mb-6 text-center">
               TRUSTED PARTNERS
@@ -138,13 +143,19 @@
       <div class="mt-24">
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div
-            v-for="feature in features"
+            v-for="(feature, index) in features"
             :key="feature.name"
-            class="group relative bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10"
+            :class="[
+              index === 1 ? 'ring-2 ring-green-500 shadow-2xl shadow-green-500/20 relative' : '',
+              'group bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm p-8 rounded-2xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/10'
+            ]"
           >
+            <div v-if="index === 1" class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-green-500 to-lime-500 text-white text-xs font-bold rounded-full shadow-lg">
+              FEATURED
+            </div>
             <div class="flex items-center gap-4 mb-4">
               <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-lime-500 rounded-lg flex items-center justify-center"
+                class="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:bg-green-500/30 transition-colors"
               >
                 <component
                   :is="feature.icon"
