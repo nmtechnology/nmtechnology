@@ -273,10 +273,8 @@
                 brands you trust you can rest assured knowing you are in professional
                 hands.
               </p>
-
             </div>
           </div>
-          <BlackGradient />
         </div>
       </section>
 
@@ -332,7 +330,7 @@
       </section>
 
       <!-- Pricing Section -->
-      <!-- <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
@@ -346,7 +344,7 @@
           </div>
           <Pricing />
         </div>
-      </section> -->
+      </section>
 
       <!-- Footer -->
       <HomeFooter />
@@ -359,7 +357,6 @@ import { inject } from "vue";
 import { useRouter } from "vue-router";
 import SectionService from "../components/SectionService.vue";
 import SectionOne from "../components/SectionOne.vue";
-import BlackGradient from "../components/BlackGradient.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
 
