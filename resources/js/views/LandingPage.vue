@@ -16,12 +16,14 @@
         <rect width="100%" height="100%" fill="url(#modern-grid)" />
       </svg>
 
-      <!-- Glowing orbs for depth -->
+      <!-- Decorative blur orbs -->
       <div
-        class="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"
+        class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl"
+        aria-hidden="true"
       ></div>
       <div
-        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"
+        class="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl"
+        aria-hidden="true"
       ></div>
     </div>
 
@@ -29,6 +31,22 @@
     <div class="w-full max-w-6xl px-4 mb-12 animate-fadeIn">
       <!-- Header with better alignment -->
       <div class="text-center mb-8">
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
+        >
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400"
+            >New Mexico's Premier Security Provider</span
+          >
+        </div>
+
         <div class="inline-flex items-center justify-center mb-6">
           <img
             class="h-20 w-auto mr-3"
@@ -42,18 +60,19 @@
             >
           </div>
         </div>
-        <h1
-          class="text-2xl md:text-3xl font-bold text-white mb-4 max-w-3xl mx-auto leading-tight"
-        >
-          Advanced Security & Surveillance Solutions for
-          <span class="text-green-400">New Mexico</span>
+        <h1 class="text-2xl md:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
+          <span class="text-white">Advanced Security & Surveillance Solutions for </span>
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+            >New Mexico</span
+          >
         </h1>
       </div>
 
       <!-- Features List with modern cards -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
         <div
-          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+          class="flex items-center justify-center gap-3 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 ring-1 ring-green-500/20 hover:border-green-500/40 hover:ring-green-500/30 transition-all duration-300 transform hover:scale-[1.02] shadow-lg group"
         >
           <div
             class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
@@ -74,7 +93,7 @@
           <span class="text-white font-medium text-sm">Professional Installation</span>
         </div>
         <div
-          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+          class="flex items-center justify-center gap-3 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 ring-1 ring-green-500/20 hover:border-green-500/40 hover:ring-green-500/30 transition-all duration-300 transform hover:scale-[1.02] shadow-lg group"
         >
           <div
             class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
@@ -95,7 +114,7 @@
           <span class="text-white font-medium text-sm">24/7 Support</span>
         </div>
         <div
-          class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 hover:border-green-500/40 transition-all group"
+          class="flex items-center justify-center gap-3 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm rounded-xl p-4 border border-green-500/20 ring-1 ring-green-500/20 hover:border-green-500/40 hover:ring-green-500/30 transition-all duration-300 transform hover:scale-[1.02] shadow-lg group"
         >
           <div
             class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"
@@ -247,10 +266,10 @@
 
       <!-- Brands Section with modern card -->
       <div
-        class="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 mb-8"
+        class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 ring-1 ring-green-500/20 shadow-xl mb-8"
       >
         <p
-          class="text-center text-gray-400 text-xs uppercase tracking-wider mb-4 font-semibold"
+          class="text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-xs uppercase tracking-wider mb-4 font-semibold"
         >
           Trusted Brands
         </p>
@@ -281,12 +300,15 @@
       <div class="text-center max-w-2xl mx-auto">
         <p class="text-gray-300 text-base md:text-lg font-medium mb-3">
           Securing homes and businesses across
-          <span class="text-green-400 font-bold">New Mexico</span>
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 font-bold"
+            >New Mexico</span
+          >
         </p>
         <p
           class="text-white text-lg md:text-xl font-bold mb-6 flex items-center justify-center gap-2"
         >
-          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
             <path
               fill-rule="evenodd"
               d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
@@ -305,11 +327,11 @@
 
     <!-- Verification Form - Modern Glass Design -->
     <div
-      class="w-full max-w-lg space-y-6 bg-gray-800/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl relative z-10 border border-gray-700/50 animate-form-appear"
+      class="w-full max-w-lg space-y-6 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl relative z-10 border border-green-500/20 ring-1 ring-green-500/20 animate-form-appear"
     >
       <!-- Decorative gradient border effect -->
       <div
-        class="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/10 to-blue-500/10 -z-10 blur-xl"
+        class="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/10 to-lime-500/5 -z-10 blur-xl"
       ></div>
 
       <!-- Logo and Header -->
@@ -320,7 +342,7 @@
             class="absolute inset-0 bg-green-500/20 rounded-full blur-2xl animate-pulse"
           ></div>
           <div
-            class="relative flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-4 w-20 h-20 border border-green-500/30 shadow-lg"
+            class="relative flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-4 w-20 h-20 border border-green-500/30 ring-1 ring-green-500/20 shadow-lg shadow-green-500/20"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -338,8 +360,12 @@
         </div>
 
         <div class="text-center">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
-            <span class="text-green-400">Security</span> Verification
+          <h2 class="text-2xl md:text-3xl font-bold mb-2">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+              >Security</span
+            >
+            <span class="text-white"> Verification</span>
           </h2>
           <div
             class="w-20 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto mb-3 rounded-full"
@@ -396,13 +422,18 @@
           <div>
             <button
               type="submit"
-              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors relative overflow-hidden group"
+              class="w-full flex justify-center items-center gap-2 py-3 px-4 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-lg shadow-green-500/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform hover:scale-[1.02]"
               @click="verifyAnswer"
             >
-              <span class="relative z-10">Verify & Continue</span>
-              <span
-                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-500 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity"
-              ></span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Verify & Continue</span>
             </button>
           </div>
         </div>
