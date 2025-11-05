@@ -1,6 +1,40 @@
 <template>
   <footer class="bg-gray-900 border-t border-green-600/30 py-12 animate-fadeIn">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Call to Action Section -->
+      <div class="mb-12 text-center">
+        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Ready to <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Secure Your Business?</span>
+        </h3>
+        <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+          Get a free consultation and quote from Albuquerque's leading security experts
+        </p>
+        <button
+          @click="openContactModal"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-bold text-lg shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-green-500/50"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+          Contact Us Today
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="border-t border-green-600/20 pt-8"></div>
+
       <div class="lg:flex lg:items-start lg:justify-between lg:gap-8">
         <!-- Text Content Section -->
         <div class="flex-1 lg:max-w-3xl">
@@ -32,7 +66,10 @@
 </template>
 
 <script setup>
-import { defineComponent, h } from "vue";
+import { defineComponent, h, inject } from "vue";
+
+// Inject the openContactModal function from App.vue
+const openContactModal = inject("openContactModal");
 
 const navigation = [
   {
