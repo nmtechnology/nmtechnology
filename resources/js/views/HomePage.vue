@@ -210,15 +210,11 @@
       <!-- Components with Better Organization -->
 
       <!-- Services Section -->
-      <section class="relative bg-gray-900 py-16 sm:py-24">
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/90 to-gray-950"
-        ></div>
-        <div class="relative">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12"></div>
-          <SectionService />
-        </div>
-      </section>
+
+      <div class="relative">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12"></div>
+        <SectionService />
+      </div>
 
       <!-- Products Section -->
       <section
@@ -433,7 +429,7 @@ const generateQuote = () => {
   height: 200%;
   background: radial-gradient(
       circle at 20% 20%,
-      rgba(74, 222, 128, 0.08) 0%,
+      rgba(174, 248, 0, 0.08) 0%,
       transparent 25%
     ),
     radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 25%),
