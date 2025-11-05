@@ -1,16 +1,19 @@
 <template>
   <div>
-    <header v-if="!isLandingPage" class="fixed inset-x-0 top-0 h-20 bg-gray-900/90 backdrop-blur-md z-30 border-b border-green-600/30">
-      <nav class="flex items-center justify-between p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
+    <header
+      v-if="!isLandingPage"
+      class="fixed inset-x-0 top-0 h-20 bg-gray-900/90 backdrop-blur-md z-30 border-b border-green-600/30"
+    >
+      <!-- <nav class="flex items-center justify-between p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
             <img class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
             <span class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400">Technology</span>
           </router-link>
-        </div>
-      
-        <!-- Mobile menu button -->
-        <div class="flex lg:hidden">
+        </div> -->
+
+      <!-- Mobile menu button -->
+      <!-- <div class="flex lg:hidden">
           <button type="button" 
               class="inline-flex items-center justify-center rounded-md p-2.5 text-green-400 hover:text-green-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200"
               @click="mobileMenuOpen = true">
@@ -19,10 +22,10 @@
               <path fillRule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
             </svg>
           </button>
-        </div>
-        
-        <!-- Desktop navigation links -->
-        <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
+        </div> -->
+
+      <!-- Desktop navigation links -->
+      <!-- <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
           <router-link 
             v-for="item in navigation.filter(i => i.name !== 'Home')" 
             :key="item.name" 
@@ -34,10 +37,10 @@
             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
             <span v-if="isActiveRoute(item.href)" class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"></span>
           </router-link>
-        </div>
-        
-        <!-- Desktop cart and login buttons -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
+        </div> -->
+
+      <!-- Desktop cart and login buttons -->
+      <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
           <div v-if="isRouteActive('/cctv')">
             <SecurityFAQsModal />
           </div>
@@ -53,77 +56,183 @@
             <transition name="cart-badge">
               <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg">{{ cartItemCount }}</span>
             </transition>
-          </button>
-          <!-- <a href="#" class="text-sm font-semibold leading-6 text-white group relative overflow-hidden px-4 py-2 rounded-md">
+          </button> -->
+      <!-- <a href="#" class="text-sm font-semibold leading-6 text-white group relative overflow-hidden px-4 py-2 rounded-md">
             <span class="relative z-10">Log in</span>
             <span class="absolute inset-0 bg-gradient-to-r from-green-600/0 via-green-600/10 to-green-600/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></span>
             <span class="ml-1 font-bold group-hover:text-green-400 transition-colors duration-200">&rarr;</span>
           </a> -->
-        </div>
-      </nav>
-      
+      <!-- </div>
+      </nav> -->
+
       <!-- Mobile menu -->
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
         <div class="fixed inset-0 z-30 bg-gray-900/80" />
-        <DialogPanel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl transition-all duration-300">
+        <DialogPanel
+          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl transition-all duration-300"
+        >
           <div class="flex items-center justify-between mb-6">
             <div class="flex items-center">
               <router-link to="/home" class="relative flex items-center">
-                <img class="h-10 w-auto mr-2" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-                <span class="italic text-lg font-extrabold text-white -ml-1">Technology</span>
+                <img
+                  class="h-10 w-auto mr-2"
+                  src="/public/images/nm-logo-rmbg.webp"
+                  alt="nmtechnology-logo"
+                />
+                <span class="italic text-lg font-extrabold text-white -ml-1"
+                  >Technology</span
+                >
               </router-link>
             </div>
-            <button type="button" class="rounded-md p-2.5 text-white hover:text-green-400 transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/50" @click="mobileMenuOpen = false">
+            <button
+              type="button"
+              class="rounded-md p-2.5 text-white hover:text-green-400 transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/50"
+              @click="mobileMenuOpen = false"
+            >
               <span class="sr-only">Close menu</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
-          
+
           <div class="mt-2 flow-root">
             <div class="divide-y divide-gray-800/50">
               <div class="space-y-1 py-4">
-                <router-link 
-                  v-for="item in navigation" 
-                  :key="item.name" 
-                  :to="item.href" 
-                  @click="mobileMenuOpen = false" 
+                <router-link
+                  v-for="item in navigation"
+                  :key="item.name"
+                  :to="item.href"
+                  @click="mobileMenuOpen = false"
                   class="flex items-center px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
-                  :class="{ 'bg-gray-800/50 text-green-400 border-l-2 border-green-600': isActiveRoute(item.href) }"
+                  :class="{
+                    'bg-gray-800/50 text-green-400 border-l-2 border-green-600': isActiveRoute(
+                      item.href
+                    ),
+                  }"
                 >
-                  <svg v-if="item.name === 'Home'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  <svg
+                    v-if="item.name === 'Home'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
                   </svg>
-                  <svg v-else-if="item.name === 'CCTV'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  <svg
+                    v-else-if="item.name === 'CCTV'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    />
                   </svg>
-                  <svg v-else-if="item.name === 'Security Systems'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <svg
+                    v-else-if="item.name === 'Security Systems'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
                   </svg>
-                  <svg v-else-if="item.name === 'Fire Alarms'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                  <svg
+                    v-else-if="item.name === 'Fire Alarms'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                    />
                   </svg>
-                  <svg v-else class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  <svg
+                    v-else
+                    class="h-5 w-5 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                    />
                   </svg>
                   {{ item.name }}
                 </router-link>
-                
+
                 <div class="border-t border-gray-800/50 my-4"></div>
-                
+
                 <!-- Mobile cart button -->
-                <button 
-                  @click="openCartAndCloseMenu" 
+                <button
+                  @click="openCartAndCloseMenu"
                   class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02] relative"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
                   </svg>
                   <span>View Cart</span>
                   <transition name="cart-badge">
-                    <span v-if="cartItemCount > 0" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg">{{ cartItemCount }}</span>
+                    <span
+                      v-if="cartItemCount > 0"
+                      class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg"
+                      >{{ cartItemCount }}</span
+                    >
                   </transition>
                 </button>
 
@@ -131,7 +240,7 @@
                 <div v-if="isRouteActive('/home')" class="mt-4">
                   <ContactModal />
                 </div>
-                
+
                 <!-- Security FAQs Button - only on CCTV page -->
                 <div v-if="isRouteActive('/cctv')" class="mt-4">
                   <SecurityFAQsModal />
@@ -143,48 +252,65 @@
       </Dialog>
     </header>
   </div>
-  
+
   <!-- Floating cart button - only visible when not on landing page -->
   <div v-if="!isLandingPage" class="fixed bottom-6 right-6 z-50">
-    <button @click="openCart" 
-            class="flex items-center justify-center h-14 w-14 rounded-full bg-gray-900 hover:bg-gray-800 text-green-500 hover:text-green-400 shadow-lg transition-all duration-300 hover:scale-110 border-2 border-green-600/40 hover:border-green-500">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    <button
+      @click="openCart"
+      class="flex items-center justify-center h-14 w-14 rounded-full bg-gray-900 hover:bg-gray-800 text-green-500 hover:text-green-400 shadow-lg transition-all duration-300 hover:scale-110 border-2 border-green-600/40 hover:border-green-500"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        />
       </svg>
       <transition name="cart-badge">
-        <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-md">{{ cartItemCount }}</span>
+        <span
+          v-if="cartItemCount > 0"
+          class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-md"
+          >{{ cartItemCount }}</span
+        >
       </transition>
     </button>
   </div>
-  
+
   <router-view></router-view>
-  
+
   <!-- Toast notifications container -->
   <ToastContainer />
-  
+
   <!-- Global Quote Cart Modal -->
   <CartModal />
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import { Dialog, DialogPanel } from '@headlessui/vue'
-import { useRoute } from 'vue-router'
-import ToastContainer from './components/ToastContainer.vue'
-import CartModal from './components/CartModal.vue'
-import ContactModal from './components/ContactModal.vue'
-import SecurityFAQsModal from './components/SecurityFAQsModal.vue'
-import { cartStore } from './store/cartStore.js'
+import { ref, computed } from "vue";
+import { Dialog, DialogPanel } from "@headlessui/vue";
+import { useRoute } from "vue-router";
+import ToastContainer from "./components/ToastContainer.vue";
+import CartModal from "./components/CartModal.vue";
+import ContactModal from "./components/ContactModal.vue";
+import SecurityFAQsModal from "./components/SecurityFAQsModal.vue";
+import { cartStore } from "./store/cartStore.js";
 
 // Navigation array for mobile menu
 const navigation = [
-  { name: 'Home', href: '/home' },
-  { name: 'CCTV', href: '/cctv' },
-  { name: 'Security Systems', href: '/cctv' },
-  { name: 'Fire Alarms', href: '/cctv' },
-  { name: 'Networking', href: '/cctv' },
-  { name: 'Structured Cabling', href: '/cctv' }
-]
+  { name: "Home", href: "/home" },
+  { name: "CCTV", href: "/cctv" },
+  { name: "Security Systems", href: "/cctv" },
+  { name: "Fire Alarms", href: "/cctv" },
+  { name: "Networking", href: "/cctv" },
+  { name: "Structured Cabling", href: "/cctv" },
+];
 
 export default {
   components: {
@@ -193,26 +319,26 @@ export default {
     ContactModal,
     SecurityFAQsModal,
     Dialog,
-    DialogPanel
+    DialogPanel,
   },
   setup() {
     const route = useRoute();
     const mobileMenuOpen = ref(false);
     const cartItemCount = computed(() => cartStore.getItemCount.value);
-    
+
     // Check if current route is the landing page
     const isLandingPage = computed(() => {
-      return route.name === 'landing';
+      return route.name === "landing";
     });
-    
+
     // Check if a route is active (either exact match or starts with)
     const isActiveRoute = (path) => {
       // Remove hash part from both paths for comparison
-      const routePath = route.path.split('#')[0];
-      const comparePath = path.split('#')[0];
-      
+      const routePath = route.path.split("#")[0];
+      const comparePath = path.split("#")[0];
+
       if (routePath === comparePath) return true;
-      if (comparePath !== '/home' && routePath.startsWith(comparePath)) return true;
+      if (comparePath !== "/home" && routePath.startsWith(comparePath)) return true;
       return false;
     };
 
@@ -220,16 +346,16 @@ export default {
     const isRouteActive = (path) => {
       return route.path === path;
     };
-    
+
     const openCart = () => {
       cartStore.openCart();
     };
-    
+
     const openCartAndCloseMenu = () => {
       cartStore.openCart();
       mobileMenuOpen.value = false;
     };
-    
+
     return {
       navigation,
       mobileMenuOpen,
@@ -238,10 +364,10 @@ export default {
       openCartAndCloseMenu,
       isLandingPage,
       isActiveRoute,
-      isRouteActive
+      isRouteActive,
     };
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -269,13 +395,18 @@ header {
 }
 
 header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, rgba(22, 163, 74, 0), rgba(22, 163, 74, 0.5), rgba(22, 163, 74, 0));
+  background: linear-gradient(
+    to right,
+    rgba(22, 163, 74, 0),
+    rgba(22, 163, 74, 0.5),
+    rgba(22, 163, 74, 0)
+  );
 }
 
 /* Ensure router-view has proper margin */
@@ -329,7 +460,7 @@ header::after {
   .cart-modal-mobile {
     padding: 0.5rem !important;
   }
-  
+
   .cart-modal-mobile-content {
     max-width: 100% !important;
     margin: 0 !important;
@@ -373,7 +504,7 @@ header::after {
     bottom: 1rem;
     right: 1rem;
   }
-  
+
   .fixed.bottom-6.right-6 button {
     height: 3rem;
     width: 3rem;
