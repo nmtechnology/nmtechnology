@@ -24,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/send-contact', [MailController::class, 'send']);
 Route::post('/orders/submit', [OrderController::class, 'submit']);
 Route::post('/verify-math', [MathVerificationController::class, 'verify']);
+Route::post('/survey-response', [MailController::class, 'sendSurveyResponse']);

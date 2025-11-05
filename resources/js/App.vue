@@ -345,6 +345,9 @@
     </button>
   </div>
 
+  <!-- Survey Banner -->
+  <SurveyBanner v-if="!isLandingPage" />
+
   <router-view></router-view>
 
   <!-- Toast notifications container -->
@@ -365,6 +368,7 @@ import ToastContainer from "./components/ToastContainer.vue";
 import CartModal from "./components/CartModal.vue";
 import ContactModal from "./components/ContactModal.vue";
 import SecurityFAQsModal from "./components/SecurityFAQsModal.vue";
+import SurveyBanner from "./components/SurveyBanner.vue";
 import { cartStore } from "./store/cartStore.js";
 
 // Navigation array for mobile menu
@@ -383,6 +387,7 @@ export default {
     CartModal,
     ContactModal,
     SecurityFAQsModal,
+    SurveyBanner,
     Dialog,
     DialogPanel,
     TransitionChild,

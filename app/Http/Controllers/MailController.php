@@ -61,4 +61,44 @@ class MailController extends Controller
             return response()->json('Error sending message: ' . $e->getMessage(), 500);
         }
     }
+
+    public function sendSurveyResponse(Request $request)
+    {
+        try {
+            // Validate survey response
+            $validated = $request->validate([
+                'question' => 'required|string|max:500',
+                'category' => 'required|string|max:200',
+                'answer' => 'required|string|max:100',
+                'timestamp' => 'required|string',
+                'page' => 'required|string|max:500',
+                'userAgent' => 'nullable|string|max:1000',
+            ]);
+
+            // Format email content
+            $emailContent = "
+                <h2>New Survey Response</h2>
+                <p><strong>Category:</strong> {$validated['category']}</p>
+                <p><strong>Question:</strong> {$validated['question']}</p>
+                <p><strong>Answer:</strong> {$validated['answer']}</p>
+                <hr>
+                <p><strong>Page:</strong> {$validated['page']}</p>
+                <p><strong>Timestamp:</strong> {$validated['timestamp']}</p>
+                <p><strong>User Agent:</strong> {$validated['userAgent']}</p>
+            ";
+
+            // Send email notification
+            Mail::send([], [], function ($message) use ($emailContent, $validated) {
+                $message->to('service@nmtechnology.us')
+                    ->subject('Survey Response: ' . $validated['category'])
+                    ->html($emailContent);
+            });
+
+            \Log::info('Survey response email sent successfully', $validated);
+            return response()->json(['message' => 'Survey response recorded successfully!'], 200);
+        } catch (\Exception $e) {
+            \Log::error('Survey response error: ' . $e->getMessage());
+            return response()->json(['error' => 'Error recording survey response'], 500);
+        }
+    }
 }
