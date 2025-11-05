@@ -114,7 +114,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
                       />
                     </svg>
                     Contact Us
@@ -256,18 +256,22 @@
                   />
                 </svg>
                 <span class="text-sm font-semibold text-green-400"
-                  >Premium Equipment</span
+                  >Premium Equipment & Warrantied Services</span
                 >
               </div>
               <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                <span class="text-white">Featured </span>
+                <span class="text-white">Featured Top</span>
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
                   >Products</span
                 >
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
-                Industry-leading security equipment and technology
+                Industry-leading security equipment and technology with the highest
+                reliability and performance, backed by comprehensive warranties and
+                support services. With our world-class customer service combined with top
+                brands you trust you can rest assured knowing you are in professional
+                hands.
               </p>
             </div>
           </div>
