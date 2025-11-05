@@ -4,7 +4,7 @@
   >
     <!-- Decorative Background Blurs -->
     <div
-      class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10"
+      class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-green-500/10 to-lime-500 rounded-full blur-3xl -z-10"
       aria-hidden="true"
     ></div>
     <div

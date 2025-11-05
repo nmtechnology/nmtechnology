@@ -54,7 +54,7 @@
                   class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
                 >
                   <svg
-                    class="w-4 h-4 text-green-400"
+                    class="w-4 h-4 text-lime-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -64,7 +64,7 @@
                       clip-rule="evenodd"
                     />
                   </svg>
-                  <span class="text-sm font-semibold text-green-400"
+                  <span class="text-sm font-semibold text-lime-400"
                     >New Mexico's Trusted Security Experts</span
                   >
                 </div>
