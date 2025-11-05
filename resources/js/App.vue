@@ -2,30 +2,31 @@
   <div>
     <header
       v-if="!isLandingPage"
-      class="fixed inset-x-0 top-0 h-20 bg-gray-900/90 backdrop-blur-md z-30 border-b border-green-600/30"
+      class="fixed inset-x-0 top-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-green-600/30"
     >
-      <!-- <nav class="flex items-center justify-between p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
+      <nav class="flex items-center justify-between h-20 p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
+        <!-- Logo Section -->
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
             <img class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
             <span class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400">Technology</span>
           </router-link>
-        </div> -->
+        </div>
 
-      <!-- Mobile menu button -->
-      <!-- <div class="flex lg:hidden">
+        <!-- Mobile menu button -->
+        <div class="flex lg:hidden">
           <button type="button" 
               class="inline-flex items-center justify-center rounded-md p-2.5 text-green-400 hover:text-green-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200"
               @click="mobileMenuOpen = true">
             <span class="sr-only">Open main menu</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-5">
-              <path fillRule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+              <path fill-rule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
             </svg>
           </button>
-        </div> -->
+        </div>
 
-      <!-- Desktop navigation links -->
-      <!-- <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
+        <!-- Desktop navigation links -->
+        <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
           <router-link 
             v-for="item in navigation.filter(i => i.name !== 'Home')" 
             :key="item.name" 
@@ -37,33 +38,40 @@
             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
             <span v-if="isActiveRoute(item.href)" class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"></span>
           </router-link>
-        </div> -->
+        </div>
 
-      <!-- Desktop cart and login buttons -->
-      <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
-          <div v-if="isRouteActive('/cctv')">
-            <SecurityFAQsModal />
-          </div>
-          <div v-if="isRouteActive('/home')">
-            <ContactModal />
-          </div>
-          
-          <button @click="openCart" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105 relative">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        <!-- Desktop Action Buttons -->
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
+          <button
+            @click="openContactModal"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
             </svg>
-            <span>Cart</span>
-            <transition name="cart-badge">
-              <span v-if="cartItemCount > 0" class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg">{{ cartItemCount }}</span>
-            </transition>
-          </button> -->
-      <!-- <a href="#" class="text-sm font-semibold leading-6 text-white group relative overflow-hidden px-4 py-2 rounded-md">
-            <span class="relative z-10">Log in</span>
-            <span class="absolute inset-0 bg-gradient-to-r from-green-600/0 via-green-600/10 to-green-600/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></span>
-            <span class="ml-1 font-bold group-hover:text-green-400 transition-colors duration-200">&rarr;</span>
-          </a> -->
-      <!-- </div>
-      </nav> -->
+            Contact Us
+          </button>
+          <button
+            @click="generateQuote"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Get Quote
+          </button>
+        </div>
+      </nav>
 
       <!-- Mobile menu -->
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -207,44 +215,46 @@
 
                 <div class="border-t border-gray-800/50 my-4"></div>
 
-                <!-- Mobile cart button -->
+                <!-- Mobile Action Buttons -->
                 <button
-                  @click="openCartAndCloseMenu"
-                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02] relative"
+                  @click="openContactModal(); mobileMenuOpen = false"
+                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
+                    class="w-5 h-5"
                     fill="none"
-                    viewBox="0 0 24 24"
                     stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  <span>View Cart</span>
-                  <transition name="cart-badge">
-                    <span
-                      v-if="cartItemCount > 0"
-                      class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center shadow-lg"
-                      >{{ cartItemCount }}</span
-                    >
-                  </transition>
+                  Contact Us
                 </button>
-
-                <!-- Contact Us Button - only on home page -->
-                <div v-if="isRouteActive('/home')" class="mt-4">
-                  <ContactModal />
-                </div>
-
-                <!-- Security FAQs Button - only on CCTV page -->
-                <div v-if="isRouteActive('/cctv')" class="mt-4">
-                  <SecurityFAQsModal />
-                </div>
+                
+                <button
+                  @click="generateQuote(); mobileMenuOpen = false"
+                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02]"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  Get Quote
+                </button>
               </div>
             </div>
           </div>
@@ -290,6 +300,9 @@
 
   <!-- Global Quote Cart Modal -->
   <CartModal />
+
+  <!-- Contact Modal -->
+  <ContactModal ref="contactModalRef" />
 </template>
 
 <script>
@@ -324,6 +337,7 @@ export default {
   setup() {
     const route = useRoute();
     const mobileMenuOpen = ref(false);
+    const contactModalRef = ref(null);
     const cartItemCount = computed(() => cartStore.getItemCount.value);
 
     // Check if current route is the landing page
@@ -356,12 +370,28 @@ export default {
       mobileMenuOpen.value = false;
     };
 
+    const openContactModal = () => {
+      if (contactModalRef.value) {
+        contactModalRef.value.openModalFromOptions();
+      }
+    };
+
+    const generateQuote = () => {
+      // Navigate to CCTV page for quote generation
+      if (route.path !== "/cctv") {
+        window.location.href = "/cctv";
+      }
+    };
+
     return {
       navigation,
       mobileMenuOpen,
+      contactModalRef,
       cartItemCount,
       openCart,
       openCartAndCloseMenu,
+      openContactModal,
+      generateQuote,
       isLandingPage,
       isActiveRoute,
       isRouteActive,
