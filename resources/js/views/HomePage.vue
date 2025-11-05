@@ -213,11 +213,15 @@
     </div>
 
     <!-- Main Content Starts -->
-    <main class="site-content bg-gray-900">
-      <!-- Hero Section - Old Template Style -->
-      <section class="relative isolate">
+    <main class="site-content bg-gradient-to-b from-black via-gray-900 to-gray-900">
+      <!-- Hero Section -->
+      <section class="relative isolate overflow-hidden">
+        <!-- Decorative Background Blurs -->
+        <div class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        
         <svg
-          class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
+          class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-green-600/10 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
           aria-hidden="true"
         >
           <defs>
@@ -245,45 +249,25 @@
             fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
           />
         </svg>
-        <div
-          class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-          aria-hidden="true"
-        >
-          <div
-            class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-            style="
-              clip-path: polygon(
-                63.1% 29.5%,
-                100% 17.1%,
-                76.6% 3%,
-                48.4% 0%,
-                44.6% 4.7%,
-                54.5% 25.3%,
-                59.8% 49%,
-                55.2% 57.8%,
-                44.4% 57.2%,
-                27.8% 47.9%,
-                35.1% 81.5%,
-                0% 97.7%,
-                39.2% 100%,
-                35.2% 81.4%,
-                97.2% 52.8%,
-                63.1% 29.5%
-              );
-            "
-          ></div>
-        </div>
         <div class="overflow-hidden">
           <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
             <div
               class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center"
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
+                  <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm font-semibold text-green-400">New Mexico's Trusted Security Experts</span>
+                </div>
+                
                 <h1
-                  class="text-4xl font-bold tracking-tight text-white sm:text-6xl flex flex-wrap items-center gap-2"
+                  class="text-4xl font-bold tracking-tight sm:text-6xl flex flex-wrap items-center gap-2 mb-6"
                 >
                   <span class="text-white">We're Changing The Way You Are</span>
-                  <span class="text-green-400">Protected and Served</span>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Protected and Served</span>
                   <span class="text-white">Right Here In</span>
                   <img
                     class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
@@ -294,7 +278,7 @@
                 </h1>
 
                 <p
-                  class="relative mt-6 text-lg leading-8 text-white sm:max-w-md lg:max-w-none"
+                  class="relative mt-6 text-lg leading-8 text-gray-300 sm:max-w-md lg:max-w-none"
                 >
                   By utilizing integrated technology here in New Mexico to protect your
                   home or business, customers can automate routine tasks and create
@@ -309,14 +293,20 @@
                 <div class="mt-10 flex items-center gap-x-6">
                   <button
                     @click="openContactModal"
-                    class="rounded-md bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-all duration-300"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
                   >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
                     Get started
                   </button>
                   <button
                     @click="generateQuote"
-                    class="rounded-md bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all duration-300"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
                     Get Quote
                   </button>
                 </div>
@@ -327,58 +317,58 @@
                 <div
                   class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80"
                 >
-                  <div class="relative">
+                  <div class="relative group">
                     <img
                       src="/public/images/google-doorbellcam.webp"
                       alt=""
-                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      class="aspect-[2/3] w-full rounded-2xl bg-gray-900/5 object-cover shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-500/20"
                     />
                     <div
-                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                      class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-green-500/20 group-hover:ring-green-500/40 transition-all duration-300"
                     ></div>
                   </div>
                 </div>
                 <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                  <div class="relative">
+                  <div class="relative group">
                     <img
                       src="/public/images/security-cam-1.webp"
                       alt=""
-                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      class="aspect-[2/3] w-full rounded-2xl bg-gray-900/5 object-cover shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-500/20"
                     />
                     <div
-                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                      class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-green-500/20 group-hover:ring-green-500/40 transition-all duration-300"
                     ></div>
                   </div>
-                  <div class="relative">
+                  <div class="relative group">
                     <img
                       src="/public/images/smart-access-control.webp"
                       alt=""
-                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      class="aspect-[2/3] w-full rounded-2xl bg-gray-900/5 object-cover shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-500/20"
                     />
                     <div
-                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                      class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-green-500/20 group-hover:ring-green-500/40 transition-all duration-300"
                     ></div>
                   </div>
                 </div>
                 <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                  <div class="relative">
+                  <div class="relative group">
                     <img
                       src="/public/images/IT-rack.webp"
                       alt=""
-                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      class="aspect-[2/3] w-full rounded-2xl bg-gray-900/5 object-cover shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-500/20"
                     />
                     <div
-                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                      class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-green-500/20 group-hover:ring-green-500/40 transition-all duration-300"
                     ></div>
                   </div>
-                  <div class="relative">
+                  <div class="relative group">
                     <img
                       src="/public/images/code-dev.webp"
                       alt=""
-                      class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                      class="aspect-[2/3] w-full rounded-2xl bg-gray-900/5 object-cover shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-green-500/20"
                     />
                     <div
-                      class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"
+                      class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-green-500/20 group-hover:ring-green-500/40 transition-all duration-300"
                     ></div>
                   </div>
                 </div>
@@ -412,12 +402,22 @@
       </section> -->
 
       <!-- Products Section -->
-      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+      <section class="relative bg-gradient-to-b from-black via-gray-900 to-gray-900 py-16 sm:py-24 overflow-hidden">
+        <!-- Decorative blur -->
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Featured Products
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
+                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                </svg>
+                <span class="text-sm font-semibold text-green-400">Premium Equipment</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                <span class="text-white">Featured </span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Products</span>
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Industry-leading security equipment and technology
@@ -429,15 +429,23 @@
       </section>
 
       <!-- Commercial Solutions Section -->
-      <section class="relative bg-gray-900 py-16 sm:py-24">
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
-        ></div>
+      <section class="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24 overflow-hidden">
+        <!-- Decorative blur -->
+        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Commercial Solutions & Onsite Representation
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
+                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
+                </svg>
+                <span class="text-sm font-semibold text-green-400">Enterprise Solutions</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Commercial Solutions</span>
+                <span class="text-white"> & Onsite Representation</span>
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Professional installation, service, and onsite representation for national
