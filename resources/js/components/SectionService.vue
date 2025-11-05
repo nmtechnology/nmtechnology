@@ -61,12 +61,14 @@
       <div
         class="bg-gray-800/40 backdrop-blur-md rounded-2xl border border-green-500/20 p-8 sm:p-12 shadow-2xl mt-16"
       >
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-center animate-fadeIn">
+        <h2
+          class="text-center text-4xl sm:text-5xl font-bold drop-shadow-lg animate-fadeIn mb-6 text-white"
+        >
+          Why Choose
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+            >NM Technology?</span
           >
-            Why Choose NM Technology?
-          </span>
         </h2>
         <p
           class="text-lg text-gray-300 text-center mb-10 animate-fadeIn-delay leading-relaxed"
