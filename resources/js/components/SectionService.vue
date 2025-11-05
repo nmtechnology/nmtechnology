@@ -27,8 +27,8 @@
           >Technology</span
         >
       </div>
-
-      <work-collage></work-collage>
+      <!-- 
+      <work-collage></work-collage> -->
 
       <!-- Main Content Card -->
       <div class="mx-auto max-w-4xl text-center mt-16">
