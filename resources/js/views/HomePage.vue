@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper">
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 w-full z-50 border-b border-green-600/30">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900 border-b border-green-600/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Logo Section - Matching quote route style -->
