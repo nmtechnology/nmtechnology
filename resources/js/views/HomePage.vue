@@ -330,7 +330,7 @@
       </section>
 
       <!-- Pricing Section -->
-      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+      <section class="relative py-16 sm:py-24">
         <div class="relative">
           <Pricing />
         </div>
