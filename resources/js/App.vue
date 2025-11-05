@@ -101,196 +101,216 @@
 
       <!-- Mobile menu -->
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-        <div class="fixed inset-0 z-30 bg-gray-900/20" />
-        <DialogPanel
-          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl transition-all duration-300"
+        <TransitionChild
+          as="template"
+          enter="transition ease-out duration-200"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="transition ease-in duration-150"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
         >
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center">
-              <router-link to="/home" class="relative flex items-center">
-                <img
-                  class="h-10 w-auto mr-2"
-                  src="/public/images/nm-logo-rmbg.webp"
-                  alt="nmtechnology-logo"
-                />
-                <span class="italic text-lg font-extrabold text-white -ml-1"
-                  >Technology</span
-                >
-              </router-link>
-            </div>
-            <button
-              type="button"
-              class="rounded-md p-2.5 text-white hover:text-green-400 transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/50"
-              @click="mobileMenuOpen = false"
-            >
-              <span class="sr-only">Close menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <div class="mt-2 flow-root">
-            <div class="divide-y divide-gray-800/50">
-              <div class="space-y-1 py-4">
-                <router-link
-                  v-for="item in navigation"
-                  :key="item.name"
-                  :to="item.href"
-                  @click="mobileMenuOpen = false"
-                  class="flex items-center px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
-                  :class="{
-                    'bg-gray-800/50 text-green-400 border-l-2 border-green-600': isActiveRoute(
-                      item.href
-                    ),
-                  }"
-                >
-                  <svg
-                    v-if="item.name === 'Home'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+          <div class="fixed inset-0 z-30 bg-gray-900/20" />
+        </TransitionChild>
+        <TransitionChild
+          as="template"
+          enter="transition ease-out duration-300"
+          enter-from="transform translate-x-full"
+          enter-to="transform translate-x-0"
+          leave="transition ease-in duration-200"
+          leave-from="transform translate-x-0"
+          leave-to="transform translate-x-full"
+        >
+          <DialogPanel
+            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center">
+                <router-link to="/home" class="relative flex items-center">
+                  <img
+                    class="h-10 w-auto mr-2"
+                    src="/public/images/nm-logo-rmbg.webp"
+                    alt="nmtechnology-logo"
+                  />
+                  <span class="italic text-lg font-extrabold text-white -ml-1"
+                    >Technology</span
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  <svg
-                    v-else-if="item.name === 'CCTV'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <svg
-                    v-else-if="item.name === 'Security Systems'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                  <svg
-                    v-else-if="item.name === 'Fire Alarms'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
-                    />
-                  </svg>
-                  <svg
-                    v-else
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                    />
-                  </svg>
-                  {{ item.name }}
                 </router-link>
-
-                <div class="border-t border-gray-800/50 my-4"></div>
-
-                <!-- Mobile Action Buttons -->
-                <button
-                  @click="
-                    openContactModal();
-                    mobileMenuOpen = false;
-                  "
-                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02]"
+              </div>
+              <button
+                type="button"
+                class="rounded-md p-2.5 text-white hover:text-green-400 transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                @click="mobileMenuOpen = false"
+              >
+                <span class="sr-only">Close menu</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  Contact Us
-                </button>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
 
-                <button
-                  @click="
-                    generateQuote();
-                    mobileMenuOpen = false;
-                  "
-                  class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02]"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+            <div class="mt-2 flow-root">
+              <div class="divide-y divide-gray-800/50">
+                <div class="space-y-1 py-4">
+                  <router-link
+                    v-for="item in navigation"
+                    :key="item.name"
+                    :to="item.href"
+                    @click="mobileMenuOpen = false"
+                    class="flex items-center px-4 py-3 text-base font-semibold text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-800/70 hover:text-green-400 transition-all duration-200 rounded-lg border-l-2 border-transparent hover:border-green-600"
+                    :class="{
+                      'bg-gray-800/50 text-green-400 border-l-2 border-green-600': isActiveRoute(
+                        item.href
+                      ),
+                    }"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Get Quote
-                </button>
+                    <svg
+                      v-if="item.name === 'Home'"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      />
+                    </svg>
+                    <svg
+                      v-else-if="item.name === 'CCTV'"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <svg
+                      v-else-if="item.name === 'Security Systems'"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
+                    </svg>
+                    <svg
+                      v-else-if="item.name === 'Fire Alarms'"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                      />
+                    </svg>
+                    <svg
+                      v-else
+                      class="h-5 w-5 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                      />
+                    </svg>
+                    {{ item.name }}
+                  </router-link>
+
+                  <div class="border-t border-gray-800/50 my-4"></div>
+
+                  <!-- Mobile Action Buttons -->
+                  <button
+                    @click="
+                      openContactModal();
+                      mobileMenuOpen = false;
+                    "
+                    class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    Contact Us
+                  </button>
+
+                  <button
+                    @click="
+                      generateQuote();
+                      mobileMenuOpen = false;
+                    "
+                    class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Get Quote
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </DialogPanel>
+          </DialogPanel>
+        </TransitionChild>
       </Dialog>
     </header>
   </div>
@@ -339,7 +359,7 @@
 
 <script>
 import { ref, computed, provide } from "vue";
-import { Dialog, DialogPanel } from "@headlessui/vue";
+import { Dialog, DialogPanel, TransitionChild } from "@headlessui/vue";
 import { useRoute } from "vue-router";
 import ToastContainer from "./components/ToastContainer.vue";
 import CartModal from "./components/CartModal.vue";
@@ -365,6 +385,7 @@ export default {
     SecurityFAQsModal,
     Dialog,
     DialogPanel,
+    TransitionChild,
   },
   setup() {
     const route = useRoute();

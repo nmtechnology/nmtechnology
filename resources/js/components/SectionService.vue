@@ -22,12 +22,8 @@
           src="/public/images/nm-logo-rmbg.webp"
           alt="nmtechnology-logo"
         />
-        <span class="text-xl italic font-extrabold text-transparent -ml-1"
-          >Technology</span
-        >
+        <span class="text-xl italic font-extrabold text-white -ml-1">Technology</span>
       </div>
-      <!-- 
-      <work-collage></work-collage> -->
 
       <!-- Main Content Card -->
       <div class="mx-auto max-w-4xl text-center mt-16">
@@ -123,9 +119,7 @@
   </div>
 </template>
 
-<script setup>
-import WorkCollage from "./WorkCollage.vue";
-</script>
+<script setup></script>
 
 <style scoped>
 @keyframes fadeIn {

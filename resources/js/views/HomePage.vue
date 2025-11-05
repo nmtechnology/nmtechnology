@@ -318,6 +318,7 @@
           <SectionOne />
         </div>
       </section>
+      <WorkCollage />
 
       <!-- Pricing Section -->
 
@@ -336,6 +337,7 @@ import SectionService from "../components/SectionService.vue";
 import SectionOne from "../components/SectionOne.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
+import WorkCollage from "../components/WorkCollage.vue";
 
 const router = useRouter();
 const openContactModal = inject("openContactModal");
