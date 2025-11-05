@@ -19,8 +19,7 @@
           >
         </h2>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          We partner with national contractors and quick-service food franchises to keep
-          their facilities secure and operational.
+          We work with national contractors and businesses across New Mexico, providing professional installation, service, and onsite representation for all your security infrastructure needs.
         </p>
       </div>
 
@@ -31,12 +30,10 @@
             class="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-green-500/20 shadow-xl"
           >
             <h3 class="text-2xl font-bold text-white mb-4">
-              Rapid Response, Expert Service
+              Complete Installation & Service Excellence
             </h3>
             <p class="text-lg text-gray-300 leading-relaxed mb-6">
-              Our certified technicians respond within 24 hours to service CCTV security
-              cameras, security systems, fire alarms, and network infrastructure—critical
-              components that keep your business running smoothly.
+              Our certified technicians handle installation and ongoing service for CCTV surveillance systems, security systems, fire alarm systems, access control, and structured cabling. We respond within 24 hours and work directly with national contractors to deliver top-notch service every time—keeping your critical security infrastructure operational.
             </p>
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <button
@@ -187,23 +184,23 @@ const openContactModal = inject("openContactModal", () => {
 
 const features = [
   {
-    name: "Max Uptime",
+    name: "Professional Onsite Representation",
     description:
-      "In today's digital age, having your network functioning fast is crucial for any business. We can keep you connected with the latest updates on your firmware and software.",
+      "For companies outside New Mexico with customers here, we provide professional onsite representation—servicing your clients on your behalf with the same dedication and expertise you'd expect from your own team.",
     href: "#",
     icon: CloudArrowUpIcon,
   },
   {
-    name: "Fast Tech Service",
+    name: "National Contractor Partnerships",
     description:
-      "A fast response to your tech issues can provide you with a reliable experience from all your devices and framework Give us a call and we can provide service today!",
+      "We work directly with national contractors to provide top-notch installation and service for CCTV, security systems, fire alarms, access control, and structured cabling—delivering excellence on every project.",
     href: "#",
     icon: LockClosedIcon,
   },
   {
-    name: "Affordable Pricing",
+    name: "24/7 Emergency Service",
     description:
-      "Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.",
+      "Our certified technicians are available around the clock to handle installations, repairs, and maintenance. We respond within 24 hours to keep your critical security infrastructure operational.",
     href: "#",
     icon: ArrowPathIcon,
   },

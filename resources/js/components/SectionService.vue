@@ -16,17 +16,17 @@
                 </div>
                 
                 <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
-                    Professional Security Solutions
+                    Complete Security & Infrastructure Solutions
                 </h2>
                 
                 <p class="text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
-                    Expert technicians available around the clock to install and maintain your surveillance systems. Schedule your consultation today and partner with New Mexico's trusted security provider.
+                    Expert installation and service of CCTV, security systems, fire alarms, access control, and structured cabling. Available 24/7 to serve your needs across New Mexico.
                 </p>
             </div>
-            <h2 class="text-3xl font-bold text-green-500 mb-6 text-center animate-fadeIn">Why Choose NM Technology for Commercial CCTV Installation?</h2>
+            <h2 class="text-3xl font-bold text-green-500 mb-6 text-center animate-fadeIn">Why Choose NM Technology?</h2>
             <p class="text-lg text-gray-300 text-center mb-10 animate-fadeIn-delay">
-                We provide expert <strong class="text-green-400">CCTV installation</strong>, security systems, and smart automation for businesses and homes in Albuquerque and across New Mexico. Our certified technicians deliver rapid service, ongoing support, and tailored solutions to protect your property, assets, and data.<br><br>
-                NM Technology partners with leading vendors and security technology manufacturers to offer you leading industry options to enforce a security strategy that gives you the peace of mind you have been looking for! <strong>"CCTV installation Albuquerque"</strong> and related security keywords. Contact us for a free security audit and discover why we’re trusted by top organizations statewide.
+                We handle the complete installation and ongoing service of <strong class="text-green-400">CCTV surveillance systems, security systems, fire alarm systems, access control, and structured cabling</strong> throughout New Mexico. Our certified technicians work directly with national contractors to provide top-notch service every time.<br><br>
+                For companies outside New Mexico with customers here, we provide professional onsite representation—servicing your clients' needs on your behalf with the same dedication and expertise. Partner with us for reliable, professional service you can trust.
             </p>
             <div class="flex flex-wrap justify-center gap-8 mt-8">
                 <img src="/public/images/ubiquity-logo.webp" class="h-12 object-contain grayscale hover:grayscale-0 transition-all" alt="Ubiquity" />

@@ -1,9 +1,7 @@
 <template>
   <div class="site-wrapper">
     <!-- Navigation Bar -->
-    <nav
-      class="fixed top-0 left-0 w-full z-50 bg-transparent blur-md border-b border-green-600/30"
-    >
+    <nav class="fixed top-0 left-0 w-full z-50 border-b border-green-600/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Logo Section - Matching quote route style -->
@@ -391,7 +389,7 @@
       <!-- Components with Better Organization -->
 
       <!-- Services Section -->
-      <section class="relative bg-gray-900 py-16 sm:py-24">
+      <!-- <section class="relative bg-gray-900 py-16 sm:py-24">
         <div
           class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
         ></div>
@@ -402,13 +400,14 @@
                 Our Services
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
-                Expert installation and service for CCTV, Security Systems, Fire Alarms, Access Control & Structured Cabling
+                Expert installation and service for CCTV, Security Systems, Fire Alarms,
+                Access Control & Structured Cabling
               </p>
             </div>
           </div>
           <SectionService />
         </div>
-      </section>
+      </section> -->
 
       <!-- Products Section -->
       <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
@@ -436,10 +435,11 @@
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
               <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Commercial Solutions
+                Commercial Solutions & Onsite Representation
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
-                Enterprise-grade security for businesses of all sizes
+                Professional installation, service, and onsite representation for national
+                contractors across New Mexico
               </p>
             </div>
           </div>
@@ -448,7 +448,7 @@
       </section>
 
       <!-- Pricing Section -->
-      <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
+      <!-- <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
@@ -462,7 +462,7 @@
           </div>
           <Pricing />
         </div>
-      </section>
+      </section> -->
 
       <!-- Footer -->
       <HomeFooter />

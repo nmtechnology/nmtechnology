@@ -37,42 +37,39 @@
       </div>
       <div class="text-center max-w-5xl mx-auto">
         <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fadeIn">
-          Commercial CCTV & Security Systems
+          Professional Installation & Service
         </h2>
         <p
           class="text-xl sm:text-2xl text-green-300 font-semibold mb-6 animate-fadeIn-delay"
         >
-          Albuquerque's Trusted Leader in Commercial Security Solutions
+          New Mexico's Premier Security Systems Provider
         </p>
         <p class="text-lg text-gray-300 mb-8 leading-relaxed animate-fadeIn-delay-2">
-          NM Technology delivers comprehensive video surveillance, fire alarm systems, and
-          security installations for retail, offices, and commercial spaces across New
-          Mexico. Our certified technicians provide 24/7 support, rapid installation, and
-          ongoing maintenance to protect your assets and operations.
+          NM Technology specializes in the installation and service of CCTV surveillance systems, security systems, fire alarm systems, access control, and structured cabling across New Mexico. We partner with national contractors to deliver top-notch service every time, and provide professional onsite representation for companies outside New Mexico who have customers here—servicing their needs on their behalf with the same commitment to excellence.
         </p>
         <div class="grid sm:grid-cols-3 gap-6 mt-12 text-left">
           <div
             class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
           >
-            <h3 class="text-lg font-bold text-green-400 mb-2">CCTV Installation</h3>
+            <h3 class="text-lg font-bold text-green-400 mb-2">CCTV & Security Systems</h3>
             <p class="text-sm text-gray-300">
-              Professional surveillance systems to deter theft and monitor operations 24/7
+              Expert installation and maintenance of surveillance and security systems for complete property protection
             </p>
           </div>
           <div
             class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
           >
-            <h3 class="text-lg font-bold text-green-400 mb-2">Fire Alarm Systems</h3>
+            <h3 class="text-lg font-bold text-green-400 mb-2">Fire Alarms & Access Control</h3>
             <p class="text-sm text-gray-300">
-              Expert installation and service to keep your property safe and compliant
+              Professional fire alarm installation and access control systems to keep your property safe and code-compliant
             </p>
           </div>
           <div
             class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
           >
-            <h3 class="text-lg font-bold text-green-400 mb-2">Smart Automation</h3>
+            <h3 class="text-lg font-bold text-green-400 mb-2">Structured Cabling & Onsite Rep</h3>
             <p class="text-sm text-gray-300">
-              Integrated security solutions with network infrastructure and access control
+              Network infrastructure installation plus professional onsite representation for out-of-state contractors
             </p>
           </div>
         </div>
