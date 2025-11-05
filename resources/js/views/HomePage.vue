@@ -68,7 +68,7 @@
           <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
             <button
               @click="openContactModal"
-              class="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-semibold text-sm"
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -82,7 +82,7 @@
             </button>
             <button
               @click="generateQuote"
-              class="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-semibold text-sm"
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -167,7 +167,7 @@
                   openContactModal();
                   mobileMenuOpen = false;
                 "
-                class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-all duration-300 font-semibold text-sm"
+                class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02]"
               >
                 <svg
                   class="w-5 h-5"
@@ -189,7 +189,7 @@
                   generateQuote();
                   mobileMenuOpen = false;
                 "
-                class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-all duration-300 font-semibold text-sm"
+                class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02]"
               >
                 <svg
                   class="w-5 h-5"
@@ -217,9 +217,15 @@
       <!-- Hero Section -->
       <section class="relative isolate overflow-hidden">
         <!-- Decorative Background Blurs -->
-        <div class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
-        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
-        
+        <div
+          class="absolute top-1/4 left-0 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
+          aria-hidden="true"
+        ></div>
+
         <svg
           class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-green-600/10 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
           aria-hidden="true"
@@ -256,18 +262,33 @@
             >
               <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
-                  <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                <div
+                  class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
+                >
+                  <svg
+                    class="w-4 h-4 text-green-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
-                  <span class="text-sm font-semibold text-green-400">New Mexico's Trusted Security Experts</span>
+                  <span class="text-sm font-semibold text-green-400"
+                    >New Mexico's Trusted Security Experts</span
+                  >
                 </div>
-                
+
                 <h1
                   class="text-4xl font-bold tracking-tight sm:text-6xl flex flex-wrap items-center gap-2 mb-6"
                 >
                   <span class="text-white">We're Changing The Way You Are</span>
-                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Protected and Served</span>
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                    >Protected and Served</span
+                  >
                   <span class="text-white">Right Here In</span>
                   <img
                     class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
@@ -295,8 +316,18 @@
                     @click="openContactModal"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
                   >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
                     </svg>
                     Get started
                   </button>
@@ -304,8 +335,18 @@
                     @click="generateQuote"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
                     </svg>
                     Get Quote
                   </button>
@@ -402,22 +443,40 @@
       </section> -->
 
       <!-- Products Section -->
-      <section class="relative bg-gradient-to-b from-black via-gray-900 to-gray-900 py-16 sm:py-24 overflow-hidden">
+      <section
+        class="relative bg-gradient-to-b from-black via-gray-900 to-gray-900 py-16 sm:py-24 overflow-hidden"
+      >
         <!-- Decorative blur -->
-        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
-        
+        <div
+          class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
+          aria-hidden="true"
+        ></div>
+
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
-                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
+              >
+                <svg
+                  class="w-4 h-4 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                  />
                 </svg>
-                <span class="text-sm font-semibold text-green-400">Premium Equipment</span>
+                <span class="text-sm font-semibold text-green-400"
+                  >Premium Equipment</span
+                >
               </div>
               <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
                 <span class="text-white">Featured </span>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Products</span>
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >Products</span
+                >
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Industry-leading security equipment and technology
@@ -429,22 +488,44 @@
       </section>
 
       <!-- Commercial Solutions Section -->
-      <section class="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24 overflow-hidden">
+      <section
+        class="relative bg-gradient-to-b from-gray-900 to-black py-16 sm:py-24 overflow-hidden"
+      >
         <!-- Decorative blur -->
-        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
-        
+        <div
+          class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10"
+          aria-hidden="true"
+        ></div>
+
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm">
-                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
+              >
+                <svg
+                  class="w-4 h-4 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+                  />
                 </svg>
-                <span class="text-sm font-semibold text-green-400">Enterprise Solutions</span>
+                <span class="text-sm font-semibold text-green-400"
+                  >Enterprise Solutions</span
+                >
               </div>
               <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Commercial Solutions</span>
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >Commercial Solutions</span
+                >
                 <span class="text-white"> & Onsite Representation</span>
               </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
