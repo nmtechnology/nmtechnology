@@ -75,7 +75,7 @@
                   <span class="text-white">We're Changing The Way You Are</span>
                   <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-                    >Protected and Served</span
+                    >Protected & Served</span
                   >
                   <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"

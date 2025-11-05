@@ -23,7 +23,7 @@
           alt="nmtechnology-logo"
         />
         <span
-          class="text-xl italic font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
+          class="text-xl italic font-extrabold text-white -ml-1 transition-colors duration-300 group-hover:text-green-400"
           >Technology</span
         >
       </div>
