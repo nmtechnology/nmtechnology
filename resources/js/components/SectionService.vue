@@ -15,14 +15,14 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
       <!-- Logo Header with Glass Effect -->
       <div
-        class="flex items-center justify-center gap-3 mb-12 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-green-500/20 py-4 px-6 w-fit mx-auto shadow-lg"
+        class="flex items-center justify-center mb-12 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-green-500/20 py-4 px-6 w-fit mx-auto shadow-lg"
       >
         <img
           class="h-12 w-auto"
           src="/public/images/nm-logo-rmbg.webp"
           alt="nmtechnology-logo"
         />
-        <span class="text-xl italic font-extrabold text-white -ml-1">Technology</span>
+        <span class="text-xl italic font-extrabold text-white -ml-6">Technology</span>
       </div>
 
       <!-- Main Content Card -->
@@ -42,12 +42,17 @@
           >
         </div>
 
-        <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+        <h2
+          class="text-center text-4xl sm:text-5xl font-bold drop-shadow-lg animate-fadeIn mb-6 text-white"
+        >
+          Complete
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+            >Security & Infrastructure</span
+          ><span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"
+            >Solutions</span
           >
-            Complete Security & Infrastructure Solutions
-          </span>
         </h2>
 
         <p class="text-xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
