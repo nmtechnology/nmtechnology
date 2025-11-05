@@ -1,13 +1,13 @@
 <template>
   <div class="site-wrapper">
     <!-- Navigation Bar -->
-    <nav
+    <!-- <nav
       class="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-green-600/30"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           <!-- Logo Section - Matching quote route style -->
-          <div class="flex lg:flex-1 items-center">
+    <!-- <div class="flex lg:flex-1 items-center">
             <router-link to="/home" class="relative flex items-center group">
               <img
                 class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
@@ -19,10 +19,10 @@
                 >Technology</span
               >
             </router-link>
-          </div>
+          </div> -->
 
-          <!-- Mobile menu button -->
-          <div class="flex lg:hidden">
+    <!-- Mobile menu button -->
+    <!-- <div class="flex lg:hidden">
             <button
               type="button"
               class="inline-flex items-center justify-center rounded-md p-2.5 text-green-400 hover:text-green-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200"
@@ -42,10 +42,10 @@
                 />
               </svg>
             </button>
-          </div>
+          </div> -->
 
-          <!-- Desktop navigation links -->
-          <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
+    <!-- Desktop navigation links -->
+    <!-- <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
             <router-link
               v-for="item in navigation.filter((i) => i.name !== 'Home')"
               :key="item.name"
@@ -62,10 +62,10 @@
                 class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"
               ></span>
             </router-link>
-          </div>
+          </div> -->
 
-          <!-- Desktop Action Buttons -->
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
+    <!-- Desktop Action Buttons -->
+    <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
             <button
               @click="openContactModal"
               class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
@@ -97,7 +97,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- Mobile menu -->
     <div
