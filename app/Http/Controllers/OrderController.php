@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use App\Mail\OrderMail;
+use App\Mail\QuoteConfirmationMail;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -44,11 +45,21 @@ class OrderController extends Controller
             // Get all order data
             $orderData = $request->all();
             
-            // Send email to service@nmtechnology.us
+            // Send order email to NM Technology
             Mail::to('service@nmtechnology.us')->send(new OrderMail($orderData));
             
+            // Send confirmation email to customer
+            $customerEmail = $request->input('customer.email');
+            $firstName = $request->input('customer.firstName');
+            $lastName = $request->input('customer.lastName');
+            $itemCount = count($request->input('items', []));
+            
+            Mail::to($customerEmail)->send(
+                new QuoteConfirmationMail($firstName, $lastName, $itemCount)
+            );
+            
             // Log success
-            Log::info('Order email sent successfully');
+            Log::info('Order emails sent successfully (internal + customer confirmation)');
             
             // Return success response
             return response()->json([

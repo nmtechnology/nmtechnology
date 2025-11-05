@@ -20,6 +20,11 @@ class Kernel extends ConsoleKernel
             \App\Http\Controllers\MathVerificationController::sendDailyTrafficReport();
         })->dailyAt('20:00')->timezone('America/Denver'); // 8pm MST daily
         
+        // Comprehensive visitor statistics report with 7, 15, 30 day views
+        $schedule->command('visitor:send-statistics-report')
+            ->weeklyOn(1, '8:30') // Every Monday at 8:30am
+            ->timezone('America/Denver');
+        
         $schedule->command('visitor:send-weekly-report')
             ->weeklyOn(1, '9:00') // Every Monday at 9am
             ->timezone('America/Denver');

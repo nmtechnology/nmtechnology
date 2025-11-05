@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactMail;
+use App\Mail\ContactConfirmationMail;
 use App\Models\EmailerRecipient;
 
 class MailController extends Controller
@@ -51,10 +52,16 @@ class MailController extends Controller
             $details = $validated;
             $details['files'] = $safeFiles;
 
-            // Send email with attachments
+            // Send email to NM Technology with attachments
             Mail::to('service@nmtechnology.us')->send(new ContactMail($details));
+            
+            // Send confirmation email to customer
+            Mail::to($validated['email'])->send(
+                new ContactConfirmationMail($validated['firstName'], $validated['lastName'])
+            );
+            
             EmailerRecipient::firstOrCreate(['email' => $validated['email']]);
-            \Log::info('Contact form email sent successfully');
+            \Log::info('Contact form emails sent successfully (internal + customer confirmation)');
             return response()->json('Your message has been sent successfully!', 200);
         } catch (\Exception $e) {
             \Log::error('Contact form error: ' . $e->getMessage());
