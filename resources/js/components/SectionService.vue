@@ -19,7 +19,7 @@
       >
         <img
           class="h-12 w-auto"
-          src="/images/nm-logo-rmbg.webp"
+          src="/public/images/nm-logo-rmbg.webp"
           alt="nmtechnology-logo"
         />
         <span class="text-xl italic font-extrabold text-white ml-2">Technology</span>
