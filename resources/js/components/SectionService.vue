@@ -22,7 +22,7 @@
           src="/public/images/nm-logo-rmbg.webp"
           alt="nmtechnology-logo"
         />
-        <span class="text-xl italic font-extrabold text-white -ml-2">Technology</span>
+        <span class="text-xl italic font-extrabold text-white -ml-1">Technology</span>
       </div>
 
       <!-- Main Content Card -->
