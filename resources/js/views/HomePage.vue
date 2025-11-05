@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper">
     <!-- Main Content Starts -->
-    <main class="site-content bg-gradient-to-b from-black via-gray-900 to-gray-900">
+    <main class="site-content bg-gradient-to-b from-black via-gray-900 to-gray-900/10">
       <!-- Hero Section -->
       <section class="relative isolate overflow-hidden">
         <!-- Decorative Background Blurs -->
