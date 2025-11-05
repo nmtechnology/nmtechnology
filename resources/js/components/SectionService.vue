@@ -23,7 +23,7 @@
           alt="nmtechnology-logo"
         />
         <span
-          class="text-xl italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          class="text-xl italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white-400 to-lime-400 -ml-1"
           >Technology</span
         >
       </div>
