@@ -215,17 +215,7 @@
           class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/90 to-gray-950"
         ></div>
         <div class="relative">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-            <!-- <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Our Services
-              </h2>
-              <p class="mt-4 text-lg leading-8 text-gray-300">
-                Expert installation and service for CCTV, Security Systems, Fire Alarms,
-                Access Control & Structured Cabling
-              </p>
-            </div> -->
-          </div>
+          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12"></div>
           <SectionService />
         </div>
       </section>
@@ -256,13 +246,13 @@
                   />
                 </svg>
                 <span class="text-sm font-semibold text-green-400"
-                  >Premium Equipment & Warrantied Services</span
+                  >Premium Equipment</span
                 >
               </div>
               <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
                 <span class="text-white">Featured Top </span>
                 <span
-                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  class="text-transparent bg-clip-text bg-gradient-to-r text-pretty from-green-400 to-lime-400"
                   >Products</span
                 >
               </h2>
