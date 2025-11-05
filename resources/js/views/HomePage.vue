@@ -215,7 +215,7 @@
       <!-- Hero Section - Old Template Style -->
       <section class="relative isolate">
         <svg
-          class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-lime-400 [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
+          class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-white [mask-image:radial-gradient(22rem_22rem_at_center,white,transparent)]"
           aria-hidden="true"
         >
           <defs>
@@ -387,14 +387,18 @@
       </section>
 
       <!-- Components with Better Organization -->
-      
+
       <!-- Services Section -->
       <section class="relative bg-gray-900 py-16 sm:py-24">
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
+        ></div>
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Services</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Our Services
+              </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Comprehensive security solutions tailored to your needs
               </p>
@@ -409,7 +413,9 @@
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Products</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Featured Products
+              </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Industry-leading security equipment and technology
               </p>
@@ -421,11 +427,15 @@
 
       <!-- Commercial Solutions Section -->
       <section class="relative bg-gray-900 py-16 sm:py-24">
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
+        ></div>
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Commercial Solutions</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Commercial Solutions
+              </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Enterprise-grade security for businesses of all sizes
               </p>
@@ -440,7 +450,9 @@
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
             <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Pricing Plans</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Pricing Plans
+              </h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">
                 Flexible packages designed for your budget
               </p>
