@@ -1,10 +1,10 @@
 <template>
   <div
-    class="relative bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16 sm:py-24 overflow-hidden"
+    class="relative bg-gradient-to-b from-black via-gray-900 to-black py-16 sm:py-24 overflow-hidden"
   >
     <!-- Decorative Background Blurs -->
     <div
-      class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-green-500/10 to-lime-500 rounded-full blur-3xl -z-10"
+      class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10"
       aria-hidden="true"
     ></div>
     <div
