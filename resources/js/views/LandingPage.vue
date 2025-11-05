@@ -54,9 +54,13 @@
             alt="nmtechnology-logo"
           />
           <div class="flex flex-col items-start -ml-5">
-            <span class="italic text-4xl md:text-5xl font-extrabold text-white transition-colors duration-300">Technology</span>
-            <span class="text-sm text-green-400 font-semibold tracking-wider uppercase ml-0.5"
-              >Security Solutions</span
+            <span
+              class="italic text-4xl md:text-5xl font-extrabold text-white transition-colors duration-300"
+              >Technology</span
+            >
+            <span
+              class="text-sm text-green-400 font-semibold tracking-wider uppercase ml-0.5"
+              >& Integration Solutions</span
             >
           </div>
         </div>
