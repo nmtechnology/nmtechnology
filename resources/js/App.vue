@@ -12,12 +12,12 @@
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
             <img
-              class="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+              class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
               src="/public/images/nm-logo-rmbg.webp"
               alt="nmtechnology-logo"
             />
             <span
-              class="italic text-lg font-extrabold text-white -ml-6 transition-colors duration-300 group-hover:text-green-400"
+              class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
               >Technology</span
             >
           </router-link>
