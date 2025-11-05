@@ -528,6 +528,13 @@ export default {
       }
     };
     
+    // Update carousel transform when slide changes
+    watch(currentSlide, (newSlide) => {
+      if (carouselRef.value) {
+        carouselRef.value.style.transform = `translateX(-${newSlide * 100}%)`;
+      }
+    });
+    
     // Reset slide index when product changes
     watch(() => props.product, () => {
       currentSlide.value = 0;
@@ -857,13 +864,13 @@ export default {
   display: flex;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
-  width: 100%;
   will-change: transform;
   touch-action: pan-y;
 }
 
 .carousel-item {
-  flex: 0 0 100%;
+  flex-shrink: 0;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
