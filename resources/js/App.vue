@@ -2,41 +2,67 @@
   <div>
     <header
       v-if="!isLandingPage"
-      class="fixed inset-x-0 top-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-green-600/30"
+      class="fixed inset-x-0 top-0 z-50 bg-gray-900/10 backdrop-blur-md border-b border-green-600/30"
     >
-      <nav class="flex items-center justify-between h-20 p-6 lg:px-8 w-screen max-w-7xl mx-auto" aria-label="Global">
+      <nav
+        class="flex items-center justify-between h-20 p-6 lg:px-8 w-screen max-w-7xl mx-auto"
+        aria-label="Global"
+      >
         <!-- Logo Section -->
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
-            <img class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105" src="/public/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
-            <span class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400">Technology</span>
+            <img
+              class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
+              src="/public/images/nm-logo-rmbg.webp"
+              alt="nmtechnology-logo"
+            />
+            <span
+              class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
+              >Technology</span
+            >
           </router-link>
         </div>
 
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
-          <button type="button" 
-              class="inline-flex items-center justify-center rounded-md p-2.5 text-green-400 hover:text-green-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200"
-              @click="mobileMenuOpen = true">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center rounded-md p-2.5 text-green-400 hover:text-green-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 transition-all duration-200"
+            @click="mobileMenuOpen = true"
+          >
             <span class="sr-only">Open main menu</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-5">
-              <path fill-rule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="size-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75ZM2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8Zm0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+                clip-rule="evenodd"
+              />
             </svg>
           </button>
         </div>
 
         <!-- Desktop navigation links -->
         <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
-          <router-link 
-            v-for="item in navigation.filter(i => i.name !== 'Home')" 
-            :key="item.name" 
-            :to="item.href" 
+          <router-link
+            v-for="item in navigation.filter((i) => i.name !== 'Home')"
+            :key="item.name"
+            :to="item.href"
             class="relative px-3 py-2 text-sm font-semibold text-white hover:text-green-400 transition-colors duration-200 rounded-md group"
             :class="{ 'text-green-400': isActiveRoute(item.href) }"
           >
             {{ item.name }}
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
-            <span v-if="isActiveRoute(item.href)" class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"></span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+            ></span>
+            <span
+              v-if="isActiveRoute(item.href)"
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"
+            ></span>
           </router-link>
         </div>
 
@@ -217,7 +243,10 @@
 
                 <!-- Mobile Action Buttons -->
                 <button
-                  @click="openContactModal(); mobileMenuOpen = false"
+                  @click="
+                    openContactModal();
+                    mobileMenuOpen = false;
+                  "
                   class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <svg
@@ -235,9 +264,12 @@
                   </svg>
                   Contact Us
                 </button>
-                
+
                 <button
-                  @click="generateQuote(); mobileMenuOpen = false"
+                  @click="
+                    generateQuote();
+                    mobileMenuOpen = false;
+                  "
                   class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02]"
                 >
                   <svg
