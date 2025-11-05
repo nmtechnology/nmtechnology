@@ -35,9 +35,13 @@
       </div>
 
       <h2
-        class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center text-4xl sm:text-5xl font-bold drop-shadow-lg animate-fadeIn mb-6"
+        class="text-center text-4xl sm:text-5xl font-bold drop-shadow-lg animate-fadeIn mb-6 text-white"
       >
-        QSR Franchise Security Systems
+        QSR Franchise
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >Security Systems</span
+        >
       </h2>
       <p
         class="text-center text-gray-300 text-lg leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
@@ -129,10 +133,36 @@
 
     <!-- Commercial Section -->
     <div class="relative mt-12 sm:mt-20">
+      <!-- Badge -->
+      <div class="flex justify-center mb-6 animate-fadeIn">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+        >
+          <svg
+            class="w-5 h-5 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400">Retail Solutions</span>
+        </div>
+      </div>
+
       <h2
-        class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center text-3xl md:text-4xl font-bold drop-shadow-lg animate-fadeIn mb-4 sm:mb-6"
+        class="text-center text-3xl md:text-4xl font-bold drop-shadow-lg animate-fadeIn mb-4 sm:mb-6 text-white"
       >
-        Commercial Retail CCTV
+        Commercial
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >Retail CCTV</span
+        >
       </h2>
       <p
         class="text-center text-gray-300 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
@@ -144,10 +174,42 @@
 
     <!-- Fire Alarm Section -->
     <div class="relative mt-12 sm:mt-20">
+      <!-- Badge -->
+      <div class="flex justify-center mb-6 animate-fadeIn">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+        >
+          <svg
+            class="w-5 h-5 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400">Fire Safety</span>
+        </div>
+      </div>
+
       <h2
-        class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg mb-4 sm:mb-6"
+        class="text-center text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg mb-4 sm:mb-6 text-white"
       >
-        Commercial Fire Alarm Service & Installation
+        Commercial
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >Fire Alarm Service & Installation</span
+        >
       </h2>
       <div class="text-center mb-8 sm:mb-10">
         <button
@@ -169,10 +231,36 @@
 
     <!-- On-site Section -->
     <div class="relative mt-20">
+      <!-- Badge -->
+      <div class="flex justify-center mb-6 animate-fadeIn">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+        >
+          <svg
+            class="w-5 h-5 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400">Professional Service</span>
+        </div>
+      </div>
+
       <h2
-        class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center text-3xl md:text-4xl font-bold drop-shadow-lg mb-8"
+        class="text-center text-3xl md:text-4xl font-bold drop-shadow-lg mb-8 text-white"
       >
-        On-site Representation
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >On-site</span
+        >
+        Representation
       </h2>
     </div>
 
@@ -180,10 +268,36 @@
     <section
       class="relative bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 py-16 animate-fadeIn mt-12 rounded-2xl shadow-xl ring-1 ring-green-500/20"
     >
+      <!-- Badge -->
+      <div class="flex justify-center mb-6 animate-fadeIn">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+        >
+          <svg
+            class="w-5 h-5 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400">Our Portfolio</span>
+        </div>
+      </div>
+
       <h2
-        class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center mb-8 drop-shadow-lg"
+        class="text-2xl md:text-3xl font-bold text-center mb-8 drop-shadow-lg text-white"
       >
-        CCTV Installation & Security Projects
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >CCTV Installation</span
+        >
+        & Security Projects
       </h2>
       <p
         class="text-lg text-gray-300 text-center leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
@@ -203,10 +317,33 @@
         and related security services.
       </p>
 
-      <h3
-        class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-center mt-8 animate-fadeIn"
-      >
-        Trusted by New Mexico's Top Businesses & Franchises
+      <div class="flex justify-center mt-8 mb-4">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+        >
+          <svg
+            class="w-4 h-4 text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            />
+          </svg>
+          <span class="text-sm font-semibold text-green-400">Trusted Partner</span>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-center animate-fadeIn text-white">
+        Trusted by
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+          >New Mexico's Top Businesses & Franchises</span
+        >
       </h3>
     </section>
   </div>
