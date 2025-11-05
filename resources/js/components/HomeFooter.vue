@@ -10,12 +10,6 @@
           <p class="text-base font-semibold text-green-400 mb-3">
             Albuquerque's #1 Choice for Commercial CCTV Installation & Security Solutions
           </p>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            We help New Mexico businesses appear in search results for
-            <strong class="text-green-400">"CCTV installation Albuquerque"</strong> and
-            related security services. Partner with us for expert installation, local SEO,
-            and ongoing support.
-          </p>
         </div>
 
         <!-- Social Media Icons Section -->
