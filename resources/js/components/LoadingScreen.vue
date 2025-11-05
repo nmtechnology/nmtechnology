@@ -5,17 +5,17 @@
   >
     <!-- Decorative Background Blurs -->
     <div
-      class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/10 rounded-full blur-3xl -z-10 animate-pulse"
+      class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/10 to-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse"
       style="animation-duration: 3s"
     ></div>
     <div
-      class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10 animate-pulse"
+      class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-blue-400/10 to-purple-500/10 rounded-full blur-3xl -z-10 animate-pulse"
       style="animation-duration: 4s"
     ></div>
 
     <!-- Background Pattern -->
     <svg
-      class="absolute inset-0 -z-10 h-full w-full stroke-green-600/10 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+      class="absolute inset-0 -z-10 h-full w-full stroke-purple-600/10 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
       aria-hidden="true"
     >
       <defs>
@@ -35,14 +35,14 @@
 
     <!-- Glass Container -->
     <div
-      class="relative z-10 bg-gray-800/30 backdrop-blur-md rounded-3xl border border-green-500/20 p-12 shadow-2xl animate-fadeIn opacity-0"
+      class="relative z-10 bg-gray-800/30 backdrop-blur-md rounded-3xl border border-purple-500/20 p-12 shadow-2xl animate-fadeIn opacity-0"
       style="animation-delay: 0.2s"
     >
       <!-- Logo -->
       <div class="flex justify-center mb-8">
         <div class="relative">
           <div
-            class="absolute inset-0 bg-gradient-to-r from-green-400 to-lime-400 rounded-2xl blur-xl opacity-50"
+            class="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 rounded-2xl blur-xl opacity-50"
           ></div>
           <img
             src="/public/images/nm-logo-rmbg.webp"
@@ -60,7 +60,7 @@
         <h2 class="text-4xl sm:text-5xl font-bold mb-3">
           <span class="text-white">Welcome to </span>
           <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
           >
             NM Technology
           </span>
@@ -74,11 +74,11 @@
         style="animation-delay: 0.8s"
       >
         <div
-          class="h-2 w-full bg-gray-700/50 rounded-full overflow-hidden backdrop-blur-sm border border-green-600/20"
+          class="h-2 w-full bg-gray-700/50 rounded-full overflow-hidden backdrop-blur-sm border border-purple-600/20"
         >
           <div
             ref="progressBar"
-            class="progress-bar h-full bg-gradient-to-r from-green-500 to-lime-400 rounded-full transition-all duration-[2500ms] ease-out w-0 shadow-lg"
+            class="progress-bar h-full bg-gradient-to-r from-purple-500 to-blue-400 rounded-full transition-all duration-[2500ms] ease-out w-0 shadow-lg"
           ></div>
         </div>
       </div>
@@ -142,6 +142,6 @@ onMounted(() => {
 }
 
 .progress-bar {
-  box-shadow: 0 0 30px rgba(74, 222, 128, 0.6), 0 0 60px rgba(132, 204, 22, 0.3);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(96, 165, 250, 0.3);
 }
 </style>

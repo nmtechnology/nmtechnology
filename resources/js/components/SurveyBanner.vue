@@ -41,7 +41,7 @@
               :disabled="isSubmitting"
               class="px-6 py-2 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {{ isSubmitting ? 'Submitting...' : 'Yes! 👍' }}
+              {{ isSubmitting ? "Submitting..." : "Yes! 👍" }}
             </button>
             <button
               v-if="!showThankYou"
@@ -49,7 +49,7 @@
               :disabled="isSubmitting"
               class="px-6 py-2 bg-white/20 text-white border-2 border-white rounded-lg font-semibold hover:bg-white/30 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {{ isSubmitting ? 'Submitting...' : 'Not Sure 🤔' }}
+              {{ isSubmitting ? "Submitting..." : "Not Sure 🤔" }}
             </button>
             <button
               @click="dismiss"
@@ -75,19 +75,23 @@
             class="mt-4 p-4 bg-white/20 backdrop-blur-sm rounded-lg border-2 border-white/40"
           >
             <p class="text-white font-semibold text-center">
-              🙏 Thank you for your feedback! Your response helps us build better features for
-              you.
+              🙏 Thank you for your feedback! Your response helps us build better features
+              for you.
             </p>
           </div>
         </transition>
 
         <!-- Progress Indicator -->
         <div v-if="!showThankYou" class="mt-3 flex items-center gap-2">
-          <span class="text-white/80 text-xs font-medium">Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</span>
+          <span class="text-white/80 text-xs font-medium"
+            >Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</span
+          >
           <div class="flex-1 h-1.5 bg-white/30 rounded-full overflow-hidden">
             <div
               class="h-full bg-white rounded-full transition-all duration-500"
-              :style="{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }"
+              :style="{
+                width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
+              }"
             ></div>
           </div>
         </div>
@@ -97,36 +101,37 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
-import axios from 'axios';
+import { ref, onMounted, computed } from "vue";
+import axios from "axios";
 
 // Survey questions
 const questions = [
   {
-    id: 'online_store',
-    text: 'Would you buy security products directly from our website?',
-    category: 'Online Store Interest'
+    id: "online_store",
+    text: "Would you buy security products directly from our website?",
+    category: "Online Store Interest",
   },
   {
-    id: 'customer_portal',
-    text: 'Would you use a customer portal to manage your security monitoring services?',
-    category: 'Customer Portal Interest'
+    id: "customer_portal",
+    text: "Would you use a customer portal to manage your security monitoring services?",
+    category: "Customer Portal Interest",
   },
   {
-    id: 'online_quotes',
-    text: 'Would you prefer getting instant online quotes instead of waiting for a call back?',
-    category: 'Online Quotes Interest'
+    id: "online_quotes",
+    text:
+      "Would you prefer getting instant online quotes instead of waiting for a call back?",
+    category: "Online Quotes Interest",
   },
   {
-    id: 'product_reviews',
-    text: 'Would customer reviews and ratings help you choose security products?',
-    category: 'Product Reviews Interest'
+    id: "product_reviews",
+    text: "Would customer reviews and ratings help you choose security products?",
+    category: "Product Reviews Interest",
   },
   {
-    id: 'live_chat',
-    text: 'Would you use live chat support for quick questions about products?',
-    category: 'Live Chat Interest'
-  }
+    id: "live_chat",
+    text: "Would you use live chat support for quick questions about products?",
+    category: "Live Chat Interest",
+  },
 ];
 
 const isVisible = ref(false);
@@ -140,10 +145,12 @@ const currentQuestion = computed(() => questions[currentQuestionIndex.value]);
 
 // Check if user has already seen/dismissed the banner
 const checkDismissed = () => {
-  const dismissed = localStorage.getItem('surveyBannerDismissed');
-  const lastShown = localStorage.getItem('surveyBannerLastShown');
-  const answeredQuestions = JSON.parse(localStorage.getItem('surveyAnsweredQuestions') || '[]');
-  
+  const dismissed = localStorage.getItem("surveyBannerDismissed");
+  const lastShown = localStorage.getItem("surveyBannerLastShown");
+  const answeredQuestions = JSON.parse(
+    localStorage.getItem("surveyAnsweredQuestions") || "[]"
+  );
+
   // Show again after 7 days
   if (dismissed && lastShown) {
     const daysSinceLastShown = (Date.now() - parseInt(lastShown)) / (1000 * 60 * 60 * 24);
@@ -152,72 +159,72 @@ const checkDismissed = () => {
       return;
     }
   }
-  
+
   // Skip already answered questions
-  currentQuestionIndex.value = questions.findIndex(q => !answeredQuestions.includes(q.id));
-  
+  currentQuestionIndex.value = questions.findIndex(
+    (q) => !answeredQuestions.includes(q.id)
+  );
+
   // If all questions answered, don't show
   if (currentQuestionIndex.value === -1) {
     isDismissed.value = true;
     return;
   }
-  
+
   // Show banner after 3 seconds
   setTimeout(() => {
     isVisible.value = true;
   }, 3000);
 };
 
-// Submit answer via email
+// Submit answer and collect responses
 const submitAnswer = async (answer) => {
   if (isSubmitting.value) return;
-  
+
   isSubmitting.value = true;
-  
+
   try {
     const response = {
       question: currentQuestion.value.text,
       category: currentQuestion.value.category,
-      answer: answer === 'yes' ? 'Yes' : 'Not Sure / No',
-      timestamp: new Date().toISOString(),
-      page: window.location.pathname,
-      userAgent: navigator.userAgent
+      answer: answer === "yes" ? "Yes" : "Not Sure / No",
+      questionId: currentQuestion.value.id,
     };
-    
+
+    // Store answer locally
     answers.value.push(response);
-    
-    // Send to backend
-    await axios.post('/api/survey-response', response);
-    
+
     // Mark question as answered
-    const answeredQuestions = JSON.parse(localStorage.getItem('surveyAnsweredQuestions') || '[]');
+    const answeredQuestions = JSON.parse(
+      localStorage.getItem("surveyAnsweredQuestions") || "[]"
+    );
     answeredQuestions.push(currentQuestion.value.id);
-    localStorage.setItem('surveyAnsweredQuestions', JSON.stringify(answeredQuestions));
-    
+    localStorage.setItem("surveyAnsweredQuestions", JSON.stringify(answeredQuestions));
+
     // Show thank you message
     showThankYou.value = true;
-    
-    // Move to next question or dismiss after 2 seconds
-    setTimeout(() => {
+
+    // Move to next question or send all answers after 2 seconds
+    setTimeout(async () => {
       showThankYou.value = false;
       currentQuestionIndex.value++;
-      
+
       // Check if more questions exist
-      const nextQuestionIndex = questions.findIndex((q, idx) => 
-        idx >= currentQuestionIndex.value && !answeredQuestions.includes(q.id)
+      const nextQuestionIndex = questions.findIndex(
+        (q, idx) => idx >= currentQuestionIndex.value && !answeredQuestions.includes(q.id)
       );
-      
+
       if (nextQuestionIndex === -1 || currentQuestionIndex.value >= questions.length) {
-        // All questions answered or no more questions
+        // All questions answered - send all answers in one email
+        await sendAllAnswers();
         dismiss();
       } else {
         currentQuestionIndex.value = nextQuestionIndex;
       }
     }, 2000);
-    
   } catch (error) {
-    console.error('Error submitting survey response:', error);
-    // Still allow progression even if submission fails
+    console.error("Error recording survey response:", error);
+    // Still allow progression even if there's an error
     showThankYou.value = true;
     setTimeout(() => {
       showThankYou.value = false;
@@ -228,12 +235,30 @@ const submitAnswer = async (answer) => {
   }
 };
 
+// Send all collected answers in one email
+const sendAllAnswers = async () => {
+  if (answers.value.length === 0) return;
+
+  try {
+    await axios.post("/api/survey-responses", {
+      responses: answers.value,
+      timestamp: new Date().toISOString(),
+      page: window.location.pathname,
+      userAgent: navigator.userAgent,
+    });
+
+    console.log("All survey responses sent successfully");
+  } catch (error) {
+    console.error("Error sending survey responses:", error);
+  }
+};
+
 // Dismiss banner
 const dismiss = () => {
   isVisible.value = false;
-  localStorage.setItem('surveyBannerDismissed', 'true');
-  localStorage.setItem('surveyBannerLastShown', Date.now().toString());
-  
+  localStorage.setItem("surveyBannerDismissed", "true");
+  localStorage.setItem("surveyBannerLastShown", Date.now().toString());
+
   setTimeout(() => {
     isDismissed.value = true;
   }, 300);
