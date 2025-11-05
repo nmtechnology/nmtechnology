@@ -128,11 +128,11 @@
               <div class="flex items-center">
                 <router-link to="/home" class="relative flex items-center">
                   <img
-                    class="h-10 w-auto"
+                    class="h-10 w-auto mr-2"
                     src="/public/images/nm-logo-rmbg.webp"
                     alt="nmtechnology-logo"
                   />
-                  <span class="italic text-lg font-extrabold text-white -ml-6"
+                  <span class="italic text-lg font-extrabold text-white -ml-1"
                     >Technology</span
                   >
                 </router-link>
@@ -360,7 +360,7 @@
 <script>
 import { ref, computed, provide } from "vue";
 import { Dialog, DialogPanel, TransitionChild } from "@headlessui/vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import ToastContainer from "./components/ToastContainer.vue";
 import CartModal from "./components/CartModal.vue";
 import ContactModal from "./components/ContactModal.vue";
@@ -389,7 +389,6 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const router = useRouter();
     const mobileMenuOpen = ref(false);
     const contactModalRef = ref(null);
     const cartItemCount = computed(() => cartStore.getItemCount.value);
@@ -433,7 +432,7 @@ export default {
     const generateQuote = () => {
       // Navigate to CCTV page for quote generation
       if (route.path !== "/cctv") {
-        router.push("/cctv");
+        window.location.href = "/cctv";
       }
     };
 
