@@ -103,7 +103,7 @@
       <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
         <div class="fixed inset-0 z-30 bg-gray-900/20" />
         <DialogPanel
-          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900/20 px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl transition-all duration-300"
+          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900/60 px-6 py-6 sm:max-w-sm border-l-4 border-green-600 shadow-2xl transition-all duration-300"
         >
           <div class="flex items-center justify-between mb-6">
             <div class="flex items-center">
