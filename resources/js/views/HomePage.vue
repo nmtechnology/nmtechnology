@@ -273,6 +273,7 @@
                 brands you trust you can rest assured knowing you are in professional
                 hands.
               </p>
+
             </div>
           </div>
           <BlackGradient />
@@ -354,11 +355,20 @@
 </template>
 
 <script setup>
+import { inject } from "vue";
+import { useRouter } from "vue-router";
 import SectionService from "../components/SectionService.vue";
 import SectionOne from "../components/SectionOne.vue";
 import BlackGradient from "../components/BlackGradient.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
+
+const router = useRouter();
+const openContactModal = inject("openContactModal");
+
+const generateQuote = () => {
+  router.push("/cctv");
+};
 </script>
 
 <style scoped>

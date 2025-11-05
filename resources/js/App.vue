@@ -338,7 +338,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, provide } from "vue";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { useRoute } from "vue-router";
 import ToastContainer from "./components/ToastContainer.vue";
@@ -414,6 +414,9 @@ export default {
         window.location.href = "/cctv";
       }
     };
+
+    // Provide openContactModal to child components
+    provide("openContactModal", openContactModal);
 
     return {
       navigation,
