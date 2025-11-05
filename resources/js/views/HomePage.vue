@@ -332,16 +332,6 @@
       <!-- Pricing Section -->
       <section class="relative bg-gradient-to-b from-gray-950 to-gray-900 py-16 sm:py-24">
         <div class="relative">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-            <div class="mx-auto max-w-2xl text-center">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Pricing Plans
-              </h2>
-              <p class="mt-4 text-lg leading-8 text-gray-300">
-                Flexible packages designed for your budget
-              </p>
-            </div>
-          </div>
           <Pricing />
         </div>
       </section>
