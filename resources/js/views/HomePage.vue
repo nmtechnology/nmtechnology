@@ -210,7 +210,7 @@
       <!-- Components with Better Organization -->
 
       <!-- Services Section -->
-      <!-- <section class="relative bg-gray-900 py-16 sm:py-24">
+      <section class="relative bg-gray-900 py-16 sm:py-24">
         <div
           class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
         ></div>
@@ -228,7 +228,7 @@
           </div>
           <SectionService />
         </div>
-      </section> -->
+      </section>
 
       <!-- Products Section -->
       <section
@@ -330,11 +330,8 @@
       </section>
 
       <!-- Pricing Section -->
-      <section class="relative py-16 sm:py-24">
-        <div class="relative">
-          <Pricing />
-        </div>
-      </section>
+
+      <Pricing />
 
       <!-- Footer -->
       <HomeFooter />
