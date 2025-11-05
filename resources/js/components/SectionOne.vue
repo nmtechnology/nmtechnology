@@ -35,19 +35,30 @@
                     "
                 />
             </div>
-            <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-lime-400 mb-4 animate-fadeIn">
-                    Commercial Security & CCTV Installation for New Mexico Businesses
+            <div class="text-center max-w-5xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-bold text-lime-400 mb-6 animate-fadeIn">
+                    Commercial CCTV & Security Systems
                 </h2>
-                <p class="text-lg text-gray-300 mb-8 animate-fadeIn-delay">
-                    NM Technology delivers advanced security solutions, including
-                    <strong class="text-green-400">CCTV installation</strong>, fire alarms, and network
-                    infrastructure. Our Albuquerque-based team is trusted by hundreds of corporations and
-                    franchises for reliable, rapid service and ongoing support.<br /><br />
-                    We help you automate safety, reduce theft, and protect your business with the latest
-                    technology. Contact us for a free consultation and discover why we’re New Mexico’s
-                    preferred security partner.
+                <p class="text-xl sm:text-2xl text-green-300 font-semibold mb-6 animate-fadeIn-delay">
+                    Albuquerque's Trusted Leader in Commercial Security Solutions
                 </p>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed animate-fadeIn-delay-2">
+                    NM Technology delivers comprehensive video surveillance, fire alarm systems, and security installations for retail, offices, and commercial spaces across New Mexico. Our certified technicians provide 24/7 support, rapid installation, and ongoing maintenance to protect your assets and operations.
+                </p>
+                <div class="grid sm:grid-cols-3 gap-6 mt-12 text-left">
+                    <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                        <h3 class="text-lg font-bold text-green-400 mb-2">CCTV Installation</h3>
+                        <p class="text-sm text-gray-300">Professional surveillance systems to deter theft and monitor operations 24/7</p>
+                    </div>
+                    <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                        <h3 class="text-lg font-bold text-green-400 mb-2">Fire Alarm Systems</h3>
+                        <p class="text-sm text-gray-300">Expert installation and service to keep your property safe and compliant</p>
+                    </div>
+                    <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                        <h3 class="text-lg font-bold text-green-400 mb-2">Smart Automation</h3>
+                        <p class="text-sm text-gray-300">Integrated security solutions with network infrastructure and access control</p>
+                    </div>
+                </div>
             </div>
             <dl
                 class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 text-lime-400 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4"
@@ -83,7 +94,11 @@ const stats = [
   animation: fadeIn 1.2s ease-out;
 }
 .animate-fadeIn-delay {
-  animation: fadeIn 1.4s ease-out 0.3s forwards;
+  animation: fadeIn 1.4s ease-out 0.2s forwards;
+  opacity: 0;
+}
+.animate-fadeIn-delay-2 {
+  animation: fadeIn 1.6s ease-out 0.4s forwards;
   opacity: 0;
 }
 @keyframes fadeIn {
