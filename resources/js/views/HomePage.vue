@@ -465,9 +465,6 @@
       <!-- Footer -->
       <HomeFooter />
     </main>
-
-    <!-- Modals -->
-    <ContactModal ref="contactModalRef" />
   </div>
 </template>
 
@@ -477,7 +474,6 @@ import SectionOne from "../components/SectionOne.vue";
 import BlackGradient from "../components/BlackGradient.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
-import ContactModal from "../components/ContactModal.vue";
 import { ref, provide } from "vue";
 import { useRouter } from "vue-router";
 
