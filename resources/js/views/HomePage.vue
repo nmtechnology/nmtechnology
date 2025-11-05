@@ -212,11 +212,11 @@
       <!-- Services Section -->
       <section class="relative bg-gray-900 py-16 sm:py-24">
         <div
-          class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950"
+          class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/90 to-gray-950"
         ></div>
         <div class="relative">
           <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-            <div class="mx-auto max-w-2xl text-center">
+            <!-- <div class="mx-auto max-w-2xl text-center">
               <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Our Services
               </h2>
@@ -224,7 +224,7 @@
                 Expert installation and service for CCTV, Security Systems, Fire Alarms,
                 Access Control & Structured Cabling
               </p>
-            </div>
+            </div> -->
           </div>
           <SectionService />
         </div>
@@ -260,7 +260,7 @@
                 >
               </div>
               <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                <span class="text-white">Featured Top</span>
+                <span class="text-white">Featured Top </span>
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
                   >Products</span
