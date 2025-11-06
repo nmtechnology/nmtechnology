@@ -18,11 +18,18 @@
             <div class="relative px-6 py-8 bg-gradient-to-r from-green-600/20 to-lime-600/20 border-b border-gray-700/50 rounded-t-xl">
               <div class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-lime-500/5 rounded-t-xl"></div>
               <div class="relative flex items-center justify-between">
-                <div>
-                  <h2 class="text-2xl sm:text-3xl font-bold text-white">
-                    Join Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Team!</span>
-                  </h2>
-                  <p class="mt-2 text-gray-300">Apply for a career opportunity at NM Technology</p>
+                <div class="flex items-center space-x-4">
+                  <img
+                    src="/public/images/nm-logo-rmbg.webp"
+                    alt="NM Technology Logo"
+                    class="h-12 w-auto"
+                  />
+                  <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">
+                      Join Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Team!</span>
+                    </h2>
+                    <p class="mt-2 text-gray-300">Apply for a career opportunity at NM Technology</p>
+                  </div>
                 </div>
                 <button
                   @click="closeModal"
