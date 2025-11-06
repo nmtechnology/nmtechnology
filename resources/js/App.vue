@@ -296,6 +296,29 @@
                     </svg>
                     Get Quote
                   </button>
+
+                  <button
+                    @click="
+                      openApplicationModal();
+                      mobileMenuOpen = false;
+                    "
+                    class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8m0 10h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z"
+                      />
+                    </svg>
+                    Apply Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -348,6 +371,9 @@
 
   <!-- Contact Modal -->
   <ContactModal ref="contactModalRef" />
+
+  <!-- Application Modal -->
+  <ApplicationModal ref="applicationModalRef" />
 </template>
 
 <script>
@@ -357,6 +383,7 @@ import { useRoute } from "vue-router";
 import ToastContainer from "./components/ToastContainer.vue";
 import CartModal from "./components/CartModal.vue";
 import ContactModal from "./components/ContactModal.vue";
+import ApplicationModal from "./components/ApplicationModal.vue";
 import SecurityFAQsModal from "./components/SecurityFAQsModal.vue";
 import SurveyBanner from "./components/SurveyBanner.vue";
 import { cartStore } from "./store/cartStore.js";
@@ -376,6 +403,7 @@ export default {
     ToastContainer,
     CartModal,
     ContactModal,
+    ApplicationModal,
     SecurityFAQsModal,
     SurveyBanner,
     Dialog,
@@ -386,6 +414,7 @@ export default {
     const route = useRoute();
     const mobileMenuOpen = ref(false);
     const contactModalRef = ref(null);
+    const applicationModalRef = ref(null);
     const cartItemCount = computed(() => cartStore.getItemCount.value);
 
     // Check if current route is the landing page
@@ -424,6 +453,12 @@ export default {
       }
     };
 
+    const openApplicationModal = () => {
+      if (applicationModalRef.value) {
+        applicationModalRef.value.openModalFromOptions();
+      }
+    };
+
     const generateQuote = () => {
       // Navigate to CCTV page for quote generation
       if (route.path !== "/cctv") {
@@ -438,10 +473,12 @@ export default {
       navigation,
       mobileMenuOpen,
       contactModalRef,
+      applicationModalRef,
       cartItemCount,
       openCart,
       openCartAndCloseMenu,
       openContactModal,
+      openApplicationModal,
       generateQuote,
       isLandingPage,
       isActiveRoute,
