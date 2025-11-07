@@ -1,96 +1,155 @@
 <template>
   <div v-if="cartStore.isCartOpen()" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-      <!-- Background overlay -->
-      <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" @click="cartStore.closeCart()"></div>
+    <!-- Background overlay with backdrop blur -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" aria-hidden="true" @click="cartStore.closeCart()"></div>
 
-      <!-- Modal panel -->
-      <div class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full md:max-w-xl lg:max-w-2xl border border-gray-700">
-        <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-lg font-medium leading-6 text-white" id="modal-title">
-              <i class="fas fa-shopping-cart mr-2 text-green-400"></i>
-              <span class="text-green-300">Your Quote Cart</span>
-            </h3>
-            <button @click="cartStore.closeCart()" class="text-gray-400 hover:text-white focus:outline-none">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- Centered modal container -->
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <!-- Modal panel with modern design -->
+      <div class="relative w-full max-w-md sm:max-w-lg lg:max-w-xl bg-gray-900 rounded-xl shadow-2xl transform transition-all border border-gray-700/50">
+        <!-- Header Section -->
+        <div class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 px-6 py-4 border-b border-gray-700/50 rounded-t-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="p-2 bg-green-600/20 rounded-lg">
+                <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-white" id="modal-title">Quote Cart</h3>
+                <p class="text-sm text-gray-400">{{ cartStore.getItems().length }} {{ cartStore.getItems().length === 1 ? 'item' : 'items' }}</p>
+              </div>
+            </div>
+            <button 
+              @click="cartStore.closeCart()" 
+              class="p-2 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/50"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
+        </div>
 
-          <!-- Cart contents -->
-          <div class="mt-3 text-center sm:text-left">
-            <div v-if="cartStore.getItems().length === 0" class="text-gray-300 py-10 text-center">
-              Your quote cart is empty.
+        <!-- Cart Contents -->
+        <div class="px-6 py-4 max-h-96 overflow-y-auto">
+          <!-- Empty State -->
+          <div v-if="cartStore.getItems().length === 0" class="text-center py-12">
+            <div class="mx-auto w-16 h-16 bg-gray-700/30 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
             </div>
-            <div v-else>
-              <!-- Cart items list -->
-              <div class="max-h-96 overflow-y-auto pr-2 space-y-3">
-                <div v-for="item in cartStore.getItems()" :key="item.id" class="cart-item-card flex items-center p-3 rounded-lg border border-gray-700">
-                  <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-700 bg-gray-900">
-                    <img :src="item.image" :alt="item.name" class="h-full w-full object-cover object-center">
-                  </div>
-                  <div class="ml-4 flex flex-1 flex-col">
-                    <div class="flex justify-between text-base font-medium text-white">
-                      <h3 class="truncate">{{ item.name }}</h3>
-                      <p class="ml-4 text-green-300">{{ item.price ? `$${item.price.toFixed(2)}` : 'Call for price' }}</p>
-                    </div>
-                    <div class="flex flex-1 items-center justify-between text-sm mt-2">
-                      <!-- Quantity selector -->
-                      <div class="flex items-center">
-                        <button @click="decreaseQuantity(item)" class="qty-btn rounded-l-md">-</button>
-                        <input type="number" min="1" v-model.number="item.quantity" @change="updateQuantity(item)"
-                               class="qty-input text-center" />
-                        <button @click="increaseQuantity(item)" class="qty-btn rounded-r-md">+</button>
-                      </div>
-                      <!-- Remove button -->
-                      <div class="flex">
-                        <button @click="removeItem(item.id)" class="font-medium text-red-400 hover:text-red-300 ml-4">
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <p class="text-gray-400 text-sm">Your quote cart is empty</p>
+            <p class="text-gray-500 text-xs mt-1">Add products to get started</p>
+          </div>
 
-              <!-- Subtotal -->
-              <div class="border-t border-gray-700 pt-4 mt-2">
-                <div class="flex justify-between text-base font-medium text-white">
-                  <p>Subtotal</p>
-                  <p>{{ calculateSubtotalText() }}</p>
+          <!-- Cart Items -->
+          <div v-else class="space-y-3">
+            <div v-for="item in cartStore.getItems()" :key="item.id" class="group relative bg-gray-800/50 hover:bg-gray-800/70 rounded-lg p-3 border border-gray-700/50 transition-all duration-200">
+              <!-- Product Info -->
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div class="w-14 h-14 bg-gray-700 rounded-lg overflow-hidden border border-gray-600/50">
+                    <img :src="item.image" :alt="item.name" class="w-full h-full object-cover">
+                  </div>
                 </div>
-                <p class="mt-0.5 text-sm text-gray-400">Shipping and taxes calculated at checkout.</p>
+                
+                <div class="flex-1 min-w-0">
+                  <h4 class="text-white font-medium text-sm leading-tight mb-1">{{ item.name }}</h4>
+                  <p class="text-green-400 font-semibold text-sm">{{ item.price ? `$${item.price.toFixed(2)}` : 'Call for price' }}</p>
+                  
+                  <!-- Quantity Controls -->
+                  <div class="flex items-center justify-between mt-3">
+                    <div class="flex items-center bg-gray-700/50 rounded-lg border border-gray-600/50">
+                      <button 
+                        @click="decreaseQuantity(item)" 
+                        class="p-2 text-gray-300 hover:text-white hover:bg-gray-600/50 rounded-l-lg transition-colors"
+                      >
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                        </svg>
+                      </button>
+                      <input 
+                        type="number" 
+                        min="1" 
+                        v-model.number="item.quantity" 
+                        @change="updateQuantity(item)"
+                        class="w-12 px-2 py-2 bg-transparent text-center text-white text-sm border-0 focus:outline-none"
+                      />
+                      <button 
+                        @click="increaseQuantity(item)" 
+                        class="p-2 text-gray-300 hover:text-white hover:bg-gray-600/50 rounded-r-lg transition-colors"
+                      >
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                      </button>
+                    </div>
+                    
+                    <!-- Remove Button -->
+                    <button 
+                      @click="removeItem(item.id)" 
+                      class="text-red-400 hover:text-red-300 text-sm font-medium transition-colors"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
+
+        <!-- Subtotal Section -->
+        <div v-if="cartStore.getItems().length > 0" class="px-6 py-4 border-t border-gray-700/50 bg-gray-800/30">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-gray-300 font-medium">Subtotal</span>
+            <span class="text-white font-bold text-lg">{{ calculateSubtotalText() }}</span>
+          </div>
+          <p class="text-gray-500 text-xs">Final pricing determined after consultation</p>
+        </div>
+
         <!-- Order History Section -->
-      <div v-if="showOrderHistory && hasOrderHistory" class="border-t border-gray-700 mt-4 pt-4">
-        <OrderHistory />
-      </div>
-      
-      <!-- Modal footer with action buttons -->
-        <div class="bg-gray-900 px-4 py-3 sm:px-6">
-          <div class="sm:flex sm:flex-row-reverse">
-            <button v-if="cartStore.getItems().length > 0" @click="checkout" 
-                    class="w-full inline-flex justify-center rounded-md shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+        <div v-if="showOrderHistory && hasOrderHistory" class="border-t border-gray-700/50">
+          <OrderHistory />
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="bg-gray-800/50 px-6 py-4 border-t border-gray-700/50 rounded-b-xl">
+          <!-- Primary Actions -->
+          <div class="space-y-3">
+            <button 
+              v-if="cartStore.getItems().length > 0" 
+              @click="checkout" 
+              class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/50"
+            >
               Request Quote
             </button>
-            <button @click="cartStore.closeCart()" 
-                    class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-transparent text-base font-medium text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-              Continue Shopping
-            </button>
-            <button v-if="cartStore.getItems().length > 0" @click="cartStore.clearCart()" 
-                    class="mt-3 w-full inline-flex justify-center rounded-md border border-red-700 shadow-sm px-4 py-2 bg-transparent text-base font-medium text-red-400 hover:text-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:w-auto sm:text-sm">
-              Clear Quote Cart
-            </button>
+            
+            <!-- Secondary Actions -->
+            <div class="flex space-x-3">
+              <button 
+                @click="cartStore.closeCart()" 
+                class="flex-1 bg-gray-700 hover:bg-gray-600 text-gray-200 font-medium py-2 px-3 rounded-lg transition-colors text-sm"
+              >
+                Continue Shopping
+              </button>
+              
+              <button 
+                v-if="cartStore.getItems().length > 0" 
+                @click="cartStore.clearCart()" 
+                class="flex-1 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-600/50 font-medium py-2 px-3 rounded-lg transition-colors text-sm"
+              >
+                Clear Cart
+              </button>
+            </div>
           </div>
           
-          <div class="mt-3 text-center">
-            <button @click="toggleOrderHistory" class="text-sm text-gray-400 hover:text-white">
+          <!-- Order History Toggle -->
+          <div class="mt-4 text-center">
+            <button @click="toggleOrderHistory" class="text-sm text-gray-400 hover:text-gray-300 transition-colors">
               {{ showOrderHistory ? 'Hide Order History' : 'Show Order History' }}
             </button>
           </div>

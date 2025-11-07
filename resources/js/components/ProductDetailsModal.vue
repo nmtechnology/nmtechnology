@@ -7,7 +7,7 @@
     aria-modal="true"
   >
     <div
-      class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:p-0"
+      class="flex items-center justify-center min-h-screen p-4 text-center"
     >
       <!-- Background overlay (make sure it does NOT block pointer events for modal) -->
       <div
@@ -20,7 +20,7 @@
       <div
         ref="modalPanel"
         :class="[
-          'relative mx-auto bg-gray-800 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl w-full mobile-swipe-indicator border-2 flex flex-col max-h-[85vh]',
+          'relative mx-auto bg-gray-800 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg lg:max-w-xl w-full mobile-swipe-indicator border-2 flex flex-col max-h-[80vh]',
           themeColor === 'green'
             ? 'border-green-600/30 theme-green'
             : themeColor === 'purple'
@@ -55,7 +55,7 @@
             >
               <!-- Image carousel with ARIA attributes -->
               <div
-                class="relative overflow-hidden bg-gray-900 h-80 sm:h-[450px]"
+                class="relative overflow-hidden bg-gray-900 h-64 sm:h-80"
                 @click.stop
                 role="region"
                 aria-roledescription="carousel"
@@ -69,11 +69,11 @@
                   <div
                     class="absolute inset-0 h-32 bg-gradient-to-b from-gray-900/75 via-gray-900/25 to-transparent"
                   ></div>
-                  <div class="relative px-6 py-4 flex flex-col pointer-events-auto">
+                  <div class="relative px-4 py-3 flex flex-col pointer-events-auto">
                     <!-- Title and close button -->
                     <div class="flex justify-between items-center">
                       <h3
-                        class="text-2xl font-bold leading-6 text-white max-w-[80%] truncate"
+                        class="text-lg sm:text-xl font-bold leading-6 text-white max-w-[80%] truncate"
                         :class="[
                           themeColor === 'yellow' ? 'text-yellow-400' : 'text-white',
                         ]"
@@ -261,7 +261,7 @@
             <!-- Single image display -->
             <div
               v-else
-              class="relative bg-gray-900 h-80 sm:h-[450px] flex items-center justify-center"
+              class="relative bg-gray-900 h-64 sm:h-80 flex items-center justify-center"
             >
               <!-- Title overlay with subtle gradient -->
               <div class="absolute inset-0 z-10 pointer-events-none">
@@ -352,14 +352,14 @@
         </div>
 
         <!-- Scrollable Content Area -->
-        <div class="bg-gray-800 px-4 py-4 sm:px-6 overflow-y-auto flex-grow scrollbar">
-          <div class="flex flex-col gap-6">
+        <div class="bg-gray-800 px-4 py-3 sm:px-6 overflow-y-auto flex-grow scrollbar">
+          <div class="flex flex-col gap-4">
             <!-- Product info -->
             <div class="w-full">
-              <p class="text-gray-300 mb-4">{{ product.description }}</p>
+              <p class="text-gray-300 mb-3">{{ product.description }}</p>
 
               <h4 class="text-white font-medium mb-2">Key Features:</h4>
-              <ul class="list-disc list-inside mb-4 text-gray-300">
+              <ul class="list-disc list-inside mb-3 text-gray-300 text-sm">
                 <li v-for="feature in product.features" :key="feature">{{ feature }}</li>
               </ul>
 
@@ -480,7 +480,7 @@
         <!-- Fixed Footer with action buttons -->
         <div
           :class="[
-            'bg-gray-900 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse sticky bottom-0 z-10 border-t',
+            'bg-gray-900 px-4 py-2 sm:px-6 sm:flex sm:flex-row-reverse sticky bottom-0 z-10 border-t',
             themeColor === 'green'
               ? 'border-green-600/30'
               : themeColor === 'purple'
@@ -1487,10 +1487,13 @@ export default {
 
 .product-details-modal-fixed {
   position: fixed !important;
-  top: 95px;
-  left: 0;
-  width: 98vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95vw;
+  max-width: 600px;
+  height: auto;
+  max-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1499,26 +1502,31 @@ export default {
 
 @media (max-width: 639px) {
   .product-details-modal-fixed {
-    align-items: flex-end;
-    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    max-width: none;
+    height: auto;
+    max-height: 85vh;
+    padding: 1rem;
   }
   .mobile-swipe-indicator {
-    max-width: 100vw !important;
-    width: 100vw !important;
-    border-radius: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0.75rem !important;
     margin: 0 !important;
-    min-height: 60vh;
-    max-height: 95vh;
-    box-shadow: none;
-    padding-bottom: env(safe-area-inset-bottom, 0);
+    min-height: auto;
+    max-height: 80vh;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
   .bg-gray-800 {
-    border-radius: 0 !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    border-radius: 0.75rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .scrollbar {
-    max-height: 60vh !important;
+    max-height: 50vh !important;
     overflow-y: auto !important;
   }
   .sticky.top-0 {
