@@ -581,73 +581,88 @@ export default {
 </script>
 
 <style scoped>
-/* Custom scrollbar for the cart items list */
+/* Modern scrollbar styling */
 .overflow-y-auto::-webkit-scrollbar {
   width: 6px;
 }
 
 .overflow-y-auto::-webkit-scrollbar-track {
-  background: #374151;
-  border-radius: 8px;
+  background: transparent;
 }
 
 .overflow-y-auto::-webkit-scrollbar-thumb {
   background-color: #4B5563;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .overflow-y-auto::-webkit-scrollbar-thumb:hover {
   background-color: #6B7280;
 }
 
-/* Quantity controls and item card styling to match site theme */
-.cart-item-card {
-  background: rgba(17,24,39,0.45); /* subtle translucent layering */
+/* Modern quantity input styling */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.qty-btn {
-  background: #1f2937; /* gray-800 */
-  color: #fff;
-  padding: 6px 10px;
-  border: 1px solid rgba(156,163,175,0.08);
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
 
-.qty-btn:hover { background: #374151; }
-
-.qty-input {
-  width: 48px;
-  padding: 6px 8px;
-  background: #111827;
-  color: #fff;
-  border-top: 1px solid rgba(156,163,175,0.06);
-  border-bottom: 1px solid rgba(156,163,175,0.06);
-  outline: none;
-}
-
-/* Outlined / transparent button utility consistent with theme */
-.button-outlined {
-  background: transparent;
-  border: 1px solid rgba(156,163,175,0.08);
-  color: #d1fae5;
-}
-
-/* Ensure images and truncated names behave nicely */
-.cart-item-card img { object-fit: cover; }
-.cart-item-card h3 { max-width: 38ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-/* small responsive tweaks */
+/* Mobile responsiveness */
 @media (max-width: 640px) {
-  .qty-input { width: 56px; }
-  .cart-item-card { flex-direction: row; }
+  .space-y-3 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .flex.space-x-3 {
+    flex-direction: column;
+  }
+  
+  .flex.space-x-3 > * + * {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
 }
 
-/* NM Technology Theme Enhancements for Quote Cart */
-.bg-gray-800 { background-color: #111827 !important; }
-.bg-gray-900 { background-color: #0b1220 !important; }
-.text-white { color: #f3f4f6 !important; }
-.text-gray-300 { color: #d1d5db !important; }
-.text-gray-400 { color: #9ca3af !important; }
-.border-gray-700 { border-color: #374151 !important; }
+/* Enhanced focus states */
+button:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Improved animations */
+.transform.transition-all {
+  transition-property: transform, opacity, background-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+/* Glass morphism effect */
+.bg-gradient-to-r.from-gray-900.via-gray-800.to-gray-900 {
+  background: linear-gradient(90deg, #111827 0%, #1f2937 50%, #111827 100%);
+  backdrop-filter: blur(10px);
+}
+
+/* Professional hover effects */
+.group:hover .w-14.h-14 {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-out;
+}
+
+/* Modern border styling */
+.border-gray-700\/50 {
+  border-color: rgba(55, 65, 81, 0.5);
+}
+
+.border-gray-600\/50 {
+  border-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Professional shadows */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
 </style>
