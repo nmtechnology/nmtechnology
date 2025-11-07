@@ -44,11 +44,9 @@
           <div
             class="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 rounded-2xl blur-xl opacity-50"
           ></div>
-          <img
-            src="/public/images/nm-logo-rmbg.webp"
-            alt="NM Technology"
-            class="relative w-48 h-36 object-contain"
-          />
+          <div class="relative">
+            <NMLogo variant="loading" size="xl" :showBorder="false" />
+          </div>
         </div>
       </div>
 
@@ -88,6 +86,7 @@
 
 <script setup>
 import { ref, onMounted, nextTick, defineExpose } from "vue";
+import NMLogo from "./NMLogo.vue";
 
 const progressBar = ref(null);
 const isLeaving = ref(false);

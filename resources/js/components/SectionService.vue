@@ -14,7 +14,7 @@
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
       <!-- Logo Header with Glass Effect -->
-      <NMLogo variant="service" size="large" />
+      <NMLogo variant="service" />
 
       <!-- Main Content Card -->
       <div class="mx-auto max-w-4xl text-center mt-16">
