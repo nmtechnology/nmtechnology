@@ -126,6 +126,25 @@
                     Contact Us
                   </button>
                   <button
+                    @click="openApplicationModal"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-semibold shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h8z"
+                      />
+                    </svg>
+                    Apply Now
+                  </button>
+                  <button
                     @click="generateQuote"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                   >
@@ -343,6 +362,7 @@ import WorkCollage from "../components/WorkCollage.vue";
 
 const router = useRouter();
 const openContactModal = inject("openContactModal");
+const openApplicationModal = inject("openApplicationModal");
 
 const generateQuote = () => {
   router.push("/cctv");
