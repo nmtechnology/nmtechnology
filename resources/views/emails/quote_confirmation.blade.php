@@ -46,6 +46,27 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .logo-container {
+            background-color: #111827; /* Dark background for logo */
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .logo {
+            height: 48px;
+        }
+        .company-name {
+            color: white;
+            font-size: 14px;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
         .header-icon {
             font-size: 3rem;
             margin-bottom: 15px;
@@ -267,7 +288,12 @@
 </head>
 <body>
     <div class="email-container">
-        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        <div class="logo-container">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                <img src="https://nmtechnology.us/images/nm-logo-rmbg.webp" alt="nmtechnology-logo" class="logo" size="16x16">
+                <a href="https://nmtechnology.us" class="company-name">Technology</a>
+            </div>
+        </div>
         
         <div class="header">
             <div class="header-icon">🎯</div>

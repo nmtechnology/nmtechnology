@@ -9,20 +9,7 @@
         aria-label="Global"
       >
         <!-- Logo Section -->
-        <div class="flex lg:flex-1 items-center">
-          <router-link to="/home" class="relative flex items-center group">
-            <img
-              class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
-              src="/public/images/nm-logo-rmbg.webp"
-              alt="nmtechnology-logo"
-            />
-            <span
-              class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
-              >Technology</span
-            >
-          </router-link>
-        </div>
-
+        <nm-logo variant="header" />
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button
@@ -100,15 +87,18 @@
       </nav>
 
       <!-- Mobile menu -->
-      <Dialog 
+      <Dialog
         as="div"
-        class="lg:hidden" 
-        @close="mobileMenuOpen = false" 
+        class="lg:hidden"
+        @close="mobileMenuOpen = false"
         :open="mobileMenuOpen"
       >
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm z-40" aria-hidden="true" />
-        
+        <div
+          class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm z-40"
+          aria-hidden="true"
+        />
+
         <!-- Panel container -->
         <div class="fixed inset-0 z-40 flex justify-end">
           <DialogPanel
