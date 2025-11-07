@@ -30,7 +30,9 @@ const props = defineProps({
     type: String,
     default: "header",
     validator: (value) =>
-      ["header", "service", "mobile", "footer", "landing", "modal", "loading"].includes(value),
+      ["header", "service", "mobile", "footer", "landing", "modal", "loading"].includes(
+        value
+      ),
   },
   size: {
     type: String,
@@ -70,7 +72,7 @@ const containerClasses = computed(() => {
     ],
     mobile: ["justify-start", "flex-shrink-0"],
     footer: ["justify-start", "lg:justify-end", "flex-shrink-0"],
-    landing: ["justify-center", "mb-4", "sm:mb-6"],
+    landing: ["justify-center", "mb-4", "sm:mb-6", "mt-3"],
     modal: ["space-x-2", "sm:space-x-4", "flex-shrink-0"],
     loading: ["justify-center", "mb-4"],
   };
@@ -153,14 +155,14 @@ const textClasses = computed(() => {
     ],
     modal: ["text-xl", "sm:text-2xl", "lg:text-3xl", "font-bold", "text-white"],
     loading: [
-      "italic", 
-      "font-extrabold", 
-      "text-white", 
-      "-ml-3", 
+      "italic",
+      "font-extrabold",
+      "text-white",
+      "-ml-3",
       "sm:-ml-5",
       "text-3xl",
       "sm:text-4xl",
-      "lg:text-5xl"
+      "lg:text-5xl",
     ],
   };
 
