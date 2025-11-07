@@ -23,7 +23,7 @@
               ></div>
               <div class="relative flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                  <NMLogo variant="modal" size="large" />
+                  <NMLogo variant="service" size="large" />
                   <div>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">
                       Contact
@@ -904,7 +904,7 @@ import NMLogo from "./NMLogo.vue";
 
 export default {
   components: {
-    NMLogo
+    NMLogo,
   },
   setup() {
     const isOpen = ref(false);
