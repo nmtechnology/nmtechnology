@@ -109,6 +109,28 @@
                   <p class="text-green-400 text-sm font-medium">💡 Pro Tip:</p>
                   <p class="text-gray-300 text-sm mt-1">The more details you provide about your security needs, the better we can assist you with a tailored solution.</p>
                 </div>
+                
+                <!-- Apply Now Section -->
+                <div class="mt-6 pt-6 border-t border-gray-700/50">
+                  <div class="text-center">
+                    <h4 class="text-lg font-semibold text-white mb-2">Looking for Employment Opportunities?</h4>
+                    <p class="text-gray-400 text-sm mb-4">Join our growing team of security professionals and technology experts.</p>
+                    <button
+                      @click="openApplicationModal(); closeModal();"
+                      class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-105"
+                    >
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"
+                        />
+                      </svg>
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <!-- Confirmation Screen -->
@@ -285,6 +307,84 @@
                   </div>
                 </div>
 
+                <!-- Blueprint File Upload -->
+                <div class="md:col-span-2">
+                  <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700/50">
+                    <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                      <svg class="h-5 w-5 mr-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                      Attach Files (Optional)
+                    </h4>
+                    <div>
+                      <label class="block text-sm font-medium text-gray-300 mb-2">Blueprints, Plans, or Documents</label>
+                      <div class="relative">
+                        <input
+                          ref="blueprintInput"
+                          type="file"
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.tiff,.bmp,.xls,.xlsx,.txt"
+                          @change="handleBlueprintUpload"
+                          class="hidden"
+                        />
+                        <button
+                          type="button"
+                          @click="$refs.blueprintInput.click()"
+                          class="w-full flex items-center justify-center px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-gray-300 hover:border-green-500 hover:bg-gray-700 transition-colors duration-300"
+                          :class="{ 'border-green-500 bg-gray-700': form.blueprintFile }"
+                        >
+                          <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                          </svg>
+                          {{ form.blueprintFile ? form.blueprintFile.name : 'Choose File to Upload' }}
+                        </button>
+                      </div>
+                      <p class="text-xs text-gray-400 mt-1">PDF, DOC, DOCX, images, or spreadsheet files. Max size: 10MB</p>
+                      
+                      <!-- File Upload Status -->
+                      <div v-if="uploadStatus" class="mt-2 flex items-center text-sm">
+                        <div v-if="uploadStatus === 'uploading'" class="flex items-center text-yellow-400">
+                          <svg class="animate-spin h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Uploading and scanning...
+                        </div>
+                        <div v-else-if="uploadStatus === 'scanning'" class="flex items-center text-blue-400">
+                          <svg class="animate-pulse h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Virus scanning...
+                        </div>
+                        <div v-else-if="uploadStatus === 'success'" class="flex items-center text-green-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          File verified and ready
+                        </div>
+                        <div v-else-if="uploadStatus === 'error'" class="flex items-center text-red-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                          Upload failed or virus detected
+                        </div>
+                      </div>
+                      
+                      <!-- Security Information -->
+                      <div class="mt-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-md">
+                        <div class="flex items-start">
+                          <svg class="h-5 w-5 text-blue-400 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                          <div>
+                            <p class="text-blue-300 font-medium mb-1">Document Security</p>
+                            <p class="text-blue-200 text-sm">All uploaded files are automatically scanned for viruses and malware before being processed. Only clean, verified files will be included with your message.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="flex justify-end mt-8">
                   <button
                     type="submit"
@@ -330,13 +430,21 @@ export default {
     const showConfirmationScreen = ref(false)
     const errorMessage = ref('')
     const validationErrors = reactive({})
+    
+    // File upload status tracking
+    const uploadStatus = ref(null)
+    
+    // Inject the openApplicationModal function
+    const openApplicationModal = inject("openApplicationModal")
 
     const form = reactive({
       firstName: '',
       lastName: '',
       email: '',
       phoneNumber: '',
-      message: ''
+      message: '',
+      blueprintFile: null,
+      blueprintFileId: null
     })
 
     const openModal = () => {
@@ -358,12 +466,98 @@ export default {
     const resetForm = () => {
       showConfirmationScreen.value = false
       errorMessage.value = ''
+      uploadStatus.value = null
       Object.keys(validationErrors).forEach(key => {
         delete validationErrors[key]
       })
-      Object.keys(form).forEach(key => {
-        form[key] = ''
+      form.firstName = ''
+      form.lastName = ''
+      form.email = ''
+      form.phoneNumber = ''
+      form.message = ''
+      form.blueprintFile = null
+      form.blueprintFileId = null
+    }
+
+    // File validation function
+    const validateFile = (file) => {
+      // Check file size (10MB max for blueprints)
+      const maxSize = 10 * 1024 * 1024 // 10MB in bytes
+      if (file.size > maxSize) {
+        alert('File size must be less than 10MB')
+        return false
+      }
+
+      // Check file type - allow common blueprint/document formats
+      const allowedTypes = [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/tiff',
+        'image/bmp',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'text/plain'
+      ]
+
+      if (!allowedTypes.includes(file.type)) {
+        alert('File type not allowed. Please upload PDF, DOC, DOCX, images, or spreadsheet files.')
+        return false
+      }
+
+      return true
+    }
+
+    // File upload function with virus scanning
+    const uploadFile = async (file, type) => {
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('type', type)
+
+      // First upload the file
+      const uploadResponse = await axios.post('/api/upload-document', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       })
+
+      if (uploadResponse.data.success) {
+        // Update status to scanning
+        uploadStatus.value = 'scanning'
+        
+        // Wait for virus scanning
+        await new Promise(resolve => setTimeout(resolve, 2000))
+        
+        return uploadResponse.data
+      } else {
+        throw new Error(uploadResponse.data.message || 'Upload failed')
+      }
+    }
+
+    // Handle blueprint file upload
+    const handleBlueprintUpload = async (event) => {
+      const file = event.target.files[0]
+      if (!file) return
+
+      // Validate file
+      if (!validateFile(file)) return
+
+      form.blueprintFile = file
+      uploadStatus.value = 'uploading'
+
+      try {
+        const result = await uploadFile(file, 'blueprint')
+        form.blueprintFileId = result.fileId
+        uploadStatus.value = 'success'
+      } catch (error) {
+        uploadStatus.value = 'error'
+        form.blueprintFile = null
+        console.error('Blueprint upload failed:', error)
+        alert('Blueprint upload failed. Please try again or contact support.')
+      }
     }
 
     const sendContact = async () => {
@@ -409,11 +603,14 @@ export default {
       showConfirmationScreen,
       errorMessage,
       validationErrors,
+      uploadStatus,
       form,
       openModal,
       closeModal,
       closeFromConfirmation,
-      sendContact
+      sendContact,
+      openApplicationModal,
+      handleBlueprintUpload
     }
   }
 }
