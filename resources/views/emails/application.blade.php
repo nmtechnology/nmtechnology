@@ -362,6 +362,16 @@
                         </div>
                     </div>
                 @endif
+
+                <!-- PDF Application Summary Notice -->
+                <div style="background: #eff6ff; border: 1px solid #3b82f6; border-radius: 8px; padding: 12px; margin-top: 15px;">
+                    <div style="font-size: 0.9rem; color: #1d4ed8; font-weight: 600;">
+                        📋 Application Summary
+                    </div>
+                    <div style="font-size: 0.85rem; color: #1e40af; margin-top: 4px;">
+                        A formatted PDF summary of this application has been automatically generated and attached for easy download, printing, and archival.
+                    </div>
+                </div>
             </div>
         </div>
         

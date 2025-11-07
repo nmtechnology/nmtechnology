@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 use App\Mail\ApplicationMail;
 use App\Mail\ApplicationConfirmationMail;
 use App\Http\Controllers\DocumentUploadController;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ApplicationController extends Controller
 {
@@ -84,16 +86,33 @@ class ApplicationController extends Controller
                 'coverLetterFile' => $coverLetterData,
             ]);
 
+            // Generate PDF application document
+            $attachedFiles = [];
+            if ($resumeData) {
+                $attachedFiles[] = $resumeData;
+            }
+            if ($coverLetterData) {
+                $attachedFiles[] = $coverLetterData;
+            }
+
+            $pdf = Pdf::loadView('pdf.application', [
+                'application' => $validatedData,
+                'attachedFiles' => $attachedFiles
+            ]);
+
+            // Generate filename for the PDF
+            $pdfFilename = sprintf(
+                'Application_%s_%s_%s.pdf',
+                $validatedData['firstName'],
+                $validatedData['lastName'],
+                now()->format('Y-m-d_H-i-s')
+            );
+
             // Remove math answers from the data that gets stored/emailed
             unset($validatedData['mathAnswer'], $validatedData['correctAnswer']);
 
-            // Send email to HR
-            $applicationData = array_merge($validatedData, [
-                'resume' => $resumeData,
-                'coverLetterFile' => $coverLetterData,
-            ]);
-            
-            Mail::to('hr@nmtechnology.ca')->send(new ApplicationMail($applicationData));
+            // Send email to HR with PDF attachment
+            Mail::to('hr@nmtechnology.ca')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
 
             // Send confirmation email to applicant
             Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail($validatedData));

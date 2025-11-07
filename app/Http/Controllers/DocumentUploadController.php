@@ -218,6 +218,33 @@ class DocumentUploadController extends Controller
             return ['clean' => true, 'message' => 'File passed basic validation (Office document)'];
         }
         
+        // Check for image file signatures
+        if (strpos($header, "\xff\xd8\xff") === 0) {
+            // JPEG
+            return ['clean' => true, 'message' => 'File passed basic validation (JPEG image)'];
+        }
+        
+        if (strpos($header, "\x89PNG\r\n\x1a\n") === 0) {
+            // PNG
+            return ['clean' => true, 'message' => 'File passed basic validation (PNG image)'];
+        }
+        
+        if (strpos($header, "II*\x00") === 0 || strpos($header, "MM\x00*") === 0) {
+            // TIFF
+            return ['clean' => true, 'message' => 'File passed basic validation (TIFF image)'];
+        }
+        
+        if (strpos($header, "BM") === 0) {
+            // BMP
+            return ['clean' => true, 'message' => 'File passed basic validation (BMP image)'];
+        }
+        
+        // Check for text files
+        if (mb_check_encoding($header, 'UTF-8') || mb_check_encoding($header, 'ASCII')) {
+            // Text file
+            return ['clean' => true, 'message' => 'File passed basic validation (Text file)'];
+        }
+        
         // Check for suspicious patterns
         foreach ($malwareSignatures as $signature) {
             if (strpos($header, $signature) === 0) {
