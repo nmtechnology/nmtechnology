@@ -9,7 +9,7 @@
         aria-label="Global"
       >
         <!-- Logo Section -->
-        <nm-logo variant="header" />
+        <NMLogo />
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button
@@ -375,6 +375,7 @@ import CartModal from "./components/CartModal.vue";
 import ContactModal from "./components/ContactModal.vue";
 import ApplicationModal from "./components/ApplicationModal.vue";
 import SecurityFAQsModal from "./components/SecurityFAQsModal.vue";
+import NMLogo from "./components/NMLogo.vue";
 import SurveyBanner from "./components/SurveyBanner.vue";
 import { cartStore } from "./store/cartStore.js";
 
@@ -395,6 +396,7 @@ export default {
     ContactModal,
     ApplicationModal,
     SecurityFAQsModal,
+    NMLogo,
     SurveyBanner,
     Dialog,
     DialogPanel,
