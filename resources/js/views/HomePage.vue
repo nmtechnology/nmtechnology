@@ -105,7 +105,9 @@
                   to function effectively over time.
                 </p>
 
-                <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-x-6">
+                <div
+                  class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-x-6"
+                >
                   <button
                     @click="openContactModal"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
