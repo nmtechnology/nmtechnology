@@ -11,7 +11,7 @@
         <!-- Logo Section -->
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
-            <NMLogo variant="header" size="medium" />
+            <NMLogo variant="landing" size="medium" />
           </router-link>
         </div>
         <!-- Mobile menu button -->
