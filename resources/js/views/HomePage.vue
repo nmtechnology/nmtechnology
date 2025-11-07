@@ -64,7 +64,7 @@
                       clip-rule="evenodd"
                     />
                   </svg>
-                  <span class="text-sm font-semibold text-red-400"
+                  <span class="text-sm font-semibold text-green-400"
                     >New Mexico's Trusted Security Experts</span
                   >
                 </div>
