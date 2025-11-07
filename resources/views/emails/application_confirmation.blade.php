@@ -320,7 +320,7 @@
 </head>
 <body>
     <div class="email-container">
-        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        @include('components.nmlogo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => true])
         
         <div class="header">
             <div class="header-icon">🎯</div>
