@@ -47,23 +47,7 @@
           >
         </div>
 
-        <div class="inline-flex items-center justify-center mb-6">
-          <img
-            class="h-20 w-auto mr-2 transition-transform duration-300"
-            src="/public/images/nm-logo-rmbg.webp"
-            alt="nmtechnology-logo"
-          />
-          <div class="flex flex-col items-start -ml-5">
-            <span
-              class="italic text-4xl md:text-5xl font-extrabold text-white transition-colors duration-300"
-              >Technology</span
-            >
-            <span
-              class="text-sm text-green-400 font-semibold tracking-wider uppercase ml-0.5"
-              >& Integration Solutions</span
-            >
-          </div>
-        </div>
+        <NMLogo variant="landing" size="xl" :showSubtitle="true" />
         <h1 class="text-2xl md:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
           <span class="text-white">Advanced Security & Surveillance Solutions for </span>
           <span
@@ -480,6 +464,7 @@ import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { toastService } from "../services/toastService.js";
 import LoadingScreen from "../components/LoadingScreen.vue";
+import NMLogo from "../components/NMLogo.vue";
 import { logAction, startVisitorSession } from "../utils/analytics.js";
 
 const router = useRouter();

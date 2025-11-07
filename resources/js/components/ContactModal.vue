@@ -23,11 +23,7 @@
               ></div>
               <div class="relative flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                  <img
-                    src="/public/images/nm-logo-rmbg.webp"
-                    alt="NM Technology Logo"
-                    class="h-12 w-auto"
-                  />
+                  <NMLogo variant="modal" size="large" />
                   <div>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">
                       Contact
@@ -904,8 +900,12 @@
 <script>
 import { ref, reactive, inject } from "vue";
 import axios from "axios";
+import NMLogo from "./NMLogo.vue";
 
 export default {
+  components: {
+    NMLogo
+  },
   setup() {
     const isOpen = ref(false);
     const isSubmitting = ref(false);

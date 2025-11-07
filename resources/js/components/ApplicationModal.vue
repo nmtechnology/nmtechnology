@@ -19,11 +19,7 @@
               <div class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-lime-500/5 rounded-t-xl"></div>
               <div class="relative flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                  <img
-                    src="/public/images/nm-logo-rmbg.webp"
-                    alt="NM Technology Logo"
-                    class="h-12 w-auto"
-                  />
+                  <NMLogo variant="modal" size="large" />
                   <div>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">
                       Join Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Team!</span>
@@ -582,9 +578,13 @@
 
 <script>
 import axios from 'axios'
+import NMLogo from './NMLogo.vue'
 
 export default {
   name: 'ApplicationModal',
+  components: {
+    NMLogo
+  },
   data() {
     return {
       isOpen: false,

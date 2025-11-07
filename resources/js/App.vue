@@ -9,7 +9,11 @@
         aria-label="Global"
       >
         <!-- Logo Section -->
-        <NMLogo class="mt-8" />
+        <div class="flex lg:flex-1 items-center">
+          <router-link to="/home" class="relative flex items-center group">
+            <NMLogo variant="header" size="medium" />
+          </router-link>
+        </div>
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button
@@ -107,14 +111,7 @@
             <div class="flex items-center justify-between mb-6">
               <div class="flex items-center">
                 <router-link to="/home" class="relative flex items-center">
-                  <img
-                    class="h-10 w-auto mr-2"
-                    src="/public/images/nm-logo-rmbg.webp"
-                    alt="nmtechnology-logo"
-                  />
-                  <span class="italic text-lg font-extrabold text-white -ml-1"
-                    >Technology</span
-                  >
+                  <NMLogo variant="mobile" size="medium" />
                 </router-link>
               </div>
               <button
