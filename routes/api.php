@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/send-contact', [MailController::class, 'send']);
+Route::post('/contact', [MailController::class, 'send']); // Alternative route for frontend
 Route::post('/orders/submit', [OrderController::class, 'submit']);
 Route::post('/applications', [ApplicationController::class, 'submit']);
 Route::post('/upload-document', [DocumentUploadController::class, 'upload']);

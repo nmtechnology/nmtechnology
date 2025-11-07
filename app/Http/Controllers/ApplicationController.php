@@ -115,7 +115,11 @@ class ApplicationController extends Controller
             Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
 
             // Send confirmation email to applicant
-            Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail($validatedData));
+            Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail(
+                $validatedData['firstName'],
+                $validatedData['lastName'],
+                $validatedData['position']
+            ));
 
             // Clean up temporary file data
             Cache::forget('uploaded_file_' . $validatedData['resumeId']);
@@ -220,12 +224,16 @@ class ApplicationController extends Controller
 
             // Send test confirmation email to applicant
             Log::info('Sending test confirmation email to applicant');
-            Mail::to('john.smith@example.com')->send(new ApplicationConfirmationMail($sampleApplicationData));
+            Mail::to('john.smith@example.com')->send(new ApplicationConfirmationMail(
+                $sampleApplicationData['firstName'],
+                $sampleApplicationData['lastName'],
+                $sampleApplicationData['position']
+            ));
 
             return response()->json([
                 'message' => 'Test emails sent successfully!',
                 'emails_sent' => [
-                    'hr_email' => 'hr@nmtechnology.ca (Application with PDF)',
+                    'hr_email' => 'hr@nmtechnology.us (Application with PDF)',
                     'confirmation_email' => 'john.smith@example.com (Confirmation)',
                 ],
                 'pdf_filename' => $pdfFilename,

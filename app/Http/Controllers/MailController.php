@@ -25,7 +25,9 @@ class MailController extends Controller
                 'lastName' => 'required|string|max:100',
                 'phoneNumber' => 'required|string|max:20',
                 'email' => 'required|email|max:255',
+                'company' => 'nullable|string|max:200',
                 'message' => 'required|string|max:2000',
+                'blueprintFileId' => 'nullable|string',
                 'userMathAnswer' => 'required',
                 'mathProblemAnswer' => 'required',
                 'files.*' => 'file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,bmp,tiff,svg,webp,zip,rar,dwg,dxf,xlsx,xls,ppt,pptx,txt,csv',
@@ -200,9 +202,10 @@ class MailController extends Controller
     {
         try {
             $testData = [
-                'name' => 'John Smith',
-                'email' => 'john.smith@example.com',
-                'phone' => '(555) 123-4567',
+                'firstName' => 'John',
+                'lastName' => 'Smith',
+                'email' => 'hr@nmtechnology.us',
+                'phoneNumber' => '(555) 123-4567',
                 'company' => 'Smith Construction Company',
                 'message' => 'Hello, I am interested in your welding services for our upcoming commercial project. We need structural steel welding for a 3-story office building. The project includes approximately 200 tons of structural steel work. We have blueprints available and would like to schedule a consultation to discuss timeline and pricing. Please let me know your availability for next week.',
                 'math_answer' => '7'  // Assuming the math problem was 3 + 4
@@ -217,7 +220,7 @@ class MailController extends Controller
             ];
 
             Mail::to($testData['email'])->send(new ContactMail($testData));
-            Mail::to($testData['email'])->send(new ContactConfirmationMail($testData));
+            Mail::to($testData['email'])->send(new ContactConfirmationMail($testData['firstName'], $testData['lastName']));
 
             return response()->json([
                 'message' => 'Test contact emails sent successfully!',

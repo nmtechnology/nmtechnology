@@ -96,7 +96,7 @@
                     >
                       <path
                         fill-rule="evenodd"
-                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 616 0z"
+                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 0 1 6 0z"
                         clip-rule="evenodd"
                       />
                     </svg>
@@ -1099,8 +1099,9 @@ export default {
           formData.append(key, form[key]);
         });
 
-        // Add math answer to form data
-        formData.append("mathAnswer", mathAnswer.value);
+        // Add math answers to form data
+        formData.append("userMathAnswer", mathAnswer.value);
+        formData.append("mathProblemAnswer", correctAnswer.value);
 
         const response = await axios.post("/api/contact", formData, {
           headers: {
