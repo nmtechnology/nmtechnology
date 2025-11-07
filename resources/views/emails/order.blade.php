@@ -118,7 +118,10 @@
 <body>
     <div class="email-container">
         <!-- Logo Section -->
-        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        <div class="logo-container">
+            <img src="{{ asset('public/images/nm-logo-rmbg.webp') }}" alt="NM Technology Logo" class="logo">
+            <span class="company-name">Technology</span>
+        </div>
 
         <!-- Header -->
         <div class="header">
