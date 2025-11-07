@@ -302,7 +302,7 @@
                       openApplicationModal();
                       mobileMenuOpen = false;
                     "
-                    class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-[1.02]"
+                    class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-lime-400 hover:bg-black text-black hover:text-lime-400 rounded-lg font-semibold text-sm shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-[1.02]"
                   >
                     <svg
                       class="w-5 h-5"

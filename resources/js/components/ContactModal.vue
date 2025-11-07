@@ -117,7 +117,7 @@
                     <p class="text-gray-400 text-sm mb-4">Join our growing team of security professionals and technology experts.</p>
                     <button
                       @click="openApplicationModal(); closeModal();"
-                      class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-105"
+                      class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 hover:bg-black text-black hover:text-lime-400 rounded-lg font-semibold text-sm shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
@@ -385,6 +385,45 @@
                   </div>
                 </div>
 
+                <!-- Human Verification -->
+                <div class="md:col-span-2">
+                  <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700/50">
+                    <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                      <svg class="h-5 w-5 mr-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      Human Verification
+                    </h4>
+                    <div class="p-4 bg-gradient-to-br from-gray-800/80 to-gray-800/60 rounded-md border border-gray-700/50 shadow-md">
+                      <div class="flex items-center gap-2 mb-3">
+                        <span class="text-white font-medium">Math Problem:</span>
+                        <span class="text-green-400 font-bold text-lg">{{ mathProblem }}</span>
+                        <button
+                          type="button"
+                          @click="generateMathProblem"
+                          class="ml-2 inline-flex items-center text-sm text-green-400 hover:text-green-300 bg-gray-700/80 hover:bg-gray-600/80 px-3 py-1.5 rounded-md transition-colors duration-200"
+                          aria-label="Get a new math problem"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          Try different problem
+                        </button>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <label class="text-gray-300 font-medium">Answer:</label>
+                        <input
+                          v-model="mathAnswer"
+                          type="number"
+                          required
+                          class="w-24 px-3 py-2 bg-gray-700/60 border border-gray-600 rounded-md text-white text-center focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors duration-300"
+                          placeholder="?"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="flex justify-end mt-8">
                   <button
                     type="submit"
@@ -447,9 +486,42 @@ export default {
       blueprintFileId: null
     })
 
+    // Math puzzle for human verification
+    const mathProblem = ref('')
+    const mathAnswer = ref('')
+    const correctAnswer = ref(0)
+
+    // Generate math problem for human verification
+    const generateMathProblem = () => {
+      const operations = [
+        () => {
+          const a = Math.floor(Math.random() * 10) + 1
+          const b = Math.floor(Math.random() * 10) + 1
+          correctAnswer.value = a + b
+          return `${a} + ${b} = ?`
+        },
+        () => {
+          const a = Math.floor(Math.random() * 10) + 5
+          const b = Math.floor(Math.random() * 5) + 1
+          correctAnswer.value = a - b
+          return `${a} - ${b} = ?`
+        },
+        () => {
+          const a = Math.floor(Math.random() * 10) + 1
+          const b = Math.floor(Math.random() * 10) + 1
+          correctAnswer.value = a * b
+          return `${a} × ${b} = ?`
+        }
+      ]
+      const randomOperation = operations[Math.floor(Math.random() * operations.length)]
+      mathProblem.value = randomOperation()
+      mathAnswer.value = ''
+    }
+
     const openModal = () => {
       isOpen.value = true
       resetForm()
+      generateMathProblem()
     }
 
     const closeModal = () => {
@@ -477,6 +549,8 @@ export default {
       form.message = ''
       form.blueprintFile = null
       form.blueprintFileId = null
+      mathAnswer.value = ''
+      generateMathProblem()
     }
 
     // File validation function
@@ -562,6 +636,12 @@ export default {
 
     const sendContact = async () => {
       try {
+        // Validate math answer first
+        if (parseInt(mathAnswer.value) !== correctAnswer.value) {
+          alert('Please solve the math problem correctly to verify you are human.')
+          return
+        }
+
         isSubmitting.value = true
         errorMessage.value = ''
         Object.keys(validationErrors).forEach(key => {
@@ -573,6 +653,9 @@ export default {
         Object.keys(form).forEach(key => {
           formData.append(key, form[key]);
         });
+        
+        // Add math answer to form data
+        formData.append('mathAnswer', mathAnswer.value);
 
         const response = await axios.post('/api/contact', formData, {
           headers: {
@@ -605,12 +688,16 @@ export default {
       validationErrors,
       uploadStatus,
       form,
+      mathProblem,
+      mathAnswer,
+      correctAnswer,
       openModal,
       closeModal,
       closeFromConfirmation,
       sendContact,
       openApplicationModal,
-      handleBlueprintUpload
+      handleBlueprintUpload,
+      generateMathProblem
     }
   }
 }

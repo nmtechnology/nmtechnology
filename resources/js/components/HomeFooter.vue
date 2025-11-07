@@ -35,7 +35,7 @@
           
           <button
             @click="openApplicationModal"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-lg font-bold text-lg shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-blue-500/50"
+            class="inline-flex items-center gap-3 px-8 py-4 bg-lime-400 hover:bg-black text-black hover:text-lime-400 rounded-lg font-bold text-lg shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-105 hover:shadow-lime-400/50"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
