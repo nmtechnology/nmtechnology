@@ -195,4 +195,39 @@ class MailController extends Controller
             return response()->json(['error' => 'Error recording survey responses'], 500);
         }
     }
+
+    public function sendTestContactEmail()
+    {
+        try {
+            $testData = [
+                'name' => 'John Smith',
+                'email' => 'john.smith@example.com',
+                'phone' => '(555) 123-4567',
+                'company' => 'Smith Construction Company',
+                'message' => 'Hello, I am interested in your welding services for our upcoming commercial project. We need structural steel welding for a 3-story office building. The project includes approximately 200 tons of structural steel work. We have blueprints available and would like to schedule a consultation to discuss timeline and pricing. Please let me know your availability for next week.',
+                'math_answer' => '7'  // Assuming the math problem was 3 + 4
+            ];
+
+            // Create sample uploaded file data
+            $sampleFile = [
+                'name' => 'Commercial_Building_Blueprints.pdf',
+                'path' => 'storage/contact_attachments/sample_blueprints.pdf',
+                'size' => 2500000, // 2.5MB
+                'type' => 'application/pdf'
+            ];
+
+            Mail::to($testData['email'])->send(new ContactMail($testData));
+            Mail::to($testData['email'])->send(new ContactConfirmationMail($testData));
+
+            return response()->json([
+                'message' => 'Test contact emails sent successfully!',
+                'sent_to' => $testData['email'],
+                'data_used' => $testData
+            ], 200);
+
+        } catch (\Exception $e) {
+            \Log::error('Test contact email error: ' . $e->getMessage());
+            return response()->json(['error' => 'Error sending test contact emails'], 500);
+        }
+    }
 }

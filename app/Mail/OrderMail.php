@@ -28,7 +28,7 @@ class OrderMail extends Mailable
      */
     public function build()
     {
-        return $this->from('patrick@nmtechnology.us', 'NM Technology Website')
+        return $this->from('hr@nmtechnology.us', 'NM Technology Website')
             ->replyTo($this->orderData['customer']['email'], $this->orderData['customer']['firstName'] . ' ' . $this->orderData['customer']['lastName'])
             ->subject('New CCTV Product Order from Website')
             ->view('emails.order');

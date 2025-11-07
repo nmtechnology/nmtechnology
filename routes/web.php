@@ -16,6 +16,11 @@ Route::middleware(['block.nonus'])->group(function () {
         return redirect('/');
     });
 
+    // Test email page
+    Route::get('/test-emails', function () {
+        return response()->file(public_path('test-emails.html'));
+    });
+
     // Math verification API route
     Route::post('/api/verify-math', [MathVerificationController::class, 'verify']);
 });

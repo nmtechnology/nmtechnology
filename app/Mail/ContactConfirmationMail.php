@@ -27,7 +27,7 @@ class ContactConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->from('patrick@nmtechnology.us', 'NM Technology')
+        return $this->from('hr@nmtechnology.us', 'NM Technology')
             ->replyTo('service@nmtechnology.us', 'NM Technology Service')
             ->subject('Thank You for Contacting NM Technology! 🎉')
             ->view('emails.contact_confirmation');

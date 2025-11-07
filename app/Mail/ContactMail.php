@@ -36,7 +36,7 @@ class ContactMail extends Mailable
 
     public function build()
     {
-        $email = $this->from('patrick@nmtechnology.us', 'NM Technology Website')
+        $email = $this->from('hr@nmtechnology.us', 'NM Technology Website')
             ->replyTo($this->details['email'], $this->details['firstName'] . ' ' . $this->details['lastName'])
             ->subject('New Contact Form Submission from Website')
             ->view('emails.contact');

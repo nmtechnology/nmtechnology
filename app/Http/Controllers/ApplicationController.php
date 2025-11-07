@@ -112,7 +112,7 @@ class ApplicationController extends Controller
             unset($validatedData['mathAnswer'], $validatedData['correctAnswer']);
 
             // Send email to HR with PDF attachment
-            Mail::to('hr@nmtechnology.ca')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
+            Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
 
             // Send confirmation email to applicant
             Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail($validatedData));
@@ -151,6 +151,96 @@ class ApplicationController extends Controller
             return response()->json([
                 'message' => 'There was an error submitting your application. Please try again or contact us directly.',
                 'error' => 'Server error'
+            ], 500);
+        }
+    }
+
+    /**
+     * Send test emails to demonstrate email templates
+     */
+    public function sendTestEmails()
+    {
+        try {
+            // Create sample application data
+            $sampleApplicationData = [
+                'firstName' => 'John',
+                'lastName' => 'Smith',
+                'email' => 'john.smith@example.com',
+                'phone' => '(505) 123-4567',
+                'address' => '1234 Security Lane, Albuquerque, NM 87110',
+                'position' => 'Security Systems Technician',
+                'salaryRange' => '$45,000 - $55,000',
+                'availability' => 'Full-time, can start immediately',
+                'experience' => '3-5 years',
+                'education' => 'Associate degree',
+                'certifications' => 'CompTIA Security+, NICET Level II Fire Alarm Systems, Low Voltage Technician License',
+                'previousEmployment' => 'ABC Security Solutions (2020-2023): Installed and maintained CCTV systems for commercial clients. Performed troubleshooting and repair work on various security equipment.\n\nXYZ Electronics (2018-2020): Junior technician assistant, learned basic electrical and networking fundamentals.',
+                'coverLetter' => 'Dear Hiring Manager,\n\nI am writing to express my strong interest in the Security Systems Technician position at NM Technology. With over 5 years of experience in the security industry and a passion for protecting people and property, I believe I would be a valuable addition to your team.\n\nIn my previous role at ABC Security Solutions, I successfully installed and configured over 200 CCTV systems for commercial clients throughout New Mexico. I have extensive experience with IP cameras, NVR systems, access control, and fire alarm installations. My technical skills include network configuration, cable management, and system integration.\n\nI am particularly drawn to NM Technology because of your reputation as Albuquerque\'s leading security provider and your commitment to using cutting-edge technology. I am excited about the opportunity to contribute to your team\'s continued success.\n\nThank you for considering my application. I look forward to discussing how my experience and enthusiasm can contribute to NM Technology\'s mission.\n\nSincerely,\nJohn Smith',
+                'reference1' => 'Mike Johnson, Former Supervisor at ABC Security Solutions\nPhone: (505) 555-0123\nEmail: mike.johnson@abcsecurity.com\nRelationship: Direct supervisor for 3 years',
+                'reference2' => 'Sarah Davis, Client Manager at Enterprise Solutions Inc.\nPhone: (505) 555-0456\nEmail: sarah.davis@enterprisesolutions.com\nRelationship: Client contact, worked together on multiple projects',
+                'workAuthorized' => 'yes',
+                'driversLicense' => 'yes',
+                'felonyConviction' => 'no',
+                'resume' => [
+                    'id' => 'test-resume-123',
+                    'original_name' => 'John_Smith_Resume_2025.txt',
+                    'path' => 'test/resume.txt',
+                    'size' => 1024, // ~1KB
+                    'type' => 'resume',
+                    'virus_scan_result' => 'File passed basic validation'
+                ],
+                'coverLetterFile' => [
+                    'id' => 'test-cover-123',
+                    'original_name' => 'John_Smith_Cover_Letter.txt',
+                    'path' => 'test/cover_letter.txt',
+                    'size' => 1024, // ~1KB
+                    'type' => 'cover-letter',
+                    'virus_scan_result' => 'File passed basic validation'
+                ]
+            ];
+
+            // Generate PDF for test
+            $attachedFiles = [$sampleApplicationData['resume'], $sampleApplicationData['coverLetterFile']];
+            
+            $pdf = Pdf::loadView('pdf.application', [
+                'application' => $sampleApplicationData,
+                'attachedFiles' => $attachedFiles
+            ]);
+
+            $pdfFilename = sprintf(
+                'Application_%s_%s_%s.pdf',
+                $sampleApplicationData['firstName'],
+                $sampleApplicationData['lastName'],
+                now()->format('Y-m-d_H-i-s')
+            );
+
+            // Send test application email to HR
+            Log::info('Sending test application email to HR');
+            Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($sampleApplicationData, $pdf->output(), $pdfFilename));
+
+            // Send test confirmation email to applicant
+            Log::info('Sending test confirmation email to applicant');
+            Mail::to('john.smith@example.com')->send(new ApplicationConfirmationMail($sampleApplicationData));
+
+            return response()->json([
+                'message' => 'Test emails sent successfully!',
+                'emails_sent' => [
+                    'hr_email' => 'hr@nmtechnology.ca (Application with PDF)',
+                    'confirmation_email' => 'john.smith@example.com (Confirmation)',
+                ],
+                'pdf_filename' => $pdfFilename,
+                'success' => true
+            ], 200);
+
+        } catch (\Exception $e) {
+            Log::error('Error sending test emails', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'message' => 'Error sending test emails: ' . $e->getMessage(),
+                'success' => false
             ], 500);
         }
     }

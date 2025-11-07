@@ -29,7 +29,7 @@ class QuoteConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->from('patrick@nmtechnology.us', 'NM Technology')
+        return $this->from('hr@nmtechnology.us', 'NM Technology')
             ->replyTo('service@nmtechnology.us', 'NM Technology Service')
             ->subject('Your Quote Request Has Been Received! 🎯')
             ->view('emails.quote_confirmation');

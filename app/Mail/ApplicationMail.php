@@ -42,7 +42,7 @@ class ApplicationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: 'applications@nmtechnology.us',
+            from: 'hr@nmtechnology.us',
             replyTo: $this->applicationData['email'],
             subject: 'New Employment Application - ' . $this->applicantName,
         );

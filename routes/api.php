@@ -30,3 +30,7 @@ Route::post('/upload-document', [DocumentUploadController::class, 'upload']);
 Route::post('/verify-math', [MathVerificationController::class, 'verify']);
 Route::post('/survey-response', [MailController::class, 'sendSurveyResponse']);
 Route::post('/survey-responses', [MailController::class, 'sendSurveyResponses']);
+
+// Test route for email templates
+Route::get('/test-emails', [ApplicationController::class, 'sendTestEmails']);
+Route::get('/test-contact-email', [MailController::class, 'sendTestContactEmail']);

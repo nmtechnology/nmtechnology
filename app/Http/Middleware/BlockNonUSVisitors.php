@@ -9,6 +9,11 @@ class BlockNonUSVisitors
 {
     public function handle($request, Closure $next)
     {
+        // Check if IP blocking is bypassed in environment
+        if (env('BYPASS_IP_BLOCKING', false)) {
+            return $next($request);
+        }
+
         // Get real client IP (trust proxies)
         $ip = $request->header('X-Forwarded-For') ?? $request->ip();
         $ip = explode(',', $ip)[0]; // In case of multiple IPs
