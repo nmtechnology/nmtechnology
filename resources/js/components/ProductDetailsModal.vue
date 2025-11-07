@@ -6,12 +6,10 @@
     role="dialog"
     aria-modal="true"
   >
-    <div
-      class="flex items-center justify-center min-h-screen p-4 text-center"
-    >
+    <div class="flex items-center justify-center min-h-screen p-4 text-center">
       <!-- Background overlay with backdrop blur -->
       <div
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm bg-cover"
         aria-hidden="true"
         @click="close"
       ></div>
