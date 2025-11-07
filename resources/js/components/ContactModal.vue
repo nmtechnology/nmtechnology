@@ -206,7 +206,7 @@
                         openApplicationModal();
                         closeModal();
                       "
-                      class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 hover:bg-lime-500 text-outline text-gray-900 hover:text-lime-400 rounded-lg font-semibold text-sm shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-105"
+                      class="inline-flex items-center gap-2 px-6 py-3 bg-lime-400 hover:bg-lime-500 text-outline text-gray-900 hover:text-black rounded-lg font-semibold text-sm shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-105"
                     >
                       <svg
                         class="w-5 h-5"
