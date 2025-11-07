@@ -224,7 +224,7 @@ class ApplicationController extends Controller
 
             // Send test confirmation email to applicant
             Log::info('Sending test confirmation email to applicant');
-            Mail::to('john.smith@example.com')->send(new ApplicationConfirmationMail(
+            Mail::to('hr@nmtechnology.us')->send(new ApplicationConfirmationMail(
                 $sampleApplicationData['firstName'],
                 $sampleApplicationData['lastName'],
                 $sampleApplicationData['position']
@@ -234,7 +234,7 @@ class ApplicationController extends Controller
                 'message' => 'Test emails sent successfully!',
                 'emails_sent' => [
                     'hr_email' => 'hr@nmtechnology.us (Application with PDF)',
-                    'confirmation_email' => 'john.smith@example.com (Confirmation)',
+                    'confirmation_email' => 'hr@nmtechnology.us (Confirmation)',
                 ],
                 'pdf_filename' => $pdfFilename,
                 'success' => true
