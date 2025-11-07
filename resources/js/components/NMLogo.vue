@@ -30,7 +30,7 @@ const props = defineProps({
     type: String,
     default: "header",
     validator: (value) =>
-      ["header", "service", "mobile", "footer", "landing", "modal"].includes(value),
+      ["header", "service", "mobile", "footer", "landing", "modal", "loading"].includes(value),
   },
   size: {
     type: String,
@@ -72,6 +72,7 @@ const containerClasses = computed(() => {
     footer: ["justify-start", "lg:justify-end", "flex-shrink-0"],
     landing: ["justify-center", "mb-4", "sm:mb-6"],
     modal: ["space-x-2", "sm:space-x-4", "flex-shrink-0"],
+    loading: ["justify-center", "mb-4"],
   };
 
   return [...baseClasses, ...variantClasses[props.variant]];
@@ -98,6 +99,7 @@ const logoClasses = computed(() => {
     footer: ["mr-1", "sm:mr-2"],
     landing: ["mr-1", "sm:mr-2", "transition-transform", "duration-300"],
     modal: [],
+    loading: ["mr-1", "sm:mr-2"],
   };
 
   return [...sizeClasses[props.size], ...variantClasses[props.variant]];
@@ -150,6 +152,16 @@ const textClasses = computed(() => {
       "duration-300",
     ],
     modal: ["text-xl", "sm:text-2xl", "lg:text-3xl", "font-bold", "text-white"],
+    loading: [
+      "italic", 
+      "font-extrabold", 
+      "text-white", 
+      "-ml-3", 
+      "sm:-ml-5",
+      "text-3xl",
+      "sm:text-4xl",
+      "lg:text-5xl"
+    ],
   };
 
   return [...sizeClasses[props.size], ...variantClasses[props.variant]];
