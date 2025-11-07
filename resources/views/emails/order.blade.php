@@ -20,43 +20,12 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .header {
-            background-color: #15a34a; /* Green brand color */
+                .header {
+            background-color: #16a34a; /* Green brand color */
             text-align: center;
             padding: 20px;
         }
-        .logo-container {
-            background-color: #111827; /* Dark background for logo */
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        .logo {
-            height: 48px;
-        }
-        .company-name {
-            color: white;
-            font-size: 14px;
-            font-style: italic;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-        }
         h1, h2 {
-            color: white;
-            margin: 0;
-        }
-        h1 {
-            font-size: 24px;
-        }
-        h2 {
-            font-size: 20px;
-            margin-top: 20px;
-        }
         .content {
             padding: 20px;
             color: #d1d5db;
@@ -118,10 +87,7 @@
 <body>
     <div class="email-container">
         <!-- Logo Section -->
-        <div class="logo-container">
-            <img src="{{ asset('public/images/nm-logo-rmbg.webp') }}" alt="NM Technology Logo" class="logo">
-            <span class="company-name">Technology</span>
-        </div>
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
 
         <!-- Header -->
         <div class="header">

@@ -61,27 +61,6 @@
             0%, 100% { transform: scale(1); opacity: 0.7; }
             50% { transform: scale(1.2); opacity: 0.4; }
         }
-        .logo-container {
-            background-color: #111827; /* Dark background for logo */
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        .logo {
-            height: 48px;
-        }
-        .company-name {
-            color: white;
-            font-size: 14px;
-            font-style: italic;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-        }
         .header-icon {
             font-size: 3rem;
             margin-bottom: 15px;
@@ -320,7 +299,7 @@
 </head>
 <body>
     <div class="email-container">
-        @include('components.nmlogo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => true])
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
         
         <div class="header">
             <div class="header-icon">🎯</div>

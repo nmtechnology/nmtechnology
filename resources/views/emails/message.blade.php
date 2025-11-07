@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+    
     <h1>message</h1>
     <p>name: {{ $details['firstName']}}</p>
 </body>

@@ -176,6 +176,8 @@
 </head>
 <body>
     <div class="email-container">
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        
         <div class="header">
             <h1 class="header-title">🎯 New Employment Application</h1>
             <p class="header-subtitle">Received from {{ $applicantName }} on {{ $submissionTime }}</p>
