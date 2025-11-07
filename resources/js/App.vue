@@ -9,7 +9,7 @@
         aria-label="Global"
       >
         <!-- Logo Section -->
-        <NMLogo class="mt-3" />
+        <NMLogo class="mt-5" />
         <!-- Mobile menu button -->
         <div class="flex lg:hidden">
           <button
