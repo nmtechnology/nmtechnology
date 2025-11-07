@@ -7,9 +7,17 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use App\Mail\ApplicationMail;
 use App\Mail\ApplicationConfirmationMail;
+use App\Http\Controllers\DocumentUploadController;
 
 class ApplicationController extends Controller
 {
+    protected $documentUploadController;
+
+    public function __construct(DocumentUploadController $documentUploadController)
+    {
+        $this->documentUploadController = $documentUploadController;
+    }
+
     public function submit(Request $request)
     {
         try {
@@ -35,30 +43,66 @@ class ApplicationController extends Controller
                 'felonyConviction' => 'required|in:yes,no',
                 'mathAnswer' => 'required|integer',
                 'correctAnswer' => 'required|integer',
+                'resumeId' => 'required|string',
+                'coverLetterFileId' => 'nullable|string',
             ]);
 
-            // Verify the math answer
-            if ($validatedData['mathAnswer'] !== $validatedData['correctAnswer']) {
+            // Verify math verification
+            if ($validatedData['mathAnswer'] != $validatedData['correctAnswer']) {
                 return response()->json([
-                    'message' => 'Math verification failed. Please solve the problem correctly.',
-                    'error' => 'Invalid math answer'
+                    'message' => 'Math verification failed. Please solve the math problem correctly.'
                 ], 422);
             }
+
+            // Get uploaded documents
+            $resumeData = null;
+            $coverLetterData = null;
+
+            // Get resume file data
+            $resumeFileData = Cache::get('uploaded_file_' . $validatedData['resumeId']);
+            if (!$resumeFileData || $resumeFileData['uploadStatus'] !== 'success') {
+                return response()->json([
+                    'message' => 'Resume file not found or failed virus scan. Please upload again.'
+                ], 422);
+            }
+            $resumeData = $resumeFileData;
+
+            // Get cover letter file data if provided
+            if (!empty($validatedData['coverLetterFileId'])) {
+                $coverLetterFileData = Cache::get('uploaded_file_' . $validatedData['coverLetterFileId']);
+                if (!$coverLetterFileData || $coverLetterFileData['uploadStatus'] !== 'success') {
+                    return response()->json([
+                        'message' => 'Cover letter file not found or failed virus scan. Please upload again.'
+                    ], 422);
+                }
+                $coverLetterData = $coverLetterFileData;
+            }
+
+            // Prepare application data including file information
+            $applicationData = array_merge($validatedData, [
+                'resume' => $resumeData,
+                'coverLetterFile' => $coverLetterData,
+            ]);
 
             // Remove math answers from the data that gets stored/emailed
             unset($validatedData['mathAnswer'], $validatedData['correctAnswer']);
 
-            // Send application to HR team
-            Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($validatedData));
+            // Send email to HR
+            $applicationData = array_merge($validatedData, [
+                'resume' => $resumeData,
+                'coverLetterFile' => $coverLetterData,
+            ]);
+            
+            Mail::to('hr@nmtechnology.ca')->send(new ApplicationMail($applicationData));
 
-            // Send confirmation to the applicant
-            Mail::to($validatedData['email'])->send(
-                new ApplicationConfirmationMail(
-                    $validatedData['firstName'],
-                    $validatedData['lastName'],
-                    $validatedData['position']
-                )
-            );
+            // Send confirmation email to applicant
+            Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail($validatedData));
+
+            // Clean up temporary file data
+            Cache::forget('uploaded_file_' . $validatedData['resumeId']);
+            if (!empty($validatedData['coverLetterFileId'])) {
+                Cache::forget('uploaded_file_' . $validatedData['coverLetterFileId']);
+            }
 
             Log::info('Employment application submitted successfully', [
                 'applicant' => $validatedData['firstName'] . ' ' . $validatedData['lastName'],

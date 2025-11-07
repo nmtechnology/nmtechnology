@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Queue\SerializesModels;
 
 class ApplicationMail extends Mailable
@@ -16,6 +17,8 @@ class ApplicationMail extends Mailable
     public $applicationData;
     public $applicantName;
     public $submissionTime;
+    public $hasResume;
+    public $hasCoverLetter;
 
     /**
      * Create a new message instance.
@@ -25,6 +28,8 @@ class ApplicationMail extends Mailable
         $this->applicationData = $applicationData;
         $this->applicantName = $applicationData['firstName'] . ' ' . $applicationData['lastName'];
         $this->submissionTime = now()->format('F j, Y \a\t g:i A T');
+        $this->hasResume = isset($applicationData['resume']) && $applicationData['resume'] !== null;
+        $this->hasCoverLetter = isset($applicationData['coverLetterFile']) && $applicationData['coverLetterFile'] !== null;
     }
 
     /**
@@ -56,6 +61,20 @@ class ApplicationMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $attachments = [];
+
+        // Attach resume if uploaded
+        if ($this->hasResume && isset($this->applicationData['resume']['filePath'])) {
+            $attachments[] = Attachment::fromPath(storage_path('app/' . $this->applicationData['resume']['filePath']))
+                ->as($this->applicationData['resume']['originalName']);
+        }
+
+        // Attach cover letter file if uploaded
+        if ($this->hasCoverLetter && isset($this->applicationData['coverLetterFile']['filePath'])) {
+            $attachments[] = Attachment::fromPath(storage_path('app/' . $this->applicationData['coverLetterFile']['filePath']))
+                ->as($this->applicationData['coverLetterFile']['originalName']);
+        }
+
+        return $attachments;
     }
 }

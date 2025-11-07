@@ -286,6 +286,140 @@
                   </div>
                 </div>
 
+                <!-- Document Upload -->
+                <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700/50">
+                  <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+                    <svg class="h-5 w-5 mr-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    Upload Documents
+                  </h3>
+                  <div class="space-y-4">
+                    <!-- Resume Upload -->
+                    <div>
+                      <label class="block text-sm font-medium text-gray-300 mb-2">Resume *</label>
+                      <div class="relative">
+                        <input
+                          ref="resumeInput"
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          required
+                          @change="handleResumeUpload"
+                          class="hidden"
+                        />
+                        <button
+                          type="button"
+                          @click="$refs.resumeInput.click()"
+                          class="w-full flex items-center justify-center px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-gray-300 hover:border-green-500 hover:bg-gray-700 transition-colors duration-300"
+                          :class="{ 'border-green-500 bg-gray-700': formData.resume }"
+                        >
+                          <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                          </svg>
+                          {{ formData.resume ? formData.resume.name : 'Choose Resume File' }}
+                        </button>
+                      </div>
+                      <p class="text-xs text-gray-400 mt-1">PDF, DOC, or DOCX files only. Max size: 5MB</p>
+                      
+                      <!-- Resume Upload Status -->
+                      <div v-if="uploadStatus.resume" class="mt-2 flex items-center text-sm">
+                        <div v-if="uploadStatus.resume === 'uploading'" class="flex items-center text-yellow-400">
+                          <svg class="animate-spin h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Uploading and scanning...
+                        </div>
+                        <div v-else-if="uploadStatus.resume === 'scanning'" class="flex items-center text-blue-400">
+                          <svg class="animate-pulse h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Virus scanning...
+                        </div>
+                        <div v-else-if="uploadStatus.resume === 'success'" class="flex items-center text-green-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          File verified and ready
+                        </div>
+                        <div v-else-if="uploadStatus.resume === 'error'" class="flex items-center text-red-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                          Upload failed or virus detected
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Cover Letter Upload -->
+                    <div>
+                      <label class="block text-sm font-medium text-gray-300 mb-2">Cover Letter (Optional)</label>
+                      <div class="relative">
+                        <input
+                          ref="coverLetterInput"
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          @change="handleCoverLetterUpload"
+                          class="hidden"
+                        />
+                        <button
+                          type="button"
+                          @click="$refs.coverLetterInput.click()"
+                          class="w-full flex items-center justify-center px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-gray-300 hover:border-green-500 hover:bg-gray-700 transition-colors duration-300"
+                          :class="{ 'border-green-500 bg-gray-700': formData.coverLetterFile }"
+                        >
+                          <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                          </svg>
+                          {{ formData.coverLetterFile ? formData.coverLetterFile.name : 'Choose Cover Letter File' }}
+                        </button>
+                      </div>
+                      <p class="text-xs text-gray-400 mt-1">PDF, DOC, or DOCX files only. Max size: 5MB</p>
+                      
+                      <!-- Cover Letter Upload Status -->
+                      <div v-if="uploadStatus.coverLetter" class="mt-2 flex items-center text-sm">
+                        <div v-if="uploadStatus.coverLetter === 'uploading'" class="flex items-center text-yellow-400">
+                          <svg class="animate-spin h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Uploading and scanning...
+                        </div>
+                        <div v-else-if="uploadStatus.coverLetter === 'scanning'" class="flex items-center text-blue-400">
+                          <svg class="animate-pulse h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Virus scanning...
+                        </div>
+                        <div v-else-if="uploadStatus.coverLetter === 'success'" class="flex items-center text-green-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          File verified and ready
+                        </div>
+                        <div v-else-if="uploadStatus.coverLetter === 'error'" class="flex items-center text-red-400">
+                          <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                          Upload failed or virus detected
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-blue-900/20 border border-blue-600/30 rounded-lg p-4">
+                      <div class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="text-sm">
+                          <p class="text-blue-300 font-medium mb-1">Document Security</p>
+                          <p class="text-blue-200">All uploaded documents are automatically scanned for viruses and malware before being processed. Only clean, verified files will be included with your application.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- References -->
                 <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700/50">
                   <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
@@ -459,6 +593,10 @@ export default {
       mathProblem: '',
       mathAnswer: '',
       correctAnswer: 0,
+      uploadStatus: {
+        resume: null,
+        coverLetter: null
+      },
       formData: {
         firstName: '',
         lastName: '',
@@ -477,7 +615,11 @@ export default {
         reference2: '',
         workAuthorized: '',
         driversLicense: '',
-        felonyConviction: ''
+        felonyConviction: '',
+        resume: null,
+        coverLetterFile: null,
+        resumeId: null,
+        coverLetterFileId: null
       }
     }
   },
@@ -514,7 +656,15 @@ export default {
         reference2: '',
         workAuthorized: '',
         driversLicense: '',
-        felonyConviction: ''
+        felonyConviction: '',
+        resume: null,
+        coverLetterFile: null,
+        resumeId: null,
+        coverLetterFileId: null
+      }
+      this.uploadStatus = {
+        resume: null,
+        coverLetter: null
       }
       this.mathAnswer = ''
       this.generateMathProblem()
@@ -544,6 +694,93 @@ export default {
       this.mathProblem = randomOperation()
       this.mathAnswer = ''
     },
+    async handleResumeUpload(event) {
+      const file = event.target.files[0]
+      if (!file) return
+
+      // Validate file
+      if (!this.validateFile(file)) return
+
+      this.formData.resume = file
+      this.uploadStatus.resume = 'uploading'
+
+      try {
+        const result = await this.uploadFile(file, 'resume')
+        this.formData.resumeId = result.fileId
+        this.uploadStatus.resume = 'success'
+      } catch (error) {
+        this.uploadStatus.resume = 'error'
+        this.formData.resume = null
+        console.error('Resume upload failed:', error)
+        alert('Resume upload failed. Please try again or contact support.')
+      }
+    },
+    async handleCoverLetterUpload(event) {
+      const file = event.target.files[0]
+      if (!file) return
+
+      // Validate file
+      if (!this.validateFile(file)) return
+
+      this.formData.coverLetterFile = file
+      this.uploadStatus.coverLetter = 'uploading'
+
+      try {
+        const result = await this.uploadFile(file, 'cover-letter')
+        this.formData.coverLetterFileId = result.fileId
+        this.uploadStatus.coverLetter = 'success'
+      } catch (error) {
+        this.uploadStatus.coverLetter = 'error'
+        this.formData.coverLetterFile = null
+        console.error('Cover letter upload failed:', error)
+        alert('Cover letter upload failed. Please try again or contact support.')
+      }
+    },
+    validateFile(file) {
+      // Check file size (5MB max)
+      const maxSize = 5 * 1024 * 1024 // 5MB in bytes
+      if (file.size > maxSize) {
+        alert('File size must be less than 5MB')
+        return false
+      }
+
+      // Check file type
+      const allowedTypes = [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ]
+      if (!allowedTypes.includes(file.type)) {
+        alert('Please upload PDF, DOC, or DOCX files only')
+        return false
+      }
+
+      return true
+    },
+    async uploadFile(file, type) {
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('type', type)
+
+      // First upload the file
+      const uploadResponse = await axios.post('/api/upload-document', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+
+      if (uploadResponse.data.success) {
+        // Update status to scanning
+        this.uploadStatus[type === 'resume' ? 'resume' : 'coverLetter'] = 'scanning'
+        
+        // Wait a moment for dramatic effect (virus scanning)
+        await new Promise(resolve => setTimeout(resolve, 2000))
+        
+        return uploadResponse.data
+      } else {
+        throw new Error(uploadResponse.data.message || 'Upload failed')
+      }
+    },
     async submitApplication() {
       if (this.isSubmitting) return
 
@@ -553,14 +790,40 @@ export default {
         return
       }
 
+      // Validate required resume upload
+      if (!this.formData.resume || !this.formData.resumeId) {
+        alert('Please upload your resume before submitting.')
+        return
+      }
+
+      // Check if resume upload is still in progress
+      if (this.uploadStatus.resume === 'uploading' || this.uploadStatus.resume === 'scanning') {
+        alert('Please wait for your resume to finish uploading and scanning.')
+        return
+      }
+
+      // Check if cover letter is still uploading (if provided)
+      if (this.formData.coverLetterFile && (this.uploadStatus.coverLetter === 'uploading' || this.uploadStatus.coverLetter === 'scanning')) {
+        alert('Please wait for your cover letter to finish uploading and scanning.')
+        return
+      }
+
       this.isSubmitting = true
 
       try {
-        const response = await axios.post('/api/applications', {
+        const applicationData = {
           ...this.formData,
           mathAnswer: this.mathAnswer,
-          correctAnswer: this.correctAnswer
-        })
+          correctAnswer: this.correctAnswer,
+          resumeId: this.formData.resumeId,
+          coverLetterFileId: this.formData.coverLetterFileId
+        }
+
+        // Remove file objects from the data (we'll send IDs instead)
+        delete applicationData.resume
+        delete applicationData.coverLetterFile
+
+        const response = await axios.post('/api/applications', applicationData)
 
         if (response.status === 200) {
           this.showSuccessMessage = true

@@ -312,6 +312,57 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Documents -->
+            <div class="section">
+                <h3 class="section-title">📄 Uploaded Documents</h3>
+                <div class="field-group">
+                    @if($hasResume)
+                        <div class="field">
+                            <div class="field-label">Resume</div>
+                            <div class="field-value">
+                                ✅ {{ $applicationData['resume']['originalName'] ?? 'resume.pdf' }}
+                                <div style="font-size: 0.85rem; color: #10b981; margin-top: 4px;">
+                                    ✓ Virus scan passed • Size: {{ number_format(($applicationData['resume']['fileSize'] ?? 0) / 1024, 1) }}KB
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="field">
+                            <div class="field-label">Resume</div>
+                            <div class="field-value" style="color: #ef4444;">❌ No resume uploaded</div>
+                        </div>
+                    @endif
+
+                    @if($hasCoverLetter)
+                        <div class="field">
+                            <div class="field-label">Cover Letter</div>
+                            <div class="field-value">
+                                ✅ {{ $applicationData['coverLetterFile']['originalName'] ?? 'cover-letter.pdf' }}
+                                <div style="font-size: 0.85rem; color: #10b981; margin-top: 4px;">
+                                    ✓ Virus scan passed • Size: {{ number_format(($applicationData['coverLetterFile']['fileSize'] ?? 0) / 1024, 1) }}KB
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="field">
+                            <div class="field-label">Cover Letter</div>
+                            <div class="field-value" style="color: #94a3b8;">Optional - Not provided</div>
+                        </div>
+                    @endif
+                </div>
+                
+                @if($hasResume || $hasCoverLetter)
+                    <div style="background: #f0fdf4; border: 1px solid #22c55e; border-radius: 8px; padding: 12px; margin-top: 15px;">
+                        <div style="font-size: 0.9rem; color: #15803d; font-weight: 600;">
+                            🛡️ Security Notice
+                        </div>
+                        <div style="font-size: 0.85rem; color: #166534; margin-top: 4px;">
+                            All uploaded documents have been automatically scanned for viruses and verified as safe.
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
         
         <div class="footer">
