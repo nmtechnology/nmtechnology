@@ -455,7 +455,7 @@ export default {
 
     const openApplicationModal = () => {
       if (applicationModalRef.value) {
-        applicationModalRef.value.openModal();
+        applicationModalRef.value.openModalFromOptions();
       }
     };
 
