@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 overflow-y-auto" @click="close">
+  <div v-if="isVisible" class="fixed inset-0 z-50 overflow-y-auto" @click="close">
     <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20">
       <!-- Enhanced Backdrop with Blur -->
       <div
@@ -333,25 +333,33 @@
 </template>
 
 <script>
-import { inject, computed, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 
 export default {
   name: "ProductDetailsModal",
-  setup() {
-    // Modal state
-    const modalProvider = inject("modalProvider");
-    const { selectedProduct, isOpen, closeModal } = modalProvider;
-
-    // Theme and category data
-    const product = computed(() => selectedProduct.value || {});
-    const isVisible = computed(() => isOpen.value && selectedProduct.value);
-
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
+    product: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  emits: ["close"],
+  setup(props, { emit }) {
     // Image carousel state
     const currentImageIndex = ref(0);
 
+    // Modal visibility
+    const isVisible = computed(
+      () => props.isOpen && props.product && Object.keys(props.product).length > 0
+    );
+
     // Theme color based on product category
     const themeColor = computed(() => {
-      if (!product.value.category) return "green";
+      if (!props.product.category) return "green";
       const colorMap = {
         cameras: "green",
         networking: "blue",
@@ -359,13 +367,15 @@ export default {
         alarms: "yellow",
         monitoring: "green",
         ai: "blue",
+        network: "blue", // Added for network category
+        security: "blue", // Added for security category
       };
-      return colorMap[product.value.category] || "green";
+      return colorMap[props.product.category] || "green";
     });
 
     // Category display name
     const categoryName = computed(() => {
-      if (!product.value.category) return "Product";
+      if (!props.product.category) return "Product";
       const nameMap = {
         cameras: "Security Camera",
         networking: "Network Device",
@@ -373,32 +383,34 @@ export default {
         alarms: "Security Alarm",
         monitoring: "Monitoring Service",
         ai: "AI Solution",
+        network: "Network Device",
+        security: "Security Device",
       };
-      return nameMap[product.value.category] || "Product";
+      return nameMap[props.product.category] || "Product";
     });
 
     // Methods
     const close = () => {
-      closeModal();
+      emit("close");
       currentImageIndex.value = 0;
     };
 
     const addToCartAndClose = () => {
       // Add to cart logic here
-      console.log("Adding to cart:", product.value);
+      console.log("Adding to cart:", props.product);
       close();
     };
 
     const nextImage = () => {
-      if (product.value.images && product.value.images.length > 1) {
+      if (props.product.images && props.product.images.length > 1) {
         currentImageIndex.value =
-          (currentImageIndex.value + 1) % product.value.images.length;
+          (currentImageIndex.value + 1) % props.product.images.length;
       }
     };
 
     const previousImage = () => {
-      if (product.value.images && product.value.images.length > 1) {
-        const length = product.value.images.length;
+      if (props.product.images && props.product.images.length > 1) {
+        const length = props.product.images.length;
         currentImageIndex.value = (currentImageIndex.value - 1 + length) % length;
       }
     };
@@ -412,13 +424,16 @@ export default {
     };
 
     // Reset image index when product changes
-    watch(selectedProduct, () => {
-      currentImageIndex.value = 0;
-    });
+    watch(
+      () => props.product,
+      () => {
+        currentImageIndex.value = 0;
+      }
+    );
 
     return {
-      product,
-      isOpen: isVisible,
+      product: computed(() => props.product),
+      isVisible,
       themeColor,
       categoryName,
       currentImageIndex,
