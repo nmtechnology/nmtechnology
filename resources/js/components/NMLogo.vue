@@ -5,7 +5,10 @@
       src="/public/images/nm-logo-rmbg.webp"
       alt="NM Technology Logo"
     />
-    <div v-if="variant === 'landing'" class="flex flex-col items-start -ml-3 sm:-ml-5">
+    <div
+      v-if="variant === 'landing'"
+      class="flex flex-col items-start -ml-3 sm:-ml-5 mt-8"
+    >
       <span :class="textClasses">Technology</span>
       <span
         v-if="showSubtitle"
