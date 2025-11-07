@@ -14,8 +14,8 @@ class DocumentUploadController extends Controller
     {
         try {
             $request->validate([
-                'file' => 'required|file|max:5120|mimes:pdf,doc,docx', // 5MB max
-                'type' => 'required|in:resume,cover-letter'
+                'file' => 'required|file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,tiff,bmp,xls,xlsx,txt', // 10MB max for blueprints
+                'type' => 'required|in:resume,cover-letter,blueprint'
             ]);
 
             $file = $request->file('file');
@@ -25,8 +25,12 @@ class DocumentUploadController extends Controller
             $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
             $originalName = $file->getClientOriginalName();
             
-            // Create application documents directory if it doesn't exist
-            $uploadPath = 'application-documents/' . date('Y/m');
+            // Create appropriate directory based on file type
+            if ($type === 'blueprint') {
+                $uploadPath = 'contact-attachments/' . date('Y/m');
+            } else {
+                $uploadPath = 'application-documents/' . date('Y/m');
+            }
             
             // Store file temporarily for virus scanning
             $tempPath = $file->store('temp');
