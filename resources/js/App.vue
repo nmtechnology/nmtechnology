@@ -11,15 +11,7 @@
         <!-- Logo Section -->
         <div class="flex lg:flex-1 items-center">
           <router-link to="/home" class="relative flex items-center group">
-            <img
-              class="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
-              src="/public/images/nm-logo-rmbg.webp"
-              alt="nmtechnology-logo"
-            />
-            <span
-              class="italic text-lg font-extrabold text-white -ml-5 transition-colors duration-300 group-hover:text-green-400"
-              >Technology</span
-            >
+            <NMLogo variant="header" size="medium" />
           </router-link>
         </div>
 
@@ -117,14 +109,7 @@
             <div class="flex items-center justify-between mb-6">
               <div class="flex items-center">
                 <router-link to="/home" class="relative flex items-center">
-                  <img
-                    class="h-10 w-auto mr-2"
-                    src="/public/images/nm-logo-rmbg.webp"
-                    alt="nmtechnology-logo"
-                  />
-                  <span class="italic text-lg font-extrabold text-white -ml-1"
-                    >Technology</span
-                  >
+                  <NMLogo variant="header" size="medium" />
                 </router-link>
               </div>
               <button
@@ -381,6 +366,7 @@ import { ref, computed, provide } from "vue";
 import { Dialog, DialogPanel, TransitionChild } from "@headlessui/vue";
 import { useRoute } from "vue-router";
 import ToastContainer from "./components/ToastContainer.vue";
+import NMLogo from "./components/NMLogo.vue";
 import CartModal from "./components/CartModal.vue";
 import ContactModal from "./components/ContactModal.vue";
 import ApplicationModal from "./components/ApplicationModal.vue";
@@ -401,6 +387,7 @@ const navigation = [
 export default {
   components: {
     ToastContainer,
+    NMLogo,
     CartModal,
     ContactModal,
     ApplicationModal,

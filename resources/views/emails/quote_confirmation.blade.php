@@ -46,14 +46,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .logo {
-            height: 60px;
-            max-width: 220px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            filter: brightness(0) invert(1);
-        }
         .header-icon {
             font-size: 3rem;
             margin-bottom: 15px;
@@ -275,8 +267,9 @@
 </head>
 <body>
     <div class="email-container">
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        
         <div class="header">
-            <img src="https://nmtechnology.us/images/nmtis-logo.png" alt="NM Technology Logo" class="logo">
             <div class="header-icon">🎯</div>
             <h1 class="header-title">Quote Request Received!</h1>
             <p class="header-subtitle">Your custom security solution is on the way</p>

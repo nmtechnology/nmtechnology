@@ -46,14 +46,6 @@
             0%, 100% { transform: scale(1); opacity: 0.5; }
             50% { transform: scale(1.1); opacity: 0.8; }
         }
-        .logo {
-            height: 60px;
-            max-width: 220px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            filter: brightness(0) invert(1);
-        }
         .header-title {
             color: #ffffff;
             font-size: 2rem;
@@ -237,8 +229,9 @@
 </head>
 <body>
     <div class="email-container">
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        
         <div class="header">
-            <img src="https://nmtechnology.us/images/nmtis-logo.png" alt="NM Technology Logo" class="logo">
             <h1 class="header-title">✨ Message Received!</h1>
             <p class="header-subtitle">We're excited to help with your security needs</p>
         </div>

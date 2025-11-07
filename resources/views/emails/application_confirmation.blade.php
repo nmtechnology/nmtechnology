@@ -61,13 +61,6 @@
             0%, 100% { transform: scale(1); opacity: 0.7; }
             50% { transform: scale(1.2); opacity: 0.4; }
         }
-        .logo {
-            height: 60px;
-            width: auto;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
         .header-icon {
             font-size: 3rem;
             margin-bottom: 15px;
@@ -306,8 +299,9 @@
 </head>
 <body>
     <div class="email-container">
+        @include('components.nm-logo', ['variant' => 'email', 'size' => 'medium', 'showBorder' => false])
+        
         <div class="header">
-            <img src="https://nmtechnology.us/public/images/nm-logo-rmbg.webp" alt="NM Technology Logo" class="logo">
             <div class="header-icon">🎯</div>
             <h1 class="header-title">Application Received!</h1>
             <p class="header-subtitle">Thank you for your interest in joining our team</p>
