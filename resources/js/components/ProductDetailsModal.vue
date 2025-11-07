@@ -9,11 +9,11 @@
     <div
       class="flex items-center justify-center min-h-screen p-4 text-center"
     >
-      <!-- Background overlay (make sure it does NOT block pointer events for modal) -->
+      <!-- Background overlay with backdrop blur -->
       <div
-        class="fixed inset-0 bg-gray-900/10"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm"
         aria-hidden="true"
-        style="pointer-events: none"
+        @click="close"
       ></div>
 
       <!-- Modal panel with swipe functionality -->
