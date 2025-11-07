@@ -99,23 +99,24 @@
       >
         <!-- Enhanced Backdrop with animated blur -->
         <div
-          class="fixed inset-0 bg-black/60 backdrop-blur-md z-40 transition-all duration-500"
-          :class="{ 'backdrop-blur-md': mobileMenuOpen, 'backdrop-blur-0': !mobileMenuOpen }"
+          class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 transition-all duration-300"
           aria-hidden="true"
         />
 
         <!-- Panel container with slide animation -->
         <div class="fixed inset-0 z-40 flex justify-end">
           <DialogPanel
-            class="relative w-full sm:max-w-md bg-gradient-to-b from-gray-900 via-black to-gray-900 shadow-2xl overflow-y-auto transform transition-all duration-500 ease-out"
-            :class="{ 'translate-x-0': mobileMenuOpen, 'translate-x-full': !mobileMenuOpen }"
+            class="relative w-full sm:max-w-md bg-gray-900 shadow-2xl overflow-y-auto transform transition-all duration-300 ease-out"
+            :class="{
+              'translate-x-0': mobileMenuOpen,
+              'translate-x-full': !mobileMenuOpen,
+            }"
           >
-            <!-- Decorative border and glow effects -->
-            <div class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-lime-400/5 pointer-events-none"></div>
-            <div class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-green-500 via-lime-400 to-green-500"></div>
-            
+            <!-- Simple border accent -->
+            <div class="absolute left-0 top-0 h-full w-0.5 bg-green-500/50"></div>
+
             <!-- Header Section -->
-            <div class="relative px-6 py-6 border-b border-gray-800/50 bg-gray-900/50 backdrop-blur-sm">
+            <div class="relative px-6 py-6 border-b border-gray-700">
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center">
                   <router-link to="/home" class="relative flex items-center group">
@@ -124,7 +125,7 @@
                 </div>
                 <button
                   type="button"
-                  class="rounded-full p-3 text-gray-400 hover:text-white hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-green-500/50 transition-all duration-300 transform hover:scale-110 hover:rotate-90"
+                  class="rounded-full p-3 text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500/50 transition-all duration-200"
                   @click="mobileMenuOpen = false"
                 >
                   <span class="sr-only">Close menu</span>
@@ -144,13 +145,10 @@
                   </svg>
                 </button>
               </div>
-              
-              <!-- Professional tagline -->
+
+              <!-- Simple tagline -->
               <div class="text-center">
-                <p class="text-sm text-gray-400">
-                  <span class="text-green-400 font-semibold">Securing New Mexico</span>
-                  with Professional Excellence
-                </p>
+                <p class="text-sm text-gray-400">Professional Security Solutions</p>
               </div>
             </div>
 
@@ -162,20 +160,19 @@
                   :key="item.name"
                   :to="item.href"
                   @click="mobileMenuOpen = false"
-                  class="group flex items-center px-4 py-4 text-base font-semibold bg-gray-800/30 hover:bg-gradient-to-r hover:from-green-500/10 hover:to-lime-400/10 text-gray-300 hover:text-white transition-all duration-300 rounded-xl border border-gray-700/50 hover:border-green-500/50 backdrop-blur-sm transform hover:scale-[1.02] hover:shadow-lg hover:shadow-green-500/10"
+                  class="group flex items-center px-4 py-4 text-base font-semibold bg-gray-800/40 hover:bg-gray-700 text-gray-300 hover:text-white transition-all duration-200 rounded-lg border border-gray-700/50 hover:border-gray-600"
                   :class="{
-                    'bg-gradient-to-r from-green-500/20 to-lime-400/20 text-white border-green-500/50 shadow-lg shadow-green-500/20': isActiveRoute(item.href),
+                    'bg-gray-700 text-white border-gray-600': isActiveRoute(item.href),
                   }"
-                  :style="{ animationDelay: `${index * 100}ms` }"
                 >
                   <div class="flex items-center justify-between w-full">
                     <div class="flex items-center">
-                      <!-- Dynamic icons with enhanced styling -->
-                      <div class="p-2 rounded-lg bg-gray-700/50 group-hover:bg-green-500/20 transition-all duration-300 mr-4">
+                      <!-- Icons with subtle styling -->
+                      <div class="p-2 rounded-lg bg-gray-700/50 mr-4">
                         <svg
                           v-if="item.name === 'Home'"
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                          class="h-5 w-5 text-gray-300"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -190,7 +187,7 @@
                         <svg
                           v-else-if="item.name === 'CCTV'"
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                          class="h-5 w-5 text-gray-300"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -205,7 +202,7 @@
                         <svg
                           v-else-if="item.name === 'Security Systems'"
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                          class="h-5 w-5 text-gray-300"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -220,7 +217,7 @@
                         <svg
                           v-else-if="item.name === 'Fire Alarms'"
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                          class="h-5 w-5 text-gray-300"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -240,7 +237,7 @@
                         </svg>
                         <svg
                           v-else
-                          class="h-5 w-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                          class="h-5 w-5 text-gray-300"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -253,11 +250,11 @@
                           />
                         </svg>
                       </div>
-                      <span class="group-hover:translate-x-1 transition-transform duration-300">{{ item.name }}</span>
+                      <span>{{ item.name }}</span>
                     </div>
-                    <!-- Arrow indicator -->
+                    <!-- Simple arrow indicator -->
                     <svg
-                      class="h-4 w-4 text-gray-500 group-hover:text-green-400 transform group-hover:translate-x-1 transition-all duration-300"
+                      class="h-4 w-4 text-gray-500 group-hover:text-gray-400 transition-colors duration-200"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -277,12 +274,14 @@
               <div class="mt-8 space-y-3">
                 <!-- Contact Button -->
                 <button
-                  @click="openContactModal(); mobileMenuOpen = false;"
-                  class="w-full group relative overflow-hidden flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-xl font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/50"
+                  @click="
+                    openContactModal();
+                    mobileMenuOpen = false;
+                  "
+                  class="w-full group flex items-center justify-center gap-3 px-6 py-4 bg-green-600 hover:bg-green-500 text-white rounded-lg font-semibold text-sm shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                   <svg
-                    class="w-5 h-5 relative z-10"
+                    class="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -294,16 +293,19 @@
                       d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                  <span class="relative z-10">Get Expert Consultation</span>
+                  <span>Get Expert Consultation</span>
                 </button>
 
                 <!-- Quote Button -->
                 <button
-                  @click="generateQuote(); mobileMenuOpen = false;"
-                  class="w-full group flex items-center justify-center gap-3 px-6 py-4 bg-gray-800/80 hover:bg-gray-700/80 text-gray-200 hover:text-white ring-1 ring-green-500/30 hover:ring-green-400/50 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02] backdrop-blur-sm"
+                  @click="
+                    generateQuote();
+                    mobileMenuOpen = false;
+                  "
+                  class="w-full group flex items-center justify-center gap-3 px-6 py-4 bg-gray-700 hover:bg-gray-600 text-gray-200 hover:text-white border border-gray-600 hover:border-gray-500 rounded-lg font-semibold text-sm transition-all duration-200"
                 >
                   <svg
-                    class="w-5 h-5 text-green-400 group-hover:text-green-300 transition-colors duration-300"
+                    class="w-5 h-5 text-gray-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -320,12 +322,14 @@
 
                 <!-- Apply Now Button -->
                 <button
-                  @click="openApplicationModal(); mobileMenuOpen = false;"
-                  class="w-full group relative overflow-hidden flex items-center justify-center gap-3 px-6 py-4 bg-lime-400 hover:bg-lime-300 text-black rounded-xl font-semibold text-sm shadow-lg shadow-lime-400/30 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-lime-400/50"
+                  @click="
+                    openApplicationModal();
+                    mobileMenuOpen = false;
+                  "
+                  class="w-full group flex items-center justify-center gap-3 px-6 py-4 bg-lime-400 hover:bg-lime-300 text-black rounded-lg font-semibold text-sm shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-black/0 via-black/10 to-black/0 -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                   <svg
-                    class="w-5 h-5 relative z-10"
+                    class="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -337,16 +341,16 @@
                       d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8m0 10h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z"
                     />
                   </svg>
-                  <span class="relative z-10">Join Our Team</span>
+                  <span>Join Our Team</span>
                 </button>
               </div>
 
               <!-- Footer Section -->
-              <div class="mt-8 pt-6 border-t border-gray-800/50">
+              <div class="mt-8 pt-6 border-t border-gray-700">
                 <div class="flex items-center justify-center space-x-4">
                   <div class="flex items-center gap-2 text-sm text-gray-400">
-                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>Professional Excellence Since 2020</span>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                    <span>Professional Excellence Since 2018</span>
                   </div>
                 </div>
               </div>
