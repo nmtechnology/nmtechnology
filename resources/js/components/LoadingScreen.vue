@@ -1,4 +1,4 @@
-<template>
+hn.m,/<template>
   <div
     class="fixed inset-0 w-full h-full bg-gradient-to-b from-black via-gray-900 to-gray-900 flex flex-col items-center justify-center overflow-hidden z-50"
     :class="{ 'animate-fadeOut': isLeaving }"
