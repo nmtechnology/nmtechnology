@@ -46,8 +46,9 @@
       <p
         class="text-center text-gray-300 text-lg leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
       >
-        Protecting restaurants, retail, and franchises across New Mexico with advanced
-        CCTV and access control solutions.
+        Protecting restaurants, retail, and QSR franchises across New Mexico with advanced
+        CCTV and access control solutions and service. Our expert team ensures your
+        business stays secure, compliant, and operational 24/7.
       </p>
     </div>
 
@@ -71,8 +72,8 @@
 
         <div class="gallery-card">
           <img
-            src="/public/images/mobile-lock.webp"
-            alt="Mobile Security"
+            src="/public/images/m3125lve_restaurant_2406_hi_Mediaportal - Web PNG.webp"
+            alt="Bar Security"
             class="gallery-image"
             loading="lazy"
           />
