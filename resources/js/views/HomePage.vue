@@ -306,11 +306,11 @@
                   >Enterprise Solutions</span
                 >
               </div>
-              <SectionOne />
+              
             </div>
           </div>
         </div>
-      </section>
+      </section><SectionOne />
       <WorkCollage />
 
       <!-- Pricing Section -->
