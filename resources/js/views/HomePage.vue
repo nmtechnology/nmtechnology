@@ -288,7 +288,7 @@
               <div
                 class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
               >
-                <svg
+                <!-- <svg
                   class="w-4 h-4 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -301,7 +301,7 @@
                   <path
                     d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
                   />
-                </svg>
+                </svg> -->
                 <!-- <span class="text-sm font-semibold text-lime-400"
                   >Enterprise Solutions</span
                 > -->
