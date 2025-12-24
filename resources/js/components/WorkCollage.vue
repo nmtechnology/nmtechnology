@@ -224,11 +224,12 @@
         >
         Representation
       </h2>
+      <p>We can represent your company on-site for all your customers security needs. If you are not located in New Mexico but you have customers in New Mexico we can help you serve them, we provide professional world-class onsite reperesentation for your company!</p>
     </div>
 
     <!-- Bottom Section -->
     <section
-      class="relative bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 py-16 animate-fadeIn mt-12 rounded-2xl shadow-xl ring-1 ring-green-500/20"
+      class="relative container bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 py-16 animate-fadeIn mt-12 rounded-2xl shadow-xl ring-1 ring-green-500/20"
     >
       <!-- Badge -->
       <div class="flex justify-center mb-6 animate-fadeIn">
