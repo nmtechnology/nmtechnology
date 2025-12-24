@@ -223,55 +223,7 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12"></div>
         <SectionService />
       </div>
-
-      <!-- Products Section -->
-      <section
-        class="relative bg-gradient-to-b from-black via-gray-900 to-gray-900 py-16 sm:py-24 overflow-hidden"
-      >
-        <!-- Decorative blur -->
-        <div
-          class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
-          aria-hidden="true"
-        ></div>
-
-        <div class="relative">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8 mb-12">
-            <div class="mx-auto max-w-2xl text-center">
-              <div
-                class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
-              >
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                  />
-                </svg>
-                <span class="text-sm font-semibold text-green-400"
-                  >Premium Equipment</span
-                >
-              </div>
-              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                <span class="text-white">Featured Top </span>
-                <span
-                  class="text-transparent bg-clip-text bg-gradient-to-r text-pretty from-green-400 to-lime-400"
-                  >Products</span
-                >
-              </h2>
-              <p class="mt-4 text-lg leading-8 text-gray-300">
-                Industry-leading security equipment and technology with the highest
-                reliability and performance, backed by comprehensive warranties and
-                support services. With our world-class customer service combined with top
-                brands you trust you can rest assured knowing you are in professional
-                hands.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
       <!-- Commercial Solutions Section -->
      
       <SectionOne />
