@@ -78,7 +78,7 @@
             loading="lazy"
           />
           <div class="gallery-overlay">
-            <span>Mobile Access Control</span>
+            <span>Bar Security</span>
           </div>
         </div>
 
