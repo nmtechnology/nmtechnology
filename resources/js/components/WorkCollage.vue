@@ -284,12 +284,12 @@
 
       <p class="text-lg text-gray-300 text-center leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4">
         We deliver rapid service, expert installation, and ongoing support—helping
-        businesses protect assets, reduce theft, and appear in search results for
+        businesses protect assets, reduce theft, and reduce
         <strong
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
           >"CCTV installation Albuquerque"</strong
         >
-        and related security services.
+        theft.
       </p>
 
       <div class="flex justify-center mt-8 mb-4">
