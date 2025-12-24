@@ -306,20 +306,9 @@
                   >Enterprise Solutions</span
                 >
               </div>
-              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                <span
-                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-                  >Commercial Solutions</span
-                >
-                <span class="text-white"> & Onsite Representation</span>
-              </h2>
-              <p class="mt-4 text-lg leading-8 text-gray-300">
-                Professional installation, service, and onsite representation for national
-                contractors across New Mexico
-              </p>
+              <SectionOne />
             </div>
           </div>
-          <SectionOne />
         </div>
       </section>
       <WorkCollage />
