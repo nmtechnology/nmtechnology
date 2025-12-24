@@ -169,49 +169,10 @@
         class="text-center text-gray-300 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
       >
         Comprehensive video surveillance for retail, offices, and commercial spaces. Deter
-        theft, monitor operations, and keep your business secure 24/7.
+        theft, monitor operations, and keep your business secure 24/7. Prevent loss ahead of time or over time and track incidents with crystal-clear footage.
       </p>
     </div>
-
-    <!-- Fire Alarm Section -->
-    <div class="relative mt-12 sm:mt-20">
-      <!-- Badge -->
-      <div class="flex justify-center mb-6 animate-fadeIn">
-        <div
-          class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
-        >
-          <svg
-            class="w-5 h-5 text-green-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
-            />
-          </svg>
-          <span class="text-sm font-semibold text-green-400">Fire Safety</span>
-        </div>
-      </div>
-
-      <h2
-        class="text-center text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg mb-4 sm:mb-6 text-white"
-      >
-        Commercial
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-          >Fire Alarm Service & Installation</span
-        >
-      </h2>
+    
       <div class="text-center mb-8 sm:mb-10">
         <button
           @click="openContactModal"
