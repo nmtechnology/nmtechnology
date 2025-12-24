@@ -310,7 +310,7 @@
             </div>
           </div>
         </div>
-      <!-- </section> -->
+      </section>
       <WorkCollage />
 
       <!-- Pricing Section -->
