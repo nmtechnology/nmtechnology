@@ -270,21 +270,19 @@
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
           >CCTV installation</strong
         >, security systems, and smart automation. Our portfolio showcases work for
-        restaurants, retail, offices, baking institutions and industrial sites across New Mexico.<br />
-        
-        <div class="my-4">
-          <li>Brink's</li>
-          <li>GuardaWorld</li>
-          <li>Chase Bank</li>
-          <li>Dutch Bros. Coffee</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </div>
-        
-        
-        <br />
+        restaurants, retail, offices, baking institutions and industrial sites across New Mexico.
+      </p>
+
+      <div class="my-6 flex justify-center">
+        <ul class="flex flex-wrap gap-3 sm:gap-4 justify-center list-none p-0 m-0" aria-label="Trusted customers">
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Brink's</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">GuardaWorld</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Chase Bank</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Dutch Bros. Coffee</li>
+        </ul>
+      </div>
+
+      <p class="text-lg text-gray-300 text-center leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4">
         We deliver rapid service, expert installation, and ongoing support—helping
         businesses protect assets, reduce theft, and appear in search results for
         <strong
