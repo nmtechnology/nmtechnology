@@ -1,6 +1,6 @@
 <template>
   <section
-    class="z-40 relative isolate overflow-hidden py-24 sm:py-32 bg-gradient-to-b from-black via-gray-900 to-gray-900"
+    class="z-40 relative isolate overflow-hidden py-24 sm:py-32 lg:py-96 bg-gradient-to-b from-black via-gray-900 to-gray-900"
   >
     <!-- Decorative Background Blurs -->
     <div
