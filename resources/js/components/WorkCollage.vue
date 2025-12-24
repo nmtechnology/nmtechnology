@@ -224,7 +224,7 @@
         >
         Representation
       </h2>
-      <p>We can represent your company on-site for all your customers security needs. If you are not located in New Mexico but you have customers in New Mexico we can help you serve them, we provide professional world-class onsite reperesentation for your company!</p>
+      <p class="text-center text-gray-300 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"> We can represent your company on-site for all your customers security needs. If you are not located in New Mexico but you have customers in New Mexico we can help you serve them, we provide professional world-class onsite reperesentation for your company!</p>
     </div>
 
     <!-- Bottom Section -->
