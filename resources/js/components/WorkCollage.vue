@@ -270,7 +270,21 @@
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
           >CCTV installation</strong
         >, security systems, and smart automation. Our portfolio showcases work for
-        restaurants, retail, offices, and industrial sites across New Mexico.<br /><br />
+        restaurants, retail, offices, baking institutions and industrial sites across New Mexico.<br />
+        
+        <div class="my-4">
+          <li>Brink's</li>
+          <li>GuardaWorld</li>
+          <li>Chase Bank</li>
+          <li>Dutch Bros. Coffee</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </div>
+        
+        
+        <br />
         We deliver rapid service, expert installation, and ongoing support—helping
         businesses protect assets, reduce theft, and appear in search results for
         <strong
