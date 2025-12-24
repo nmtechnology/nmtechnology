@@ -279,6 +279,19 @@
           <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">GuardaWorld</li>
           <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Chase Bank</li>
           <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Dutch Bros. Coffee</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Whataburger</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Ulta Beauty</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Sephorah</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Marshall's</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">TJ Maxx</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Facebook</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Michael's</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Wal Mart</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Target</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Einstien Bagels</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Starbucks Coffee</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Mister Carwash</li>
+          <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">ABF Freight</li>
         </ul>
       </div>
 
