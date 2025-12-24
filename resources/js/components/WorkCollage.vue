@@ -308,7 +308,6 @@
         >
       </h3>
     </section>
-  </div>
 </template>
 
 <style scoped>
