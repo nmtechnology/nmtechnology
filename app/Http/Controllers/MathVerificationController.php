@@ -45,9 +45,13 @@ class MathVerificationController extends Controller
                 \Log::info('Blocked non-US or China visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
                 // Only notify ONCE per session for block event
                 if (!session('visitor_notified')) {
+                    try {
                     Notification::route('mail', 'service@nmtechnology.us')
                         ->notify(new VisitorEmailNotification($ip, $location, 'blocked', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
                     session(['visitor_notified' => true]);
+                } catch (\Throwable $e) {
+                    \Log::warning('notify failed (blocked): ' . $e->getMessage());
+                }
                 }
                 return response()->json([
                     'error' => 'Access restricted to US visitors.',
@@ -61,9 +65,13 @@ class MathVerificationController extends Controller
             if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
                 // Only notify ONCE per session for lockout event
                 if (!session('visitor_notified')) {
-                    Notification::route('mail', 'service@nmtechnology.us')
-                        ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
-                    session(['visitor_notified' => true]);
+                    try {
+                        Notification::route('mail', 'service@nmtechnology.us')
+                            ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                        session(['visitor_notified' => true]);
+                    } catch (\Throwable $e) {
+                        \Log::warning('notify failed (locked_out): ' . $e->getMessage());
+                    }
                 }
                 return response()->json(['locked_out' => true], 403);
             }
@@ -108,17 +116,25 @@ class MathVerificationController extends Controller
 
             // Only notify ONCE: on successful verification
             if ($correct && !session('visitor_notified')) {
-                Notification::route('mail', 'service@nmtis.com')
-                    ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
-                session(['visitor_notified' => true]);
+                try {
+                    Notification::route('mail', 'service@nmtis.com')
+                        ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
+                    session(['visitor_notified' => true]);
+                } catch (\Throwable $e) {
+                    \Log::warning('notify failed (verify success): ' . $e->getMessage());
+                }
             }
             // Lockout logic
             if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
                 $stat->locked_out_until = $now->addHours(24);
                 if (!session('visitor_notified')) {
-                    Notification::route('mail', 'service@nmtis.com')
-                        ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
-                    session(['visitor_notified' => true]);
+                    try {
+                        Notification::route('mail', 'service@nmtis.com')
+                            ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                        session(['visitor_notified' => true]);
+                    } catch (\Throwable $e) {
+                        \Log::warning('notify failed (locked_out after attempts): ' . $e->getMessage());
+                    }
                 }
             }
 
@@ -136,49 +152,63 @@ class MathVerificationController extends Controller
         $page = $request->input('page');
         $details = $request->input('details', null);
         $timestamp = now();
-        // Only log actions if visitor has verified
-        if (session('visitor_verified')) {
-            $stat = VisitorStat::where('ip', $ip)->first();
-            $action = new \App\Models\VisitorAction([
-                'visitor_stat_id' => $stat ? $stat->id : null,
-                'ip' => $ip,
-                'page' => $page,
-                'timestamp' => $timestamp,
-                'details' => $details,
-            ]);
-            $action->save();
-            // Also store in session for individual report
-            $actions = session('visitor_actions', []);
-            $actions[] = [
-                'page' => $page,
-                'timestamp' => $timestamp->toDateTimeString(),
-                'details' => $details,
-            ];
-            session(['visitor_actions' => $actions]);
+        try {
+            // Only log actions if visitor has verified
+            if (session('visitor_verified')) {
+                $stat = VisitorStat::where('ip', $ip)->first();
+                $action = new \App\Models\VisitorAction([
+                    'visitor_stat_id' => $stat ? $stat->id : null,
+                    'ip' => $ip,
+                    'page' => $page,
+                    'timestamp' => $timestamp,
+                    'details' => $details,
+                ]);
+                $action->save();
+                // Also store in session for individual report
+                $actions = session('visitor_actions', []);
+                $actions[] = [
+                    'page' => $page,
+                    'timestamp' => $timestamp->toDateTimeString(),
+                    'details' => $details,
+                ];
+                session(['visitor_actions' => $actions]);
+            }
+            return response()->json(['logged' => true]);
+        } catch (\Throwable $e) {
+            \Log::error('log-action error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+            return response()->json(['error' => 'Failed to log action'], 500);
         }
-        return response()->json(['logged' => true]);
     }
 
     public function leftSite(Request $request)
     {
-        $ip = $request->ip();
-        $stat = VisitorStat::where('ip', $ip)->first();
-        // Fetch all actions for this visitor from session (individual session report)
-        $actions = session('visitor_actions', []);
-        if (!session('visitor_notified')) {
-            $location = $stat ? $stat->location : 'Unknown';
-            $userAgent = $request->header('User-Agent');
-            $referer = $request->header('Referer');
-            $attempts = $stat ? $stat->attempts : null;
-            $timeSpent = $stat ? $stat->time_spent : null;
-            $landingPage = $stat ? $stat->landing_page : ($referer ?? 'unknown');
-            Notification::route('mail', 'service@nmtechnology.us')
-                ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage, $actions));
-            session(['visitor_notified' => true]);
+        try {
+            $ip = $request->ip();
+            $stat = VisitorStat::where('ip', $ip)->first();
+            // Fetch all actions for this visitor from session (individual session report)
+            $actions = session('visitor_actions', []);
+            if (!session('visitor_notified')) {
+                $location = $stat ? $stat->location : 'Unknown';
+                $userAgent = $request->header('User-Agent');
+                $referer = $request->header('Referer');
+                $attempts = $stat ? $stat->attempts : null;
+                $timeSpent = $stat ? $stat->time_spent : null;
+                $landingPage = $stat ? $stat->landing_page : ($referer ?? 'unknown');
+                try {
+                    Notification::route('mail', 'service@nmtechnology.us')
+                        ->notify(new VisitorEmailNotification($ip, $location, 'left', $userAgent, $referer, 'Left site', $timeSpent, $attempts, $landingPage, $actions));
+                    session(['visitor_notified' => true]);
+                } catch (\Throwable $e) {
+                    \Log::warning('notify failed (leftSite): ' . $e->getMessage());
+                }
+            }
+            // Clear session log for this visitor
+            session()->forget(['visitor_verified', 'visitor_log_start', 'visitor_actions']);
+            return response()->json(['notified' => true]);
+        } catch (\Throwable $e) {
+            \Log::error('left-site error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+            return response()->json(['error' => 'Failed to process left site'], 500);
         }
-        // Clear session log for this visitor
-        session()->forget(['visitor_verified', 'visitor_log_start', 'visitor_actions']);
-        return response()->json(['notified' => true]);
     }
 
     public function sendTrafficReport()

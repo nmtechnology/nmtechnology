@@ -29,6 +29,8 @@ Route::post('/orders/submit', [OrderController::class, 'submit']);
 Route::post('/applications', [ApplicationController::class, 'submit']);
 Route::post('/upload-document', [DocumentUploadController::class, 'upload']);
 Route::post('/verify-math', [MathVerificationController::class, 'verify']);
+Route::post('/log-action', [MathVerificationController::class, 'logAction']);
+Route::post('/left-site', [MathVerificationController::class, 'leftSite']);
 Route::post('/survey-response', [MailController::class, 'sendSurveyResponse']);
 Route::post('/survey-responses', [MailController::class, 'sendSurveyResponses']);
 

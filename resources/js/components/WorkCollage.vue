@@ -229,10 +229,10 @@
 
     <!-- Bottom Section -->
     <section
-      class="relative container bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 py-16 animate-fadeIn mt-12 rounded-2xl shadow-xl ring-1 ring-green-500/20"
+      class="relative container mx-auto flex flex-col items-center bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 py-16 animate-fadeIn mt-12 rounded-2xl shadow-xl ring-1 ring-green-500/20"
     >
       <!-- Badge -->
-      <div class="flex justify-center mb-6 animate-fadeIn">
+      <div class="flex justify-center mb-6 animate-fadeIn w-full max-w-4xl">
         <div
           class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
         >
@@ -254,7 +254,7 @@
       </div>
 
       <h2
-        class="text-2xl md:text-3xl font-bold text-center mb-8 drop-shadow-lg text-white"
+        class="text-2xl md:text-3xl font-bold text-center mb-8 drop-shadow-lg text-white max-w-4xl"
       >
         <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
@@ -268,12 +268,12 @@
         NM Technology is Albuquerque's leader in
         <strong
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-          >CCTV installation</strong
+          >low voltage</strong
         >, security systems, and smart automation. Our portfolio showcases work for
         restaurants, retail, offices, baking institutions and industrial sites across New Mexico.
       </p>
 
-      <div class="my-6 flex justify-center">
+      <div class="my-6 flex justify-center w-full max-w-4xl">
         <ul class="flex flex-wrap gap-3 sm:gap-4 justify-center list-none p-0 m-0" aria-label="Trusted customers">
           <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">Brink's</li>
           <li class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800/40 border border-green-500/20 text-gray-200 text-sm font-medium hover:bg-green-500/10 transition-colors">GuardaWorld</li>
@@ -300,12 +300,12 @@
         businesses protect assets, reduce theft, and reduce
         <strong
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-          >"CCTV installation Albuquerque"</strong
+          >inventory</strong
         >
         theft.
       </p>
 
-      <div class="flex justify-center mt-8 mb-4">
+      <div class="flex justify-center mt-8 mb-4 w-full max-w-4xl">
         <div
           class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
         >
@@ -326,7 +326,7 @@
         </div>
       </div>
 
-      <h3 class="text-xl font-semibold text-center animate-fadeIn text-white">
+      <h3 class="text-xl font-semibold text-center animate-fadeIn text-white max-w-4xl">
         Trusted by
         <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"

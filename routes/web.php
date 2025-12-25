@@ -21,8 +21,8 @@ Route::middleware(['block.nonus'])->group(function () {
         return response()->file(public_path('test-emails.html'));
     });
 
-    // Math verification API route
-    Route::post('/api/verify-math', [MathVerificationController::class, 'verify']);
+    // Math verification API route handled in routes/api.php
+    // (Removed duplicate route to avoid confusion and CSRF conflicts)
 });
 
 // Admin emailer routes
