@@ -260,7 +260,7 @@
           class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
           >CCTV Installation</span
         >
-        & Security Projects
+        & Service Projects
       </h2>
       <p
         class="text-lg text-gray-300 text-center leading-relaxed mb-10 animate-fadeIn-delay max-w-4xl mx-auto px-4"
