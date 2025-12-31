@@ -43,15 +43,24 @@ class MathVerificationController extends Controller
             // Block any country or city not in the United States, and block any city from China
             if (empty($country) || strtolower(trim($country)) !== 'united states' || strtolower(trim($country)) === 'china') {
                 \Log::info('Blocked non-US or China visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
-                // Only notify ONCE per session for block event
-                if (!session('visitor_notified')) {
-                    try {
-                    Notification::route('mail', 'service@nmtechnology.us')
-                        ->notify(new VisitorEmailNotification($ip, $location, 'blocked', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
-                    session(['visitor_notified' => true]);
+                // Send block notification (rate limited by IP - once per day)
+                try {
+                    $existingStat = VisitorStat::where('ip', $ip)->first();
+                    $alreadyNotified = $existingStat && $existingStat->last_notified_at && 
+                        Carbon::parse($existingStat->last_notified_at)->isToday();
+                    
+                    if (!$alreadyNotified) {
+                        Notification::route('mail', 'service@nmtechnology.us')
+                            ->notify(new VisitorEmailNotification($ip, $location, 'blocked', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
+                        
+                        if ($existingStat) {
+                            $existingStat->last_notified_at = now();
+                            $existingStat->save();
+                        }
+                        \Log::info('Blocked visitor notification sent', ['ip' => $ip, 'country' => $country]);
+                    }
                 } catch (\Throwable $e) {
                     \Log::warning('notify failed (blocked): ' . $e->getMessage());
-                }
                 }
                 return response()->json([
                     'error' => 'Access restricted to US visitors.',
@@ -61,14 +70,19 @@ class MathVerificationController extends Controller
 
             $stat = VisitorStat::where('ip', $ip)->first();
             $now = now();
-            $shouldNotify = false;
+            
             if ($stat && $stat->locked_out_until && $now->lt($stat->locked_out_until)) {
-                // Only notify ONCE per session for lockout event
-                if (!session('visitor_notified')) {
+                // Lockout notification (rate limited - once per day)
+                $alreadyNotified = $stat->last_notified_at && 
+                    Carbon::parse($stat->last_notified_at)->isToday();
+                    
+                if (!$alreadyNotified) {
                     try {
                         Notification::route('mail', 'service@nmtechnology.us')
                             ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
-                        session(['visitor_notified' => true]);
+                        $stat->last_notified_at = now();
+                        $stat->save();
+                        \Log::info('Lockout notification sent', ['ip' => $ip]);
                     } catch (\Throwable $e) {
                         \Log::warning('notify failed (locked_out): ' . $e->getMessage());
                     }
@@ -114,8 +128,12 @@ class MathVerificationController extends Controller
                 session(['visitor_actions' => []]); // initialize actions array
             }
 
-            // Only notify ONCE: on successful verification
-            if ($correct && !session('visitor_notified')) {
+            // Send notification on successful verification
+            // Use database flag to prevent duplicate notifications within same day
+            $alreadyNotifiedToday = $stat->last_notified_at && 
+                Carbon::parse($stat->last_notified_at)->isToday();
+            
+            if ($correct && !$alreadyNotifiedToday) {
                 try {
                     // Gather additional visitor data
                     $browserData = $this->parseBrowserData($userAgent);
@@ -135,7 +153,10 @@ class MathVerificationController extends Controller
                     
                     Notification::route('mail', 'service@nmtechnology.us')
                         ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage, null, $additionalData));
-                    session(['visitor_notified' => true]);
+                    
+                    // Update last notified timestamp in database
+                    $stat->last_notified_at = now();
+                    \Log::info('Visitor notification sent successfully', ['ip' => $ip, 'location' => $location]);
                 } catch (\Throwable $e) {
                     \Log::warning('notify failed (verify success): ' . $e->getMessage());
                 }
@@ -143,11 +164,12 @@ class MathVerificationController extends Controller
             // Lockout logic
             if (!$correct && $attempts >= 6 && (!$stat->locked_out_until || $now->gt($stat->locked_out_until))) {
                 $stat->locked_out_until = $now->addHours(24);
-                if (!session('visitor_notified')) {
+                if (!$alreadyNotifiedToday) {
                     try {
                         Notification::route('mail', 'service@nmtechnology.us')
                             ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
-                        session(['visitor_notified' => true]);
+                        $stat->last_notified_at = now();
+                        \Log::info('Lockout notification sent', ['ip' => $ip]);
                     } catch (\Throwable $e) {
                         \Log::warning('notify failed (locked_out after attempts): ' . $e->getMessage());
                     }
