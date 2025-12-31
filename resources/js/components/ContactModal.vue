@@ -16,7 +16,7 @@
           >
             <!-- Header -->
             <div
-              class="relative px-6 py-6 bg-gradient-to-r from-green-600/20 to-lime-600/20 border-b border-gray-700/50 rounded-t-xl"
+              class="relative px-6 py-6 bg-gradient-to-r from-green-800/20 to-lime-400/20 border-b border-gray-700/50 rounded-t-xl"
             >
               <div
                 class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-lime-500/5 rounded-t-xl"
