@@ -335,7 +335,7 @@
             </p>
 
             <div style="text-align: center;">
-                <a href="https://nmtechnology.us/cctv" class="cta-button">🎥 View All Security Solutions</a>
+                <a href="https://nmtechnology.us/products" class="cta-button">🎥 View All Security Solutions</a>
             </div>
 
             <div class="info-box" style="margin-top: 30px;">
@@ -373,7 +373,7 @@
             </p>
             <div class="footer-links">
                 <a href="https://nmtechnology.us">Website</a> •
-                <a href="https://nmtechnology.us/cctv">CCTV Systems</a> •
+                <a href="https://nmtechnology.us/products">CCTV Systems</a> •
                 <a href="https://nmtechnology.us/fire-alarm">Fire Alarms</a> •
                 <a href="https://nmtechnology.us/access-control">Access Control</a>
             </div>

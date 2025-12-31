@@ -22,7 +22,7 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'landing', component: LandingPage },
     { path: '/home', name: 'nmtis', component: HomePage },
-    { path: '/cctv', name: 'CcTv', component: CcTv },
+    { path: '/products', name: 'Products', component: CcTv },
     { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
   ],
   

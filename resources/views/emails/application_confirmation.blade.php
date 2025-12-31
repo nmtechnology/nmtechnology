@@ -375,7 +375,7 @@
             </p>
 
             <div style="text-align: center;">
-                <a href="https://nmtechnology.us/cctv" class="cta-button">🔒 Explore Our Security Solutions</a>
+                <a href="https://nmtechnology.us/products" class="cta-button">🔒 Explore Our Security Solutions</a>
             </div>
 
             <div class="info-box" style="margin-top: 30px;">
@@ -406,7 +406,7 @@
             <p class="footer-title">NM Technology HR Department</p>
             <p>Your application was submitted on {{ $submissionTime }}</p>
             <div class="footer-links">
-                <a href="https://nmtechnology.us/cctv">Security Solutions</a>
+                <a href="https://nmtechnology.us/products">Security Solutions</a>
                 <a href="https://nmtechnology.us">Company Website</a>
                 <a href="mailto:hr@nmtechnology.us">Contact HR</a>
             </div>
@@ -487,7 +487,7 @@
             </p>
 
             <div style="text-align: center;">
-                <a href="https://nmtechnology.us/cctv" class="cta-button">🔒 Explore Our Security Solutions</a>
+                <a href="https://nmtechnology.us/products" class="cta-button">🔒 Explore Our Security Solutions</a>
             </div>
 
             <div class="info-box" style="margin-top: 30px;">
@@ -518,7 +518,7 @@
             <p class="footer-title">NM Technology HR Department</p>
             <p>Your application was submitted on {{ $submissionTime }}</p>
             <p>
-                <a href="https://nmtechnology.us/cctv">Security Solutions</a>
+                <a href="https://nmtechnology.us/products">Security Solutions</a>
                 <a href="https://nmtechnology.us">Company Website</a>
                 <a href="mailto:hr@nmtechnology.us">Contact HR</a>
             </p>

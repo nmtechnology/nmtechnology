@@ -39,7 +39,7 @@ export const pageSEOConfigs = {
         title: 'Commercial CCTV Installers New Mexico | Security Cameras Albuquerque | NM Technology',
         description: 'Professional commercial CCTV installation in New Mexico. IP cameras, NVR systems, remote monitoring & security camera solutions for Albuquerque businesses.',
         keywords: 'commercial CCTV installers New Mexico, security cameras Albuquerque, CCTV installation Albuquerque NM, IP camera systems',
-        path: '/cctv'
+        path: '/products'
     },
     accessControl: {
         title: 'Access Control Installation Albuquerque | Card Readers & Biometrics | NM Technology',

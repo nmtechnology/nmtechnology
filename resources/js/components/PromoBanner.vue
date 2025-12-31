@@ -385,7 +385,8 @@ const dismiss = () => {
 
 const handleCTA = () => {
   emit('ctaClicked', currentPromo.value);
-  openContactModal();
+  // Navigate users to products page for Get Quote CTAs
+  window.location.href = '/products';
 };
 
 // When the component is mounted, emit displayed event if shown

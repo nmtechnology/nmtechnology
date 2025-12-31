@@ -252,7 +252,7 @@ const router = useRouter();
 const openContactModal = inject("openContactModal");
 
 const generateQuote = () => {
-  router.push("/cctv");
+  router.push("/products");
 };
 </script>
 

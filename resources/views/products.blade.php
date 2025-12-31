@@ -6,9 +6,9 @@
     <link rel="canonical" href="https://nmtechnology.us/products">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Commercial CCTV Installers New Mexico | Security Camera Systems Albuquerque | NM Technology</title>
-    <meta name="description" content="Professional commercial CCTV installation in New Mexico. IP cameras, NVR systems, remote monitoring & security camera solutions for Albuquerque businesses. Free estimates from trusted installers.">
-    <meta name="keywords" content="commercial CCTV installers New Mexico, security cameras Albuquerque, CCTV installation Albuquerque NM, IP camera systems New Mexico, video surveillance Albuquerque, business security cameras, NVR DVR systems New Mexico">
+    <title>Security Products & CCTV Systems New Mexico | NM Technology</title>
+    <meta name="description" content="Commercial security products and CCTV systems in New Mexico. IP cameras, NVR systems, remote monitoring & security solutions for Albuquerque businesses. Free estimates from trusted installers.">
+    <meta name="keywords" content="security products New Mexico, CCTV systems Albuquerque, commercial surveillance Albuquerque, IP cameras New Mexico, video surveillance Albuquerque">
     <meta name="author" content="NM Technology">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="US-NM">
@@ -17,16 +17,16 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nmtechnology.us/products">
-    <meta property="og:title" content="Commercial CCTV Installers New Mexico | NM Technology">
-    <meta property="og:description" content="Professional CCTV installation across New Mexico. IP cameras, video surveillance, and remote monitoring for businesses. Get a free quote today.">
+    <meta property="og:title" content="Security Products & CCTV Systems New Mexico | NM Technology">
+    <meta property="og:description" content="Professional security products and CCTV installation across New Mexico. IP cameras, video surveillance, and remote monitoring for businesses. Get a free quote today.">
     <meta property="og:image" content="/public/images/nm-logo-rmbg.webp">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="NM Technology">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Commercial CCTV Installers New Mexico | NM Technology">
-    <meta name="twitter:description" content="Expert CCTV & security camera installation for businesses across New Mexico. Professional setup, remote monitoring & ongoing support.">
+    <meta name="twitter:title" content="Security Products & CCTV Systems New Mexico | NM Technology">
+    <meta name="twitter:description" content="Expert CCTV & security product installation for businesses across New Mexico. Professional setup, remote monitoring & ongoing support.">
     <meta name="twitter:image" content="/public/images/nm-logo-rmbg.webp">
 
     <!-- JSON-LD: Product List -->
@@ -34,7 +34,7 @@
     {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "CCTV Security Products",
+        "name": "Security Products",
         "description": "Commercial CCTV cameras and surveillance equipment available from NM Technology",
         "itemListElement": [
             {
@@ -101,7 +101,7 @@
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "CCTV Products",
+                "name": "Products",
                 "item": "https://nmtechnology.us/products"
             }
         ]

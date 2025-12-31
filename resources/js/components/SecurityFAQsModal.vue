@@ -76,11 +76,11 @@ export default {
         
         // Navigate to the appropriate section on the CCTV page
         if (targetId === 'products' || targetId === 'product-grid') {
-          window.location.href = '/cctv#product-grid';
+          window.location.href = '/products#product-grid';
         } else if (targetId === 'packages') {
-          window.location.href = '/cctv#package-section';
+          window.location.href = '/products#package-section';
         } else if (targetId === 'monitoring') {
-          window.location.href = '/cctv#monitoring-section';
+          window.location.href = '/products#monitoring-section';
         }
       }, 300);
     };

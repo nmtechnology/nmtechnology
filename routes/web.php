@@ -11,9 +11,14 @@ Route::middleware(['block.nonus'])->group(function () {
         return view('welcome');
     });
 
-    // Direct CCTV route
-    Route::get('/cctv', function () {
+    // Products route (previously /cctv)
+    Route::get('/products', function () {
         return redirect('/');
+    });
+
+    // Backwards-compatible redirect for old /cctv URLs
+    Route::get('/cctv', function () {
+        return redirect('/products', 301);
     });
 
     // Test email page

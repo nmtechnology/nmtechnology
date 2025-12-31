@@ -425,11 +425,11 @@ import { cartStore } from "./store/cartStore.js";
 // Navigation array for mobile menu
 const navigation = [
   { name: "Home", href: "/home" },
-  { name: "CCTV", href: "/cctv" },
-  { name: "Security Systems", href: "/cctv" },
-  { name: "Fire Alarms", href: "/cctv" },
-  { name: "Networking", href: "/cctv" },
-  { name: "Structured Cabling", href: "/cctv" },
+  { name: "CCTV", href: "/products" },
+  { name: "Security Systems", href: "/products" },
+  { name: "Fire Alarms", href: "/products" },
+  { name: "Networking", href: "/products" },
+  { name: "Structured Cabling", href: "/products" },
 ];
 
 export default {
@@ -495,9 +495,9 @@ export default {
     };
 
     const generateQuote = () => {
-      // Navigate to CCTV page for quote generation
-      if (route.path !== "/cctv") {
-        window.location.href = "/cctv";
+      // Navigate to Products page for quote generation
+      if (route.path !== "/products") {
+        window.location.href = "/products";
       }
     };
 
