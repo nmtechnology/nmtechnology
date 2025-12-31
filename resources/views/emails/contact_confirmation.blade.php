@@ -300,7 +300,7 @@
 
             <p class="message" style="font-size: 0.95rem; color: #9ca3af;">
                 <strong>Need immediate assistance?</strong><br>
-                📞 Call us: <a href="tel:+15054453322" style="color: #22c55e; text-decoration: none; font-weight: 600;">(505) 445-3322</a><br>
+                📞 Call us: <a href="tel:+15056505097" style="color: #22c55e; text-decoration: none; font-weight: 600;">(505) 650-5097</a><br>
                 📧 Email: <a href="mailto:service@nmtechnology.us" style="color: #22c55e; text-decoration: none; font-weight: 600;">service@nmtechnology.us</a>
             </p>
 
