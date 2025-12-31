@@ -117,8 +117,24 @@ class MathVerificationController extends Controller
             // Only notify ONCE: on successful verification
             if ($correct && !session('visitor_notified')) {
                 try {
-                    Notification::route('mail', 'service@nmtis.com')
-                        ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage));
+                    // Gather additional visitor data
+                    $browserData = $this->parseBrowserData($userAgent);
+                    $additionalData = [
+                        'browser' => $browserData['browser'],
+                        'browser_version' => $browserData['version'],
+                        'os' => $browserData['os'],
+                        'device_type' => $browserData['device'],
+                        'is_mobile' => $request->header('sec-ch-ua-mobile') === '?1',
+                        'screen_resolution' => $request->input('screen_resolution'),
+                        'viewport_size' => $request->input('viewport_size'),
+                        'timezone' => $request->input('timezone'),
+                        'language' => $request->header('Accept-Language'),
+                        'connection_type' => $request->input('connection_type'),
+                        'platform' => $request->input('platform'),
+                    ];
+                    
+                    Notification::route('mail', 'service@nmtechnology.us')
+                        ->notify(new VisitorEmailNotification($ip, $location, $mathStatus, $userAgent, $referer, $visitType, $timeSpent, $attempts, $landingPage, null, $additionalData));
                     session(['visitor_notified' => true]);
                 } catch (\Throwable $e) {
                     \Log::warning('notify failed (verify success): ' . $e->getMessage());
@@ -129,7 +145,7 @@ class MathVerificationController extends Controller
                 $stat->locked_out_until = $now->addHours(24);
                 if (!session('visitor_notified')) {
                     try {
-                        Notification::route('mail', 'service@nmtis.com')
+                        Notification::route('mail', 'service@nmtechnology.us')
                             ->notify(new VisitorEmailNotification($ip, $location, 'locked_out', $userAgent, $referer, 'Blocked', $timeSpent, $attempts, $landingPage));
                         session(['visitor_notified' => true]);
                     } catch (\Throwable $e) {
@@ -289,54 +305,75 @@ class MathVerificationController extends Controller
         return response()->json(['sent' => true]);
     }
 
-    public static function sendDailyTrafficReport()
+    /**
+     * Parse browser, OS, and device information from User-Agent string
+     */
+    private function parseBrowserData($userAgent)
     {
-        $now = Carbon::now('America/Denver');
-        $start = $now->copy()->startOfDay();
-        $stats = VisitorStat::where('last_visited', '>=', $start)->get();
-        $reportHtml = '<html><head><style>' . (new self)->getReportStyles() . '</style></head><body>';
-        $reportHtml .= '<div style="text-align:center;margin-bottom:2rem;"><img src="https://nmtechnology.net/images/nmtis-logo.png" alt="NM Technology Logo" style="height:60px;max-width:220px;display:inline-block;"></div>';
-        $reportHtml .= '<h1 style="color:#10b981;font-size:2rem;text-align:center;margin-bottom:1rem;">NM Technology Daily Visitor Report</h1>';
-        $reportHtml .= '<h2 style="color:#fff;background:#10b981;padding:0.5rem 1rem;border-radius:8px;">Today</h2>';
-        $reportHtml .= '<table style="width:100%;border-collapse:collapse;margin-bottom:2rem;">';
-        $reportHtml .= '<thead><tr style="background:#222;color:#10b981;">'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">IP</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Location</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Attempts</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Time Spent</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Math Status</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">User Agent</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Referer</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Visit Type</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Landing Page</th>'
-            . '<th style="padding:8px;border-bottom:1px solid #10b981;">Last Visited</th>'
-            . '</tr></thead><tbody>';
-        foreach ($stats as $stat) {
-            $reportHtml .= '<tr style="background:#333;color:#fff;">'
-                . '<td style="padding:8px;">' . e($stat->ip) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->location) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->attempts) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->time_spent) . 's</td>'
-                . '<td style="padding:8px;">' . e($stat->math_status) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->user_agent) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->referer) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->visit_type) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->landing_page) . '</td>'
-                . '<td style="padding:8px;">' . e($stat->last_visited) . '</td>'
-                . '</tr>';
+        $browser = 'Unknown';
+        $version = '';
+        $os = 'Unknown';
+        $device = 'Desktop';
+
+        // Detect Browser
+        if (preg_match('/Edg\/([0-9\.]+)/', $userAgent, $match)) {
+            $browser = 'Microsoft Edge';
+            $version = $match[1];
+        } elseif (preg_match('/Chrome\/([0-9\.]+)/', $userAgent, $match)) {
+            $browser = 'Google Chrome';
+            $version = $match[1];
+        } elseif (preg_match('/Safari\/([0-9\.]+)/', $userAgent, $match) && !strpos($userAgent, 'Chrome')) {
+            $browser = 'Safari';
+            $version = $match[1];
+        } elseif (preg_match('/Firefox\/([0-9\.]+)/', $userAgent, $match)) {
+            $browser = 'Mozilla Firefox';
+            $version = $match[1];
+        } elseif (preg_match('/MSIE ([0-9\.]+)/', $userAgent, $match)) {
+            $browser = 'Internet Explorer';
+            $version = $match[1];
         }
-        $reportHtml .= '</tbody></table>';
-        $reportHtml .= '<div style="text-align:center;color:#10b981;font-size:1rem;margin-top:2rem;">&copy; ' . $now->year . ' NM Technology. All rights reserved.</div>';
-        $reportHtml .= '</body></html>';
-        Mail::raw([], function ($message) use ($reportHtml) {
-            $message->to('service@nmtechnology.us')
-                ->subject('NM Technology Daily Visitor Report')
-                ->setBody($reportHtml, 'text/html');
-        });
+
+        // Detect Operating System
+        if (preg_match('/Windows NT 10\.0/', $userAgent)) {
+            $os = 'Windows 10';
+        } elseif (preg_match('/Windows NT 6\.3/', $userAgent)) {
+            $os = 'Windows 8.1';
+        } elseif (preg_match('/Windows NT 6\.2/', $userAgent)) {
+            $os = 'Windows 8';
+        } elseif (preg_match('/Windows NT 6\.1/', $userAgent)) {
+            $os = 'Windows 7';
+        } elseif (preg_match('/Mac OS X ([0-9_]+)/', $userAgent, $match)) {
+            $os = 'macOS ' . str_replace('_', '.', $match[1]);
+        } elseif (preg_match('/Android ([0-9\.]+)/', $userAgent, $match)) {
+            $os = 'Android ' . $match[1];
+        } elseif (preg_match('/iPhone OS ([0-9_]+)/', $userAgent, $match)) {
+            $os = 'iOS ' . str_replace('_', '.', $match[1]);
+        } elseif (preg_match('/Linux/', $userAgent)) {
+            $os = 'Linux';
+        }
+
+        // Detect Device Type
+        if (preg_match('/(iPhone|iPod)/', $userAgent)) {
+            $device = 'iPhone';
+        } elseif (preg_match('/iPad/', $userAgent)) {
+            $device = 'iPad';
+        } elseif (preg_match('/Android/', $userAgent)) {
+            $device = preg_match('/Mobile/', $userAgent) ? 'Android Phone' : 'Android Tablet';
+        } elseif (preg_match('/(Mobile|webOS|BlackBerry|IEMobile|Opera Mini)/', $userAgent)) {
+            $device = 'Mobile';
+        }
+
+        return [
+            'browser' => $browser,
+            'version' => $version,
+            'os' => $os,
+            'device' => $device,
+        ];
     }
 
-    private function getReportStyles()
+    public static function sendDailyTrafficReport()
     {
-        return 'body{background:#111;font-family:sans-serif;}h1,h2{font-family:sans-serif;}table{border-radius:8px;overflow:hidden;}th,td{border:none;}';
+        // Use the centralized VisitorReportService for email-compatible SVG charts
+        return \App\Services\VisitorReportService::sendDailyReport();
     }
 }

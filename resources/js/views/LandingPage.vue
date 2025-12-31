@@ -550,6 +550,25 @@ const verifyAnswer = async () => {
   const timeSpentMs = Date.now() - startTime.value;
   const timeSpentSec = Math.floor(timeSpentMs / 1000);
 
+  // Gather comprehensive visitor data
+  const gatherVisitorData = () => {
+    return {
+      screen_resolution: `${window.screen.width}x${window.screen.height}`,
+      viewport_size: `${window.innerWidth}x${window.innerHeight}`,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      platform: navigator.platform,
+      connection_type: navigator.connection?.effectiveType || 'unknown',
+      color_depth: window.screen.colorDepth,
+      pixel_ratio: window.devicePixelRatio || 1,
+      online: navigator.onLine,
+      cookies_enabled: navigator.cookieEnabled,
+      do_not_track: navigator.doNotTrack || 'unknown',
+      touch_support: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+      hardware_concurrency: navigator.hardwareConcurrency || 'unknown',
+      device_memory: navigator.deviceMemory || 'unknown',
+    };
+  };
+
   // Prepare payload for backend
   const payload = {
     answer: userAnswerNum,
@@ -557,6 +576,7 @@ const verifyAnswer = async () => {
     time_spent: timeSpentSec,
     attempts: totalAttempts.value,
     landing_page: window.location.pathname,
+    ...gatherVisitorData(),
   };
 
   // Send verification attempt to backend
