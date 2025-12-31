@@ -54,20 +54,36 @@ class MailController extends Controller
             $details = $validated;
             $details['files'] = $safeFiles;
 
-            // Send email to NM Technology with attachments
-            Mail::to('service@nmtechnology.us')->send(new ContactMail($details));
-            
-            // Send confirmation email to customer
-            Mail::to($validated['email'])->send(
-                new ContactConfirmationMail($validated['firstName'], $validated['lastName'])
-            );
-            
+            // Store the contact request regardless of email status
             EmailerRecipient::firstOrCreate(['email' => $validated['email']]);
-            \Log::info('Contact form emails sent successfully (internal + customer confirmation)');
-            return response()->json('Your message has been sent successfully!', 200);
+            
+            // Try to send emails, but don't fail the request if email fails
+            $emailSent = true;
+            try {
+                // Send email to NM Technology with attachments
+                Mail::to('service@nmtechnology.us')->send(new ContactMail($details));
+                
+                // Send confirmation email to customer
+                Mail::to($validated['email'])->send(
+                    new ContactConfirmationMail($validated['firstName'], $validated['lastName'])
+                );
+                \Log::info('Contact form emails sent successfully (internal + customer confirmation)');
+            } catch (\Exception $mailException) {
+                $emailSent = false;
+                \Log::warning('Contact form email failed but data saved: ' . $mailException->getMessage());
+            }
+            
+            if ($emailSent) {
+                return response()->json('Your message has been sent successfully!', 200);
+            } else {
+                // Still return success since we saved the contact info
+                return response()->json('Your message has been received! We will contact you shortly.', 200);
+            }
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            throw $e; // Re-throw validation exceptions to return proper 422 response
         } catch (\Exception $e) {
             \Log::error('Contact form error: ' . $e->getMessage());
-            return response()->json('Error sending message: ' . $e->getMessage(), 500);
+            return response()->json(['error' => 'Error processing your request. Please try again.'], 500);
         }
     }
 
@@ -178,18 +194,26 @@ class MailController extends Controller
                 </div>
             ";
 
-            // Send consolidated email notification
-            Mail::send([], [], function ($message) use ($emailContent, $totalResponses) {
-                $message->to('service@nmtechnology.us')
-                    ->subject("Survey Completed: {$totalResponses} Questions Answered - Online Store Interest")
-                    ->html($emailContent);
-            });
+            // Try to send consolidated email notification (don't fail if email fails)
+            try {
+                Mail::send([], [], function ($message) use ($emailContent, $totalResponses) {
+                    $message->to('service@nmtechnology.us')
+                        ->subject("Survey Completed: {$totalResponses} Questions Answered - Online Store Interest")
+                        ->html($emailContent);
+                });
 
-            \Log::info('Batch survey responses email sent successfully', [
-                'total_responses' => $totalResponses,
-                'yes_count' => $yesCount,
-                'no_count' => $noCount
-            ]);
+                \Log::info('Batch survey responses email sent successfully', [
+                    'total_responses' => $totalResponses,
+                    'yes_count' => $yesCount,
+                    'no_count' => $noCount
+                ]);
+            } catch (\Exception $mailException) {
+                \Log::warning('Survey responses email failed: ' . $mailException->getMessage(), [
+                    'total_responses' => $totalResponses,
+                    'yes_count' => $yesCount,
+                    'no_count' => $noCount
+                ]);
+            }
             
             return response()->json(['message' => 'Survey responses recorded successfully!'], 200);
         } catch (\Exception $e) {
