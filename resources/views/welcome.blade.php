@@ -328,6 +328,27 @@
 <body class="bg-gray-900">
     <div id="app" class="min-h-screen">
     </div>
+    
+    <!-- SEO Fallback for search engines that don't render JavaScript -->
+    <noscript>
+        <div style="background:#111827;color:#fff;padding:40px;font-family:system-ui,sans-serif;">
+            <h1>NM Technology - Security Systems & Technology Solutions in Albuquerque, NM</h1>
+            <p>NM Technology provides expert installation and service of CCTV surveillance systems, access control, fire alarm systems, burglar alarms, and network infrastructure throughout Albuquerque and New Mexico.</p>
+            <h2>Our Services</h2>
+            <ul>
+                <li><strong>CCTV & Surveillance</strong> - Commercial and residential security camera installation</li>
+                <li><strong>Access Control</strong> - Card readers, biometric systems, and door access solutions</li>
+                <li><strong>Fire Alarm Systems</strong> - Installation, monitoring, and maintenance</li>
+                <li><strong>Burglar Alarm Systems</strong> - Intrusion detection and security monitoring</li>
+                <li><strong>Network Infrastructure</strong> - Structured cabling, network troubleshooting, and IT solutions</li>
+            </ul>
+            <h2>Contact Us</h2>
+            <p>Phone: <a href="tel:505-659-5097" style="color:#22c55e;">505-659-5097</a></p>
+            <p>Email: <a href="mailto:info@nmtechnology.us" style="color:#22c55e;">info@nmtechnology.us</a></p>
+            <p>Serving Albuquerque, Rio Rancho, Santa Fe, and all of New Mexico</p>
+            <p>Please enable JavaScript to view our full website experience.</p>
+        </div>
+    </noscript>
 
     <!-- <script src='/resources/js/views/FormValidate.js'> -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
