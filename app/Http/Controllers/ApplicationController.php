@@ -159,6 +159,10 @@ class ApplicationController extends Controller
             }
 
         } catch (\Illuminate\Validation\ValidationException $e) {
+            Log::warning('Application validation failed', [
+                'errors' => $e->errors(),
+                'request_data' => $request->except(['resume', 'coverLetterFile'])
+            ]);
             return response()->json([
                 'message' => 'Validation failed',
                 'errors' => $e->errors()

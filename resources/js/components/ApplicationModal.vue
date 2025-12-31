@@ -1261,6 +1261,9 @@ export default {
         delete applicationData.resume;
         delete applicationData.coverLetterFile;
 
+        // Debug: log the data being sent
+        console.log("Submitting application data:", applicationData);
+
         const response = await axios.post("/api/applications", applicationData);
 
         if (response.status === 200) {
@@ -1272,11 +1275,18 @@ export default {
       } catch (error) {
         console.error("Error submitting application:", error);
         
+        // Log the full error response for debugging
+        if (error.response) {
+          console.error("Error response data:", error.response.data);
+        }
+        
         // Show more helpful error message if validation failed
         if (error.response && error.response.status === 422 && error.response.data.errors) {
           const errors = error.response.data.errors;
           const errorMessages = Object.values(errors).flat().join('\n');
           alert("Please correct the following:\n" + errorMessages);
+        } else if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
         } else {
           alert(
             "There was an error submitting your application. Please try again or contact us directly."
