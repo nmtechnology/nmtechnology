@@ -111,15 +111,26 @@ class ApplicationController extends Controller
             // Remove math answers from the data that gets stored/emailed
             unset($validatedData['mathAnswer'], $validatedData['correctAnswer']);
 
-            // Send email to HR with PDF attachment
-            Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
+            // Try to send email to HR with PDF attachment (don't fail if email fails)
+            $emailSent = true;
+            try {
+                Mail::to('hr@nmtechnology.us')->send(new ApplicationMail($applicationData, $pdf->output(), $pdfFilename));
 
-            // Send confirmation email to applicant
-            Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail(
-                $validatedData['firstName'],
-                $validatedData['lastName'],
-                $validatedData['position']
-            ));
+                // Send confirmation email to applicant
+                Mail::to($validatedData['email'])->send(new ApplicationConfirmationMail(
+                    $validatedData['firstName'],
+                    $validatedData['lastName'],
+                    $validatedData['position']
+                ));
+            } catch (\Exception $mailException) {
+                $emailSent = false;
+                Log::warning('Application emails failed but application received', [
+                    'error' => $mailException->getMessage(),
+                    'applicant' => $validatedData['firstName'] . ' ' . $validatedData['lastName'],
+                    'email' => $validatedData['email'],
+                    'position' => $validatedData['position']
+                ]);
+            }
 
             // Clean up temporary file data
             Cache::forget('uploaded_file_' . $validatedData['resumeId']);
@@ -131,13 +142,21 @@ class ApplicationController extends Controller
                 'applicant' => $validatedData['firstName'] . ' ' . $validatedData['lastName'],
                 'email' => $validatedData['email'],
                 'position' => $validatedData['position'],
-                'timestamp' => now()->toDateTimeString()
+                'timestamp' => now()->toDateTimeString(),
+                'email_sent' => $emailSent
             ]);
 
-            return response()->json([
-                'message' => 'Application submitted successfully! You should receive a confirmation email shortly.',
-                'success' => true
-            ], 200);
+            if ($emailSent) {
+                return response()->json([
+                    'message' => 'Application submitted successfully! You should receive a confirmation email shortly.',
+                    'success' => true
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'Application received! We will review it and contact you soon.',
+                    'success' => true
+                ], 200);
+            }
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
