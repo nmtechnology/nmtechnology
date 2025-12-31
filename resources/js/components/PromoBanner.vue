@@ -1,7 +1,7 @@
 <template>
   <div 
     v-if="isVisible"
-    class="w-full bg-black overflow-hidden" 
+    class="w-full bg-gradient-to-r from-gray-900 via-black to-gray-900 overflow-hidden border-y border-green-500/30" 
     :class="[
       fullWidth ? 'px-0' : 'px-4 sm:px-6 lg:px-8', 
       fixed ? 'fixed left-0 right-0 z-10' : 'relative',
@@ -10,46 +10,50 @@
     ]"
   >
     <!-- Banner Container -->
-    <div class="mx-auto" :class="{'max-w-7xl': !fullWidth}">
-      <!-- Background Image -->
-      <div class="w-full overflow-hidden" :style="{ maxHeight: maxHeight ? `${maxHeight}px` : '100px' }">
-        <img 
-          :src="imageUrl || '/images/halloween-promo-banner.webp'" 
-          :alt="altText || 'Promotional Banner'" 
-          class="w-full object-contain mx-auto"
-          :style="{
-            height: height ? `${height}px` : 'auto',
-            maxHeight: maxHeight ? `${maxHeight}px` : '50px'
-          }"
-        />
+    <div class="mx-auto py-3 px-4" :class="{'max-w-7xl': !fullWidth}">
+      <!-- Dynamic Promo Content -->
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <!-- Promo Icon -->
+        <div class="flex-shrink-0">
+          <span class="text-3xl" v-if="currentPromo.icon">{{ currentPromo.icon }}</span>
+        </div>
+        
+        <!-- Promo Text -->
+        <div class="text-center">
+          <p class="text-white font-bold text-lg sm:text-xl">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">
+              {{ currentPromo.title }}
+            </span>
+          </p>
+          <p class="text-gray-300 text-sm sm:text-base">
+            {{ currentPromo.description }}
+            <span class="text-green-400 font-semibold">{{ currentPromo.discount }}</span>
+            <span v-if="currentPromo.code" class="ml-2 px-2 py-0.5 bg-green-500/20 border border-green-500/50 rounded text-green-400 font-mono text-xs">
+              {{ currentPromo.code }}
+            </span>
+          </p>
+          <p class="text-gray-500 text-xs mt-1">
+            Ends {{ currentPromo.endDateFormatted }}
+          </p>
+        </div>
+        
+        <!-- CTA Button -->
+        <button 
+          @click="handleCTA"
+          class="flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
+        >
+          {{ currentPromo.ctaText }}
+        </button>
       </div>
       
-      <!-- Optional Content Overlay -->
-      <div 
-        v-if="$slots.default" 
-        class="absolute inset-0 flex items-center justify-center"
-      >
-        <slot></slot>
-      </div>
-      
-      <!-- Click-through Link -->
-      <a 
-        v-if="link" 
-        :href="link" 
-        class="absolute inset-0 z-10 cursor-pointer" 
-        :target="openInNewTab ? '_blank' : '_self'"
-        :rel="openInNewTab ? 'noopener noreferrer' : ''"
-        :aria-label="linkAriaLabel || 'Learn more'"
-      ></a>
-      
-      <!-- Optional Close Button (Higher z-index to appear above the link) -->
+      <!-- Optional Close Button -->
       <button 
         v-if="dismissible" 
         @click="dismiss" 
-        class="absolute top-2 right-2 text-white hover:text-gray-200 transition-colors z-20"
+        class="absolute top-2 right-2 text-gray-400 hover:text-white transition-colors z-20"
         aria-label="Close banner"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -58,17 +62,209 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
+
+// Inject modal functions from App.vue
+const openContactModal = inject('openContactModal', () => {});
+
+// Define promotional campaigns with date ranges for the entire year
+const promos = {
+  // JANUARY - New Year Sale
+  newYear: {
+    id: 'newyear2025',
+    title: '🎆 New Year Sale!',
+    icon: '🎉',
+    description: 'Start 2025 secure! Get',
+    discount: '10% OFF',
+    code: 'NEWYEAR25',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-01-01'),
+    endDate: new Date('2025-02-13T23:59:59'),
+    endDateFormatted: 'February 13th'
+  },
+  // FEBRUARY - Valentine's Day
+  valentines: {
+    id: 'valentines2025',
+    title: '💕 Valentine\'s Sale!',
+    icon: '❤️',
+    description: 'Love your security! Get',
+    discount: '10% OFF',
+    code: 'LOVE10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-02-14'),
+    endDate: new Date('2025-03-16T23:59:59'),
+    endDateFormatted: 'March 16th'
+  },
+  // MARCH - St. Patrick's Day
+  stPatricks: {
+    id: 'stpatricks2025',
+    title: '🍀 Lucky Security Sale!',
+    icon: '☘️',
+    description: 'Get lucky with savings! Get',
+    discount: '10% OFF',
+    code: 'LUCKY10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-03-17'),
+    endDate: new Date('2025-04-19T23:59:59'),
+    endDateFormatted: 'April 19th'
+  },
+  // APRIL - Easter / Spring
+  easter: {
+    id: 'easter2025',
+    title: '🐰 Spring Security Sale!',
+    icon: '🌷',
+    description: 'Spring into savings! Get',
+    discount: '10% OFF',
+    code: 'SPRING10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-04-20'),
+    endDate: new Date('2025-05-04T23:59:59'),
+    endDateFormatted: 'May 4th'
+  },
+  // MAY - Cinco de Mayo (Big in New Mexico!)
+  cincoDeMayo: {
+    id: 'cincodemayo2025',
+    title: '🎊 Cinco de Mayo Sale!',
+    icon: '🇲🇽',
+    description: '¡Celebra con ahorros! Get',
+    discount: '10% OFF',
+    code: 'CINCO10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-05-05'),
+    endDate: new Date('2025-05-25T23:59:59'),
+    endDateFormatted: 'May 25th'
+  },
+  // MAY - Memorial Day
+  memorialDay: {
+    id: 'memorialday2025',
+    title: '🇺🇸 Memorial Day Sale!',
+    icon: '🎖️',
+    description: 'Honoring heroes! Get',
+    discount: '10% OFF',
+    code: 'MEMORIAL10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-05-26'),
+    endDate: new Date('2025-06-30T23:59:59'),
+    endDateFormatted: 'June 30th'
+  },
+  // JULY - Independence Day
+  july4th: {
+    id: 'july4th2025',
+    title: '🎆 4th of July Sale!',
+    icon: '🇺🇸',
+    description: 'Celebrate freedom securely! Get',
+    discount: '10% OFF',
+    code: 'FREEDOM10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-07-01'),
+    endDate: new Date('2025-09-01T23:59:59'),
+    endDateFormatted: 'September 1st'
+  },
+  // SEPTEMBER - Labor Day
+  laborDay: {
+    id: 'laborday2025',
+    title: '👷 Labor Day Sale!',
+    icon: '🔧',
+    description: 'Hard work deserves savings! Get',
+    discount: '10% OFF',
+    code: 'LABOR10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-09-01'),
+    endDate: new Date('2025-09-30T23:59:59'),
+    endDateFormatted: 'September 30th'
+  },
+  // OCTOBER - Halloween
+  halloween: {
+    id: 'halloween2025',
+    title: '🎃 Spooky Security Sale!',
+    icon: '👻',
+    description: 'Scary good savings! Get',
+    discount: '10% OFF',
+    code: 'SPOOKY10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-10-01'),
+    endDate: new Date('2025-11-10T23:59:59'),
+    endDateFormatted: 'November 10th'
+  },
+  // NOVEMBER - Veterans Day
+  veteransDay: {
+    id: 'veteransday2025',
+    title: '🎖️ Veterans Day Sale!',
+    icon: '🇺🇸',
+    description: 'Thank you for your service! Get',
+    discount: '10% OFF',
+    code: 'VETERANS10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-11-11'),
+    endDate: new Date('2025-11-26T23:59:59'),
+    endDateFormatted: 'November 26th'
+  },
+  // NOVEMBER - Black Friday / Cyber Monday
+  blackFriday: {
+    id: 'blackfriday2025',
+    title: '🛒 Black Friday Deals!',
+    icon: '💰',
+    description: 'Biggest savings of the year! Get',
+    discount: '10% OFF',
+    code: 'BLACK10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-11-27'),
+    endDate: new Date('2025-12-02T23:59:59'),
+    endDateFormatted: 'December 2nd'
+  },
+  // DECEMBER - Holiday Season
+  holiday: {
+    id: 'holiday2025',
+    title: '🎄 Holiday Security Sale!',
+    icon: '🎁',
+    description: 'Give the gift of security! Get',
+    discount: '10% OFF',
+    code: 'HOLIDAY10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-12-03'),
+    endDate: new Date('2025-12-31T23:59:59'),
+    endDateFormatted: 'December 31st'
+  },
+  // Fallback default promo (used if no seasonal promo matches)
+  default: {
+    id: 'default2025',
+    title: '🔒 Security Special!',
+    icon: '🛡️',
+    description: 'Protect your property! Get',
+    discount: '10% OFF',
+    code: 'SECURE10',
+    ctaText: 'Get Quote',
+    startDate: new Date('2025-01-01'),
+    endDate: new Date('2025-12-31T23:59:59'),
+    endDateFormatted: 'Limited Time'
+  }
+};
+
+// Ordered list of promos for date checking (order matters!)
+const promoOrder = [
+  'newYear',
+  'valentines', 
+  'stPatricks',
+  'easter',
+  'cincoDeMayo',
+  'memorialDay',
+  'july4th',
+  'laborDay',
+  'halloween',
+  'veteransDay',
+  'blackFriday',
+  'holiday'
+];
 
 // Props
 const props = defineProps({
   imageUrl: {
     type: String,
-    default: '/images/halloween-promo-banner.webp'
+    default: ''
   },
   altText: {
     type: String,
-    default: 'Halloween Promotion Banner'
+    default: 'Promotional Banner'
   },
   height: {
     type: Number,
@@ -92,7 +288,7 @@ const props = defineProps({
   },
   dismissible: {
     type: Boolean,
-    default: false
+    default: true
   },
   fixed: {
     type: Boolean,
@@ -106,14 +302,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  // Date-based visibility options
-  startDate: {
-    type: [Date, String],
-    default: null
-  },
-  endDate: {
-    type: [Date, String],
-    default: null
+  // Override automatic promo selection
+  forcePromo: {
+    type: String,
+    default: null // Options: 'newYear', 'valentines', 'stPatricks', 'easter', 'cincoDeMayo', 'memorialDay', 'july4th', 'laborDay', 'halloween', 'veteransDay', 'blackFriday', 'holiday', 'default'
   },
   // Local storage key for remembering dismissal
   storageKey: {
@@ -128,15 +320,40 @@ const props = defineProps({
 });
 
 // Events
-const emit = defineEmits(['dismissed', 'displayed']);
+const emit = defineEmits(['dismissed', 'displayed', 'ctaClicked']);
 
 // Component state
 const visible = ref(true);
 
+// Determine current promo based on date
+const currentPromo = computed(() => {
+  if (props.forcePromo && promos[props.forcePromo]) {
+    return promos[props.forcePromo];
+  }
+  
+  const now = new Date();
+  
+  // Check each promo in order to find the active one
+  for (const promoKey of promoOrder) {
+    const promo = promos[promoKey];
+    if (now >= promo.startDate && now <= promo.endDate) {
+      return promo;
+    }
+  }
+  
+  // Return default promo if no seasonal promo matches
+  return promos.default;
+});
+
+// Build storage key with promo ID to reset dismissal for new promos
+const effectiveStorageKey = computed(() => {
+  return `${props.storageKey}_${currentPromo.value.id}`;
+});
+
 // Computed property to determine if banner should be shown
 const isVisible = computed(() => {
-  // If already dismissed by user and not forced, don't show
-  if (!props.forceShow && localStorage.getItem(props.storageKey) === 'true') {
+  // If already dismissed by user for this specific promo and not forced, don't show
+  if (!props.forceShow && localStorage.getItem(effectiveStorageKey.value) === 'true') {
     return false;
   }
   
@@ -145,19 +362,10 @@ const isVisible = computed(() => {
     return false;
   }
   
-  // Check date constraints if provided
-  if (props.startDate || props.endDate) {
-    const now = new Date();
-    
-    if (props.startDate) {
-      const startDate = new Date(props.startDate);
-      if (now < startDate) return false;
-    }
-    
-    if (props.endDate) {
-      const endDate = new Date(props.endDate);
-      if (now > endDate) return false;
-    }
+  // Check if current promo is within its date range
+  const now = new Date();
+  if (now < currentPromo.value.startDate || now > currentPromo.value.endDate) {
+    return false;
   }
   
   return true;
@@ -168,17 +376,22 @@ const dismiss = () => {
   visible.value = false;
   
   if (props.dismissible) {
-    // Save dismissal to localStorage if feature is enabled
-    localStorage.setItem(props.storageKey, 'true');
+    // Save dismissal to localStorage for this specific promo
+    localStorage.setItem(effectiveStorageKey.value, 'true');
   }
   
   emit('dismissed');
 };
 
+const handleCTA = () => {
+  emit('ctaClicked', currentPromo.value);
+  openContactModal();
+};
+
 // When the component is mounted, emit displayed event if shown
 onMounted(() => {
   if (isVisible.value) {
-    emit('displayed');
+    emit('displayed', currentPromo.value);
   }
 });
 </script>
@@ -191,63 +404,45 @@ onMounted(() => {
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-20px); }
-  to { transform: translateY(0); }
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .w-full {
-  animation: fadeIn 0.5s ease-in-out, slideDown 0.5s ease-in-out;
+  animation: fadeIn 0.4s ease-out, slideDown 0.4s ease-out;
 }
 
 /* Responsive styling for mobile */
 @media (max-width: 640px) {
-  /* Ensure the banner isn't too tall on mobile */
-  img {
-    max-height: 60px !important;
-    object-position: center;
-  }
-  
   /* Make dismiss button more tappable on mobile */
-  button {
-    width: 35px;
-    height: 35px;
+  button[aria-label="Close banner"] {
+    width: 32px;
+    height: 32px;
     padding: 6px;
     top: 4px;
     right: 4px;
   }
-  
-  /* Adjust fixed position on mobile for smaller top bar */
-  .fixed.top-\[60px\] {
-    top: 60px; /* Same as desktop since the navbar height is consistent */
-  }
 }
 
-/* Button hover effects */
-button {
-  width: 30px;
-  height: 30px;
+/* Button hover effects for close button */
+button[aria-label="Close banner"] {
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  padding: 5px;
+  padding: 4px;
   transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+button[aria-label="Close banner"]:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-button:hover svg {
+button[aria-label="Close banner"]:hover svg {
   transform: scale(1.1);
   transition: transform 0.2s ease;
-}
-
-/* Ensure image displays correctly */
-img.w-full {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
 }
 </style>
