@@ -204,7 +204,13 @@ const showThankYou = ref(false);
 const isSubmitting = ref(false);
 const answers = ref([]);
 
-const currentQuestion = computed(() => questions[currentQuestionIndex.value]);
+const currentQuestion = computed(() => {
+  const idx = currentQuestionIndex.value;
+  if (idx >= 0 && idx < questions.length) {
+    return questions[idx];
+  }
+  return { id: '', text: '', category: '' }; // Return safe default
+});
 
 // Check if user has already seen/dismissed the banner
 const checkDismissed = () => {
