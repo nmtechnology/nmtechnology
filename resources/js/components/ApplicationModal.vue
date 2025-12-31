@@ -1213,6 +1213,20 @@ export default {
         return;
       }
 
+      // Validate required radio button fields
+      if (!this.formData.workAuthorized) {
+        alert("Please indicate if you are legally authorized to work in the United States.");
+        return;
+      }
+      if (!this.formData.driversLicense) {
+        alert("Please indicate if you have a valid driver's license.");
+        return;
+      }
+      if (!this.formData.felonyConviction) {
+        alert("Please indicate if you have any felony convictions.");
+        return;
+      }
+
       // Check if resume upload is still in progress
       if (
         this.uploadStatus.resume === "uploading" ||
@@ -1257,9 +1271,17 @@ export default {
         }
       } catch (error) {
         console.error("Error submitting application:", error);
-        alert(
-          "There was an error submitting your application. Please try again or contact us directly."
-        );
+        
+        // Show more helpful error message if validation failed
+        if (error.response && error.response.status === 422 && error.response.data.errors) {
+          const errors = error.response.data.errors;
+          const errorMessages = Object.values(errors).flat().join('\n');
+          alert("Please correct the following:\n" + errorMessages);
+        } else {
+          alert(
+            "There was an error submitting your application. Please try again or contact us directly."
+          );
+        }
       } finally {
         this.isSubmitting = false;
       }
