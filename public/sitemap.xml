@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Homepage - Security Systems Albuquerque NM -->
+    <url>
+        <loc>https://nmtechnology.us/</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Home Page -->
+    <url>
+        <loc>https://nmtechnology.us/home</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Services Page -->
+    <url>
+        <loc>https://nmtechnology.us/services</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- CCTV Products - Commercial CCTV Installers New Mexico -->
+    <url>
+        <loc>https://nmtechnology.us/cctv</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Access Control - Albuquerque Access Control Installation -->
+    <url>
+        <loc>https://nmtechnology.us/access-control</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Fire Alarms - Fire Alarm Systems 87123 -->
+    <url>
+        <loc>https://nmtechnology.us/fire-alarms</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Network Services - Network Troubleshooting Albuquerque -->
+    <url>
+        <loc>https://nmtechnology.us/network</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Security Systems - Security Systems Albuquerque NM -->
+    <url>
+        <loc>https://nmtechnology.us/security-systems</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact Page -->
+    <url>
+        <loc>https://nmtechnology.us/contact</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Quote Page -->
+    <url>
+        <loc>https://nmtechnology.us/quote</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- About Page -->
+    <url>
+        <loc>https://nmtechnology.us/about</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Careers / Apply Page -->
+    <url>
+        <loc>https://nmtechnology.us/careers</loc>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>

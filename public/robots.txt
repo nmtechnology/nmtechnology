@@ -1,2 +1,34 @@
+# NM Technology - Security Systems Albuquerque NM
+# https://nmtechnology.us
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin/private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /*.json$
+Disallow: /emailer/
+
+# Allow important assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://nmtechnology.us/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
