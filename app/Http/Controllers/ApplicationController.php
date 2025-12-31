@@ -61,8 +61,12 @@ class ApplicationController extends Controller
             $coverLetterData = null;
 
             // Get resume file data
-            $resumeFileData = Cache::get('uploaded_file_' . $validatedData['resumeId']);
-            if (!$resumeFileData || $resumeFileData['uploadStatus'] !== 'success') {
+            $resumeFileData = Cache::get('uploaded_document_' . $validatedData['resumeId']);
+            if (!$resumeFileData) {
+                // Try alternate key format for backwards compatibility
+                $resumeFileData = Cache::get('uploaded_file_' . $validatedData['resumeId']);
+            }
+            if (!$resumeFileData) {
                 return response()->json([
                     'message' => 'Resume file not found or failed virus scan. Please upload again.'
                 ], 422);
@@ -71,8 +75,12 @@ class ApplicationController extends Controller
 
             // Get cover letter file data if provided
             if (!empty($validatedData['coverLetterFileId'])) {
-                $coverLetterFileData = Cache::get('uploaded_file_' . $validatedData['coverLetterFileId']);
-                if (!$coverLetterFileData || $coverLetterFileData['uploadStatus'] !== 'success') {
+                $coverLetterFileData = Cache::get('uploaded_document_' . $validatedData['coverLetterFileId']);
+                if (!$coverLetterFileData) {
+                    // Try alternate key format for backwards compatibility
+                    $coverLetterFileData = Cache::get('uploaded_file_' . $validatedData['coverLetterFileId']);
+                }
+                if (!$coverLetterFileData) {
                     return response()->json([
                         'message' => 'Cover letter file not found or failed virus scan. Please upload again.'
                     ], 422);
@@ -132,9 +140,11 @@ class ApplicationController extends Controller
                 ]);
             }
 
-            // Clean up temporary file data
+            // Clean up temporary file data (both key formats)
+            Cache::forget('uploaded_document_' . $validatedData['resumeId']);
             Cache::forget('uploaded_file_' . $validatedData['resumeId']);
             if (!empty($validatedData['coverLetterFileId'])) {
+                Cache::forget('uploaded_document_' . $validatedData['coverLetterFileId']);
                 Cache::forget('uploaded_file_' . $validatedData['coverLetterFileId']);
             }
 
