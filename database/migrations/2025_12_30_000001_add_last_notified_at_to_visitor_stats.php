@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('visitor_stats', function (Blueprint $table) {
-            $table->timestamp('last_notified_at')->nullable()->after('locked_out_until');
+            // Add locked_out_until if it doesn't exist
+            if (!Schema::hasColumn('visitor_stats', 'locked_out_until')) {
+                $table->timestamp('locked_out_until')->nullable();
+            }
+            // Add last_notified_at
+            $table->timestamp('last_notified_at')->nullable();
         });
     }
 
