@@ -255,7 +255,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/images/firealarm-1.webp"
+            src="/public/images/fire-alarm-1.webp"
             alt="Fire Alarm System"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -275,7 +275,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/images/firealarm-2.webp"
+            src="/public/images/fire-alarm-2.webp"
             alt="Fire Alarm Installation"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -295,7 +295,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/images/firealarm-3.webp"
+            src="/public/images/fire-alarm-3.jpg"
             alt="Fire Alarm Design"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
