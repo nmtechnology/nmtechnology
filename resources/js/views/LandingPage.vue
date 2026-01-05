@@ -250,6 +250,66 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/firealarm-1.webp"
+            alt="Fire Alarm System"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Fire Alarm Systems</span>
+              <span class="text-green-400 text-xs">AHJ & NM Fire Code Compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/firealarm-2.webp"
+            alt="Fire Alarm Installation"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Professional Installation</span>
+              <span class="text-green-400 text-xs">IBC & OSHA Standards</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+        >
+          <img
+            src="/public/images/firealarm-3.webp"
+            alt="Fire Alarm Design"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-4"
+          >
+            <div
+              class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+            >
+              <span class="text-white font-bold text-base block">Custom Fire Alarm Design</span>
+              <span class="text-green-400 text-xs">Code-Compliant Solutions</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Brands Section with modern card -->
