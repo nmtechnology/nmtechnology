@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClasses">
-   <img src="/public/images/NM-logo-main.webp" class="3xl sm:h-20 w-auto" alt="NM Technology Logo" />
+   <img src="/public/images/NM-logo-main.webp" class="sm:h-20 w-auto" alt="NM Technology Logo" />
 
   </div>
 </template>
