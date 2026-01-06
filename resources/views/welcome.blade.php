@@ -8,9 +8,9 @@
     <link rel="canonical" href="https://nmtechnology.us/">
 
     <!-- Primary SEO Meta Tags -->
-    <title>NM Technology | CCTV, Access Control, Network, Burglar & Fire Alarm Installation | 505-659-5097</title>
-    <meta name="description" content="NM Technology provides expert security systems installation in Albuquerque, NM. Commercial CCTV installers, access control installation, fire alarm systems, and network troubleshooting. Call 505-659-5097for a free quote!">
-    <meta name="keywords" content="security systems Albuquerque NM, Albuquerque access control installation, fire alarm systems 87123, commercial CCTV installers New Mexico, network troubleshooting Albuquerque, CCTV installation Albuquerque, fire alarm technician Albuquerque, security camera installation New Mexico, burglar alarm systems Albuquerque, structured cabling Albuquerque">
+    <title>NM Technology | 505-659-5097 |CCTV ACCESS FIRE BURGLAR</title>
+    <meta name="description" content="NM Technology provides expert Low Voltage and Specialty Systems installation in Albuquerque, NM. Commercial CCTV installers, access control installation, fire alarm systems, and network troubleshooting. Call 505-659-5097for a free quote!">
+    <meta name="keywords" content="security systems Albuquerque NM, Albuquerque access control installation, fire alarm systems 87123, commercial CCTV, Fire Alarm, Buglar Alarm, Access Control, Network and Structured Cabling installers New Mexico, network troubleshooting Albuquerque, CCTV installation Albuquerque, fire alarm technician Albuquerque, security camera installation New Mexico, burglar alarm systems Albuquerque, structured cabling Albuquerque, RFQ Albuquerque security systems">
     <meta name="author" content="NM Technology">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="US-NM">
