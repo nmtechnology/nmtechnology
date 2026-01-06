@@ -1,13 +1,13 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden"
+    class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 relative overflow-hidden"
   >
     <LoadingScreen v-if="showLoadingScreen" ref="loadingScreen" />
 
     <!-- Modern animated background with grid -->
-    <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 -z-10 bg-gray-900">
       <!-- Animated grid pattern -->
-      <svg class="absolute inset-0 h-full w-full stroke-green-500/5" aria-hidden="true">
+      <svg class="absolute inset-0 h-full w-full stroke-green-500/30" aria-hidden="true">
         <defs>
           <pattern id="modern-grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M0 40V.5H40" fill="none" stroke-width="0.5" />
