@@ -781,7 +781,7 @@ onMounted(() => {
 }
 
 .brand-logo {
-            height: 100px;
+            height: 120px;
             width: auto;
             margin-bottom: 10px;
 
