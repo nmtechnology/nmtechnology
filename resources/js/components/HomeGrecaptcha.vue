@@ -11,7 +11,7 @@
                   <CheckCircleIcon class="h-6 w-6 text-green-400" aria-hidden="true" />
                 </div>
                 <div class="flex items-center justify-center p-12">
-            <img class="h-12 w-auto mr-2 transition-transform duration-300" src="/images/nm-logo-rmbg.webp" alt="nmtechnology-logo">
+            <img class="h-12 w-auto mr-2 transition-transform duration-300" :src="nmLogoRmbg" alt="nmtechnology-logo">
             <span class="italic text-xl font-extrabold text-white -ml-5 transition-colors duration-300">Technology</span>
             </div>
                 <p
@@ -63,6 +63,7 @@
 import { ref } from 'vue'
 import { CheckCircleIcon } from '@heroicons/vue/24/outline'
 import { XMarkIcon } from '@heroicons/vue/20/solid'
+import nmLogoRmbg from '../../images/nm-logo-rmbg.webp';
 const show = ref(true)
 
 function enableBtn () {

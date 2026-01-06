@@ -1,8 +1,8 @@
 <template>
   <div :class="containerClasses">
     <picture>
-      <source srcset="/images/NM-logo-main.webp" type="image/webp" />
-      <img :class="logoClasses" src="/images/NM-logo-main.png" alt="NM Technology Logo" />
+      <source :srcset="nmLogoWebp" type="image/webp" />
+      <img :class="logoClasses" :src="nmLogoPng" alt="NM Technology Logo" />
     </picture>
     <div
       v-if="variant === 'landing'"
@@ -17,6 +17,8 @@
 
 <script setup>
 import { computed } from "vue";
+import nmLogoWebp from "../../images/NM-logo-main.webp";
+import nmLogoPng from "../../images/NM-logo-main.png";
 
 // Props
 const props = defineProps({

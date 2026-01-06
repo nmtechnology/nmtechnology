@@ -131,7 +131,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/axis-bullet-cam.webp"
+            :src="axisBulletCam"
             alt="Bullet Camera"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -151,7 +151,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/axis-dome.webp"
+            :src="axisDome"
             alt="Dome Camera"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -171,7 +171,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/cctv-corner.webp"
+            :src="cctvCorner"
             alt="Corner CCTV"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -193,7 +193,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/google-doorbellcam.webp"
+            :src="googleDoorbellcam"
             alt="Doorbell Camera"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -213,7 +213,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/nvr-recorder.webp"
+            :src="nvrRecorder"
             alt="NVR System"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -233,7 +233,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/smart-access-control.webp"
+            :src="smartAccessControl"
             alt="Smart Access"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -255,7 +255,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/fire-alarm-1.webp"
+            :src="fireAlarm1"
             alt="Fire Alarm System"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -275,7 +275,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/fire-alarm-2.webp"
+            :src="fireAlarm2"
             alt="Fire Alarm Installation"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -295,7 +295,7 @@
           class="relative overflow-hidden rounded-2xl group h-56 md:h-64 border border-gray-700/50 hover:border-green-500/50 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
         >
           <img
-            src="/public/images/fire-alarm-3.jpg"
+            :src="fireAlarm3"
             alt="Fire Alarm Design"
             class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           />
@@ -323,22 +323,22 @@
         </p>
         <div class="flex flex-wrap justify-center items-center gap-8">
           <img
-            src="/images/axiscomm-logo.webp"
+            :src="axiscommLogo"
             alt="Axis Communications"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
           <img
-            src="/images/honeywell-logo.webp"
+            :src="honeywellLogo"
             alt="Honeywell"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
           <img
-            src="/images/DSC-logo.webp"
+            :src="dscLogo"
             alt="DSC"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
           <img
-            src="/public/images/ubiquity-logo.webp"
+            :src="ubiquityLogo"
             alt="Ubiquiti"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
@@ -530,6 +530,19 @@ import { toastService } from "../services/toastService.js";
 import LoadingScreen from "../components/LoadingScreen.vue";
 import NMLogo from "../components/NMLogo.vue";
 import { logAction, startVisitorSession } from "../utils/analytics.js";
+import axiscommLogo from "../../images/axiscomm-logo.webp";
+import honeywellLogo from "../../images/honeywell-logo1.webp";
+import dscLogo from "../../images/DSC-logo.webp";
+import ubiquityLogo from "../../images/ubiquity-logo.webp";
+import axisBulletCam from "../../images/axis-bullet-cam.webp";
+import axisDome from "../../images/axis-dome.webp";
+import cctvCorner from "../../images/cctv-corner.webp";
+import googleDoorbellcam from "../../images/google-doorbellcam.webp";
+import nvrRecorder from "../../images/nvr-recorder.webp";
+import smartAccessControl from "../../images/smart-access-control.webp";
+import fireAlarm1 from "../../images/fire-alarm-1.webp";
+import fireAlarm2 from "../../images/fire-alarm-2.webp";
+import fireAlarm3 from "../../images/fire-alarm-3.jpg";
 
 const router = useRouter();
 const firstNumber = ref(0);

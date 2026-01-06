@@ -88,27 +88,27 @@
           class="flex flex-wrap justify-center items-center gap-10 mt-12 pt-8 border-t border-green-600/20"
         >
           <img
-            src="/images/ubiquity-logo.webp"
+            :src="ubiquityLogo"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Ubiquity"
           />
           <img
-            src="/images/linovision-logo.webp"
+            :src="linovisionLogo"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Linovision"
           />
           <img
-            src="/images/zwave-logo.webp"
+            :src="zwaveLogo"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="ZWave"
           />
           <img
-            src="/images/allegion-logo.webp"
+            :src="allegionLogo"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Allegion"
           />
           <img
-            src="/public/images/teltonika-logo.webp"
+            :src="teltonikaLogo"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Teltonika"
           />
@@ -120,6 +120,11 @@
 
 <script setup>
 import NMLogo from './NMLogo.vue'
+import ubiquityLogo from '../../images/ubiquity-logo.webp';
+import linovisionLogo from '../../images/linovision-logo.webp';
+import zwaveLogo from '../../images/zwave-logo.webp';
+import allegionLogo from '../../images/allegion-logo.webp';
+import teltonikaLogo from '../../images/teltonika-logo.webp';
 </script>
 
 <style scoped>

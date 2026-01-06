@@ -2,7 +2,7 @@
   <div v-if="isLoading" class="fixed inset-0 w-full h-full bg-gray-900 flex flex-col items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-radial from-emerald-500/10 to-transparent pointer-events-none"></div>
     <div class="logo-container z-10" :class="{ 'visible': showLoadingAnimation }">
-      <img src="/images/nm-technology-logo.webp" alt="NM Technology" class="logo w-48 h-auto mb-8">
+      <img :src="nmTechnologyLogo" alt="NM Technology" class="logo w-48 h-auto mb-8">
     </div>
     <div class="loading-text z-10" :class="{ 'visible': showLoadingAnimation }">
       Welcome to NM Technology
@@ -15,9 +15,13 @@
 </template>
 
 <script>
+import nmTechnologyLogo from '../../images/nm-technology-logo.webp';
+
 export default {
   name: 'AuthGuard',
   data() {
+    return {
+      nmTechnologyLogo,
     return {
       isLoading: false,
       showLoadingAnimation: false,

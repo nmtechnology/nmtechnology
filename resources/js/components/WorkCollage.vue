@@ -60,7 +60,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         <div class="gallery-card">
           <img
-            src="/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp"
+            :src="weatherShieldImg"
             alt="Security Camera"
             class="gallery-image"
             loading="lazy"
@@ -72,7 +72,7 @@
 
         <div class="gallery-card">
           <img
-            src="/images/m3125lve_restaurant_2406_hi_Mediaportal - Web PNG.webp"
+            :src="restaurantImg"
             alt="Bar Security"
             class="gallery-image"
             loading="lazy"
@@ -84,7 +84,7 @@
 
         <div class="gallery-card">
           <img
-            src="/images/retail-clothing-cctv.webp"
+            :src="retailImg"
             alt="Retail CCTV"
             class="gallery-image"
             loading="lazy"
@@ -466,6 +466,9 @@
 
 <script setup>
 import { inject } from "vue";
+import weatherShieldImg from "../../images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp";
+import restaurantImg from "../../images/m3125lve_restaurant_2406_hi_Mediaportal - Web PNG.webp";
+import retailImg from "../../images/retail-clothing-cctv.webp";
 
 // Inject the contact modal function from the parent component
 const openContactModal = inject("openContactModal", () => {
