@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/webp" href="{{ asset('images/NM-logo-only.webp') }}" class="h-14 w-auto">
+    <link rel="icon" type="image/webp" href="{{ asset('images/NM-logo-only.webp') }}" class=".brand-logo">
     <link rel="canonical" href="https://nmtechnology.us/">
 
     <!-- Primary SEO Meta Tags -->
@@ -317,6 +317,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        .brand-logo {
+            height: 20px;
+            width: auto;
         }
         
         #app {
