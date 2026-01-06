@@ -47,7 +47,7 @@
           >
         </div>
 
-        <NMLogo variant="landing" size="4xl" :showSubtitle="true" />
+        <img src="/public/images/NM-logo-main.webp" class="brand-logo" alt="NM Technology Logo" />
         <h1 class="text-2xl md:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
           <span class="text-white">Advanced Security & Surveillance Solutions for </span>
           <span
@@ -779,6 +779,12 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
 }
+
+.brand-logo {
+            height: 100px;
+            width: auto;
+            margin-bottom: 10px;
+        }
 
 .bg-gray-800::after {
   content: "";
