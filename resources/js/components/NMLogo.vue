@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClasses">
-   <img src="/public/images/NM-logo-main.webp" class="h-40 w-40 sm:h-20 w-auto" alt="NM Technology Logo" />
+   <img src="/public/images/NM-logo-main.webp" class="3xl sm:h-20 w-auto" alt="NM Technology Logo" />
     <div
       v-if="variant === 'landing'"
       class="flex flex-col items-start -ml-3 sm:-ml-5 mt-8"
