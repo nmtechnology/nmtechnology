@@ -8,13 +8,8 @@
       v-if="variant === 'landing'"
       class="flex flex-col items-start -ml-3 sm:-ml-5 mt-8"
     >
-      <span :class="textClasses">Technology</span>
-      <span
-        v-if="showSubtitle"
-        class="text-xs sm:text-sm text-green-400 font-semibold tracking-wider uppercase ml-0.5"
-      >
-        & Integration Solutions
-      </span>
+      
+      
     </div>
     <span v-else :class="textClasses">Technology</span>
   </div>

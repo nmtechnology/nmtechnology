@@ -47,7 +47,7 @@
           >
         </div>
 
-        <NMLogo variant="landing" size="xl" :showSubtitle="true" />
+        <NMLogo variant="landing" size="4xl" :showSubtitle="true" />
         <h1 class="text-2xl md:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
           <span class="text-white">Advanced Security & Surveillance Solutions for </span>
           <span
