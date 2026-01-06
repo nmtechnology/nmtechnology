@@ -83,7 +83,7 @@
                   >
                   <img
                     class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
-                    src="/images/zia-symbol.webp"
+                    :src="ziaSymbol"
                     alt="New Mexico Logo"
                   />
                   <span
@@ -247,6 +247,7 @@ import SectionOne from "../components/SectionOne.vue";
 import HomeFooter from "../components/HomeFooter.vue";
 import Pricing from "../components/Pricing.vue";
 import WorkCollage from "../components/WorkCollage.vue";
+import ziaSymbol from "../../images/zia-symbol.webp";
 
 const router = useRouter();
 const openContactModal = inject("openContactModal");
