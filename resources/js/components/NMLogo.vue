@@ -1,11 +1,6 @@
 <template>
   <div :class="containerClasses">
-    <img
-      :src="nmLogoWebp"
-      :srcset="`${nmLogoWebp} 1x, ${nmLogoPng} 2x`"
-      :class="logoClasses"
-      alt="NM Technology Logo"
-      loading="lazy">
+   <img src="/images/NM-logo-main.webp" alt="NM Technology Logo" />
     <div
       v-if="variant === 'landing'"
       class="flex flex-col items-start -ml-3 sm:-ml-5 mt-8"
@@ -19,8 +14,6 @@
 
 <script setup>
 import { computed } from "vue";
-import nmLogoWebp from "../../images/NM-logo-main.webp";
-import nmLogoPng from "../../images/NM-logo-main.png";
 
 // Props
 const props = defineProps({
