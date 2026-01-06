@@ -1,9 +1,16 @@
 <template>
   <div :class="containerClasses">
-   <img src="/public/images/NM-logo-main.webp" class="h-14" alt="NM Technology Logo" />
+   <img src="/public/images/NM-logo-main.webp" class="brand-logo" alt="NM Technology Logo" />
 
   </div>
 </template>
+
+<style>
+  .brand-logo {
+            height: 120px;
+            width: auto;
+        }
+</style>
 
 <script setup>
 import { computed } from "vue";
