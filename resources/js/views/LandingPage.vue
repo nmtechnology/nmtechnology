@@ -323,17 +323,17 @@
         </p>
         <div class="flex flex-wrap justify-center items-center gap-8">
           <img
-            src="/public/images/axiscomm-logo.webp"
+            src="/images/axiscomm-logo.webp"
             alt="Axis Communications"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
           <img
-            src="/public/images/honeywell-logo.webp"
+            src="/images/honeywell-logo.webp"
             alt="Honeywell"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />
           <img
-            src="/public/images/DSC-logo.webp"
+            src="/images/DSC-logo.webp"
             alt="DSC"
             class="h-10 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
           />

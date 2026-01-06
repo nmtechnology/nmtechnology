@@ -60,7 +60,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         <div class="gallery-card">
           <img
-            src="/public/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp"
+            src="/images/m3125lve_w_weather_shield_2406_hi_Mediaportal - Web PNG.webp"
             alt="Security Camera"
             class="gallery-image"
             loading="lazy"
@@ -72,7 +72,7 @@
 
         <div class="gallery-card">
           <img
-            src="/public/images/m3125lve_restaurant_2406_hi_Mediaportal - Web PNG.webp"
+            src="/images/m3125lve_restaurant_2406_hi_Mediaportal - Web PNG.webp"
             alt="Bar Security"
             class="gallery-image"
             loading="lazy"
@@ -84,7 +84,7 @@
 
         <div class="gallery-card">
           <img
-            src="/public/images/retail-clothing-cctv.webp"
+            src="/images/retail-clothing-cctv.webp"
             alt="Retail CCTV"
             class="gallery-image"
             loading="lazy"

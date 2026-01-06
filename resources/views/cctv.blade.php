@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://nmtechnology.us/products">
     <meta property="og:title" content="Commercial CCTV Installers New Mexico | NM Technology">
     <meta property="og:description" content="Professional CCTV installation across New Mexico. IP cameras, video surveillance, and remote monitoring for businesses. Get a free quote today.">
-    <meta property="og:image" content="/public/images/nm-logo-rmbg.webp">
+    <meta property="og:image" content="/images/nm-logo-rmbg.webp">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="NM Technology">
 
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Commercial CCTV Installers New Mexico | NM Technology">
     <meta name="twitter:description" content="Expert CCTV & security camera installation for businesses across New Mexico. Professional setup, remote monitoring & ongoing support.">
-    <meta name="twitter:image" content="/public/images/nm-logo-rmbg.webp">
+    <meta name="twitter:image" content="/images/nm-logo-rmbg.webp">
 
     <!-- JSON-LD: Product List -->
     <script type="application/ld+json">
@@ -108,7 +108,7 @@
     }
     </script>
 
-    <link rel="icon" type="image/png" href="/public/images/nm-logo-rmbg.webp">
+    <link rel="icon" type="image/png" href="/images/nm-logo-rmbg.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">

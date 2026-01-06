@@ -83,7 +83,7 @@
                   >
                   <img
                     class="w-12 h-12 sm:w-16 sm:h-16 inline-block"
-                    src="/public/images/zia-symbol.webp"
+                    src="/images/zia-symbol.webp"
                     alt="New Mexico Logo"
                   />
                   <span

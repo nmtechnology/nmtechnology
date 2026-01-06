@@ -20,7 +20,7 @@
             <tr class="border-b">
               <td class="py-2 font-mono">imageUrl</td>
               <td class="py-2">String</td>
-              <td class="py-2">/public/images/halloween-promo-banner.webp</td>
+              <td class="py-2">/images/halloween-promo-banner.webp</td>
               <td class="py-2">URL to the banner image</td>
             </tr>
             <tr class="border-b">

@@ -88,22 +88,22 @@
           class="flex flex-wrap justify-center items-center gap-10 mt-12 pt-8 border-t border-green-600/20"
         >
           <img
-            src="/public/images/ubiquity-logo.webp"
+            src="/images/ubiquity-logo.webp"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Ubiquity"
           />
           <img
-            src="/public/images/linovision-logo.webp"
+            src="/images/linovision-logo.webp"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Linovision"
           />
           <img
-            src="/public/images/zwave-logo.webp"
+            src="/images/zwave-logo.webp"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="ZWave"
           />
           <img
-            src="/public/images/allegion-logo.webp"
+            src="/images/allegion-logo.webp"
             class="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
             alt="Allegion"
           />
