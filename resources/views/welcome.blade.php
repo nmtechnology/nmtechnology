@@ -320,8 +320,8 @@
         }
 
         .brand-logo {
-            height: 18px;
-            width: 24px;
+            width: 32px;
+            height: 32px;
         }
         
         #app {
