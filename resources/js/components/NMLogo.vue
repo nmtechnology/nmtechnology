@@ -1,9 +1,11 @@
 <template>
   <div :class="containerClasses">
-    <picture>
-      <source :srcset="nmLogoWebp" type="image/webp" />
-      <img :class="logoClasses" :src="nmLogoPng" alt="NM Technology Logo" />
-    </picture>
+    <img
+      :src="nmLogoWebp"
+      :srcset="`${nmLogoWebp} 1x, ${nmLogoPng} 2x`"
+      :class="logoClasses"
+      alt="NM Technology Logo"
+      loading="lazy">
     <div
       v-if="variant === 'landing'"
       class="flex flex-col items-start -ml-3 sm:-ml-5 mt-8"
