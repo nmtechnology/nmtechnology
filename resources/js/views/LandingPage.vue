@@ -7,7 +7,7 @@
     <!-- Modern animated background with grid -->
     <div class="absolute inset-0 -z-10 bg-gray-900">
       <!-- Animated grid pattern -->
-      <svg class="absolute inset-0 h-full w-full stroke-green-500/30" aria-hidden="true">
+      <svg class="absolute inset-0 h-full w-full stroke-white-500/30" aria-hidden="true">
         <defs>
           <pattern id="modern-grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M0 40V.5H40" fill="none" stroke-width="0.5" />
