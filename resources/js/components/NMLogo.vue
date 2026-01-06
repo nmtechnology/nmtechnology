@@ -9,6 +9,7 @@
   .brand-logo {
             height: 60px;
             width: auto;
+            margin-top: 5px;
         }
 </style>
 
