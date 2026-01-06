@@ -321,7 +321,7 @@
 
         .brand-logo {
             height: 20px;
-            width: auto;
+            width: 24px;
         }
         
         #app {
