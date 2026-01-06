@@ -320,7 +320,7 @@
         }
 
         .brand-logo {
-            height: 20px;
+            height: 18px;
             width: 24px;
         }
         
