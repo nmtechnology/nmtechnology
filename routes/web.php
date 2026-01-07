@@ -13,7 +13,7 @@ Route::middleware(['block.nonus'])->group(function () {
 
     // Products route (previously /cctv)
     Route::get('/products', function () {
-        return redirect('/');
+        return view('welcome');
     });
 
     // Backwards-compatible redirect for old /cctv URLs
@@ -25,6 +25,26 @@ Route::middleware(['block.nonus'])->group(function () {
     Route::get('/test-emails', function () {
         return response()->file(public_path('test-emails.html'));
     });
+
+    // Vue SPA routes - all return the same welcome view for client-side routing
+    $spaRoutes = [
+        '/home',
+        '/services',
+        '/access-control',
+        '/fire-alarms',
+        '/network',
+        '/security-systems',
+        '/contact',
+        '/quote',
+        '/about',
+        '/careers'
+    ];
+    
+    foreach ($spaRoutes as $route) {
+        Route::get($route, function () {
+            return view('welcome');
+        });
+    }
 
     // Math verification API route handled in routes/api.php
     // (Removed duplicate route to avoid confusion and CSRF conflicts)
