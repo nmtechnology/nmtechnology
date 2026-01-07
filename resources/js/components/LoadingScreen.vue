@@ -5,17 +5,17 @@ hn.m,/<template>
   >
     <!-- Decorative Background Blurs -->
     <div
-      class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-400/10 rounded-full blur-3xl -z-10 animate-pulse"
+      class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-red-500/10 to-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse"
       style="animation-duration: 3s"
     ></div>
     <div
-      class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-lime-400/10 to-green-500/10 rounded-full blur-3xl -z-10 animate-pulse"
+      class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-red-400/10 to-blue-500/10 rounded-full blur-3xl -z-10 animate-pulse"
       style="animation-duration: 4s"
     ></div>
 
     <!-- Background Pattern -->
     <svg
-      class="absolute inset-0 -z-10 h-full w-full stroke-green-600/10 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
+      class="absolute inset-0 -z-10 h-full w-full stroke-purple-600/10 [mask-image:radial-gradient(40rem_30rem_at_center,white,transparent)]"
       aria-hidden="true"
     >
       <defs>
@@ -35,7 +35,7 @@ hn.m,/<template>
 
     <!-- Glass Container -->
     <div
-      class="relative z-10 bg-gray-800/30 backdrop-blur-md rounded-3xl border border-green-500/20 p-12 shadow-2xl ring-2 ring-green-500/10 shadow-green-500/5 animate-fadeIn opacity-0"
+      class="relative z-10 bg-gray-800/30 backdrop-blur-md rounded-3xl border border-red-500/20 p-12 shadow-2xl ring-2 ring-red-500/10 shadow-red-500/5 animate-fadeIn opacity-0"
       style="animation-delay: 0.2s"
     >
       <!-- Logo with NM Technology styling -->
@@ -43,9 +43,9 @@ hn.m,/<template>
         <div class="relative">
           <!-- Glow effect behind logo -->
           <div
-            class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-lime-400/20 rounded-2xl blur-xl"
+            class="absolute inset-0 bg-gradient-to-r from-red-400/20 to-blue-400/20 rounded-2xl blur-xl"
           ></div>
-          <div class="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-green-500/20 p-6">
+          <div class="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-500/20 p-6">
             <NMLogo variant="loading" size="xl" />
           </div>
         </div>
@@ -59,7 +59,7 @@ hn.m,/<template>
         <h2 class="text-4xl sm:text-5xl font-bold mb-3">
           <span class="text-white">Securing </span>
           <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400"
           >
             New Mexico
           </span>
@@ -68,8 +68,8 @@ hn.m,/<template>
         
         <!-- Security badges -->
         <div class="flex justify-center gap-4 mt-6">
-          <div class="flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2">
-            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <div class="flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-2">
+            <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-7-4z" clip-rule="evenodd"/>
             </svg>
             <span class="text-sm font-semibold text-green-400">CCTV Systems</span>
