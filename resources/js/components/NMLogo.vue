@@ -7,8 +7,8 @@
 
 <style>
   .brand-logo {
-            height: 60px;
-            width: 200px;
+            width: auto;
+            height: auto;
             margin-top: 5px;
         }
 </style>
