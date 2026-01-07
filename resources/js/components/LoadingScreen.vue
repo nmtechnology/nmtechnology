@@ -3,14 +3,20 @@ hn.m,/<template>
     class="fixed inset-0 w-full h-full bg-gradient-to-b from-black via-gray-900 to-gray-900 flex flex-col items-center justify-center overflow-hidden z-50"
     :class="{ 'animate-fadeOut': isLeaving }"
   >
-    <!-- Decorative Background Blurs -->
+    <!-- Cop Car Lighting Effects -->
     <div
-      class="absolute top-20 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-red-500/10 to-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse"
-      style="animation-duration: 3s"
+      class="absolute top-20 left-0 w-[400px] h-[400px] bg-red-600/30 rounded-full blur-3xl -z-10 animate-copLightLeft"
     ></div>
     <div
-      class="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-red-400/10 to-blue-500/10 rounded-full blur-3xl -z-10 animate-pulse"
-      style="animation-duration: 4s"
+      class="absolute top-20 right-0 w-[400px] h-[400px] bg-blue-600/30 rounded-full blur-3xl -z-10 animate-copLightRight"
+    ></div>
+    <div
+      class="absolute bottom-20 left-0 w-[400px] h-[400px] bg-blue-600/30 rounded-full blur-3xl -z-10 animate-copLightLeft"
+      style="animation-delay: 0.4s"
+    ></div>
+    <div
+      class="absolute bottom-20 right-0 w-[400px] h-[400px] bg-red-600/30 rounded-full blur-3xl -z-10 animate-copLightRight"
+      style="animation-delay: 0.4s"
     ></div>
 
     <!-- Background Pattern -->
@@ -41,9 +47,9 @@ hn.m,/<template>
       <!-- Logo with NM Technology styling -->
       <div class="flex justify-center mb-8">
         <div class="relative">
-          <!-- Glow effect behind logo -->
+          <!-- Cop car lighting effect behind logo -->
           <div
-            class="absolute inset-0 bg-gradient-to-r from-red-400/20 to-blue-400/20 rounded-2xl blur-xl"
+            class="absolute inset-0 bg-gradient-to-r from-red-500/30 to-blue-500/30 rounded-2xl blur-xl animate-copGlow"
           ></div>
           <div class="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-red-500/20 p-6">
             <NMLogo variant="loading" size="xl" />
@@ -163,6 +169,68 @@ onMounted(() => {
   100% {
     transform: translateX(200%) skewX(-12deg);
   }
+}
+
+@keyframes copLightLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translateX(0%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes copLightRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translateX(0%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes copGlow {
+  0% {
+    background: linear-gradient(to right, rgba(239, 68, 68, 0.3), rgba(59, 130, 246, 0.1));
+  }
+  50% {
+    background: linear-gradient(to right, rgba(239, 68, 68, 0.1), rgba(59, 130, 246, 0.3));
+  }
+  100% {
+    background: linear-gradient(to right, rgba(239, 68, 68, 0.3), rgba(59, 130, 246, 0.1));
+  }
+}
+
+.animate-copLightLeft {
+  animation: copLightLeft 1.5s ease-in-out infinite;
+}
+
+.animate-copLightRight {
+  animation: copLightRight 1.5s ease-in-out infinite;
+}
+
+.animate-copGlow {
+  animation: copGlow 0.8s ease-in-out infinite;
 }
 
 .animate-fadeIn {
