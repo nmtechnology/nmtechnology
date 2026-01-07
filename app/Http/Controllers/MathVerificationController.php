@@ -40,9 +40,12 @@ class MathVerificationController extends Controller
                 }
             } catch (\Exception $e) {}
 
-            // Block any country or city not in the United States, and block any city from China
-            if (empty($country) || strtolower(trim($country)) !== 'united states' || strtolower(trim($country)) === 'china') {
-                \Log::info('Blocked non-US or China visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
+            // Block any country or city not in the United States, China, or India
+            $blockedCountries = ['china', 'india'];
+            $countryLower = strtolower(trim($country ?? ''));
+            
+            if (empty($country) || $countryLower !== 'united states' || in_array($countryLower, $blockedCountries)) {
+                \Log::info('Blocked non-US or blacklisted visitor', ['ip' => $ip, 'country' => $country, 'city' => $geo['city'] ?? null]);
                 // Send block notification (rate limited by IP - once per day)
                 try {
                     $existingStat = VisitorStat::where('ip', $ip)->first();
