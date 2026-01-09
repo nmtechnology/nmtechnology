@@ -453,7 +453,6 @@
                 required
                 class="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-green-600 text-center text-xl"
                 placeholder="Enter your answer"
-                autofocus
               />
             </div>
           </div>
@@ -750,6 +749,8 @@ onMounted(() => {
   }
   startTime.value = Date.now();
   generateMathProblem();
+  // Prevent the browser from jumping to the verification input on load
+  window.scrollTo(0, 0);
 });
 </script>
 
