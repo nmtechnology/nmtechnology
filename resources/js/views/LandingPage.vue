@@ -387,7 +387,7 @@
         <div class="relative">
           <!-- Security Badge with Glow -->
           <div
-            class="absolute inset-0 bg-gradient-to-br from-green-500/20 via-blue-500/20 to-red-500/20 rounded-full blur-2xl animate-pulse"
+            class="absolute inset-0 bg-gradient-to-br from-red-500/20 via-blue-500/20 to-red-500/20 rounded-full blur-2xl animate-pulse"
           ></div>
           <div
             class="relative flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-4 w-20 h-20 border border-green-500/30 ring-1 ring-green-500/20 shadow-lg shadow-green-500/20"
