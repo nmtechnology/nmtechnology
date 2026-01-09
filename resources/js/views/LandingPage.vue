@@ -47,7 +47,7 @@
           >
         </div>
 
-        <img src="/public/images/NM-logo-main.webp" class="brand-logo mx-auto block mb-10" alt="NM Technology Logo" />
+        <img src="/public/images/NM-logo-main.webp" class="brand-logo 4xl mx-auto block mb-10" alt="NM Technology Logo" />
         <h1 class="text-2xl md:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
           <span class="text-white">Advanced Security & Surveillance Solutions for </span>
           <span
