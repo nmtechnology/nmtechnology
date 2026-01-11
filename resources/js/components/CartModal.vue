@@ -1,5 +1,5 @@
 <template>
-  <div v-if="cartStore.isCartOpen()" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div v-if="cartStore.isCartOpen()" class="fixed inset-0 overflow-y-auto z-[200]" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!-- Background overlay with backdrop blur -->
     <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" aria-hidden="true" @click="cartStore.closeCart()"></div>
 
@@ -159,7 +159,7 @@
   </div>
 
   <!-- Checkout Form Modal -->
-  <div v-if="checkoutFormOpen && !showConfirmation" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="checkout-modal-title" role="dialog" aria-modal="true">
+  <div v-if="checkoutFormOpen && !showConfirmation" class="fixed inset-0 overflow-y-auto z-[200]" aria-labelledby="checkout-modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -229,7 +229,7 @@
   </div>
   
   <!-- Order Confirmation Modal -->
-  <div v-if="checkoutFormOpen && showConfirmation" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="confirmation-modal-title" role="dialog" aria-modal="true">
+  <div v-if="checkoutFormOpen && showConfirmation" class="fixed inset-0 overflow-y-auto z-[200]" aria-labelledby="confirmation-modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -263,7 +263,7 @@
   </div>
   
   <!-- Success Message Modal -->
-  <div v-if="orderSubmitted" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="success-modal-title" role="dialog" aria-modal="true">
+  <div v-if="orderSubmitted" class="fixed inset-0 overflow-y-auto z-[200]" aria-labelledby="success-modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -321,7 +321,7 @@
   </div>
   
   <!-- Error Message Modal -->
-  <div v-if="orderError" class="fixed inset-0 overflow-y-auto z-50" aria-labelledby="error-modal-title" role="dialog" aria-modal="true">
+  <div v-if="orderError" class="fixed inset-0 overflow-y-auto z-[200]" aria-labelledby="error-modal-title" role="dialog" aria-modal="true">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <!-- Background overlay -->
       <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -363,7 +363,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, watch, onBeforeUnmount } from 'vue';
 import { cartStore } from '../store/cartStore.js';
 import { toastService } from '../services/toastService.js';
 import { orderHistoryService } from '../services/orderHistoryService.js';
@@ -384,6 +384,36 @@ export default {
     const isSubmitting = ref(false);
     const showOrderHistory = ref(false);
     const showConfirmation = ref(false);
+
+    const anyCartUiOpen = computed(() => {
+      return (
+        cartStore.isCartOpen() ||
+        checkoutFormOpen.value ||
+        showConfirmation.value ||
+        orderSubmitted.value ||
+        orderError.value
+      );
+    });
+
+    const previousOverflow = ref('');
+    watch(
+      anyCartUiOpen,
+      (locked) => {
+        if (typeof document === 'undefined') return;
+        if (locked) {
+          previousOverflow.value = document.body.style.overflow;
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = previousOverflow.value || '';
+        }
+      },
+      { immediate: true }
+    );
+
+    onBeforeUnmount(() => {
+      if (typeof document === 'undefined') return;
+      document.body.style.overflow = previousOverflow.value || '';
+    });
     
     // Check if there are any orders in history
     const hasOrderHistory = computed(() => orderHistoryService.hasOrders());

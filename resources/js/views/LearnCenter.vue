@@ -1,55 +1,50 @@
 <template>
-  <div class="min-h-screen bg-black text-white">
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
-      <header class="mb-10">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
-          Security & Networking Learning Center
-        </h1>
-        <p class="mt-3 text-gray-300 max-w-3xl">
-          Plain‑English guides for people comparing ONVIF cameras, PoE power standards, fire alarm cabling,
-          and access control design. Built to answer the “what does this mean?” questions before you buy.
-        </p>
-
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-gray-900/50 border border-green-600/30 rounded-lg p-4">
-            <h2 class="text-lg font-semibold text-green-300">Quick topics</h2>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <router-link class="px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" :to="{ path: '/learn', hash: '#onvif' }">ONVIF protocols</router-link>
-              <router-link class="px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" :to="{ path: '/learn', hash: '#poe' }">PoE classes</router-link>
-              <router-link class="px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" :to="{ path: '/learn', hash: '#fire-alarm-cabling' }">Fire alarm wiring</router-link>
-              <router-link class="px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" :to="{ path: '/learn', hash: '#access-control' }">Access control schemes</router-link>
-              <router-link class="px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" :to="{ path: '/learn', hash: '#alarm-insurance' }">Alarm & insurance FAQs</router-link>
-            </div>
-          </div>
-
-          <div class="bg-gray-900/50 border border-green-600/30 rounded-lg p-4">
-            <h2 class="text-lg font-semibold text-green-300">Need design help?</h2>
-            <p class="mt-2 text-gray-300 text-sm">
-              If you’re planning an upgrade in Albuquerque / New Mexico, we can spec switches, power budgets,
-              camera compatibility, and door hardware.
-            </p>
-            <router-link
-              to="/products"
-              class="inline-flex mt-3 px-4 py-2 rounded-lg bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold text-sm"
-            >
-              Explore products & request a quote
-            </router-link>
+  <NmtPage
+    title="Security & Networking Learning Center"
+    subtitle="Plain‑English guides for people comparing ONVIF cameras, PoE power standards, fire alarm cabling, and access control design. Built to answer the “what does this mean?” questions before you buy."
+  >
+    <template #header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="nmt-card">
+          <h2 class="text-lg font-semibold text-green-300">Quick topics</h2>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#onvif' }">ONVIF protocols</router-link>
+            <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#poe' }">PoE classes</router-link>
+            <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#fire-alarm-cabling' }">Fire alarm wiring</router-link>
+            <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#access-control' }">Access control schemes</router-link>
+            <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#alarm-insurance' }">Alarm & insurance FAQs</router-link>
           </div>
         </div>
-      </header>
 
-      <OnvifGuide />
-      <PoeGuide />
-      <FireAlarmCablingGuide />
-      <AccessControlStrategiesGuide />
-      <SecurityAlarmInsuranceFAQ />
-    </main>
-  </div>
+        <div class="nmt-card">
+          <h2 class="text-lg font-semibold text-green-300">Need design help?</h2>
+          <p class="mt-2 text-gray-300 text-sm">
+            If you’re planning an upgrade in Albuquerque / New Mexico, we can spec switches, power budgets,
+            camera compatibility, and door hardware.
+          </p>
+          <router-link
+            to="/products"
+            class="inline-flex mt-3 px-4 py-2 rounded-lg bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold text-sm"
+          >
+            Explore products & request a quote
+          </router-link>
+        </div>
+      </div>
+    </template>
+
+    <OnvifGuide />
+    <PoeGuide />
+    <FireAlarmCablingGuide />
+    <AccessControlStrategiesGuide />
+    <SecurityAlarmInsuranceFAQ />
+  </NmtPage>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { injectSchema, useSEO } from '../composables/useSEO'
+
+import NmtPage from '../components/ui/NmtPage.vue'
 
 import OnvifGuide from '../components/learn/OnvifGuide.vue'
 import PoeGuide from '../components/learn/PoeGuide.vue'

@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="isVisible"
-    class="fixed inset-0 z-[100] flex items-center justify-center p-4"
+    class="fixed inset-0 z-[200] flex items-center justify-center p-4"
     @click="close"
   >
     <!-- Enhanced Backdrop with Blur -->
@@ -335,7 +335,9 @@
 </template>
 
 <script>
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, onBeforeUnmount } from "vue";
+import { cartStore } from "../store/cartStore.js";
+import { toastService } from "../services/toastService.js";
 
 export default {
   name: "ProductDetailsModal",
@@ -358,6 +360,26 @@ export default {
     const isVisible = computed(
       () => props.isOpen && props.product && Object.keys(props.product).length > 0
     );
+
+    const previousOverflow = ref("");
+    watch(
+      isVisible,
+      (locked) => {
+        if (typeof document === "undefined") return;
+        if (locked) {
+          previousOverflow.value = document.body.style.overflow;
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = previousOverflow.value || "";
+        }
+      },
+      { immediate: true }
+    );
+
+    onBeforeUnmount(() => {
+      if (typeof document === "undefined") return;
+      document.body.style.overflow = previousOverflow.value || "";
+    });
 
     // Theme color based on product category
     const themeColor = computed(() => {
@@ -398,8 +420,12 @@ export default {
     };
 
     const addToCartAndClose = () => {
-      // Add to cart logic here
-      console.log("Adding to cart:", props.product);
+      if (props.product && props.product.id) {
+        cartStore.addItem(props.product);
+        toastService.success(`Added to quote: ${props.product.name}`, { duration: 2500 });
+      } else {
+        toastService.error("Could not add item to quote");
+      }
       close();
     };
 
