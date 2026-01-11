@@ -25,6 +25,7 @@
         "vite": "^7.1.3"
     },
     "dependencies": {
+        "@descope/vue-sdk": "^2.15.10",
         "@fortawesome/fontawesome-svg-core": "^6.4.0",
         "@fortawesome/free-brands-svg-icons": "^6.4.0",
         "@fortawesome/free-regular-svg-icons": "^6.4.0",

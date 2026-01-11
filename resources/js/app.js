@@ -7,6 +7,7 @@ import LandingPage from './views/LandingPage.vue'
 import CcTv from './components/CcTv.vue'
 import axios from 'axios'
 import { vTouch } from './directives/touch-directive'
+import descope, { getSdk } from '@descope/vue-sdk'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -58,6 +59,13 @@ const app = createApp(App)
 
 // Register the touch directive globally
 app.directive('touch', vTouch)
+
+// Initialize Descope (if configured) and mount the app
+if (import.meta.env.VITE_DESCOPE_PROJECT_ID) {
+  app.use(descope, { projectId: import.meta.env.VITE_DESCOPE_PROJECT_ID })
+  // Optional: expose SDK via global for quick usage in dev
+  // const sdk = getSdk()
+}
 
 // Mount the app
 app.use(router).mount('#app')
