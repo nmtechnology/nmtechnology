@@ -10,13 +10,51 @@
 
     <teleport to="body">
       <div v-if="isOpen" class="modal" @click.self="closeModal">
-       
-          <div class="modal-header">
-            <button class="text-white close-button" @click="closeModal">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
-              </svg>
-            </button>
+        <div class="isolate bg-black modal-content">
+          <div class="modal-header flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <NMLogo variant="service" size="small" />
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                v-if="!showInlineLearn"
+                @click="openInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >              </button>
+            </div>
+          </div>
+
+          <!-- Scrollable body -->
+          <div class="modal-body overflow-y-auto flex-1">
+            <div class="mx-auto grid max-w-7xl grid-cols-1">
+              <button
+                v-if="!showInlineLearn"
+                @click="openInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
+                </svg>
+                <span>Technology Learning Center</span>
+              </button>
+
+              <button
+                v-else
+                @click="closeInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >
+                <span class="text-sm">◀</span>
+                <span>Back to FAQs</span>
+              </button>
+
+              <button class="text-white close-button" @click="closeModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <!-- SecurityFAQs content -->
@@ -24,37 +62,23 @@
             <div class="relative px-4 sm:px-6 pb-12 sm:pb-20 pt-12 sm:pt-24">
               <div class="mx-auto max-w-4xl">
                 <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
-                  <div class="absolute inset-0 bg-gradient-to-br from-gray-800/80 to-gray-800/60"></div>
+                  <div class="absolute inset-0 bg-black rounded"></div>
                 </div>
-                <!-- Learning Center quick links -->
-                <div class="mb-6 flex flex-wrap gap-3">
-                  <a class="nmt-chip-link" href="/learn#onvif" @click.prevent="openInlineLearn('#onvif')">ONVIF protocols</a>
-                  <a class="nmt-chip-link" href="/learn#poe" @click.prevent="openInlineLearn('#poe')">PoE classes</a>
-                  <a class="nmt-chip-link" href="/learn#fire-alarm-cabling" @click.prevent="openInlineLearn('#fire-alarm-cabling')">Fire alarm wiring</a>
-                  <a class="nmt-chip-link" href="/learn#access-control" @click.prevent="openInlineLearn('#access-control')">Access control</a>
-                  <a class="nmt-chip-link" href="/learn#alarm-insurance" @click.prevent="openInlineLearn('#alarm-insurance')">Alarm & Insurance FAQ</a>
-                  <a class="nmt-chip-link" href="/learn" @click.prevent="openInlineLearn()">Open Learning Center</a>
-                </div>
+                <!-- Single Learning Center button -->
+               
                 <template v-if="!showInlineLearn">
                   <SecurityFAQs @scroll-to="handleScrollTo" />
                 </template>
 
                 <template v-else>
-                  <div class="mb-4 flex items-center justify-between">
-                    <button @click="closeInlineLearn" class="px-3 py-1.5 bg-gray-800 rounded-md text-gray-200 hover:bg-gray-700">◀ Back to FAQs</button>
-                    <div class="flex gap-2">
-                      <button @click="closeModal" class="px-3 py-1.5 bg-gray-700 rounded-md text-gray-200 hover:bg-gray-600">Close</button>
-                    </div>
-                  </div>
-
-                  <div class="learn-inline">
+                    <div class="learn-inline">
                     <component :is="inlineLearnComp" :initialHash="currentLearnHash" />
                   </div>
                 </template>
               </div>
             </div>
-          </div>
-        
+          </div> <!-- /.modal-body -->
+        </div>
       </div>
     </teleport>
   </div>
@@ -64,11 +88,12 @@
 import { ref, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import SecurityFAQs from './SecurityFAQs.vue';
-
+import NMLogo from './NMLogo.vue';
 export default {
   name: 'SecurityFAQsModal',
   components: {
-    SecurityFAQs
+    SecurityFAQs,
+    NMLogo
   },
   setup() {
     const isOpen = ref(false);
@@ -196,23 +221,45 @@ export default {
 }
 
 .modal-content {
-    margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
+    /* Modal layout: header sticky + scrollable body */
+    margin-top: 80px; /* space for header under the fixed navbar */
     margin-bottom: 2rem;
     width: 100%;
     max-width: 1200px;
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
     position: relative;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 6rem);
+    overflow: hidden;
     animation: modalSlideDown 0.3s ease-out;
-    border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    background: transparent;
+    border: none;
 }
 
 .modal-header {
-    position: relative;
-    padding-top: 1rem;
-    padding-right: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 96px; /* larger header */
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(180deg, rgba(8,10,12,0.85), rgba(8,10,12,0.6));
+    border-bottom: 1px solid rgba(16, 185, 129, 0.06);
+}
+
+.modal-body {
+    padding: 1rem 1.25rem 1.5rem 1.25rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+}
+
+/* Reduce top spacing inside inner surface so header doesn't feel duplicated */
+.security-faqs {
+  padding-top: 0.75rem;
 }
 
 .close-button {
