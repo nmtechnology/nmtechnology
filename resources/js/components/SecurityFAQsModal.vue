@@ -26,6 +26,15 @@
                 <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
                   <div class="absolute inset-0 bg-gradient-to-br from-gray-800/80 to-gray-800/60"></div>
                 </div>
+                <!-- Learning Center quick links -->
+                <div class="mb-6 flex flex-wrap gap-3">
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#onvif' }">ONVIF protocols</router-link>
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#poe' }">PoE classes</router-link>
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#fire-alarm-cabling' }">Fire alarm wiring</router-link>
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#access-control' }">Access control</router-link>
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#alarm-insurance' }">Alarm & Insurance FAQ</router-link>
+                  <router-link class="nmt-chip-link" :to="{ path: '/learn' }">Open Learning Center</router-link>
+                </div>
                 <SecurityFAQs @scroll-to="handleScrollTo" />
               </div>
             </div>

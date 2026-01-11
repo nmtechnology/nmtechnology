@@ -74,7 +74,7 @@
             Contact Us
           </button>
           <button
-            @click="generateQuote"
+            @click="openSecurityFAQsModal"
             class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,10 +82,10 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            Get Quote
+            Security FAQs
           </button>
         </div>
       </nav>
@@ -152,7 +152,7 @@
               </div>
             </div>
 
-            <!-- Navigation Section -->
+            <!-- Navigation Section (simplified for mobile) -->
             <div class="px-6 py-6">
               <nav class="space-y-2">
                 <router-link
@@ -160,114 +160,23 @@
                   :key="item.name"
                   :to="item.href"
                   @click="mobileMenuOpen = false"
-                  class="group flex items-center px-4 py-4 text-base font-semibold bg-gray-800/40 hover:bg-gray-700 text-gray-300 hover:text-white transition-all duration-200 rounded-lg border border-gray-700/50 hover:border-gray-600"
-                  :class="{
-                    'bg-gray-700 text-white border-gray-600': isActiveRoute(item.href),
-                  }"
+                  class="block px-4 py-3 text-base font-semibold text-gray-300 hover:text-white bg-gray-800/40 rounded-md"
+                  :class="{ 'bg-gray-700 text-white': isActiveRoute(item.href) }"
                 >
-                  <div class="flex items-center justify-between w-full">
-                    <div class="flex items-center">
-                      <!-- Icons with subtle styling -->
-                      <div class="p-2 rounded-lg bg-gray-700/50 mr-4">
-                        <svg
-                          v-if="item.name === 'Home'"
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-gray-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                          />
-                        </svg>
-                        <svg
-                          v-else-if="item.name === 'CCTV'"
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-gray-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                          />
-                        </svg>
-                        <svg
-                          v-else-if="item.name === 'Security Systems'"
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-gray-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                          />
-                        </svg>
-                        <svg
-                          v-else-if="item.name === 'Fire Alarms'"
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-gray-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-                          />
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
-                          />
-                        </svg>
-                        <svg
-                          v-else
-                          class="h-5 w-5 text-gray-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                          />
-                        </svg>
-                      </div>
-                      <span>{{ item.name }}</span>
-                    </div>
-                    <!-- Simple arrow indicator -->
-                    <svg
-                      class="h-4 w-4 text-gray-500 group-hover:text-gray-400 transition-colors duration-200"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
+                  {{ item.name }}
                 </router-link>
+
+                <div class="mt-4">
+                  <button
+                    @click="openSecurityFAQsModal(); mobileMenuOpen = false"
+                    class="w-full inline-flex items-center justify-center px-4 py-3 bg-red-600 border border-red-700 rounded-md font-medium text-white text-base hover:bg-red-700 hover:text-white transition-all duration-200"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Security FAQs</span>
+                  </button>
+                </div>
               </nav>
 
               <!-- Enhanced Action Buttons Section -->
@@ -407,6 +316,9 @@
 
   <!-- Application Modal -->
   <ApplicationModal ref="applicationModalRef" />
+
+  <!-- Security FAQs Modal (opened from navbar) -->
+  <SecurityFAQsModal ref="securityFaqsRef" />
 </template>
 
 <script>
@@ -430,7 +342,6 @@ const navigation = [
   { name: "Fire Alarms", href: "/products" },
   { name: "Networking", href: "/products" },
   { name: "Structured Cabling", href: "/products" },
-  { name: "Learn", href: "/learn" },
 ];
 
 export default {
@@ -496,9 +407,17 @@ export default {
     };
 
     const generateQuote = () => {
-      // Navigate to Products page for quote generation
+      // Keep for backward compat - navigate to Products page for quote generation
       if (route.path !== "/products") {
         window.location.href = "/products";
+      }
+    };
+
+    // Security FAQs modal control
+    const securityFaqsRef = ref(null);
+    const openSecurityFAQsModal = () => {
+      if (securityFaqsRef.value) {
+        securityFaqsRef.value.openModal();
       }
     };
 
@@ -511,12 +430,14 @@ export default {
       mobileMenuOpen,
       contactModalRef,
       applicationModalRef,
+      securityFaqsRef,
       cartItemCount,
       openCart,
       openCartAndCloseMenu,
       openContactModal,
       openApplicationModal,
       generateQuote,
+      openSecurityFAQsModal,
       isLandingPage,
       isActiveRoute,
       isRouteActive,
