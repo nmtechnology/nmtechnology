@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div
       v-if="isVisible"
-      class="fixed inset-0 z-[200] flex items-center justify-center p-4 relative"
+      class="fixed inset-0 z-[9999] flex items-center justify-center p-4 relative"
       @click="close"
     >
       <!-- Enhanced Backdrop with Blur (kept behind modal panel) -->
@@ -13,6 +13,7 @@
 
       <!-- Modern Modal Container -->
       <div
+        ref="panelRef"
         @click.stop
         :class="[
           'relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-2xl',
@@ -337,7 +338,7 @@
 </template>
 
 <script>
-import { computed, ref, watch, onBeforeUnmount } from "vue";
+import { computed, ref, watch, onBeforeUnmount, nextTick } from "vue";
 import { cartStore } from "../store/cartStore.js";
 import { toastService } from "../services/toastService.js";
 
@@ -360,7 +361,7 @@ export default {
 
     // Modal visibility
     const isVisible = computed(() => {
-      const visible = props.isOpen && props.product && props.product.id;
+      const visible = Boolean(props.isOpen && props.product && props.product.id);
       console.log('ProductDetailsModal isVisible computed:', {
         isOpen: props.isOpen,
         hasProduct: !!props.product,
@@ -369,6 +370,52 @@ export default {
       });
       return visible;
     });
+
+    // Panel ref for DOM diagnostics
+    const panelRef = ref(null);
+
+    // When modal becomes visible, inspect the DOM to ensure panel is rendered and visible
+    watch(isVisible, async (locked) => {
+      if (locked) {
+        await nextTick();
+        try {
+          const panelEl = panelRef.value;
+          console.log('ProductDetailsModal: panelEl:', panelEl);
+          if (!panelEl) {
+            console.warn('ProductDetailsModal: panel element not found after mount');
+            return;
+          }
+
+          const parent = panelEl.parentElement;
+          console.log('ProductDetailsModal: panel parent:', parent, 'parent === document.body?', parent === document.body);
+
+          const rect = panelEl.getBoundingClientRect();
+          const style = window.getComputedStyle(panelEl);
+          console.log('ProductDetailsModal: panel rect:', rect);
+          console.log('ProductDetailsModal: panel computed style:', {
+            display: style.display,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            pointerEvents: style.pointerEvents,
+            zIndex: style.zIndex,
+            transform: style.transform,
+          });
+
+          // Walk up ancestors to find any transforms (which create stacking contexts)
+          let el = panelEl.parentElement;
+          while (el && el !== document.body) {
+            const s = window.getComputedStyle(el);
+            if (s.transform && s.transform !== 'none') {
+              console.warn('ProductDetailsModal: found transform on ancestor:', el, s.transform);
+            }
+            el = el.parentElement;
+          }
+        } catch (err) {
+          console.error('ProductDetailsModal: error inspecting panel DOM', err);
+        }
+      }
+    });
+
 
     // Watch props changes for debugging
     watch(
@@ -490,6 +537,7 @@ export default {
     return {
       product: computed(() => props.product),
       isVisible,
+      panelRef,
       themeColor,
       categoryName,
       currentImageIndex,
