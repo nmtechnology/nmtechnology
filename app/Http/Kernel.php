@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\NotifyOnVisit::class,
             \App\Http\Middleware\DetectGoogleCrawler::class,
+            \App\Http\Middleware\ContentSecurityPolicy::class,
         ],
 
         'api' => [
