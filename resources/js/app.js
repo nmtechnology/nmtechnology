@@ -1,8 +1,6 @@
 import './bootstrap'
 import { createApp } from 'vue'
-import { createRouter, createWebHistory, useRoute } from 'vue-router'
-import { onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import HomePage from './views/HomePage.vue'
 import LandingPage from './views/LandingPage.vue'
@@ -23,6 +21,7 @@ const router = createRouter({
     { path: '/', name: 'landing', component: LandingPage },
     { path: '/home', name: 'nmtis', component: HomePage },
     { path: '/products', name: 'Products', component: CcTv },
+    { path: '/learn', name: 'LearnCenter', component: () => import('./views/LearnCenter.vue') },
     { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
   ],
   
@@ -67,7 +66,6 @@ const instance = axios.create({
   baseURL: 'http://127.0.0.1:8000/'
 })
 
-const routerInstance = useRouter();
 let visitorVerified = false;
 
 // Call this after successful math verification
@@ -87,22 +85,15 @@ function logAction(page, details = '') {
 }
 
 // Track route changes (page visits)
-onMounted(() => {
-  routerInstance.afterEach((to) => {
-    logAction(to.name || to.path, 'Page visited');
-  });
+router.afterEach((to) => {
+  logAction(to.name || to.path, 'Page visited');
 });
 
 // Track tab/window close or navigation away
-onMounted(() => {
-  window.addEventListener('beforeunload', () => {
-    if (visitorVerified) {
-      navigator.sendBeacon('/api/left-site');
-    }
-  });
-});
-onUnmounted(() => {
-  window.removeEventListener('beforeunload', () => {});
+window.addEventListener('beforeunload', () => {
+  if (visitorVerified) {
+    navigator.sendBeacon('/api/left-site');
+  }
 });
 
 // Example: call startVisitorSession after math verification

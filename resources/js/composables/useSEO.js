@@ -70,6 +70,12 @@ export const pageSEOConfigs = {
         description: 'Request a free quote for security systems, CCTV installation, fire alarms, or access control in Albuquerque and New Mexico. Fast response guaranteed.',
         keywords: 'security quote Albuquerque, free CCTV estimate NM, fire alarm quote 87123',
         path: '/quote'
+    },
+    learn: {
+        title: 'ONVIF, PoE Classes, Fire Alarm Cabling & Access Control Schemes | NM Technology',
+        description: 'Learn ONVIF profiles, PoE power classifications (802.3af/at/bt), fire alarm wiring and cabling basics, access control security strategies, and alarm/insurance FAQs.',
+        keywords: 'ONVIF profiles, ONVIF protocol, PoE classes, power over ethernet classifications, 802.3af 802.3at 802.3bt, fire alarm cabling FPL FPLR FPLP, access control schemes OSDP Wiegand, security alarm insurance discount',
+        path: '/learn'
     }
 };
 

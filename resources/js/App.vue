@@ -430,6 +430,7 @@ const navigation = [
   { name: "Fire Alarms", href: "/products" },
   { name: "Networking", href: "/products" },
   { name: "Structured Cabling", href: "/products" },
+  { name: "Learn", href: "/learn" },
 ];
 
 export default {

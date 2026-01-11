@@ -34,10 +34,11 @@ Route::middleware(['block.nonus'])->group(function () {
         '/fire-alarms',
         '/network',
         '/security-systems',
-        '/contact',
-        '/quote',
-        '/about',
-        '/careers'
+           '/learn',
+           '/contact',
+           '/quote',
+           '/about',
+           '/careers'
     ];
     
     foreach ($spaRoutes as $route) {
