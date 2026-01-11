@@ -24,12 +24,12 @@ class ContentSecurityPolicy
         // Build CSP header
         $csp = [
             "default-src 'self'",
-            "script-src 'self' 'nonce-{$nonce}' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://api.descope.com https://app.descope.com",
+            "script-src 'self' 'nonce-{$nonce}' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "font-src 'self' https://fonts.gstatic.com data:",
             "img-src 'self' data: https: http:",
-            "connect-src 'self' https://www.google.com https://www.googletagmanager.com https://api.descope.com https://app.descope.com",
-            "frame-src 'self' https://www.google.com https://app.descope.com",
+            "connect-src 'self' https://www.google.com https://www.googletagmanager.com",
+            "frame-src 'self' https://www.google.com",
             "object-src 'none'",
             "base-uri 'self'",
             "form-action 'self'",

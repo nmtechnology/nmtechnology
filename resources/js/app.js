@@ -59,28 +59,6 @@ const app = createApp(App)
 // Register the touch directive globally
 app.directive('touch', vTouch)
 
-// Initialize Descope (if configured) and mount the app
-if (import.meta.env.VITE_DESCOPE_PROJECT_ID) {
-  // Dynamically import @descope/vue-sdk so builds don't fail when the package
-  // is not present on the build server. This prevents Rollup resolving the
-  // module at build time when Descope isn't needed.
-  import('@descope/vue-sdk')
-    .then(({ default: descope, getSdk }) => {
-      try {
-        app.use(descope, { projectId: import.meta.env.VITE_DESCOPE_PROJECT_ID });
-        // Optionally expose SDK globally during development for quick testing
-        if (import.meta.env.DEV) {
-          window.descopeSdk = getSdk();
-        }
-      } catch (e) {
-        console.error('Descope initialization failed:', e);
-      }
-    })
-    .catch((err) => {
-      console.error('Failed to load Descope SDK dynamically:', err);
-    });
-}
-
 // Mount the app
 app.use(router).mount('#app')
 
