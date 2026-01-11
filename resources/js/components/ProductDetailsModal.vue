@@ -1,25 +1,26 @@
 <template>
-  <div
-    v-if="isVisible"
-    class="fixed inset-0 z-[200] flex items-center justify-center p-4"
-    @click="close"
-  >
-    <!-- Enhanced Backdrop with Blur -->
+  <Teleport to="body">
     <div
-      class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity"
+      v-if="isVisible"
+      class="fixed inset-0 z-[200] flex items-center justify-center p-4 relative"
       @click="close"
-    ></div>
-
-    <!-- Modern Modal Container -->
-    <div
-      @click.stop
-      :class="[
-        'relative w-full max-w-4xl mx-auto rounded-2xl shadow-2xl',
-        'bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95',
-        'backdrop-blur-xl border border-gray-700/50 overflow-hidden',
-        'transform transition-all duration-300 ease-out max-h-[90vh] flex flex-col',
-      ]"
     >
+      <!-- Enhanced Backdrop with Blur (kept behind modal panel) -->
+      <div
+        class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm transition-opacity z-0"
+        @click="close"
+      ></div>
+
+      <!-- Modern Modal Container -->
+      <div
+        @click.stop
+        :class="[
+          'relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-2xl',
+          'bg-gradient-to-br from-gray-900/95 via-gray-800/90 to-gray-900/95',
+          'backdrop-blur-xl border border-gray-700/50 overflow-hidden',
+          'transform transition-all duration-300 ease-out max-h-[90vh] flex flex-col',
+        ]"
+      >
       <!-- Modern Header Section -->
       <div class="relative bg-gray-900 border-b border-gray-700 overflow-hidden">
         <!-- Image Carousel -->
@@ -330,8 +331,9 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script>
