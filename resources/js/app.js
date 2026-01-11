@@ -7,7 +7,6 @@ import LandingPage from './views/LandingPage.vue'
 import CcTv from './components/CcTv.vue'
 import axios from 'axios'
 import { vTouch } from './directives/touch-directive'
-import descope, { getSdk } from '@descope/vue-sdk'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -62,9 +61,24 @@ app.directive('touch', vTouch)
 
 // Initialize Descope (if configured) and mount the app
 if (import.meta.env.VITE_DESCOPE_PROJECT_ID) {
-  app.use(descope, { projectId: import.meta.env.VITE_DESCOPE_PROJECT_ID })
-  // Optional: expose SDK via global for quick usage in dev
-  // const sdk = getSdk()
+  // Dynamically import @descope/vue-sdk so builds don't fail when the package
+  // is not present on the build server. This prevents Rollup resolving the
+  // module at build time when Descope isn't needed.
+  import('@descope/vue-sdk')
+    .then(({ default: descope, getSdk }) => {
+      try {
+        app.use(descope, { projectId: import.meta.env.VITE_DESCOPE_PROJECT_ID });
+        // Optionally expose SDK globally during development for quick testing
+        if (import.meta.env.DEV) {
+          window.descopeSdk = getSdk();
+        }
+      } catch (e) {
+        console.error('Descope initialization failed:', e);
+      }
+    })
+    .catch((err) => {
+      console.error('Failed to load Descope SDK dynamically:', err);
+    });
 }
 
 // Mount the app
