@@ -1,37 +1,21 @@
 <template>
-  <div class="security-faqs bg-gray-900/40 rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
-    <!-- Animated Header Section -->
-    <div class="relative mb-10">
-      <div class="absolute inset-0 bg-blue-900/30 rounded-lg transform skew-y-2 -z-10"></div>
-      <div class="absolute inset-0 bg-purple-900/20 rounded-lg transform -skew-y-1 -z-20"></div>
-      
-      <div class="text-center py-10 px-6 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full flex justify-between opacity-10 -z-10">
-          <div v-for="i in 5" :key="i" class="h-full w-[1px] bg-gradient-to-b from-blue-500/0 via-blue-500/80 to-blue-500/0"></div>
-        </div>
-        <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-between opacity-10 -z-10">
-          <div v-for="i in 3" :key="i" class="w-full h-[1px] bg-gradient-to-r from-blue-500/0 via-blue-500/80 to-blue-500/0"></div>
-        </div>
-        
-        <div class="flex justify-center mb-4">
-          <div class="relative">
-            <div class="absolute -inset-2 bg-blue-600/30 rounded-full blur-lg animate-pulse"></div>
-            <div class="relative bg-blue-600 p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
+  <NmtSurface class="security-faqs bg-gray-900/40 rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
+    <!-- Header (aligned with Learn page style) -->
+    <header class="mb-8 text-center">
+      <div class="flex justify-center mb-4">
+        <div class="relative">
+          <div class="absolute -inset-2 bg-blue-600/20 rounded-full blur-lg animate-pulse"></div>
+          <div class="relative bg-blue-600 p-3 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
           </div>
         </div>
-        
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 animate-fadeIn">
-          Security System FAQs
-        </h2>
-        <p class="text-lg text-gray-300 max-w-3xl mx-auto animate-fadeIn-delay">
-          Discover why investing in a modern security system is one of the smartest decisions you can make for your home or business.
-        </p>
       </div>
-    </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">Security System FAQs</h2>
+      <p class="mt-2 text-gray-300 max-w-3xl mx-auto">Discover why investing in a modern security system is one of the smartest decisions you can make for your home or business.</p>
+    </header>
 
     <!-- Why Invest in Security - Visual Statistics Section -->
     <div class="mb-16">
@@ -323,14 +307,15 @@
         </button>
       </div>
     </div>
-  </div>
+  </NmtSurface>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue';
-
+import NmtSurface from './ui/NmtSurface.vue';
 export default {
   name: 'SecurityFAQs',
+  components: { NmtSurface },
   // Define emitted events
   emits: ['scroll-to'],
   setup(props, { emit }) {
