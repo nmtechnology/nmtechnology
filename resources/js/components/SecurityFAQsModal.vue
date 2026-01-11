@@ -16,7 +16,7 @@
               <button
                 v-if="!showInlineLearn"
                 @click="openInlineLearn()"
-                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+                class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
@@ -28,7 +28,7 @@
               <button
                 v-else
                 @click="closeInlineLearn()"
-                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+                class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
               >
                 <span class="text-sm">◀</span>
                 <span>Back to FAQs</span>
