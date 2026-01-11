@@ -199,41 +199,41 @@
             No products found. Please try a different filter.
           </div>
 
-          <div
-            v-for="(brandGroup, brand) in groupedProducts || {}"
-            :key="brand"
-            class="mb-16"
-            v-else
-            :id="
-              brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null
-            "
-          >
-            <h2 class="text-left text-wrap text-2xl font-extrabold mb-6">
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-                >{{ brand }}</span
-              >
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div
-                v-for="product in brandGroup"
-                :key="product.id"
-                :class="[
-                  'rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
-                  product.category === 'package'
-                    ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20'
-                    : product.category === 'monitoring'
-                    ? 'border border-purple-500/30 hover:border-purple-500/50 hover:shadow-purple-500/20 ring-1 ring-purple-500/20'
-                    : product.category === 'security' && product.color === 'blue'
-                    ? 'border border-blue-500/30 hover:border-blue-500/50 hover:shadow-blue-500/20 ring-1 ring-blue-500/20'
-                    : product.brand === 'NM Solar' && product.color === 'yellow'
-                    ? 'border border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-yellow-500/20 ring-1 ring-yellow-500/20'
-                    : 'border border-green-500/20 hover:border-green-500/40 hover:shadow-green-500/10',
-                ]"
-                @click="showProductDetails(product)"
-                role="button"
-                :aria-label="`View details for ${product.name}`"
-              >
+          <template v-else>
+            <div
+              v-for="(brandGroup, brand) in groupedProducts || {}"
+              :key="brand"
+              class="mb-16"
+              :id="
+                brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null
+              "
+            >
+              <h2 class="text-left text-wrap text-2xl font-extrabold mb-6">
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >{{ brand }}</span
+                >
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                  v-for="product in brandGroup"
+                  :key="product.id"
+                  :class="[
+                    'rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
+                    product.category === 'package'
+                      ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20'
+                      : product.category === 'monitoring'
+                      ? 'border border-purple-500/30 hover:border-purple-500/50 hover:shadow-purple-500/20 ring-1 ring-purple-500/20'
+                      : product.category === 'security' && product.color === 'blue'
+                      ? 'border border-blue-500/30 hover:border-blue-500/50 hover:shadow-blue-500/20 ring-1 ring-blue-500/20'
+                      : product.brand === 'NM Solar' && product.color === 'yellow'
+                      ? 'border border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-yellow-500/20 ring-1 ring-yellow-500/20'
+                      : 'border border-green-500/20 hover:border-green-500/40 hover:shadow-green-500/10',
+                  ]"
+                  @click="showProductDetails(product)"
+                  role="button"
+                  :aria-label="`View details for ${product.name}`"
+                >
                 <div
                   v-if="product.category === 'package'"
                   class="bg-green-600/20 text-green-500 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
@@ -488,9 +488,10 @@
                     </button>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </div>
@@ -811,12 +812,12 @@ export default {
         // Make sure filteredProducts.value is an array before processing
         if (filteredProducts.value && Array.isArray(filteredProducts.value)) {
           filteredProducts.value.forEach((product) => {
-            if (product && product.brand) {
-              if (!grouped[product.brand]) {
-                grouped[product.brand] = [];
-              }
-              grouped[product.brand].push(product);
+            if (!product) return;
+            const brandKey = product.brand || "Other";
+            if (!grouped[brandKey]) {
+              grouped[brandKey] = [];
             }
+            grouped[brandKey].push(product);
           });
 
           // Sort packages by price (ascending)
