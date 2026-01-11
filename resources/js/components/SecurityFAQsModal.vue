@@ -21,6 +21,17 @@
                 v-if="!showInlineLearn"
                 @click="openInlineLearn()"
                 class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >              </button>
+            </div>
+          </div>
+
+          <!-- Scrollable body -->
+          <div class="modal-body overflow-y-auto flex-1">
+            <div class="mx-auto grid max-w-7xl grid-cols-1">
+              <button
+                v-if="!showInlineLearn"
+                @click="openInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
@@ -66,7 +77,7 @@
                 </template>
               </div>
             </div>
-          </div>
+          </div> <!-- /.modal-body -->
         </div>
       </div>
     </teleport>
@@ -210,23 +221,45 @@ export default {
 }
 
 .modal-content {
-    margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
+    /* Modal layout: header sticky + scrollable body */
+    margin-top: 80px; /* space for header under the fixed navbar */
     margin-bottom: 2rem;
     width: 100%;
     max-width: 1200px;
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
     position: relative;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 6rem);
+    overflow: hidden;
     animation: modalSlideDown 0.3s ease-out;
-    border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    background: transparent;
+    border: none;
 }
 
 .modal-header {
-    position: relative;
-    padding-top: 1rem;
-    padding-right: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 96px; /* larger header */
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(180deg, rgba(8,10,12,0.85), rgba(8,10,12,0.6));
+    border-bottom: 1px solid rgba(16, 185, 129, 0.06);
+}
+
+.modal-body {
+    padding: 1rem 1.25rem 1.5rem 1.25rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+}
+
+/* Reduce top spacing inside inner surface so header doesn't feel duplicated */
+.security-faqs {
+  padding-top: 0.75rem;
 }
 
 .close-button {
