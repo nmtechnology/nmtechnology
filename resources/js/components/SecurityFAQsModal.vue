@@ -11,7 +11,7 @@
     <teleport to="body">
       <div v-if="isOpen" class="modal" @click.self="closeModal">
         <div class="isolate bg-black modal-content">
-          <div class="modal-header flex items-center justify-between">
+          <div class="modal-header relative flex items-center justify-between">
             <div class="flex items-center gap-2">
               <button
                 v-if="!showInlineLearn"
@@ -33,6 +33,11 @@
                 <span class="text-sm">◀</span>
                 <span>Back to FAQs</span>
               </button>
+            </div>
+
+            <!-- Center logo -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
+              <NMLogo variant="service" size="small" />
             </div>
 
             <button class="text-white close-button" @click="closeModal">
@@ -73,11 +78,12 @@
 import { ref, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import SecurityFAQs from './SecurityFAQs.vue';
-
+import NMLogo from './NMLogo.vue';
 export default {
   name: 'SecurityFAQsModal',
   components: {
-    SecurityFAQs
+    SecurityFAQs,
+    NMLogo
   },
   setup() {
     const isOpen = ref(false);
