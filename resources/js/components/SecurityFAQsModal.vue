@@ -11,7 +11,30 @@
     <teleport to="body">
       <div v-if="isOpen" class="modal" @click.self="closeModal">
         <div class="isolate bg-black modal-content">
-          <div class="modal-header">
+          <div class="modal-header flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <button
+                v-if="!showInlineLearn"
+                @click="openInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
+                </svg>
+                <span>Technology Learning Center</span>
+              </button>
+
+              <button
+                v-else
+                @click="closeInlineLearn()"
+                class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm"
+              >
+                <span class="text-sm">◀</span>
+                <span>Back to FAQs</span>
+              </button>
+            </div>
+
             <button class="text-white close-button" @click="closeModal">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
@@ -41,14 +64,7 @@
                 </template>
 
                 <template v-else>
-                  <div class="mb-4 flex items-center justify-between">
-                    <button @click="closeInlineLearn" class="px-3 py-1.5 bg-gray-800 rounded-md text-gray-200 hover:bg-gray-700">◀ Back to FAQs</button>
-                    <div class="flex gap-2">
-                      <button @click="closeModal" class="px-3 py-1.5 bg-gray-700 rounded-md text-gray-200 hover:bg-gray-600">Close</button>
-                    </div>
-                  </div>
-
-                  <div class="learn-inline">
+                    <div class="learn-inline">
                     <component :is="inlineLearnComp" :initialHash="currentLearnHash" />
                   </div>
                 </template>
