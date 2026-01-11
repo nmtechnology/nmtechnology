@@ -371,8 +371,10 @@ export default {
         if (locked) {
           previousOverflow.value = document.body.style.overflow;
           document.body.style.overflow = "hidden";
+          console.log('ProductDetailsModal: Locked body scroll');
         } else {
           document.body.style.overflow = previousOverflow.value || "";
+          console.log('ProductDetailsModal: Restored body scroll');
         }
       },
       { immediate: true }
@@ -381,6 +383,7 @@ export default {
     onBeforeUnmount(() => {
       if (typeof document === "undefined") return;
       document.body.style.overflow = previousOverflow.value || "";
+      console.log('ProductDetailsModal: Unmounted, restored scroll');
     });
 
     // Theme color based on product category

@@ -619,9 +619,8 @@
 
   <!-- Product Details Modal -->
   <ProductDetailsModal
-    v-if="selectedProduct"
     :isOpen="productDetailsOpen"
-    :product="selectedProduct"
+    :product="selectedProduct || {}"
     class="relative z-[100]"
     :key="'product-details-modal'"
     @close="closeProductDetails"
@@ -862,6 +861,13 @@ export default {
 
     // Product details modal
     const showProductDetails = (product) => {
+      console.log('showProductDetails called with:', product);
+      
+      if (!product) {
+        console.warn('No product provided to showProductDetails');
+        return;
+      }
+
       // If we receive a product with just an ID (from RecentlyViewed)
       // we need to find the full product data
       if (product && product.id && !product.features) {
@@ -885,11 +891,15 @@ export default {
         }
       }
 
+      console.log('Setting productDetailsOpen to true, selectedProduct:', selectedProduct.value);
       productDetailsOpen.value = true;
     };
 
     const closeProductDetails = () => {
+      console.log('closeProductDetails called');
       productDetailsOpen.value = false;
+      // Restore scroll immediately
+      document.body.style.overflow = '';
       setTimeout(() => {
         selectedProduct.value = null;
       }, 200); // Small delay to allow for animation
