@@ -1,11 +1,11 @@
 <template>
-  <NmtSurface class="security-faqs bg-gray-900 rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
+  <NmtSurface class="security-faqs bg-black rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
     <!-- Header (aligned with Learn page style) -->
     <header class="mb-8 text-center">
       <div class="flex justify-center mb-4">
         <div class="relative">
-          <div class="absolute -inset-2 bg-blue-600/20 rounded-full blur-lg animate-pulse"></div>
-          <div class="relative bg-blue-600 p-3 rounded-full">
+          <div class="absolute -inset-2 bg-black/20 rounded-full blur-lg animate-pulse"></div>
+          <div class="relative bg-black-600 p-3 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
