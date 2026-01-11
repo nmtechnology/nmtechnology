@@ -50,15 +50,7 @@
                   <div class="absolute inset-0 bg-black rounded"></div>
                 </div>
                 <!-- Single Learning Center button -->
-                <div class="mb-6">
-                  <button @click="openInlineLearn()" class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
-                    </svg>
-                    <span>Learning Center</span>
-                  </button>
-                </div>
+               
                 <template v-if="!showInlineLearn">
                   <SecurityFAQs @scroll-to="handleScrollTo" />
                 </template>
