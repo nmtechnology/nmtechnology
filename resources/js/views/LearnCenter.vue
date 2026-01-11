@@ -41,8 +41,44 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch, nextTick } from 'vue'
 import { injectSchema, useSEO } from '../composables/useSEO'
+
+// Allow optional initial hash when embedding the Learn page inline so a parent
+// can open a specific section inside a modal.
+const props = defineProps({
+  initialHash: {
+    type: String,
+    default: ''
+  }
+})
+
+// When embedded with an initialHash, scroll to that section once mounted or when changed
+const scrollToHash = async (hash) => {
+  if (!hash) return
+  await nextTick()
+  try {
+    const el = document.querySelector(hash)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Also set focus for accessibility
+      el.setAttribute('tabindex', '-1')
+      el.focus({ preventScroll: true })
+    } else {
+      console.warn('LearnCenter: Could not find element for hash', hash)
+    }
+  } catch (e) {
+    console.error('LearnCenter: scrollToHash error', e)
+  }
+}
+
+onMounted(() => {
+  if (props.initialHash) scrollToHash(props.initialHash)
+})
+
+watch(() => props.initialHash, (h) => {
+  if (h) scrollToHash(h)
+})
 
 import NmtPage from '../components/ui/NmtPage.vue'
 

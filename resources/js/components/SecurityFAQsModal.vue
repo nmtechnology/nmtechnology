@@ -28,14 +28,29 @@
                 </div>
                 <!-- Learning Center quick links -->
                 <div class="mb-6 flex flex-wrap gap-3">
-                  <a class="nmt-chip-link" href="/learn#onvif" @click.prevent="navigateToLearn('#onvif')">ONVIF protocols</a>
-                  <a class="nmt-chip-link" href="/learn#poe" @click.prevent="navigateToLearn('#poe')">PoE classes</a>
-                  <a class="nmt-chip-link" href="/learn#fire-alarm-cabling" @click.prevent="navigateToLearn('#fire-alarm-cabling')">Fire alarm wiring</a>
-                  <a class="nmt-chip-link" href="/learn#access-control" @click.prevent="navigateToLearn('#access-control')">Access control</a>
-                  <a class="nmt-chip-link" href="/learn#alarm-insurance" @click.prevent="navigateToLearn('#alarm-insurance')">Alarm & Insurance FAQ</a>
-                  <a class="nmt-chip-link" href="/learn" @click.prevent="navigateToLearn()">Open Learning Center</a>
+                  <a class="nmt-chip-link" href="/learn#onvif" @click.prevent="openInlineLearn('#onvif')">ONVIF protocols</a>
+                  <a class="nmt-chip-link" href="/learn#poe" @click.prevent="openInlineLearn('#poe')">PoE classes</a>
+                  <a class="nmt-chip-link" href="/learn#fire-alarm-cabling" @click.prevent="openInlineLearn('#fire-alarm-cabling')">Fire alarm wiring</a>
+                  <a class="nmt-chip-link" href="/learn#access-control" @click.prevent="openInlineLearn('#access-control')">Access control</a>
+                  <a class="nmt-chip-link" href="/learn#alarm-insurance" @click.prevent="openInlineLearn('#alarm-insurance')">Alarm & Insurance FAQ</a>
+                  <a class="nmt-chip-link" href="/learn" @click.prevent="openInlineLearn()">Open Learning Center</a>
                 </div>
-                <SecurityFAQs @scroll-to="handleScrollTo" />
+                <template v-if="!showInlineLearn">
+                  <SecurityFAQs @scroll-to="handleScrollTo" />
+                </template>
+
+                <template v-else>
+                  <div class="mb-4 flex items-center justify-between">
+                    <button @click="closeInlineLearn" class="px-3 py-1.5 bg-gray-800 rounded-md text-gray-200 hover:bg-gray-700">◀ Back to FAQs</button>
+                    <div class="flex gap-2">
+                      <button @click="closeModal" class="px-3 py-1.5 bg-gray-700 rounded-md text-gray-200 hover:bg-gray-600">Close</button>
+                    </div>
+                  </div>
+
+                  <div class="learn-inline">
+                    <component :is="inlineLearnComp" :initialHash="currentLearnHash" />
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -46,7 +61,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import SecurityFAQs from './SecurityFAQs.vue';
 
@@ -98,7 +113,7 @@ export default {
       }, 300);
     };
 
-    // Navigate to Learn page hashes and close modal first
+    // Navigate to Learn page hashes and close modal first (previous behavior)
     const navigateToLearn = (hash = '') => {
       closeModal();
       setTimeout(() => {
@@ -111,12 +126,52 @@ export default {
       }, 250);
     };
 
+    // Inline Learn embedding for modal: lazy-load LearnCenter.vue and show a specific hash
+    const showInlineLearn = ref(false);
+    const inlineLearnComp = ref(null);
+    const currentLearnHash = ref('');
+
+    const openInlineLearn = async (hash = '') => {
+      // If already showing Learn, just update the hash
+      currentLearnHash.value = hash || '';
+
+      if (showInlineLearn.value && inlineLearnComp.value) {
+        // Trigger the LearnCenter prop update which will scroll via watch
+        return;
+      }
+
+      try {
+        const module = await import(/* webpackChunkName: "learn-center-inline" */ '../views/LearnCenter.vue');
+        inlineLearnComp.value = module.default || module;
+        showInlineLearn.value = true;
+
+        // Allow the component to mount and then the LearnCenter will scroll using its prop
+        await nextTick();
+      } catch (e) {
+        console.error('SecurityFAQsModal: Failed to load LearnCenter inline', e);
+        // Fallback to route navigation
+        navigateToLearn(hash);
+      }
+    };
+
+    const closeInlineLearn = () => {
+      showInlineLearn.value = false;
+      inlineLearnComp.value = null;
+      currentLearnHash.value = '';
+    };
+
     return {
       isOpen,
       openModal,
       closeModal,
       navigateToProducts,
-      handleScrollTo
+      handleScrollTo,
+      // Inline learn embed API
+      showInlineLearn,
+      inlineLearnComp,
+      currentLearnHash,
+      openInlineLearn,
+      closeInlineLearn
     };
   }
 };
