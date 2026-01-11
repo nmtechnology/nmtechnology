@@ -10,7 +10,7 @@
 
     <teleport to="body">
       <div v-if="isOpen" class="modal" @click.self="closeModal">
-        <div class="isolate bg-gray-900 modal-content">
+        <div class="modal-content p-0 bg-transparent">
           <div class="modal-header">
             <button class="text-white close-button" @click="closeModal">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -196,6 +196,7 @@ export default {
 }
 
 .modal-content {
+    /* Let the inner surface handle background and borders so Learn-style surfaces render properly */
     margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
     margin-bottom: 2rem;
     width: 100%;
@@ -204,7 +205,9 @@ export default {
     position: relative;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     animation: modalSlideDown 0.3s ease-out;
-    border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .modal-header {
