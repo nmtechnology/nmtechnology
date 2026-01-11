@@ -10,7 +10,7 @@
 
     <teleport to="body">
       <div v-if="isOpen" class="modal" @click.self="closeModal">
-        <div class="modal-content p-0 bg-transparent">
+        <div class="modal-content p-0 bg-black">
           <div class="modal-header">
             <button class="text-white close-button" @click="closeModal">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
