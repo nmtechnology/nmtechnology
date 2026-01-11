@@ -359,8 +359,31 @@ export default {
     const currentImageIndex = ref(0);
 
     // Modal visibility
-    const isVisible = computed(
-      () => props.isOpen && props.product && Object.keys(props.product).length > 0
+    const isVisible = computed(() => {
+      const visible = props.isOpen && props.product && props.product.id;
+      console.log('ProductDetailsModal isVisible computed:', {
+        isOpen: props.isOpen,
+        hasProduct: !!props.product,
+        productId: props.product?.id,
+        visible
+      });
+      return visible;
+    });
+
+    // Watch props changes for debugging
+    watch(
+      () => props.isOpen,
+      (newVal) => {
+        console.log('ProductDetailsModal: isOpen prop changed to:', newVal);
+      }
+    );
+
+    watch(
+      () => props.product,
+      (newVal) => {
+        console.log('ProductDetailsModal: product prop changed to:', newVal);
+      },
+      { deep: true }
     );
 
     const previousOverflow = ref("");
@@ -371,10 +394,10 @@ export default {
         if (locked) {
           previousOverflow.value = document.body.style.overflow;
           document.body.style.overflow = "hidden";
-          console.log('ProductDetailsModal: Locked body scroll');
+          console.log('ProductDetailsModal: Locked body scroll, rendering modal');
         } else {
           document.body.style.overflow = previousOverflow.value || "";
-          console.log('ProductDetailsModal: Restored body scroll');
+          console.log('ProductDetailsModal: Restored body scroll, hiding modal');
         }
       },
       { immediate: true }

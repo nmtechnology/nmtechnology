@@ -620,7 +620,7 @@
   <!-- Product Details Modal -->
   <ProductDetailsModal
     :isOpen="productDetailsOpen"
-    :product="selectedProduct || {}"
+    :product="selectedProduct"
     class="relative z-[100]"
     :key="'product-details-modal'"
     @close="closeProductDetails"
