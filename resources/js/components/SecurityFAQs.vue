@@ -1,11 +1,11 @@
 <template>
-  <NmtSurface class="security-faqs bg-black rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
+  <NmtSurface class="security-faqs bg-gray-900/40 rounded-lg backdrop-blur-sm p-6 mb-8 overflow-hidden">
     <!-- Header (aligned with Learn page style) -->
     <header class="mb-8 text-center">
       <div class="flex justify-center mb-4">
         <div class="relative">
-          <div class="absolute -inset-2 bg-black/20 rounded-full blur-lg animate-pulse"></div>
-          <div class="relative bg-black-600 p-3 rounded-full">
+          <div class="absolute -inset-2 bg-blue-600/20 rounded-full blur-lg animate-pulse"></div>
+          <div class="relative bg-blue-600 p-3 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
@@ -20,65 +20,69 @@
     <!-- Why Invest in Security - Visual Statistics Section -->
     <div class="mb-16">
       <h3 class="text-2xl font-bold text-white mb-8 text-center">Why Invest in Security?</h3>
-
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         <!-- Statistic Card 1 -->
-        <div @mouseenter="animateCounter('burglaryCounter', 30)" class="nmt-card hover:scale-105 transition-transform duration-300 animate-fadeIn">
+        <div @mouseenter="animateCounter('burglaryCounter', 30)" 
+             class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 border border-blue-900/30 hover:border-blue-500/50 shadow-lg hover:shadow-blue-900/20">
           <div class="flex justify-center mb-4">
-            <div class="bg-red-600/20 p-3 rounded-full animate-float">
+            <div class="bg-red-600/20 p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </div>
           </div>
-          <h4 class="text-lg font-semibold text-white text-center">Every</h4>
-          <div class="text-4xl font-extrabold text-center text-red-400 my-2">
-            {{ burglaryCounter }}<span class="text-lg">sec</span>
+          <h4 class="text-xl font-bold text-white text-center">Every</h4>
+          <div class="text-5xl font-bold text-center text-red-400 my-2">
+            {{ burglaryCounter }}<span class="text-2xl">sec</span>
           </div>
           <p class="text-center text-gray-300">A home burglary occurs in the United States</p>
         </div>
-
+        
         <!-- Statistic Card 2 -->
-        <div @mouseenter="animateCounter('preventionCounter', 300)" class="nmt-card hover:scale-105 transition-transform duration-300 animate-fadeIn">
+        <div @mouseenter="animateCounter('preventionCounter', 300)" 
+             class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 border border-blue-900/30 hover:border-blue-500/50 shadow-lg hover:shadow-blue-900/20">
           <div class="flex justify-center mb-4">
-            <div class="bg-green-600/20 p-3 rounded-full animate-float">
+            <div class="bg-green-600/20 p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
           </div>
-          <h4 class="text-lg font-semibold text-white text-center"><span class="text-3xl text-green-400 font-extrabold">{{ preventionCounter }}%</span></h4>
+          <h4 class="text-xl font-bold text-white text-center"><span class="text-5xl text-green-400 font-bold">{{ preventionCounter }}%</span></h4>
           <p class="text-center text-gray-300 mt-3">Higher chance of burglary for homes without security systems</p>
         </div>
-
+        
         <!-- Statistic Card 3 -->
-        <div @mouseenter="animateCounter('savingsCounter', 20)" class="nmt-card hover:scale-105 transition-transform duration-300 animate-fadeIn">
+        <div @mouseenter="animateCounter('savingsCounter', 20)" 
+             class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 border border-blue-900/30 hover:border-blue-500/50 shadow-lg hover:shadow-blue-900/20">
           <div class="flex justify-center mb-4">
-            <div class="bg-yellow-600/20 p-3 rounded-full animate-float">
+            <div class="bg-yellow-600/20 p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
           </div>
-          <h4 class="text-lg font-semibold text-white text-center">Up to</h4>
-          <div class="text-4xl font-extrabold text-center text-yellow-400 my-2">
-            {{ savingsCounter }}<span class="text-lg">%</span>
+          <h4 class="text-xl font-bold text-white text-center">Up to</h4>
+          <div class="text-5xl font-bold text-center text-yellow-400 my-2">
+            {{ savingsCounter }}<span class="text-2xl">%</span>
           </div>
           <p class="text-center text-gray-300">Savings on home insurance premiums</p>
         </div>
-
+        
         <!-- Statistic Card 4 -->
-        <div @mouseenter="animateCounter('responseCounter', 50)" class="nmt-card hover:scale-105 transition-transform duration-300 animate-fadeIn">
+        <div @mouseenter="animateCounter('responseCounter', 50)" 
+             class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg p-6 transform hover:scale-105 transition-all duration-300 border border-blue-900/30 hover:border-blue-500/50 shadow-lg hover:shadow-blue-900/20">
           <div class="flex justify-center mb-4">
-            <div class="bg-blue-600/20 p-3 rounded-full animate-float">
+            <div class="bg-blue-600/20 p-3 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
           </div>
-          <h4 class="text-lg font-semibold text-white text-center">Reduces response time by</h4>
-          <div class="text-4xl font-extrabold text-center text-blue-400 my-2">
-            {{ responseCounter }}<span class="text-lg">%</span>
+          <h4 class="text-xl font-bold text-white text-center">Reduces response time by</h4>
+          <div class="text-5xl font-bold text-center text-blue-400 my-2">
+            {{ responseCounter }}<span class="text-2xl">%</span>
           </div>
           <p class="text-center text-gray-300">Monitored security systems significantly reduce emergency response times</p>
         </div>
@@ -91,12 +95,12 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
         <!-- Without Security -->
-        <div class="nmt-card border-red-900/30 relative overflow-hidden animate-fadeIn">
+        <div class="bg-gradient-to-br from-gray-800/50 to-red-900/20 rounded-lg p-6 border border-red-900/30 relative overflow-hidden">
           <div class="absolute top-0 right-0 bg-red-900/40 text-white px-4 py-1 rounded-bl-lg font-medium">WITHOUT SECURITY</div>
           
           <div class="mt-6">
             <div class="flex items-center mb-4">
-              <div class="mr-4 bg-red-600/20 p-2 rounded-full animate-float">
+              <div class="mr-4 bg-red-600/20 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -105,13 +109,14 @@
             </div>
             
             <div class="flex items-center mb-4">
-              <div class="mr-4 bg-red-600/20 p-2 rounded-full animate-float">
+              <div class="mr-4 bg-red-600/20 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
               <p class="text-gray-300">No video evidence for insurance claims or police reports</p>
-            </div>            
+            </div>
+            
             <div class="flex items-center mb-4">
               <div class="mr-4 bg-red-600/20 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,18 +156,19 @@
         </div>
         
         <!-- With Security -->
-        <div class="nmt-card border-green-900/30 relative overflow-hidden animate-fadeIn">
+        <div class="bg-gradient-to-br from-gray-800/50 to-green-900/20 rounded-lg p-6 border border-green-900/30 relative overflow-hidden">
           <div class="absolute top-0 right-0 bg-green-900/40 text-white px-4 py-1 rounded-bl-lg font-medium">WITH SECURITY</div>
           
           <div class="mt-6">
             <div class="flex items-center mb-4">
-              <div class="mr-4 bg-green-600/20 p-2 rounded-full animate-float">
+              <div class="mr-4 bg-green-600/20 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <p class="text-gray-300">Significantly reduced risk of break-ins (up to 83%)</p>
-            </div>            
+            </div>
+            
             <div class="flex items-center mb-4">
               <div class="mr-4 bg-green-600/20 p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -213,7 +219,7 @@
       
       <div class="text-center">
         <p class="text-lg text-blue-400 font-medium mb-4">The choice is clear.</p>
-        <button @click="scrollToProducts" class="bg-black text-green px-6 py-3 rounded-lg text-lg font-medium transition-all duration-200 transform border-green-600 hover:scale-105">
+        <button @click="scrollToProducts" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-all duration-200 transform hover:scale-105">
           Explore Security Options
         </button>
       </div>
