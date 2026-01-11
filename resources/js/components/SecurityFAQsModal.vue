@@ -26,14 +26,15 @@
                 <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
                   <div class="absolute inset-0 bg-black rounded"></div>
                 </div>
-                <!-- Learning Center quick links -->
-                <div class="mb-6 flex flex-wrap gap-3">
-                  <a class="nmt-chip-link" href="/learn#onvif" @click.prevent="openInlineLearn('#onvif')">ONVIF protocols</a>
-                  <a class="nmt-chip-link" href="/learn#poe" @click.prevent="openInlineLearn('#poe')">PoE classes</a>
-                  <a class="nmt-chip-link" href="/learn#fire-alarm-cabling" @click.prevent="openInlineLearn('#fire-alarm-cabling')">Fire alarm wiring</a>
-                  <a class="nmt-chip-link" href="/learn#access-control" @click.prevent="openInlineLearn('#access-control')">Access control</a>
-                  <a class="nmt-chip-link" href="/learn#alarm-insurance" @click.prevent="openInlineLearn('#alarm-insurance')">Alarm & Insurance FAQ</a>
-                  <a class="nmt-chip-link" href="/learn" @click.prevent="openInlineLearn()">Open Learning Center</a>
+                <!-- Single Learning Center button -->
+                <div class="mb-6">
+                  <button @click="openInlineLearn()" class="nmt-chip-link inline-flex items-center gap-2 px-3 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
+                    </svg>
+                    <span>Learning Center</span>
+                  </button>
                 </div>
                 <template v-if="!showInlineLearn">
                   <SecurityFAQs @scroll-to="handleScrollTo" />
