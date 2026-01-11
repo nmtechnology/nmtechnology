@@ -28,12 +28,12 @@
                 </div>
                 <!-- Learning Center quick links -->
                 <div class="mb-6 flex flex-wrap gap-3">
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#onvif' }">ONVIF protocols</router-link>
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#poe' }">PoE classes</router-link>
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#fire-alarm-cabling' }">Fire alarm wiring</router-link>
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#access-control' }">Access control</router-link>
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn', hash: '#alarm-insurance' }">Alarm & Insurance FAQ</router-link>
-                  <router-link class="nmt-chip-link" :to="{ path: '/learn' }">Open Learning Center</router-link>
+                  <a class="nmt-chip-link" href="/learn#onvif" @click.prevent="navigateToLearn('#onvif')">ONVIF protocols</a>
+                  <a class="nmt-chip-link" href="/learn#poe" @click.prevent="navigateToLearn('#poe')">PoE classes</a>
+                  <a class="nmt-chip-link" href="/learn#fire-alarm-cabling" @click.prevent="navigateToLearn('#fire-alarm-cabling')">Fire alarm wiring</a>
+                  <a class="nmt-chip-link" href="/learn#access-control" @click.prevent="navigateToLearn('#access-control')">Access control</a>
+                  <a class="nmt-chip-link" href="/learn#alarm-insurance" @click.prevent="navigateToLearn('#alarm-insurance')">Alarm & Insurance FAQ</a>
+                  <a class="nmt-chip-link" href="/learn" @click.prevent="navigateToLearn()">Open Learning Center</a>
                 </div>
                 <SecurityFAQs @scroll-to="handleScrollTo" />
               </div>
@@ -47,6 +47,7 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import SecurityFAQs from './SecurityFAQs.vue';
 
 export default {
@@ -73,6 +74,9 @@ export default {
       console.log('Navigate to products function is no longer used');
     };
     
+    // Router for navigation to Learn page
+    const router = useRouter();
+
     // Handler for scroll-to events from SecurityFAQs component
     // This handles the case when users click on links/buttons inside the FAQs component
     const handleScrollTo = (targetId) => {
@@ -92,6 +96,19 @@ export default {
           window.location.href = '/products#monitoring-section';
         }
       }, 300);
+    };
+
+    // Navigate to Learn page hashes and close modal first
+    const navigateToLearn = (hash = '') => {
+      closeModal();
+      setTimeout(() => {
+        const pushObj = { path: '/learn' };
+        if (hash) pushObj.hash = hash;
+        router.push(pushObj).catch((e) => {
+          // Ignore NavigationDuplicated errors
+          if (e && e.name !== 'NavigationDuplicated') console.error(e);
+        });
+      }, 250);
     };
 
     return {
