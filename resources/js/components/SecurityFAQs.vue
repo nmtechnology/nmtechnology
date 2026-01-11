@@ -213,7 +213,7 @@
       
       <div class="text-center">
         <p class="text-lg text-blue-400 font-medium mb-4">The choice is clear.</p>
-        <button @click="scrollToProducts" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-all duration-200 transform hover:scale-105">
+        <button @click="scrollToProducts" class="bg-black-600 hover:bg-black-700 text-green px-6 py-3 rounded-lg text-lg font-medium transition-all duration-200 transform border-green-600 hover:scale-105">
           Explore Security Options
         </button>
       </div>
