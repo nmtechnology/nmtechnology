@@ -54,7 +54,7 @@
               </div>
 
               <!-- Scrollable body (matches Contact modal pattern) -->
-              <div class="px-6 pb-8 pt-0 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <div class="px-6 pb-8 pt-0 max-h-[calc(100vh-120px)] overflow-y-auto">
                 <div class="mx-auto max-w-4xl">
                   <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
                     <div class="absolute inset-0 bg-black rounded"></div>
