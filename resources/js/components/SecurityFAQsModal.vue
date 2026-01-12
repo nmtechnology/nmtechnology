@@ -9,63 +9,69 @@
     </button>
 
     <teleport to="body">
-      <div v-if="isOpen" class="modal" @click.self="closeModal">
-        <div class="isolate bg-black modal-content">
-          <div class="modal-header relative flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <button
-                v-if="!showInlineLearn"
-                @click="openInlineLearn()"
-                class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
-                </svg>
-                <span>Technology Learning Center</span>
-              </button>
+      <div v-if="isOpen" class="relative z-50">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-black/80" aria-hidden="true" @click.self="closeModal"></div>
 
-              <button
-                v-else
-                @click="closeInlineLearn()"
-                class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
-              >
-                <span class="text-sm">◀</span>
-                <span>Back to FAQs</span>
-              </button>
-            </div>
+        <!-- Modal container (fixed & scrollable) -->
+        <div class="fixed inset-0 z-50 w-screen overflow-y-auto">
+          <div class="flex min-h-full items-start justify-center p-4">
+            <div class="modal-content relative bg-black w-full max-w-4xl rounded-2xl border border-green-600/50 shadow-2xl transform transition-all duration-300">
+              <div class="modal-header relative flex items-center justify-between px-6 py-6">
+                <div class="flex items-center gap-2">
+                  <button
+                    v-if="!showInlineLearn"
+                    @click="openInlineLearn()"
+                    class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
+                    </svg>
+                    <span>Technology Learning Center</span>
+                  </button>
 
-            <!-- Center logo -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
-              <NMLogo variant="service" size="small" />
-            </div>
-
-            <button class="text-white close-button" @click="closeModal">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-
-          <!-- SecurityFAQs content -->
-          <div class="mx-auto grid max-w-7xl grid-cols-1">
-            <div class="relative px-4 sm:px-6 pb-12 sm:pb-20 pt-12 sm:pt-24">
-              <div class="mx-auto max-w-4xl">
-                <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
-                  <div class="absolute inset-0 bg-black rounded"></div>
+                  <button
+                    v-else
+                    @click="closeInlineLearn()"
+                    class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
+                  >
+                    <span class="text-sm">◀</span>
+                    <span>Back to FAQs</span>
+                  </button>
                 </div>
-                <!-- Single Learning Center button -->
-               
-                <template v-if="!showInlineLearn">
-                  <SecurityFAQs @scroll-to="handleScrollTo" />
-                </template>
 
-                <template v-else>
-                    <div class="learn-inline">
-                    <component :is="inlineLearnComp" :initialHash="currentLearnHash" />
-                  </div>
-                </template>
+                <!-- Center logo -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
+                  <NMLogo variant="service" size="small" />
+                </div>
+
+                <button class="text-white close-button" @click="closeModal">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
               </div>
+
+              <!-- Scrollable body (matches Contact modal pattern) -->
+              <div class="px-6 pb-8 pt-0 max-h-[calc(100vh-200px)] overflow-y-auto">
+                <div class="mx-auto max-w-4xl">
+                  <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
+                    <div class="absolute inset-0 bg-black rounded"></div>
+                  </div>
+
+                  <template v-if="!showInlineLearn">
+                    <SecurityFAQs @scroll-to="handleScrollTo" />
+                  </template>
+
+                  <template v-else>
+                    <div class="learn-inline">
+                      <component :is="inlineLearnComp" :initialHash="currentLearnHash" />
+                    </div>
+                  </template>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -211,15 +217,15 @@ export default {
 }
 
 .modal-content {
-    margin-top: 120px; /* Adjusted to position below navbar and TopBanner */
-    margin-bottom: 2rem;
+    /* Use fixed-width panel similar to Contact modal and let inner content scroll */
     width: 100%;
-    max-width: 1200px;
+    max-width: 960px;
     border-radius: 1.5rem;
     position: relative;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     animation: modalSlideDown 0.3s ease-out;
     border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    overflow: hidden;
 }
 
 .modal-header {
@@ -251,10 +257,6 @@ export default {
     .modal {
         align-items: flex-start;
         padding: 2rem;
-    }
-    
-    .modal-content {
-        margin-top: 120px;
     }
 }
 
