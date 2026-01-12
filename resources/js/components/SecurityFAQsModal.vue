@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Center logo -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
+                <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none mt-[-10px]">
                   <NMLogo variant="service" size="small" />
                 </div>
 
