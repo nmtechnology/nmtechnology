@@ -41,7 +41,7 @@
                 </div>
                 
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
-                    <span class="text-white">Albuquerque's Trusted Experts for</span><br>
+                    <span class="text-white">Albuquerque's Trusted Installers for</span><br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">Commercial CCTV & Security</span>
                 </h2>
                 

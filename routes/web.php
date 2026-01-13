@@ -16,9 +16,9 @@ Route::middleware(['block.nonus'])->group(function () {
         return view('welcome');
     });
 
-    // Backwards-compatible redirect for old /cctv URLs
+    // CCTV route (now its own SPA page)
     Route::get('/cctv', function () {
-        return redirect('/products', 301);
+        return view('welcome');
     });
 
     // Test email page

@@ -1,341 +1,435 @@
 <template>
-  <template>
-    <main
-      class="pt-[60px] pb-24 flex-grow relative z-20 bg-gradient-to-b from-black via-gray-900 to-gray-900"
+  <!-- Halloween Promotional Banner at the top -->
+  <PromoBanner
+    :maxHeight="80"
+    link="/halloween-special"
+    fixed
+    dismissible
+    linkAriaLabel="View our Halloween security system special offers"
+    @dismissed="handleBannerDismiss"
+  >
+    <div
+      class="absolute inset-0 bg-black bg-opacity-90 md:flex items-center justify-center hidden"
     >
-      <!-- Decorative Background Blurs -->
-      <div
-        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
-        aria-hidden="true"
-      ></div>
+      <div class="text-center">
+        <h3 class="text-xl md:text-5xl font-bold text-orange-500">
+          Halloween Security Special!
+        </h3>
+        <p class="text-white text-lg md:text-lg">
+          Get 10% off all security systems until October 31st
+        </p>
+      </div>
+    </div>
+  </PromoBanner>
 
-      <!-- Hero -->
-      <section class="relative">
-        <div class="mx-auto max-w-7xl px-6 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
-          <div class="flex justify-center mb-6">
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+  <!-- Background Pattern - Lower z-index -->
+
+  <main
+    class="pt-[60px] pb-[180px] flex-grow relative z-20 bg-gradient-to-b from-black via-gray-900 to-gray-900"
+  >
+    <!-- Decorative Background Blurs -->
+    <div
+      class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative">
+      <div class="mx-auto max-w-7xl px-6 pb-16 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
+        <!-- Badge -->
+        <div class="flex justify-center mb-6">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
+          >
+            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+              <path
+                fill-rule="evenodd"
+                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="text-sm font-semibold text-green-400"
+              >Advanced Security Solutions</span
             >
-              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <span class="text-sm font-semibold text-green-400">Alarm Installation & Service</span>
-            </div>
-          </div>
-
-          <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-6">
-            <span class="text-white">Protect What Matters With </span>
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-              >Professional Alarm Systems</span
-            >
-          </h1>
-
-          <p class="text-gray-300 text-lg text-center max-w-4xl mx-auto leading-relaxed animate-fadeIn">
-            From new installs to troubleshooting and upgrades, NM Technology designs, installs,
-            and services intrusion alarm systems that fit your home or business — built clean,
-            tested thoroughly, and supported after the job is done.
-          </p>
-
-          <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
-            <button
-              type="button"
-              @click="contactUs"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 8a2 2 0 01-2 2H7l-4 4V6a2 2 0 012-2h14a2 2 0 012 2v2z"
-                />
-              </svg>
-              Contact Us
-            </button>
-
-            <button
-              type="button"
-              @click="getQuote"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Get Quote
-            </button>
-          </div>
-
-          <div class="mt-12 grid gap-4 sm:grid-cols-3 max-w-5xl mx-auto">
-            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
-              <p class="text-sm font-semibold text-green-400">Clean installs</p>
-              <p class="mt-2 text-sm text-gray-300">Professional wiring, mounting, and labeling — no messy surprises.</p>
-            </div>
-            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
-              <p class="text-sm font-semibold text-green-400">Fast service</p>
-              <p class="mt-2 text-sm text-gray-300">Diagnostics, repairs, and replacement parts to restore reliability.</p>
-            </div>
-            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
-              <p class="text-sm font-semibold text-green-400">Ongoing support</p>
-              <p class="mt-2 text-sm text-gray-300">We help you keep systems maintained and ready when it counts.</p>
-            </div>
           </div>
         </div>
-      </section>
 
-      <!-- Services -->
-      <section class="mt-16">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="max-w-3xl">
-            <h2 class="text-2xl sm:text-3xl font-bold text-white">
-              Alarm services that fit your building
-            </h2>
-            <p class="mt-3 text-gray-300">
-              Whether you’re starting from scratch or fixing an existing system, we’ll recommend
-              the right components and get everything tested end-to-end.
-            </p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-8 relative z-20">
+          <span v-if="activeCategory === 'package'">
+            <span class="text-white">Complete </span>
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+              >Security Packages</span
+            >
+          </span>
+          <span v-else>
+            <span class="text-white">Intelligent </span>
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+              >CCTV</span
+            >
+            <span class="text-white"> Security & Networking Products</span>
+          </span>
+        </h1>
+        <p
+          class="text-gray-300 text-lg mb-10 text-center relative animate-fadeIn max-w-4xl mx-auto leading-relaxed"
+        >
+          <span v-if="activeCategory === 'package'">
+            Protect your property with NM Technology's all-in-one security packages. Our
+            expert team designs, installs, and supports systems for homes, businesses, and
+            franchises across New Mexico.
+          </span>
+          <span v-else>
+            Discover the latest in smart surveillance. Our CCTV solutions help you
+            monitor, deter, and respond to threats—giving you peace of mind and actionable
+            insights, 24/7.
+          </span>
+        </p>
+
+        <!-- Product Filter -->
+        <div id="product-section" class="relative z-20">
+          <ProductFilter
+            :initialCategory="activeCategory"
+            @filter-change="filterProducts"
+          />
+        </div>
+
+        <!-- Special Package Info Box -->
+        <div
+          v-if="activeCategory === 'package'"
+          id="package-section"
+          class="bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-md border border-green-500/30 rounded-2xl p-6 mb-8 shadow-xl ring-1 ring-green-500/20"
+        >
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <div class="flex-1">
+              <h3
+                class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 text-xl font-bold mb-3"
+              >
+                Complete Security Solutions
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Our security packages are designed to provide complete coverage for
+                properties of all sizes. Each package includes cameras, recording
+                equipment, storage, and all necessary accessories. As you move up in
+                tiers, you'll get higher resolution, more storage, and additional advanced
+                features.
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <button
+                @click="showPackageComparison = !showPackageComparison"
+                class="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white px-5 py-3 rounded-lg flex items-center gap-2 shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105 font-semibold"
+              >
+                <span>Compare All Packages</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  :class="{ 'rotate-180': showPackageComparison }"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Package Comparison Table -->
+          <transition name="slide">
+            <div v-if="showPackageComparison" class="mt-4 overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead class="bg-gray-800/50">
+                  <tr>
+                    <th class="px-4 py-2 text-gray-400">Package</th>
+                    <th class="px-4 py-2 text-gray-400">Cameras</th>
+                    <th class="px-4 py-2 text-gray-400">Resolution</th>
+                    <th class="px-4 py-2 text-gray-400">Storage</th>
+                    <th class="px-4 py-2 text-gray-400">Price</th>
+                    <th class="px-4 py-2 text-gray-400"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="product in packageProducts"
+                    :key="product.id"
+                    class="border-b border-gray-800 hover:bg-gray-800/30 transition-colors"
+                  >
+                    <td class="px-4 py-3 text-white font-medium">{{ product.name }}</td>
+                    <td class="px-4 py-3 text-gray-300">
+                      {{ product.specs?.cameraCount }}
+                    </td>
+                    <td class="px-4 py-3 text-gray-300">
+                      {{ product.specs?.resolution }}
+                    </td>
+                    <td class="px-4 py-3 text-gray-300">{{ product.specs?.storage }}</td>
+                    <td class="px-4 py-3 text-green-500 font-bold">
+                      ${{ product.price?.toFixed(2) }}
+                    </td>
+                    <td class="px-4 py-3">
+                      <button
+                        @click="showProductDetails(product)"
+                        class="text-blue-400 hover:text-blue-300"
+                      >
+                        Details
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </transition>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="relative z-20 scroll-mt-32 pt-4">
+          <div
+            v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
+            class="text-center text-white py-10"
+          >
+            No products found. Please try a different filter.
+          </div>
+
+          <template v-else>
             <div
-              v-for="service in services"
-              :key="service.title"
-              class="rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500/20 ring-1 ring-green-500/10 p-6 shadow-xl"
+              v-for="(brandGroup, brand) in groupedProducts || {}"
+              :key="brand"
+              class="mb-16"
+              :id="
+                brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null
+              "
             >
-              <div class="flex items-start gap-3">
-                <div
-                  class="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 border border-green-500/20"
+              <h2 class="text-left text-wrap text-2xl font-extrabold mb-6">
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >{{ brand }}</span
                 >
-                  <svg class="h-5 w-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                  v-for="product in brandGroup"
+                  :key="product.id"
+                  :class="[
+                    'rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
+                    product.category === 'package'
+                      ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20'
+                      : product.category === 'monitoring'
+                      ? 'border border-purple-500/30 hover:border-purple-500/50 hover:shadow-purple-500/20 ring-1 ring-purple-500/20'
+                      : product.category === 'security' && product.color === 'blue'
+                      ? 'border border-blue-500/30 hover:border-blue-500/50 hover:shadow-blue-500/20 ring-1 ring-blue-500/20'
+                      : product.brand === 'NM Solar' && product.color === 'yellow'
+                      ? 'border border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-yellow-500/20 ring-1 ring-yellow-500/20'
+                      : 'border border-green-500/20 hover:border-green-500/40 hover:shadow-green-500/10',
+                  ]"
+                  @click="showProductDetails(product)"
+                  role="button"
+                  :aria-label="`View details for ${product.name}`"
+                >
+                <div
+                  v-if="product.category === 'package'"
+                  class="bg-green-600/20 text-green-500 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M12 11c1.657 0 3-1.567 3-3.5S13.657 4 12 4 9 5.567 9 7.5 10.343 11 12 11zm0 0c-3.866 0-7 2.239-7 5v2h14v-2c0-2.761-3.134-5-7-5z"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                     />
                   </svg>
+                  CCTV SECURITY PACKAGE
                 </div>
-                <div class="flex-1">
-                  <h3 class="text-white font-semibold text-lg">{{ service.title }}</h3>
-                  <p class="mt-2 text-sm text-gray-300 leading-relaxed">{{ service.description }}</p>
-                </div>
-              </div>
-
-              <ul class="mt-4 space-y-2">
-                <li v-for="item in service.highlights" :key="item" class="flex items-start gap-2 text-sm text-gray-300">
-                  <svg class="mt-0.5 h-4 w-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div
+                  v-if="product.category === 'monitoring'"
+                  class="bg-purple-600/20 text-purple-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
                     <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
                     />
                   </svg>
-                  <span>{{ item }}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Process -->
-      <section class="mt-16">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="rounded-3xl border border-green-500/20 bg-gray-900/40 ring-1 ring-green-500/10 p-8 sm:p-10">
-            <div class="max-w-3xl">
-              <h2 class="text-2xl sm:text-3xl font-bold text-white">How we deliver reliable alarm protection</h2>
-              <p class="mt-3 text-gray-300">
-                A straightforward process, clear expectations, and clean work — so you know what’s installed
-                and why it works.
-              </p>
-            </div>
-
-            <div class="mt-8 grid gap-6 lg:grid-cols-4">
-              <div v-for="step in steps" :key="step.title" class="rounded-2xl bg-gray-900/30 border border-green-500/10 p-6">
-                <p class="text-sm font-semibold text-green-400">{{ step.kicker }}</p>
-                <p class="mt-2 text-white font-semibold">{{ step.title }}</p>
-                <p class="mt-2 text-sm text-gray-300">{{ step.description }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="mt-16">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div
-            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 border border-green-500/20 ring-1 ring-green-500/10 p-8 sm:p-10"
-          >
-            <div
-              class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-gradient-to-br from-green-500/15 to-lime-500/10 blur-3xl"
-              aria-hidden="true"
-            ></div>
-            <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-              <div class="max-w-2xl">
-                <h3 class="text-2xl font-bold text-white">Ready to schedule an install or service call?</h3>
-                <p class="mt-3 text-gray-300">
-                  Tell us what you have (or what you want), and we’ll recommend the best next step.
-                </p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-4">
-                <button
-                  type="button"
-                  @click="contactUs"
-                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300"
+                  SECURITY MONITORING
+                </div>
+                <div
+                  v-if="product.category === 'security' && product.color === 'blue'"
+                  class="bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
                 >
-                  Contact Us
-                </button>
-                <button
-                  type="button"
-                  @click="getQuote"
-                  class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
+                  </svg>
+                  HOME SECURITY SYSTEM
+                </div>
+                <div
+                  v-if="product.brand === 'NM Solar' && product.color === 'yellow'"
+                  class="bg-yellow-600/20 text-yellow-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
                 >
-                  Get Quote
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </template>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    />
+                  </svg>
+                  SOLAR POWERED SECURITY
+                </div>
+                <img
+                  :src="product.image || '/images/axis-dome-side.webp'"
+                  :alt="product.name"
+                  class="w-full h-48 object-scale-down"
+                  @error="$event.target.src = '/images/axis-dome-side.webp'"
+                />
+                <div class="p-4">
+                  <h2
+                    class="text-2xl font-bold"
+                    :class="{
+                      'text-green-400 font-extrabold': product.category === 'package',
+                      'text-purple-500 font-extrabold': product.category === 'monitoring',
+                      'text-blue-400 font-extrabold':
+                        product.category === 'security' && product.color === 'blue',
+                      'text-yellow-400 font-extrabold':
+                        product.brand === 'NM Solar' && product.color === 'yellow',
+                      'text-green-600 font-bold':
+                        product.category !== 'package' &&
+                        product.category !== 'monitoring' &&
+                        !(product.category === 'security' && product.color === 'blue') &&
+                        !(product.brand === 'NM Solar' && product.color === 'yellow'),
+                    }"
+                  >
+                    {{ product.name }}
+                  </h2>
+                  <p class="text-gray-400 mt-2">{{ product.description }}</p>
 
-  <script setup>
-  import { inject } from "vue";
-  import { useRouter } from "vue-router";
+                  <!-- Features -->
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span
+                      v-for="feature in product.features.slice(
+                        0,
+                        product.category === 'package' ? 3 : 2
+                      )"
+                      :key="feature"
+                      class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
+                    >
+                      {{ feature }}
+                    </span>
+                    <span
+                      v-if="
+                        product.features.length > (product.category === 'package' ? 3 : 2)
+                      "
+                      class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
+                    >
+                      +{{
+                        product.features.length - (product.category === "package" ? 3 : 2)
+                      }}
+                      more
+                    </span>
+                  </div>
 
-  const router = useRouter();
-  const openContactModal = inject("openContactModal", null);
+                  <div class="flex items-center mt-4">
+                    <span
+                      :class="[
+                        'font-bold',
+                        product.category === 'package'
+                          ? 'text-xl text-green-500'
+                          : product.category === 'monitoring'
+                          ? 'text-xl text-purple-500'
+                          : product.category === 'security' && product.color === 'blue'
+                          ? 'text-xl text-blue-500'
+                          : product.brand === 'NM Solar' && product.color === 'yellow'
+                          ? 'text-xl text-yellow-500'
+                          : 'text-lg text-green-600',
+                      ]"
+                    >
+                      {{
+                        product.price
+                          ? `$${product.price.toFixed(2)}${
+                              product.recurring ? "/mo" : ""
+                            }`
+                          : "Call For Price"
+                      }}
+                    </span>
+                    <span
+                      v-if="product.recurring"
+                      class="ml-2 bg-purple-600/20 text-purple-400 text-xs px-2 py-0.5 rounded-full"
+                    >
+                      MONTHLY
+                    </span>
+                  </div>
 
-  const contactUs = () => {
-    if (typeof openContactModal === "function") {
-      openContactModal();
-      return;
-    }
-    router.push("/contact");
-  };
-
-  const getQuote = () => {
-    router.push("/products");
-  };
-
-  const services = [
-    {
-      title: "New alarm installations",
-      description:
-        "Design and install intrusion alarm systems for homes and businesses — sized correctly, laid out cleanly, and tested thoroughly.",
-      highlights: [
-        "Panel + keypad placement that makes sense",
-        "Door/window contacts, motion sensors, glass-break (as needed)",
-        "Siren/strobe options for clear deterrence",
-      ],
-    },
-    {
-      title: "Service, repairs & troubleshooting",
-      description:
-        "False alarms, dead zones, battery issues, wiring faults — we diagnose quickly and fix the root cause so your system stays dependable.",
-      highlights: [
-        "Sensor replacements and re-alignment",
-        "Battery and power issues",
-        "Wiring checks and cleanup",
-      ],
-    },
-    {
-      title: "Upgrades & takeovers",
-      description:
-        "Already have a system? We can modernize it — upgrade hardware, rework problem areas, and document what you have.",
-      highlights: [
-        "Panel/keypad upgrades",
-        "Add zones / expand coverage",
-        "Better reliability and usability",
-      ],
-    },
-    {
-      title: "Commercial-grade options",
-      description:
-        "For offices, retail, warehouses, and multi-site operations — consistent installs and scalable setups that support growth.",
-      highlights: [
-        "Multi-door / multi-zone layouts",
-        "After-hours arming workflows",
-        "Service plans available",
-      ],
-    },
-    {
-      title: "System testing & maintenance",
-      description:
-        "Prevent issues before they become emergencies. We verify sensors, power, and communication so your system performs when needed.",
-      highlights: [
-        "Inspection-style verification",
-        "Sensor health checks",
-        "Keep records for your team",
-      ],
-    },
-    {
-      title: "Integration-ready setups",
-      description:
-        "We plan installs that can grow with you — adding cameras, access control, or networking later without redoing everything.",
-      highlights: [
-        "Clean cable management",
-        "Labeling and documentation",
-        "Designed for future expansion",
-      ],
-    },
-  ];
-
-  const steps = [
-    {
-      kicker: "Step 1",
-      title: "Walkthrough & requirements",
-      description: "We learn your layout, risks, and how you want the system to be used day-to-day.",
-    },
-    {
-      kicker: "Step 2",
-      title: "Design & recommendations",
-      description: "We map sensors and equipment for the right coverage — no wasted hardware, no blind spots.",
-    },
-    {
-      kicker: "Step 3",
-      title: "Install & verification",
-      description: "We install cleanly, test every zone/device, and confirm the full system behavior.",
-    },
-    {
-      kicker: "Step 4",
-      title: "Support & service",
-      description: "If something changes, we’re here — adjustments, repairs, expansions, and ongoing maintenance.",
-    },
-  ];
-  </script>
-
-  <style scoped>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.8s ease-out;
-  }
-  </style>
+                  <div
+                    v-if="product.category === 'package'"
+                    class="mt-2 text-xs text-gray-400"
+                  >
+                    {{ product.specs?.cameraCount || "" }} cameras ·
+                    {{ product.specs?.resolution || "" }}
+                  </div>
+                  <div
+                    v-if="product.category === 'monitoring'"
+                    class="mt-2 text-xs text-gray-400"
+                  >
+                    {{ product.specs?.doorContacts || "" }} door contacts ·
+                    {{ product.specs?.windowSensors || "" }}
+                    window sensors
+                  </div>
+                  <div class="flex gap-2 mt-4">
+                    <button
+                      @click.stop="addToCart(product)"
+                      :class="[
+                        'flex-1 py-3 rounded-lg text-white font-semibold transition-all duration-300 flex items-center justify-center shadow-lg transform hover:scale-105',
+                        product.category === 'package'
+                          ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-green-500/30'
+                          : product.category === 'monitoring'
+                          ? 'bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-purple-500/30'
+                          : product.category === 'security' && product.color === 'blue'
+                          ? 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30'
+                          : product.brand === 'NM Solar' && product.color === 'yellow'
+                          ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 shadow-yellow-500/30'
+                          : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30',
+                      ]"
+                    >
+                      <span v-if="product.category === 'package'" class="mr-1">
+                        <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-4 w-4"
                           fill="none"
@@ -546,10 +640,10 @@ import { cartStore } from "../store/cartStore.js";
 import { toastService } from "../services/toastService.js";
 import { recentlyViewedService } from "../services/recentlyViewedService.js";
 import { cameraProducts } from "../data/productData.js";
-import "./RecentlyViewedFooter.css";
+import "../components/RecentlyViewedFooter.css";
 
 export default {
-  name: "CcTv",
+  name: "ProductsPage",
   components: {
     CartModal,
     ProductFilter,
