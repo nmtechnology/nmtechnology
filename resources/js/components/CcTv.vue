@@ -1,5 +1,4 @@
 <template>
-  <template>
     <main
       class="pt-[60px] pb-24 flex-grow relative z-20 bg-gradient-to-b from-black via-gray-900 to-gray-900"
     >
@@ -336,6 +335,8 @@
     animation: fadeIn 0.8s ease-out;
   }
   </style>
+
+<docs>
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-4 w-4"
                           fill="none"
@@ -1387,3 +1388,5 @@ svg.fixed {
   animation: fadeIn 1s ease-out;
 }
 </style>
+
+</docs>
