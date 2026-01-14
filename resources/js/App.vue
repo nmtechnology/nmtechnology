@@ -339,7 +339,7 @@ const navigation = [
   { name: "Home", href: "/home" },
   { name: "CCTV", href: "/cctv" },
   { name: "Security Systems", href: "/security-alarms" },
-  { name: "Fire Alarms", href: "/products" },
+  { name: "Fire Alarms", href: "/fire-alarms" },
   { name: "Networking", href: "/products" },
   { name: "Structured Cabling", href: "/products" },
 ];

@@ -26,6 +26,11 @@ Route::middleware(['block.nonus'])->group(function () {
         return view('welcome');
     });
 
+    // Fire Alarms route
+    Route::get('/fire-alarms', function () {
+        return view('welcome');
+    });
+
     // Test email page
     Route::get('/test-emails', function () {
         return response()->file(public_path('test-emails.html'));
