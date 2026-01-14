@@ -5,6 +5,7 @@ import App from './App.vue'
 import HomePage from './views/HomePage.vue'
 import LandingPage from './views/LandingPage.vue'
 import CcTv from './components/CcTv.vue'
+import SecurityAlarms from './components/SecurityAlarms.vue'
 import ProductsPage from './views/ProductsPage.vue'
 import axios from 'axios'
 import { vTouch } from './directives/touch-directive'
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/home', name: 'nmtis', component: HomePage },
     { path: '/products', name: 'Products', component: ProductsPage },
     { path: '/cctv', name: 'CcTv', component: CcTv },
+    { path: '/security-alarms', name: 'SecurityAlarms', component: SecurityAlarms },
     { path: '/learn', name: 'LearnCenter', component: () => import('./views/LearnCenter.vue') },
     { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
   ],

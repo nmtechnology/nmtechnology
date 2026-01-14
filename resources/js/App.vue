@@ -338,7 +338,7 @@ import { cartStore } from "./store/cartStore.js";
 const navigation = [
   { name: "Home", href: "/home" },
   { name: "CCTV", href: "/cctv" },
-  { name: "Security Systems", href: "/products" },
+  { name: "Security Systems", href: "/security-alarms" },
   { name: "Fire Alarms", href: "/products" },
   { name: "Networking", href: "/products" },
   { name: "Structured Cabling", href: "/products" },

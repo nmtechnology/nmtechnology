@@ -4,11 +4,11 @@
     >
       <!-- Decorative Background Blurs -->
       <div
-        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/10 to-cyan-500/5 rounded-full blur-3xl -z-10"
+        class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-green-500/10 to-lime-500/5 rounded-full blur-3xl -z-10"
         aria-hidden="true"
       ></div>
       <div
-        class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl -z-10"
+        class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-lime-500/10 to-green-500/10 rounded-full blur-3xl -z-10"
         aria-hidden="true"
       ></div>
 
@@ -17,31 +17,31 @@
         <div class="mx-auto max-w-7xl px-6 pt-12 sm:pt-16 lg:px-8 lg:pt-20">
           <div class="flex justify-center mb-6">
             <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm"
             >
-              <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fill-rule="evenodd"
-                  d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="text-sm font-semibold text-blue-400">Video Surveillance & CCTV</span>
+              <span class="text-sm font-semibold text-green-400">Security Alarm Installation & Service</span>
             </div>
           </div>
 
           <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-6">
-            <span class="text-white">See Everything, </span>
+            <span class="text-white">Protect What Matters With </span>
             <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
-              >Anywhere, Anytime</span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+              >Professional Security Alarm Systems</span
             >
           </h1>
 
           <p class="text-gray-300 text-lg text-center max-w-4xl mx-auto leading-relaxed animate-fadeIn">
-            Professional CCTV installation and surveillance solutions for your home or business. 
-            From IP cameras to full NVR systems, we deliver crystal-clear footage with remote access — 
-            designed for New Mexico's unique environment and built to last.
+            From new installs to troubleshooting and upgrades, NM Technology designs, installs,
+            and services intrusion alarm systems that fit your home or business — built clean,
+            tested thoroughly, and supported after the job is done.
           </p>
 
           <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
@@ -79,17 +79,17 @@
           </div>
 
           <div class="mt-12 grid gap-4 sm:grid-cols-3 max-w-5xl mx-auto">
-            <div class="rounded-2xl border border-blue-500/20 bg-gray-900/40 p-5 ring-1 ring-blue-500/10">
-              <p class="text-sm font-semibold text-blue-400">HD & 4K clarity</p>
-              <p class="mt-2 text-sm text-gray-300">Crisp footage day and night with smart analytics and motion detection.</p>
+            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
+              <p class="text-sm font-semibold text-green-400">Clean installs</p>
+              <p class="mt-2 text-sm text-gray-300">Professional wiring, mounting, and labeling — no messy surprises.</p>
             </div>
-            <div class="rounded-2xl border border-blue-500/20 bg-gray-900/40 p-5 ring-1 ring-blue-500/10">
-              <p class="text-sm font-semibold text-blue-400">Remote access</p>
-              <p class="mt-2 text-sm text-gray-300">View your cameras from anywhere with mobile and web access.</p>
+            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
+              <p class="text-sm font-semibold text-green-400">Fast service</p>
+              <p class="mt-2 text-sm text-gray-300">Diagnostics, repairs, and replacement parts to restore reliability.</p>
             </div>
-            <div class="rounded-2xl border border-blue-500/20 bg-gray-900/40 p-5 ring-1 ring-blue-500/10">
-              <p class="text-sm font-semibold text-blue-400">Full support</p>
-              <p class="mt-2 text-sm text-gray-300">Installation, service, and ongoing maintenance for worry-free operation.</p>
+            <div class="rounded-2xl border border-green-500/20 bg-gray-900/40 p-5 ring-1 ring-green-500/10">
+              <p class="text-sm font-semibold text-green-400">Ongoing support</p>
+              <p class="mt-2 text-sm text-gray-300">We help you keep systems maintained and ready when it counts.</p>
             </div>
           </div>
         </div>
@@ -100,11 +100,11 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="max-w-3xl">
             <h2 class="text-2xl sm:text-3xl font-bold text-white">
-              Video surveillance solutions for every need
+              Security alarm services that fit your building
             </h2>
             <p class="mt-3 text-gray-300">
-              From single-camera setups to enterprise-wide systems, we design, install, and maintain
-              surveillance solutions that capture what matters — 24/7 recording, smart alerts, and seamless playback.
+              Whether you're starting from scratch or fixing an existing system, we'll recommend
+              the right components and get everything tested end-to-end.
             </p>
           </div>
 
@@ -112,18 +112,18 @@
             <div
               v-for="service in services"
               :key="service.title"
-              class="rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-blue-500/20 ring-1 ring-blue-500/10 p-6 shadow-xl"
+              class="rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500/20 ring-1 ring-green-500/10 p-6 shadow-xl"
             >
               <div class="flex items-start gap-3">
                 <div
-                  class="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20"
+                  class="mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 border border-green-500/20"
                 >
-                  <svg class="h-5 w-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                     />
                   </svg>
                 </div>
@@ -135,7 +135,7 @@
 
               <ul class="mt-4 space-y-2">
                 <li v-for="item in service.highlights" :key="item" class="flex items-start gap-2 text-sm text-gray-300">
-                  <svg class="mt-0.5 h-4 w-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="mt-0.5 h-4 w-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -153,18 +153,18 @@
       <!-- Process -->
       <section class="mt-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="rounded-3xl border border-blue-500/20 bg-gray-900/40 ring-1 ring-blue-500/10 p-8 sm:p-10">
+          <div class="rounded-3xl border border-green-500/20 bg-gray-900/40 ring-1 ring-green-500/10 p-8 sm:p-10">
             <div class="max-w-3xl">
-              <h2 class="text-2xl sm:text-3xl font-bold text-white">How we deliver reliable video surveillance</h2>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white">How we deliver reliable security alarm protection</h2>
               <p class="mt-3 text-gray-300">
-                A straightforward process, clear expectations, and professional installation — so you have
-                eyes on what matters, with footage you can trust.
+                A straightforward process, clear expectations, and clean work — so you know what's installed
+                and why it works.
               </p>
             </div>
 
             <div class="mt-8 grid gap-6 lg:grid-cols-4">
-              <div v-for="step in steps" :key="step.title" class="rounded-2xl bg-gray-900/30 border border-blue-500/10 p-6">
-                <p class="text-sm font-semibold text-blue-400">{{ step.kicker }}</p>
+              <div v-for="step in steps" :key="step.title" class="rounded-2xl bg-gray-900/30 border border-green-500/10 p-6">
+                <p class="text-sm font-semibold text-green-400">{{ step.kicker }}</p>
                 <p class="mt-2 text-white font-semibold">{{ step.title }}</p>
                 <p class="mt-2 text-sm text-gray-300">{{ step.description }}</p>
               </div>
@@ -177,17 +177,17 @@
       <section class="mt-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
-            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 border border-blue-500/20 ring-1 ring-blue-500/10 p-8 sm:p-10"
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 border border-green-500/20 ring-1 ring-green-500/10 p-8 sm:p-10"
           >
             <div
-              class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-3xl"
+              class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-gradient-to-br from-green-500/15 to-lime-500/10 blur-3xl"
               aria-hidden="true"
             ></div>
             <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div class="max-w-2xl">
                 <h3 class="text-2xl font-bold text-white">Ready to schedule an install or service call?</h3>
                 <p class="mt-3 text-gray-300">
-                  Tell us what you have (or what you want), and we’ll recommend the best next step.
+                  Tell us what you have (or what you want), and we'll recommend the best next step.
                 </p>
               </div>
               <div class="flex flex-col sm:flex-row gap-4">
@@ -234,63 +234,63 @@
 
   const services = [
     {
-      title: "New CCTV installations",
+      title: "New alarm installations",
       description:
-        "Design and install complete video surveillance systems — from single cameras to multi-site networks. IP cameras, NVRs, PoE switches, and remote viewing.",
+        "Design and install intrusion alarm systems for homes and businesses — sized correctly, laid out cleanly, and tested thoroughly.",
       highlights: [
-        "HD, 4K, and PTZ camera options",
-        "Network video recorders with storage planning",
-        "Mobile app setup for remote viewing",
+        "Panel + keypad placement that makes sense",
+        "Door/window contacts, motion sensors, glass-break (as needed)",
+        "Siren/strobe options for clear deterrence",
       ],
     },
     {
-      title: "Camera upgrades & expansions",
+      title: "Service, repairs & troubleshooting",
       description:
-        "Add cameras to existing systems or upgrade outdated analog setups to modern IP-based surveillance with better resolution and features.",
+        "False alarms, dead zones, battery issues, wiring faults — we diagnose quickly and fix the root cause so your system stays dependable.",
       highlights: [
-        "Analog-to-IP migration",
-        "Expand coverage areas",
-        "Integrate with existing infrastructure",
+        "Sensor replacements and re-alignment",
+        "Battery and power issues",
+        "Wiring checks and cleanup",
       ],
     },
     {
-      title: "Service & troubleshooting",
+      title: "Upgrades & takeovers",
       description:
-        "Camera down? Blurry footage? Connection issues? We diagnose and fix problems quickly — camera replacements, network tweaks, and storage fixes.",
+        "Already have a system? We can modernize it — upgrade hardware, rework problem areas, and document what you have.",
       highlights: [
-        "Camera repairs and replacements",
-        "Network and connectivity troubleshooting",
-        "Storage and playback issues",
+        "Panel/keypad upgrades",
+        "Add zones / expand coverage",
+        "Better reliability and usability",
       ],
     },
     {
-      title: "Commercial surveillance systems",
+      title: "Commercial-grade options",
       description:
-        "Multi-location businesses, retail, warehouses, and offices — scalable systems with centralized management and analytics.",
+        "For offices, retail, warehouses, and multi-site operations — consistent installs and scalable setups that support growth.",
       highlights: [
-        "Enterprise-grade NVR platforms",
-        "License plate recognition (LPR)",
-        "Video analytics and alerts",
+        "Multi-door / multi-zone layouts",
+        "After-hours arming workflows",
+        "Service plans available",
       ],
     },
     {
-      title: "Remote monitoring setup",
+      title: "System testing & maintenance",
       description:
-        "Access your cameras from anywhere. We configure mobile apps, web portals, and secure remote access so you're always connected.",
+        "Prevent issues before they become emergencies. We verify sensors, power, and communication so your system performs when needed.",
       highlights: [
-        "Mobile app configuration (iOS/Android)",
-        "Cloud and local recording options",
-        "Secure VPN access",
+        "Inspection-style verification",
+        "Sensor health checks",
+        "Keep records for your team",
       ],
     },
     {
-      title: "Integration & automation",
+      title: "Integration-ready setups",
       description:
-        "Connect your CCTV system with access control, alarms, and smart building automation for unified security management.",
+        "We plan installs that can grow with you — adding cameras, access control, or networking later without redoing everything.",
       highlights: [
-        "Alarm-triggered recording",
-        "Access control integration",
-        "Smart home and automation compatibility",
+        "Clean cable management",
+        "Labeling and documentation",
+        "Designed for future expansion",
       ],
     },
   ];
@@ -298,23 +298,23 @@
   const steps = [
     {
       kicker: "Step 1",
-      title: "Site survey & requirements",
-      description: "We walk your property, identify coverage needs, and discuss camera placement, blind spots, and recording goals.",
+      title: "Walkthrough & requirements",
+      description: "We learn your layout, risks, and how you want the system to be used day-to-day.",
     },
     {
       kicker: "Step 2",
-      title: "Design & equipment selection",
-      description: "We design a system with the right cameras, NVR, and network setup — optimized for your environment and budget.",
+      title: "Design & recommendations",
+      description: "We map sensors and equipment for the right coverage — no wasted hardware, no blind spots.",
     },
     {
       kicker: "Step 3",
-      title: "Installation & configuration",
-      description: "Professional installation with clean cable runs, secure mounting, and full system configuration including remote access.",
+      title: "Install & verification",
+      description: "We install cleanly, test every zone/device, and confirm the full system behavior.",
     },
     {
       kicker: "Step 4",
-      title: "Training & ongoing support",
-      description: "We show you how to use your system and stay available for service, expansions, and future upgrades.",
+      title: "Support & service",
+      description: "If something changes, we're here — adjustments, repairs, expansions, and ongoing maintenance.",
     },
   ];
   </script>
