@@ -45,7 +45,6 @@ const containerClasses = computed(() => {
     service: [
       "justify-center",
       "mt-10",
-      "sm:mt-10",
       "py-3",
       "sm:py-4",
       "px-4",
