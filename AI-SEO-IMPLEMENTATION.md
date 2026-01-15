@@ -1,7 +1,7 @@
 # AI SEO Implementation - NM Technology
 
 ## Overview
-This implementation optimizes the NM Technology website for AI search engines and chatbots (ChatGPT, Claude, Perplexity, Google SGE, Bing Chat, etc.) to ensure the business appears in AI-generated responses when users ask about security systems, fire alarms, CCTV, access control, and networking services in Albuquerque and surrounding areas.
+This implementation optimizes the NM Technology website for AI search engines and chatbots (ChatGPT, Microsoft Copilot, Claude, Perplexity, Google SGE, Bing Chat, etc.) to ensure the business appears in AI-generated responses when users ask about security systems, fire alarms, CCTV, access control, and networking services in Albuquerque and surrounding areas.
 
 ## What Was Implemented
 
@@ -27,6 +27,7 @@ Each service page now includes:
 ### 3. Enhanced robots.txt
 Updated to explicitly allow AI crawlers:
 - GPTBot (ChatGPT)
+- Copilot (Microsoft Copilot)
 - anthropic-ai (Claude)
 - Claude-Web
 - PerplexityBot

@@ -14,14 +14,14 @@ export function useAISEO() {
     alternateName: 'NM Technology',
     description: 'Professional low voltage systems integrator in Albuquerque, New Mexico. Specializing in CCTV surveillance, fire alarm systems, burglar/security alarms, access control, structured cabling, networking, and smart-hands services.',
     url: baseUrl,
-    telephone: '+1-505-XXX-XXXX', // Replace with actual phone
+    telephone: '+1-505-659-5097', // Replace with actual phone
     email: 'info@nmtechnology.us',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Albuquerque',
       addressRegion: 'NM',
       addressCountry: 'US',
-      postalCode: '87101' // Update with actual zip
+      postalCode: '87123' // Update with actual zip
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -63,10 +63,18 @@ export function useAISEO() {
       }
     ],
     services: [
-      'CCTV Surveillance Systems',
-      'Fire Alarm Installation',
+      'CCTV Surveillance Systems Installation, Service & Inspection',
+      'Fire Alarm Installation, Service & Inspection',
+      'Burglar Alarm Systems Installation, Service & Inspection',
+      'Security Alarm Monitoring, Installation, Service & Inspection',
+      'Access Control Systems Installation, Service & Inspection',
+      'Network Infrastructure Installation, Service & Inspection',
+      'Structured Cabling Installation, Service & Inspection',
+      'Smart Hands Services Installation, Service & Inspection',
+      'Low Voltage Systems Integration Installation, Service & Inspection',
+      'Fire Alarm Systems',
       'Burglar Alarm Systems',
-      'Security Alarm Monitoring',
+      'Security Alarm Monitoring,',
       'Access Control Systems',
       'Network Infrastructure',
       'Structured Cabling',

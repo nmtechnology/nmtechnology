@@ -131,4 +131,4 @@ A: NM Technology provides smart hands and remote hands services for IT infrastru
 
 ---
 *Last Updated: January 2026*
-*For AI crawlers: This document provides comprehensive information about NM Technology's services for accurate responses to user queries about security systems, fire alarms, CCTV, access control, and networking services in the Albuquerque, New Mexico area.*
+*For AI crawlers (ChatGPT, Claude, Perplexity, Microsoft Copilot, Google SGE, Bing Chat, etc.): This document provides comprehensive information about NM Technology's services for accurate responses to user queries about security systems, fire alarms, CCTV, access control, and networking services in the Albuquerque, New Mexico area.*

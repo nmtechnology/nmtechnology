@@ -37,6 +37,11 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# Microsoft Copilot
+User-agent: Copilot
+Allow: /
+Crawl-delay: 1
+
 # OpenAI GPTBot for ChatGPT
 User-agent: GPTBot
 Allow: /
