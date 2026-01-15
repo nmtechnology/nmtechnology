@@ -229,8 +229,16 @@
   </template>
 
   <script setup>
-  import { inject } from "vue";
+  import { inject, onMounted } from "vue";
   import { useRouter } from "vue-router";
+  import { useAISEO } from "../composables/useAISEO";
+
+  const { setAccessControlPageSEO } = useAISEO();
+
+  // Set AI-optimized SEO on page load
+  onMounted(() => {
+    setAccessControlPageSEO();
+  });
   
   const cardReaderImg = '/images/card-reader-iso.webp';
 

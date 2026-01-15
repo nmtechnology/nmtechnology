@@ -23,12 +23,53 @@ Allow: /js/
 # Sitemap location
 Sitemap: https://nmtechnology.us/sitemap.xml
 
-# Google specific
+# Google specific (including Google SGE)
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
-# Bing specific
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0
+
+# Bing specific (including Bing Chat)
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# OpenAI GPTBot for ChatGPT
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+# Anthropic Claude bot
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+# AI search engines and assistants
+User-agent: YouBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 1
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Meta-ExternalAgent
 Allow: /
 Crawl-delay: 1

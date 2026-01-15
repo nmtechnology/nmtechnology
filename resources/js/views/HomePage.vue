@@ -240,8 +240,9 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useAISEO } from "../composables/useAISEO";
 import SectionService from "../components/SectionService.vue";
 import SectionOne from "../components/SectionOne.vue";
 import HomeFooter from "../components/HomeFooter.vue";
@@ -250,6 +251,13 @@ import WorkCollage from "../components/WorkCollage.vue";
 import ziaSymbol from "../../images/zia-symbol.webp";
 
 const router = useRouter();
+const { setHomePageSEO } = useAISEO();
+
+// Set AI-optimized SEO on page load
+onMounted(() => {
+  setHomePageSEO();
+});
+
 const openContactModal = inject("openContactModal");
 
 const generateQuote = () => {

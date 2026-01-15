@@ -32,6 +32,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.3",
         "@headlessui/vue": "^1.7.14",
         "@heroicons/vue": "^2.0.18",
+        "@unhead/vue": "^2.1.2",
         "@vueuse/core": "^10.2.1",
         "animate.css": "^4.1.1",
         "lodash": "^4.17.21",
