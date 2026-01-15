@@ -46,7 +46,8 @@
                 </h2>
                 
                 <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Professional installation and 24/7 service for all your security infrastructure needs across New Mexico
+                    Professional installation and 24/7 service for all your security infrastructure needs across New Mexico, backed by cutting-edge technology and a commitment to excellence.
+                    We specialize in commercial and residential integrated security solutions tailored to your business.
                 </p>
             </div>
         </div>
