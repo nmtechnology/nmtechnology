@@ -43,16 +43,18 @@
             v-for="item in navigation.filter((i) => i.name !== 'Home')"
             :key="item.name"
             :to="item.href"
-            class="relative px-3 py-2 text-sm font-semibold text-white hover:text-green-400 transition-colors duration-200 rounded-md group"
-            :class="{ 'text-green-400': isActiveRoute(item.href) }"
+            class="relative px-3 py-2 text-sm font-semibold transition-colors duration-200 rounded-md group"
+            :class="getRouteColor(item.href)"
           >
             {{ item.name }}
             <span
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+              class="absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
+              :class="getUnderlineColor(item.href)"
             ></span>
             <span
               v-if="isActiveRoute(item.href)"
-              class="absolute bottom-0 left-0 w-full h-0.5 bg-green-500"
+              class="absolute bottom-0 left-0 w-full h-0.5"
+              :class="getUnderlineColor(item.href)"
             ></span>
           </router-link>
         </div>
@@ -380,6 +382,34 @@ export default {
       return false;
     };
 
+    // Get color class based on current route
+    const getRouteColor = (path) => {
+      const routePath = route.path.split("#")[0];
+      const comparePath = path.split("#")[0];
+      const isActive = routePath === comparePath || (comparePath !== "/home" && routePath.startsWith(comparePath));
+
+      if (!isActive) return 'text-white hover:text-green-400';
+
+      if (comparePath === '/cctv') return 'text-cyan-400';
+      if (comparePath === '/security-alarms') return 'text-green-400';
+      if (comparePath === '/fire-alarms') return 'text-red-400';
+      if (comparePath === '/networking') return 'text-purple-400';
+      if (comparePath === '/access-control') return 'text-orange-400';
+      return 'text-green-400';
+    };
+
+    // Get underline color class based on route
+    const getUnderlineColor = (path) => {
+      const comparePath = path.split("#")[0];
+      
+      if (comparePath === '/cctv') return 'bg-cyan-500';
+      if (comparePath === '/security-alarms') return 'bg-green-500';
+      if (comparePath === '/fire-alarms') return 'bg-red-500';
+      if (comparePath === '/networking') return 'bg-purple-500';
+      if (comparePath === '/access-control') return 'bg-orange-500';
+      return 'bg-green-500';
+    };
+
     // Check if current route matches exactly
     const isRouteActive = (path) => {
       return route.path === path;
@@ -435,6 +465,14 @@ export default {
       openCart,
       openCartAndCloseMenu,
       openContactModal,
+      openApplicationModal,
+      generateQuote,
+      openSecurityFAQsModal,
+      isLandingPage,
+      isActiveRoute,
+      getRouteColor,
+      getUnderlineColor,
+      isRouteActive,
       openApplicationModal,
       generateQuote,
       openSecurityFAQsModal,
