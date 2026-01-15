@@ -5,11 +5,11 @@
       class="fixed inset-x-0 top-0 z-50 bg-black backdrop-blur-md border-b border-green-600/30"
     >
       <nav
-        class="flex items-center justify-between h-20 p-6 lg:px-8 w-screen max-w-7xl mx-auto"
+        class="flex items-center justify-between h-20 px-3 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto"
         aria-label="Global"
       >
         <!-- Logo Section -->
-        <div class="flex lg:flex-1 items-center">
+        <div class="flex items-center flex-shrink-0 mr-2">
           <router-link to="/home" class="relative flex items-center group">
             <NMLogo variant="service" size="large" />
           </router-link>
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Desktop navigation links -->
-        <div class="hidden lg:flex lg:gap-x-1 gap-x-3">
+        <div class="hidden lg:flex lg:gap-x-1 gap-x-3 flex-grow justify-center">
           <router-link
             v-for="item in navigation.filter((i) => i.name !== 'Home')"
             :key="item.name"
@@ -60,7 +60,7 @@
         </div>
 
         <!-- Desktop Action Buttons -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-3">
+        <div class="hidden lg:flex lg:items-center lg:gap-3 flex-shrink-0">
           <button
             @click="openContactModal"
             class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold text-sm shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"

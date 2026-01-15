@@ -7,9 +7,21 @@
 
 <style>
   .brand-logo {
-            width: 90px !important;
+            width: 70px !important;
             height: auto !important;
         }
+  
+  @media (min-width: 400px) {
+    .brand-logo {
+      width: 80px !important;
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .brand-logo {
+      width: 90px !important;
+    }
+  }
 </style>
 
 <script setup>
