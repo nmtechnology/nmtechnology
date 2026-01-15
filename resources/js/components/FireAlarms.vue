@@ -237,6 +237,7 @@
   <script setup>
   import { inject } from "vue";
   import { useRouter } from "vue-router";
+  import pullStationImg from '../../images/pullstation-iso.webp';
 
   const router = useRouter();
   const openContactModal = inject("openContactModal", null);
@@ -246,7 +247,8 @@
       openContactModal();
       return;
     }
-    router.push("/contact");
+    // Fallback to direct navigation if modal not available
+    window.location.href = '/#contact';
   };
 
   const getQuote = () => {
@@ -356,11 +358,3 @@
     animation: fadeIn 0.8s ease-out;
   }
 </style>
-
-<script setup>
-import pullStationImg from '../../images/pullstation-iso.webp';
-
-const contactUs = () => {
-  window.location.href = '/#contact';
-};
-</script>
