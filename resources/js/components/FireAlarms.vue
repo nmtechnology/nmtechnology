@@ -237,7 +237,7 @@
   <script setup>
   import { inject } from "vue";
   import { useRouter } from "vue-router";
-  import pullStationImg from '../../images/fire-alarm-1.webp';
+  import pullStationImg from '../../images/pull-station-iso.webp';
 
   const router = useRouter();
   const openContactModal = inject("openContactModal", null);

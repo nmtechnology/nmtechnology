@@ -38,6 +38,20 @@
             >
           </h1>
 
+          <!-- Alarm Keypad Image with Green Glow -->
+          <div class="flex justify-center mb-8">
+            <div class="relative">
+              <!-- Green glow effect behind the image -->
+              <div class="absolute inset-0 bg-green-400/30 blur-3xl rounded-full scale-110" aria-hidden="true"></div>
+              <!-- Image -->
+              <img
+                :src="alarmKeypadImg"
+                alt="Security Alarm Keypad"
+                class="relative w-48 h-48 sm:w-64 sm:h-64 object-contain animate-fadeIn"
+              />
+            </div>
+          </div>
+
           <p class="text-gray-300 text-lg text-center max-w-4xl mx-auto leading-relaxed animate-fadeIn">
             From new installs to troubleshooting and upgrades, NM Technology designs, installs,
             and services intrusion alarm systems that fit your home or business — built clean,
@@ -216,6 +230,7 @@
   <script setup>
   import { inject } from "vue";
   import { useRouter } from "vue-router";
+  import alarmKeypadImg from '../../images/napco-prima-bundle-1.webp';
 
   const router = useRouter();
   const openContactModal = inject("openContactModal", null);
