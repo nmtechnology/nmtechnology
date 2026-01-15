@@ -45,7 +45,7 @@
               <div class="absolute inset-0 bg-red-400/30 blur-3xl rounded-full scale-110" aria-hidden="true"></div>
               <!-- Image -->
               <img
-                src="/images/pullstation-iso.webp"
+                :src="pullStationImg"
                 alt="Fire Alarm Pull Station"
                 class="relative w-48 h-48 sm:w-64 sm:h-64 object-contain animate-fadeIn"
               />
@@ -356,3 +356,11 @@
     animation: fadeIn 0.8s ease-out;
   }
 </style>
+
+<script setup>
+import pullStationImg from '../../images/pullstation-iso.webp';
+
+const contactUs = () => {
+  window.location.href = '/#contact';
+};
+</script>
