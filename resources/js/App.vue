@@ -389,13 +389,13 @@ export default {
       const isActive = routePath === comparePath || (comparePath !== "/home" && routePath.startsWith(comparePath));
 
       if (comparePath === '/cctv') {
-        return isActive ? 'text-cyan-400' : 'text-whit';
+        return isActive ? 'text-cyan-400' : 'text-white';
       }
       if (comparePath === '/security-alarms') {
         return isActive ? 'text-green-400' : 'text-white';
       }
       if (comparePath === '/fire-alarms') {
-        return isActive ? 'text-red-400' : 'text-whi';
+        return isActive ? 'text-red-400' : 'text-white';
       }
       if (comparePath === '/networking') {
         return isActive ? 'text-purple-400' : 'text-white ';
