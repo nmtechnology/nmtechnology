@@ -44,7 +44,6 @@ const containerClasses = computed(() => {
     header: ["lg:flex-1", "justify-start", "group", "flex-shrink-0"],
     service: [
       "justify-center",
-      "mt-10",
       "py-3",
       "sm:py-4",
       "px-4",
