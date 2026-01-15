@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="overflow-x-hidden w-full">
     <header
       v-if="!isLandingPage"
       class="fixed inset-x-0 top-0 z-50 bg-black backdrop-blur-md border-b border-green-600/30"
     >
       <nav
-        class="flex items-center justify-between h-20 px-3 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto"
+        class="flex items-center justify-between h-20 px-3 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto overflow-x-hidden"
         aria-label="Global"
       >
         <!-- Logo Section -->
@@ -305,7 +305,9 @@
   <!-- Survey Banner -->
   <SurveyBanner v-if="!isLandingPage" />
 
-  <router-view></router-view>
+  <div class="overflow-x-hidden w-full">
+    <router-view></router-view>
+  </div>
 
   <!-- Toast notifications container -->
   <ToastContainer />
@@ -493,6 +495,16 @@ export default {
 </script>
 
 <style>
+/* Prevent horizontal scrolling globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 @media (min-width: 2560px) {
   #navbar {
     width: 100%;
