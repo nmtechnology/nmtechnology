@@ -7,6 +7,7 @@ import LandingPage from './views/LandingPage.vue'
 import CcTv from './components/CcTv.vue'
 import SecurityAlarms from './components/SecurityAlarms.vue'
 import FireAlarms from './components/FireAlarms.vue'
+import Networking from './components/Networking.vue'
 import ProductsPage from './views/ProductsPage.vue'
 import axios from 'axios'
 import { vTouch } from './directives/touch-directive'
@@ -27,6 +28,7 @@ const router = createRouter({
     { path: '/cctv', name: 'CcTv', component: CcTv },
     { path: '/security-alarms', name: 'SecurityAlarms', component: SecurityAlarms },
     { path: '/fire-alarms', name: 'FireAlarms', component: FireAlarms },
+    { path: '/networking', name: 'Networking', component: Networking },
     { path: '/learn', name: 'LearnCenter', component: () => import('./views/LearnCenter.vue') },
     { path: '/promo-banner-examples', name: 'PromoBannerExamples', component: () => import('./components/PromoBannerExamples.vue') }
   ],
