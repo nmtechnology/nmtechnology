@@ -388,14 +388,22 @@ export default {
       const comparePath = path.split("#")[0];
       const isActive = routePath === comparePath || (comparePath !== "/home" && routePath.startsWith(comparePath));
 
-      if (!isActive) return 'text-white hover:text-green-400';
-
-      if (comparePath === '/cctv') return 'text-cyan-400';
-      if (comparePath === '/security-alarms') return 'text-green-400';
-      if (comparePath === '/fire-alarms') return 'text-red-400';
-      if (comparePath === '/networking') return 'text-purple-400';
-      if (comparePath === '/access-control') return 'text-orange-400';
-      return 'text-green-400';
+      if (comparePath === '/cctv') {
+        return isActive ? 'text-cyan-400' : 'text-white hover:text-cyan-400';
+      }
+      if (comparePath === '/security-alarms') {
+        return isActive ? 'text-green-400' : 'text-white hover:text-green-400';
+      }
+      if (comparePath === '/fire-alarms') {
+        return isActive ? 'text-red-400' : 'text-white hover:text-red-400';
+      }
+      if (comparePath === '/networking') {
+        return isActive ? 'text-purple-400' : 'text-white hover:text-purple-400';
+      }
+      if (comparePath === '/access-control') {
+        return isActive ? 'text-orange-400' : 'text-white hover:text-orange-400';
+      }
+      return isActive ? 'text-green-400' : 'text-white hover:text-green-400';
     };
 
     // Get underline color class based on route
