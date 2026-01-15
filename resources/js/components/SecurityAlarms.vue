@@ -230,7 +230,7 @@
   <script setup>
   import { inject } from "vue";
   import { useRouter } from "vue-router";
-  import alarmKeypadImg from '../../images/napco-prima-bundle-1.webp';
+  const alarmKeypadImg = '/images/alarm-keypad-iso.webp';
 
   const router = useRouter();
   const openContactModal = inject("openContactModal", null);
