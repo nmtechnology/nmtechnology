@@ -15,38 +15,39 @@
 
         <!-- Modal container (fixed & scrollable) -->
         <div class="fixed inset-0 z-50 w-screen overflow-y-auto">
-          <div class="flex min-h-full items-start justify-center p-4">
-            <div class="modal-content relative bg-black w-full max-w-4xl rounded-2xl border border-green-600/50 shadow-2xl transform transition-all duration-300">
-              <div class="modal-header relative flex items-center justify-between px-6 py-6">
+          <div class="flex min-h-full items-start justify-center p-2 sm:p-4">
+            <div class="modal-content relative bg-black w-full max-w-4xl rounded-xl sm:rounded-2xl border border-green-600/50 shadow-2xl transform transition-all duration-300 my-2 sm:my-4">
+              <div class="modal-header relative flex items-center justify-between px-3 sm:px-6 py-4 sm:py-6">
                 <div class="flex items-center gap-2">
                   <button
                     v-if="!showInlineLearn"
                     @click="openInlineLearn()"
-                    class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
+                    class="nmt-chip-link inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-xs sm:text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l9-5-9-5-9 5 9 5z" opacity="0.4" />
                     </svg>
-                    <span>Technology Learning Center</span>
+                    <span class="hidden sm:inline">Technology Learning Center</span>
+                    <span class="sm:hidden">Learn</span>
                   </button>
 
                   <button
                     v-else
                     @click="closeInlineLearn()"
-                    class="nmt-chip-link inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
+                    class="nmt-chip-link inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 bg-red-600 border border-red-700 rounded-md font-medium text-white text-xs sm:text-sm hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300"
                   >
-                    <span class="text-sm">◀</span>
+                    <span class="text-xs sm:text-sm">◀</span>
                     <span>Back to FAQs</span>
                   </button>
                 </div>
 
-                <!-- Center logo -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none mt-[-10px]">
+                <!-- Center logo - hidden on mobile -->
+                <div class="hidden sm:block absolute left-1/2 transform -translate-x-1/2 pointer-events-none mt-[-10px]">
                   <NMLogo variant="service" size="small" />
                 </div>
 
-                <button class="text-white close-button" @click="closeModal">
+                <button class="text-white close-button flex-shrink-0" @click="closeModal">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l-1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
                   </svg>
@@ -54,7 +55,7 @@
               </div>
 
               <!-- Scrollable body (matches Contact modal pattern) -->
-              <div class="px-6 pb-8 pt-0 max-h-[calc(100vh-120px)] overflow-y-auto">
+              <div class="px-3 sm:px-6 pb-6 sm:pb-8 pt-0 max-h-[calc(100vh-120px)] overflow-y-auto">
                 <div class="mx-auto max-w-4xl">
                   <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5">
                     <div class="absolute inset-0 bg-black rounded"></div>
@@ -220,12 +221,19 @@ export default {
     /* Use fixed-width panel similar to Contact modal and let inner content scroll */
     width: 100%;
     max-width: 960px;
-    border-radius: 1.5rem;
+    border-radius: 0.75rem;
     position: relative;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     animation: modalSlideDown 0.3s ease-out;
-    border: 3px solid #16a34a; /* Adding green border with site's green theme color */
+    border: 2px solid #16a34a; /* Adding green border with site's green theme color */
     overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .modal-content {
+        border-radius: 1.5rem;
+        border-width: 3px;
+    }
 }
 
 .modal-header {
@@ -238,7 +246,7 @@ export default {
 
 .close-button {
     border-radius: 9999px;
-    padding: 0.5rem;
+    padding: 0.375rem;
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s;
 }
@@ -247,9 +255,16 @@ export default {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+@media (min-width: 640px) {
+    .close-button {
+        padding: 0.5rem;
+    }
+}
+
 @media (max-width: 640px) {
     .modal-content {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 }
 
