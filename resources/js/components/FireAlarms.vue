@@ -38,15 +38,15 @@
             >
           </h1>
 
-          <!-- NMTech Bot Image with Red Glow -->
+          <!-- Pull Station Image with Red Glow -->
           <div class="flex justify-center mb-8">
             <div class="relative">
               <!-- Red glow effect behind the image -->
               <div class="absolute inset-0 bg-red-400/30 blur-3xl rounded-full scale-110" aria-hidden="true"></div>
               <!-- Image -->
               <img
-                src="/public/images/nmtech-bot.webp"
-                alt="NM Technology Bot"
+                src="/public/images/pullstation-iso.webp"
+                alt="Fire Alarm Pull Station"
                 class="relative w-48 h-48 sm:w-64 sm:h-64 object-contain animate-fadeIn"
               />
             </div>
