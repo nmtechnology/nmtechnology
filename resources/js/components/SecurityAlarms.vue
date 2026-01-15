@@ -228,8 +228,16 @@
   </template>
 
   <script setup>
-  import { inject } from "vue";
+  import { inject, onMounted } from "vue";
   import { useRouter } from "vue-router";
+  import { useAISEO } from "../composables/useAISEO";
+
+  const { setSecurityAlarmPageSEO } = useAISEO();
+
+  // Set AI-optimized SEO on page load
+  onMounted(() => {
+    setSecurityAlarmPageSEO();
+  });
   const alarmKeypadImg = '/images/alarm-keypad-iso.webp';
 
   const router = useRouter();
