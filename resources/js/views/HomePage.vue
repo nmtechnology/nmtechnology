@@ -233,6 +233,17 @@
 
       <Pricing />
 
+      <!-- Certifications & Badges -->
+      <div class="bg-gray-50 py-12">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="flex justify-center items-center">
+            <a href="https://network.procore.com/p/nm-technology-and-integration-solutions-llc-albuquerque" rel="dofollow" target="_blank" class="transition-transform hover:scale-105">
+              <img src="https://network.procore.com/assets/static/procore-black-badge.svg" alt="Procore Black Badge" class="h-24 w-auto" />
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- Footer -->
       <HomeFooter />
     </main>
