@@ -236,13 +236,17 @@
       <!-- Certifications & Badges -->
       <div class="bg-gray-900 py-12">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="flex justify-center items-center">
+          <div class="flex flex-wrap justify-center items-center gap-8">
             <a href="https://network.procore.com/p/nm-technology-and-integration-solutions-llc-albuquerque" rel="dofollow" target="_blank" class="transition-transform hover:scale-105">
               <img src="https://network.procore.com/assets/static/procore-black-badge.svg" alt="Procore Black Badge" class="h-24 w-auto" />
             </a>
+            <div id="yelp-biz-badge-rrc-k2KBYjkFsd-f7zETlJO8Qg" class="transition-transform hover:scale-105">
+              <a href="http://yelp.com/biz/nm-technology-albuquerque?utm_medium=badge_star_rating_reviews&utm_source=biz_review_badge" target="_blank">Check out NM Technology on Yelp</a>
+            </div>
           </div>
         </div>
       </div>
+      <script>(function(d, t) {var g = d.createElement(t);var s = d.getElementsByTagName(t)[0];g.id = "yelp-biz-badge-script-rrc-k2KBYjkFsd-f7zETlJO8Qg";g.src = "//yelp.com/biz_badge_js/en_US/rrc/k2KBYjkFsd-f7zETlJO8Qg.js";s.parentNode.insertBefore(g, s);}(document, 'script'));</script>
 
       <!-- Footer -->
       <HomeFooter />
