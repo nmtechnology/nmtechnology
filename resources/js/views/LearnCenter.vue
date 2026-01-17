@@ -89,7 +89,7 @@ import AccessControlStrategiesGuide from '../components/learn/AccessControlStrat
 import SecurityAlarmInsuranceFAQ from '../components/learn/SecurityAlarmInsuranceFAQ.vue'
 
 useSEO({
-  title: 'ONVIF, PoE Classes, Fire Alarm Cabling & Access Control Schemes | NM Technology',
+  title: 'Call 505-659-5097 | CCTV, Fire Alarm, Burglar Alarms, Networks & Access Control | NM Technology',
   description:
     'Learn ONVIF profiles, PoE power classifications (802.3af/at/bt), fire alarm wiring and cabling basics, access control security strategies, and alarm/insurance FAQs. Simple guides built for buyers and DIY researchers.',
   keywords:
