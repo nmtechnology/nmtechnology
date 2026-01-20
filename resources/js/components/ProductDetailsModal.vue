@@ -11,9 +11,12 @@
         @click="close"
       ></div>
 
-      <!-- Modern Modal Container -->
+        <!-- Modern Modal Container -->
       <div
         ref="panelRef"
+        role="dialog"
+        aria-modal="true"
+        :aria-labelledby="product && product.id ? 'product-title-' + product.id : 'product-title'"
         @click.stop
         :class="[
           'relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-2xl',
@@ -32,11 +35,11 @@
           <div class="relative w-full h-full">
             <!-- Carousel Images -->
             <div
-              v-if="product.images && product.images.length > 0"
+              v-if="imageList.length > 0"
               class="relative w-full h-full"
             >
               <img
-                v-for="(image, index) in product.images"
+                v-for="(image, index) in imageList"
                 :key="index"
                 :src="image"
                 :alt="`${product.name} - Image ${index + 1}`"
@@ -68,7 +71,7 @@
             </div>
 
             <!-- Navigation Arrows -->
-            <template v-if="product.images && product.images.length > 1">
+            <template v-if="imageList.length > 1">
               <button
                 @click="previousImage"
                 class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-900/70 hover:bg-gray-900/90 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all duration-200 border border-gray-600/50"
@@ -109,7 +112,7 @@
               <!-- Image Indicators -->
               <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                 <button
-                  v-for="(_, index) in product.images"
+                  v-for="(_, index) in imageList"
                   :key="index"
                   @click="setCurrentImage(index)"
                   :class="[
@@ -125,7 +128,9 @@
 
           <!-- Close button overlay -->
           <button
+            ref="closeBtnRef"
             @click="close"
+            aria-label="Close product details"
             class="absolute top-4 right-4 w-8 h-8 bg-gray-900/70 hover:bg-gray-900/90 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all duration-200 border border-gray-600/50"
           >
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -375,8 +380,27 @@ export default {
     const panelRef = ref(null);
 
     // When modal becomes visible, inspect the DOM to ensure panel is rendered and visible
+    const closeBtnRef = ref(null);
+    const previousActiveElement = ref(null);
+
+    const handleKeydown = (e) => {
+      if (!isVisible.value) return;
+      const key = e.key;
+      if (key === 'Escape') {
+        e.preventDefault();
+        close();
+      } else if (key === 'ArrowLeft') {
+        e.preventDefault();
+        previousImage();
+      } else if (key === 'ArrowRight') {
+        e.preventDefault();
+        nextImage();
+      }
+    };
+
     watch(isVisible, async (locked) => {
       if (locked) {
+        previousActiveElement.value = document.activeElement;
         await nextTick();
         try {
           const panelEl = panelRef.value;
@@ -410,8 +434,35 @@ export default {
             }
             el = el.parentElement;
           }
+
+          // Focus management and keyboard listeners
+          try {
+            if (closeBtnRef.value && typeof closeBtnRef.value.focus === 'function') {
+              closeBtnRef.value.focus();
+            }
+            window.addEventListener('keydown', handleKeydown);
+            console.log('ProductDetailsModal: keyboard listeners attached');
+          } catch (err) {
+            console.warn('ProductDetailsModal: failed to attach keyboard listener', err);
+          }
         } catch (err) {
           console.error('ProductDetailsModal: error inspecting panel DOM', err);
+        }
+      } else {
+        try {
+          window.removeEventListener('keydown', handleKeydown);
+          console.log('ProductDetailsModal: keyboard listeners removed');
+        } catch (err) {
+          console.warn('ProductDetailsModal: failed to remove keyboard listener', err);
+        }
+
+        // Restore focus
+        try {
+          if (previousActiveElement.value && typeof previousActiveElement.value.focus === 'function') {
+            previousActiveElement.value.focus();
+          }
+        } catch (err) {
+          console.warn('ProductDetailsModal: failed to restore focus', err);
         }
       }
     });
@@ -458,34 +509,65 @@ export default {
 
     // Theme color based on product category
     const themeColor = computed(() => {
-      if (!props.product.category) return "green";
+      if (!props.product || !props.product.category) return "green";
       const colorMap = {
+        camera: "green",
         cameras: "green",
         networking: "blue",
+        network: "blue",
         access: "purple",
         alarms: "yellow",
+        alarm: "yellow",
         monitoring: "green",
         ai: "blue",
-        network: "blue", // Added for network category
-        security: "blue", // Added for security category
+        recorder: "blue",
+        accessory: "green",
+        security: "blue",
       };
       return colorMap[props.product.category] || "green";
     });
 
     // Category display name
     const categoryName = computed(() => {
-      if (!props.product.category) return "Product";
+      if (!props.product || !props.product.category) return "Product";
       const nameMap = {
+        camera: "Security Camera",
         cameras: "Security Camera",
         networking: "Network Device",
+        network: "Network Device",
         access: "Access Control",
         alarms: "Security Alarm",
+        alarm: "Security Alarm",
         monitoring: "Monitoring Service",
         ai: "AI Solution",
-        network: "Network Device",
+        recorder: "Network Recorder",
+        accessory: "Accessory",
         security: "Security Device",
       };
       return nameMap[props.product.category] || "Product";
+    });
+
+    // Image list (fallback for products with single `image`)
+    const imageList = computed(() => {
+      if (!props.product) return [];
+      if (Array.isArray(props.product.images) && props.product.images.length > 0) {
+        return props.product.images;
+      }
+      if (props.product.image) {
+        return [props.product.image];
+      }
+      return [];
+    });
+
+    // Ensure currentImageIndex is valid when image list changes
+    watch(imageList, (list) => {
+      if (!list || list.length === 0) {
+        currentImageIndex.value = 0;
+        return;
+      }
+      if (currentImageIndex.value >= list.length) {
+        currentImageIndex.value = 0;
+      }
     });
 
     // Methods
@@ -505,15 +587,14 @@ export default {
     };
 
     const nextImage = () => {
-      if (props.product.images && props.product.images.length > 1) {
-        currentImageIndex.value =
-          (currentImageIndex.value + 1) % props.product.images.length;
+      if (imageList.value.length > 1) {
+        currentImageIndex.value = (currentImageIndex.value + 1) % imageList.value.length;
       }
     };
 
     const previousImage = () => {
-      if (props.product.images && props.product.images.length > 1) {
-        const length = props.product.images.length;
+      if (imageList.value.length > 1) {
+        const length = imageList.value.length;
         currentImageIndex.value = (currentImageIndex.value - 1 + length) % length;
       }
     };
