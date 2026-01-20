@@ -88,7 +88,7 @@
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              Get Quote
+              Build Quote
             </button>
           </div>
 
@@ -224,7 +224,7 @@
                   @click="getQuote"
                   class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-700/50 text-red-400 ring-1 ring-inset ring-red-600/50 hover:bg-gray-700 hover:ring-red-500 rounded-lg font-semibold transition-all duration-300"
                 >
-                  Get Quote
+                  Build Quote
                 </button>
               </div>
             </div>

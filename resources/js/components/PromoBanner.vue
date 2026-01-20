@@ -77,7 +77,7 @@ const promos = {
     description: 'Start 2025 secure! Get',
     discount: '10% OFF',
     code: 'NEWYEAR25',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-01-01'),
     endDate: new Date('2025-02-13T23:59:59'),
     endDateFormatted: 'February 13th'
@@ -90,7 +90,7 @@ const promos = {
     description: 'Love your security! Get',
     discount: '10% OFF',
     code: 'LOVE10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-02-14'),
     endDate: new Date('2025-03-16T23:59:59'),
     endDateFormatted: 'March 16th'
@@ -103,7 +103,7 @@ const promos = {
     description: 'Get lucky with savings! Get',
     discount: '10% OFF',
     code: 'LUCKY10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-03-17'),
     endDate: new Date('2025-04-19T23:59:59'),
     endDateFormatted: 'April 19th'
@@ -116,7 +116,7 @@ const promos = {
     description: 'Spring into savings! Get',
     discount: '10% OFF',
     code: 'SPRING10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-04-20'),
     endDate: new Date('2025-05-04T23:59:59'),
     endDateFormatted: 'May 4th'
@@ -129,7 +129,7 @@ const promos = {
     description: '¡Celebra con ahorros! Get',
     discount: '10% OFF',
     code: 'CINCO10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-05-05'),
     endDate: new Date('2025-05-25T23:59:59'),
     endDateFormatted: 'May 25th'
@@ -142,7 +142,7 @@ const promos = {
     description: 'Honoring heroes! Get',
     discount: '10% OFF',
     code: 'MEMORIAL10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-05-26'),
     endDate: new Date('2025-06-30T23:59:59'),
     endDateFormatted: 'June 30th'
@@ -155,7 +155,7 @@ const promos = {
     description: 'Celebrate freedom securely! Get',
     discount: '10% OFF',
     code: 'FREEDOM10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-07-01'),
     endDate: new Date('2025-09-01T23:59:59'),
     endDateFormatted: 'September 1st'
@@ -168,7 +168,7 @@ const promos = {
     description: 'Hard work deserves savings! Get',
     discount: '10% OFF',
     code: 'LABOR10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-09-01'),
     endDate: new Date('2025-09-30T23:59:59'),
     endDateFormatted: 'September 30th'
@@ -181,7 +181,7 @@ const promos = {
     description: 'Scary good savings! Get',
     discount: '10% OFF',
     code: 'SPOOKY10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-10-01'),
     endDate: new Date('2025-11-10T23:59:59'),
     endDateFormatted: 'November 10th'
@@ -194,7 +194,7 @@ const promos = {
     description: 'Thank you for your service! Get',
     discount: '10% OFF',
     code: 'VETERANS10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-11-11'),
     endDate: new Date('2025-11-26T23:59:59'),
     endDateFormatted: 'November 26th'
@@ -207,7 +207,7 @@ const promos = {
     description: 'Biggest savings of the year! Get',
     discount: '10% OFF',
     code: 'BLACK10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-11-27'),
     endDate: new Date('2025-12-02T23:59:59'),
     endDateFormatted: 'December 2nd'
@@ -220,7 +220,7 @@ const promos = {
     description: 'Give the gift of security! Get',
     discount: '10% OFF',
     code: 'HOLIDAY10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-12-03'),
     endDate: new Date('2025-12-31T23:59:59'),
     endDateFormatted: 'December 31st'
@@ -233,7 +233,7 @@ const promos = {
     description: 'Protect your property! Get',
     discount: '10% OFF',
     code: 'SECURE10',
-    ctaText: 'Get Quote',
+    ctaText: 'Build Quote',
     startDate: new Date('2025-01-01'),
     endDate: new Date('2025-12-31T23:59:59'),
     endDateFormatted: 'Limited Time'
@@ -385,7 +385,7 @@ const dismiss = () => {
 
 const handleCTA = () => {
   emit('ctaClicked', currentPromo.value);
-  // Navigate users to products page for Get Quote CTAs
+  // Navigate users to products page for Build Quote CTAs
   window.location.href = '/products';
 };
 
