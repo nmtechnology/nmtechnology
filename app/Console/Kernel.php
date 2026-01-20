@@ -15,22 +15,23 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('emailer:send-weekly')->weeklyOn(1, '8:00'); // Every Monday 8am
 
-        // Visitor statistics reports
+        // Daily visitor traffic report - 8pm MST
         $schedule->call(function () {
             \App\Http\Controllers\MathVerificationController::sendDailyTrafficReport();
-        })->dailyAt('20:00')->timezone('America/Denver'); // 8pm MST daily
+        })->dailyAt('20:00')->timezone('America/Denver');
         
-        // Comprehensive visitor statistics report with 7, 15, 30 day views
+        // Weekly visitor statistics report - Sunday at 8pm MST
         $schedule->command('visitor:send-statistics-report')
-            ->weeklyOn(1, '8:30') // Every Monday at 8:30am
+            ->weeklyOn(0, '20:00') // Every Sunday at 8pm
             ->timezone('America/Denver');
         
         $schedule->command('visitor:send-weekly-report')
-            ->weeklyOn(1, '9:00') // Every Monday at 9am
+            ->weeklyOn(0, '20:00') // Every Sunday at 8pm
             ->timezone('America/Denver');
             
+        // Monthly visitor statistics report - 30th of each month at 8pm MST
         $schedule->command('visitor:send-monthly-report')
-            ->monthlyOn(1, '10:00') // 1st day of month at 10am
+            ->monthlyOn(30, '20:00')
             ->timezone('America/Denver');
     }
 

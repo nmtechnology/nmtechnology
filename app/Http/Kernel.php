@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\NotifyOnVisit::class,
+            // \App\Http\Middleware\NotifyOnVisit::class, // DISABLED - MathVerificationController handles visitor tracking
             \App\Http\Middleware\DetectGoogleCrawler::class,
             \App\Http\Middleware\ContentSecurityPolicy::class,
         ],
