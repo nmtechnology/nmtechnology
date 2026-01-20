@@ -217,34 +217,32 @@
 
         <!-- Product Grid -->
         <div id="product-grid" class="relative z-20 scroll-mt-32 pt-4">
-          <div
-            v-if="!groupedProducts || Object.keys(groupedProducts || {}).length === 0"
-            class="text-center text-white py-10"
-          >
+          <div v-if="filteredProducts.length === 0" class="text-center text-white py-10">
             No products found. Please try a different filter.
           </div>
 
-          <template v-else>
+          <!-- If grouped products exist, show grouped view -->
+          <template v-else-if="groupedProducts && Object.keys(groupedProducts || {}).length > 0">
             <div
               v-for="(brandGroup, brand) in groupedProducts || {}"
               :key="brand"
-              class="mb-16"
+              class="mb-16 mx-auto max-w-7xl"
               :id="
                 brand === 'NM Technology Security Monitoring' ? 'monitoring-section' : null
               "
             >
-              <h2 class="text-left text-wrap text-2xl font-extrabold mb-6">
+              <h2 class="text-center md:text-left text-wrap text-2xl font-extrabold mb-6">
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
                   >{{ brand }}</span
                 >
               </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
                 <div
                   v-for="product in brandGroup"
                   :key="product.id"
                   :class="[
-                    'rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
+                    'mx-auto w-full max-w-sm rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
                     product.category === 'package'
                       ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20'
                       : product.category === 'monitoring'
@@ -259,6 +257,21 @@
                   role="button"
                   :aria-label="`View details for ${product.name}`"
                 >
+
+                <!-- Flat fallback: render a centered grid when grouping returned no keys -->
+          </template>
+
+          <template v-else>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto max-w-7xl">
+              <div v-for="product in filteredProducts" :key="product.id" class="mx-auto w-full max-w-sm rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500/20 cursor-pointer" @click="showProductDetails(product)">
+                <div class="p-4">
+                  <img :src="product.image" :alt="product.name" class="w-full h-36 object-contain bg-gray-900/50 p-2 mb-3" />
+                  <h3 class="text-white text-lg font-semibold mb-1">{{ product.name }}</h3>
+                  <p class="text-gray-300 text-sm mb-2">{{ product.description }}</p>
+                </div>
+              </div>
+            </div>
+          </template>
                 <div
                   v-if="product.category === 'package'"
                   class="bg-green-600/20 text-green-500 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
