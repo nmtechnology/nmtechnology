@@ -364,12 +364,14 @@ export default {
     // Image carousel state
     const currentImageIndex = ref(0);
 
-    // Modal visibility
+    // Modal visibility - allow rendering when a product object is present even if `id` is missing
     const isVisible = computed(() => {
-      const visible = Boolean(props.isOpen && props.product && props.product.id);
+      const hasProductObject = props.product && Object.keys(props.product || {}).length > 0;
+      const visible = Boolean(props.isOpen && hasProductObject);
       console.log('ProductDetailsModal isVisible computed:', {
         isOpen: props.isOpen,
         hasProduct: !!props.product,
+        productKeys: props.product ? Object.keys(props.product) : [],
         productId: props.product?.id,
         visible
       });
