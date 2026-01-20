@@ -58,37 +58,62 @@
           </div>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-8 relative z-20">
-          <span v-if="activeCategory === 'package'">
-            <span class="text-white">Complete </span>
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-              >Security Packages</span
-            >
-          </span>
-          <span v-else>
-            <span class="text-white">Intelligent </span>
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
-              >CCTV</span
-            >
-            <span class="text-white"> Security & Networking Products</span>
-          </span>
-        </h1>
-        <p
-          class="text-gray-300 text-lg mb-10 text-center relative animate-fadeIn max-w-4xl mx-auto leading-relaxed"
-        >
-          <span v-if="activeCategory === 'package'">
-            Protect your property with NM Technology's all-in-one security packages. Our
-            expert team designs, installs, and supports systems for homes, businesses, and
-            franchises across New Mexico.
-          </span>
-          <span v-else>
-            Discover the latest in smart surveillance. Our CCTV solutions help you
-            monitor, deter, and respond to threats—giving you peace of mind and actionable
-            insights, 24/7.
-          </span>
-        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+          <div class="text-center lg:text-left">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">
+              <span v-if="activeCategory === 'package'">
+                <span class="text-white">Complete </span>
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >Security Packages</span
+                >
+              </span>
+              <span v-else>
+                <span class="text-white">Intelligent </span>
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400"
+                  >Security Products</span
+                >
+              </span>
+            </h1>
+
+            <p class="text-gray-300 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <span v-if="activeCategory === 'package'">
+                Protect your property with NM Technology's all-in-one security packages. Our
+                expert team designs, installs, and supports systems for homes, businesses, and
+                franchises across New Mexico.
+              </span>
+              <span v-else>
+                Discover the latest in smart surveillance and networking equipment. Explore
+                professionally selected products, packages, and accessories tailored for
+                New Mexico deployments.
+              </span>
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button
+                @click="openContactForQuote"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 transition-all duration-300 transform hover:scale-105"
+              >
+                Contact Us
+              </button>
+
+              <button
+                @click="openContactForQuote"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-700/50 text-green-400 ring-1 ring-inset ring-green-600/50 hover:bg-gray-700 hover:ring-green-500 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                Build Quote
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-center lg:justify-end">
+            <div class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-xl overflow-hidden shadow-2xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-lime-500/5 blur-3xl -z-10"></div>
+              <img src="/public/images/nmtech-store.webp" alt="NM Technology Store" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
 
         <!-- Product Filter -->
         <div id="product-section" class="relative z-20">
@@ -674,6 +699,9 @@ export default {
     // Check if we were directed here with a hash and handle it appropriately
     const { currentRoute } = useRouter();
 
+    // Inject contact modal opener
+    const openContactModal = inject('openContactModal', null);
+
     // Add onMounted hook to handle hash navigation and fix recently viewed footer
     onMounted(() => {
       // Check for hash in URL
@@ -685,10 +713,10 @@ export default {
           if (targetId === "product-grid") {
             const element = document.getElementById("product-grid");
             if (element) {
-              console.log("CcTv: Scrolling to product-grid");
+              console.log("ProductsPage: Scrolling to product-grid");
               element.scrollIntoView({ behavior: "smooth", block: "start" });
             } else {
-              console.warn("CcTv: Could not find #product-grid element");
+              console.warn("ProductsPage: Could not find #product-grid element");
             }
           }
         }, 600); // Increased timeout to ensure component is fully rendered
@@ -893,6 +921,15 @@ export default {
 
       console.log('Setting productDetailsOpen to true, selectedProduct:', selectedProduct.value);
       productDetailsOpen.value = true;
+
+      // If contact modal is available, mark this product as last selected (for context)
+      try {
+        if (openContactModal && typeof openContactModal === 'function') {
+          // no-op here, but keeps the reference around for the contact flow
+        }
+      } catch (e) {
+        console.warn('ProductsPage: error accessing openContactModal', e);
+      }
     };
 
     const closeProductDetails = () => {
