@@ -66,6 +66,9 @@
           <p class="text-sm leading-6 text-gray-400 mb-2">
             &copy; 2025 NM Technology, Inc. All rights reserved.
           </p>
+          <address class="text-sm leading-6 text-gray-400 mb-2 not-italic">
+            Based in <span class="font-semibold text-green-400">Albuquerque, NM</span> — servicing <span class="font-semibold text-green-400">Albuquerque, Santa Fe, and Rio Rancho</span>.
+          </address>
           <p class="text-base font-semibold text-green-400 mb-3">
             Albuquerque's #1 Choice for Commercial CCTV Installation & Security Solutions
           </p>

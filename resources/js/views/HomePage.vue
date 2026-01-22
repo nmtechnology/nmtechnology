@@ -88,14 +88,14 @@
                   />
                   <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-green-100 to-white/30"
-                    >New Mexico</span
+                    >Albuquerque, New Mexico</span
                   >
                 </h1>
 
                 <p
                   class="relative mt-6 text-lg leading-8 text-gray-300 sm:max-w-md lg:max-w-none"
                 >
-                  By utilizing integrated technology here in New Mexico to protect your
+                  By utilizing integrated technology here in Albuquerque, New Mexico to protect your
                   home or business, customers can automate routine tasks and create
                   customized settings based on your preferences. By offering a full range
                   of security services and products that address both physical and cyber

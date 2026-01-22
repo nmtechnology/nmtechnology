@@ -347,12 +347,15 @@
 
       <div class="text-center max-w-2xl mx-auto">
         <p class="text-gray-300 text-base md:text-lg font-medium mb-3">
+          <span class="font-semibold text-green-400">Locally owned &amp; operated in Albuquerque, NM</span> — serving <span class="font-semibold text-green-400">Albuquerque, Santa Fe, Rio Rancho, Placitas, and Los Lunas</span>.
+        </p>
+        <p class="text-gray-300 text-base md:text-lg font-medium mb-3">
           Securing homes and businesses across
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400 font-bold"
             >New Mexico</span
           >
-        </p>
+        </p> 
         <p
           class="text-white text-lg md:text-xl font-bold mb-6 flex items-center justify-center gap-2"
         >
@@ -513,7 +516,7 @@
         <img src="/public/images/usa-flag.webp" alt="USA Flag" class="h-6 opacity-50" />
       </div>
       <div class="text-xs text-gray-500">
-        Serving all of New Mexico with professional security solutions
+        <span class="font-semibold text-green-400">Locally owned &amp; operated in Albuquerque, NM</span> — serving Albuquerque, Santa Fe, Rio Rancho, Placitas, and Los Lunas.
       </div>
     </div>
 
