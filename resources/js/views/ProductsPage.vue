@@ -241,24 +241,17 @@
                 <div
                   v-for="product in brandGroup"
                   :key="product.id"
-                  :class="[
-                    'mx-auto w-full max-w-sm rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] backdrop-blur-sm cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900',
-                    product.category === 'package'
-                      ? 'border border-green-500/30 hover:border-green-500/50 hover:shadow-green-500/20 ring-1 ring-green-500/20'
-                      : product.category === 'monitoring'
-                      ? 'border border-purple-500/30 hover:border-purple-500/50 hover:shadow-purple-500/20 ring-1 ring-purple-500/20'
-                      : product.category === 'security' && product.color === 'blue'
-                      ? 'border border-blue-500/30 hover:border-blue-500/50 hover:shadow-blue-500/20 ring-1 ring-blue-500/20'
-                      : product.brand === 'NM Solar' && product.color === 'yellow'
-                      ? 'border border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-yellow-500/20 ring-1 ring-yellow-500/20'
-                      : 'border border-green-500/20 hover:border-green-500/40 hover:shadow-green-500/10',
-                  ]"
+                  class="mx-auto w-full max-w-sm rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:transform hover:scale-[1.02] bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500/20 cursor-pointer"
                   @click="showProductDetails(product)"
-                  role="button"
-                  :aria-label="`View details for ${product.name}`"
                 >
-
-                <!-- Flat fallback: render a centered grid when grouping returned no keys -->
+                  <div class="p-4">
+                    <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name" class="w-full h-36 object-contain bg-gray-900/50 p-2 mb-3" />
+                    <h3 class="text-white text-lg font-semibold mb-1">{{ product.name }}</h3>
+                    <p class="text-gray-300 text-sm mb-2">{{ product.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </template>
 
           <template v-else>
