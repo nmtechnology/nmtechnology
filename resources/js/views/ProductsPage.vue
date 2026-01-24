@@ -271,7 +271,7 @@
 
                     <p class="text-gray-400 mt-2">{{ product.description }}</p>
 
-                    <div class="mt-3 flex flex-wrap gap-2">
+                    <div v-if="product.features && product.features.length" class="mt-3 flex flex-wrap gap-2">
                       <span
                         v-for="feature in product.features.slice(0, product.category === 'package' ? 3 : 2)"
                         :key="feature"
@@ -379,7 +379,7 @@
 
                   <p class="text-gray-400 mt-2">{{ product.description }}</p>
 
-                  <div class="mt-3 flex flex-wrap gap-2">
+                  <div v-if="product.features && product.features.length" class="mt-3 flex flex-wrap gap-2">
                     <span v-for="feature in product.features.slice(0, product.category === 'package' ? 3 : 2)" :key="feature" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md">{{ feature }}</span>
                     <span v-if="product.features.length > (product.category === 'package' ? 3 : 2)" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md">+{{ product.features.length - (product.category === 'package' ? 3 : 2) }} more</span>
                   </div>
