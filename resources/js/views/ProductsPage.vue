@@ -245,9 +245,111 @@
                   @click="showProductDetails(product)"
                 >
                   <div class="p-4">
-                    <img :src="product.image || '/images/axis-dome-side.webp'" :alt="product.name" class="w-full h-36 object-contain bg-gray-900/50 p-2 mb-3" />
-                    <h3 class="text-white text-lg font-semibold mb-1">{{ product.name }}</h3>
-                    <p class="text-gray-300 text-sm mb-2">{{ product.description }}</p>
+                    <img
+                      :src="product.image || '/images/axis-dome-side.webp'"
+                      :alt="product.name"
+                      class="w-full h-48 object-scale-down"
+                      @error="$event.target.src = '/images/axis-dome-side.webp'"
+                    />
+
+                    <h2
+                      class="text-2xl font-bold mt-3"
+                      :class="{
+                        'text-green-400 font-extrabold': product.category === 'package',
+                        'text-purple-500 font-extrabold': product.category === 'monitoring',
+                        'text-blue-400 font-extrabold': product.category === 'security' && product.color === 'blue',
+                        'text-yellow-400 font-extrabold': product.brand === 'NM Solar' && product.color === 'yellow',
+                        'text-green-600 font-bold':
+                          product.category !== 'package' &&
+                          product.category !== 'monitoring' &&
+                          !(product.category === 'security' && product.color === 'blue') &&
+                          !(product.brand === 'NM Solar' && product.color === 'yellow'),
+                      }"
+                    >
+                      {{ product.name }}
+                    </h2>
+
+                    <p class="text-gray-400 mt-2">{{ product.description }}</p>
+
+                    <div class="mt-3 flex flex-wrap gap-2">
+                      <span
+                        v-for="feature in product.features.slice(0, product.category === 'package' ? 3 : 2)"
+                        :key="feature"
+                        class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
+                      >
+                        {{ feature }}
+                      </span>
+
+                      <span
+                        v-if="product.features.length > (product.category === 'package' ? 3 : 2)"
+                        class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
+                      >
+                        +{{ product.features.length - (product.category === 'package' ? 3 : 2) }} more
+                      </span>
+                    </div>
+
+                    <div class="flex items-center mt-4">
+                      <span
+                        :class="[
+                          'font-bold',
+                          product.category === 'package'
+                            ? 'text-xl text-green-500'
+                            : product.category === 'monitoring'
+                            ? 'text-xl text-purple-500'
+                            : product.category === 'security' && product.color === 'blue'
+                            ? 'text-xl text-blue-500'
+                            : product.brand === 'NM Solar' && product.color === 'yellow'
+                            ? 'text-xl text-yellow-500'
+                            : 'text-lg text-green-600',
+                        ]"
+                      >
+                        {{ product.price ? `$${product.price.toFixed(2)}${product.recurring ? '/mo' : ''}` : 'Call For Price' }}
+                      </span>
+
+                      <span v-if="product.recurring" class="ml-2 bg-purple-600/20 text-purple-400 text-xs px-2 py-0.5 rounded-full">
+                        MONTHLY
+                      </span>
+                    </div>
+
+                    <div v-if="product.category === 'package'" class="mt-2 text-xs text-gray-400">
+                      {{ product.specs?.cameraCount || '' }} cameras · {{ product.specs?.resolution || '' }}
+                    </div>
+                    <div v-if="product.category === 'monitoring'" class="mt-2 text-xs text-gray-400">
+                      {{ product.specs?.doorContacts || '' }} door contacts · {{ product.specs?.windowSensors || '' }} window sensors
+                    </div>
+
+                    <div class="flex gap-2 mt-4">
+                      <button
+                        @click.stop="addToCart(product)"
+                        :class="[
+                          'flex-1 py-3 rounded-lg text-white font-semibold transition-all duration-300 flex items-center justify-center shadow-lg transform hover:scale-105',
+                          product.category === 'package'
+                            ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-green-500/30'
+                            : product.category === 'monitoring'
+                            ? 'bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-purple-500/30'
+                            : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30',
+                        ]"
+                      >
+                        {{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}
+                      </button>
+
+                      <button
+                        @click.stop="showProductDetails(product)"
+                        :class="[
+                          'px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer border transform hover:scale-105',
+                          product.category === 'package'
+                            ? 'border-green-500/50 hover:border-green-400 text-green-400 hover:text-green-300 hover:bg-green-900/20'
+                            : product.category === 'monitoring'
+                            ? 'border-purple-500/50 hover:border-purple-400 text-purple-400 hover:text-purple-300 hover:bg-purple-900/20'
+                            : 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20',
+                        ]"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -258,267 +360,42 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto max-w-7xl">
               <div v-for="product in filteredProducts" :key="product.id" class="mx-auto w-full max-w-sm rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] bg-gradient-to-br from-gray-800 to-gray-900 border border-green-500/20 cursor-pointer" @click="showProductDetails(product)">
                 <div class="p-4">
-                  <img :src="product.image" :alt="product.name" class="w-full h-36 object-contain bg-gray-900/50 p-2 mb-3" />
-                  <h3 class="text-white text-lg font-semibold mb-1">{{ product.name }}</h3>
-                  <p class="text-gray-300 text-sm mb-2">{{ product.description }}</p>
-                </div>
-              </div>
-            </div>
-          </template>
-                <div
-                  v-if="product.category === 'package'"
-                  class="bg-green-600/20 text-green-500 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                    />
-                  </svg>
-                  CCTV SECURITY PACKAGE
-                </div>
-                <div
-                  v-if="product.category === 'monitoring'"
-                  class="bg-purple-600/20 text-purple-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
-                    />
-                  </svg>
-                  SECURITY MONITORING
-                </div>
-                <div
-                  v-if="product.category === 'security' && product.color === 'blue'"
-                  class="bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                  HOME SECURITY SYSTEM
-                </div>
-                <div
-                  v-if="product.brand === 'NM Solar' && product.color === 'yellow'"
-                  class="bg-yellow-600/20 text-yellow-400 text-xs font-bold px-3 py-1 text-center flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  </svg>
-                  SOLAR POWERED SECURITY
-                </div>
-                <img
-                  :src="product.image || '/images/axis-dome-side.webp'"
-                  :alt="product.name"
-                  class="w-full h-48 object-scale-down"
-                  @error="$event.target.src = '/images/axis-dome-side.webp'"
-                />
-                <div class="p-4">
-                  <h2
-                    class="text-2xl font-bold"
-                    :class="{
+                  <img
+                    :src="product.image || '/images/axis-dome-side.webp'"
+                    :alt="product.name"
+                    class="w-full h-48 object-scale-down"
+                    @error="$event.target.src = '/images/axis-dome-side.webp'"
+                  />
+
+                  <h2 class="text-2xl font-bold mt-3" :class="{
                       'text-green-400 font-extrabold': product.category === 'package',
                       'text-purple-500 font-extrabold': product.category === 'monitoring',
-                      'text-blue-400 font-extrabold':
-                        product.category === 'security' && product.color === 'blue',
-                      'text-yellow-400 font-extrabold':
-                        product.brand === 'NM Solar' && product.color === 'yellow',
-                      'text-green-600 font-bold':
-                        product.category !== 'package' &&
-                        product.category !== 'monitoring' &&
-                        !(product.category === 'security' && product.color === 'blue') &&
-                        !(product.brand === 'NM Solar' && product.color === 'yellow'),
-                    }"
-                  >
+                      'text-blue-400 font-extrabold': product.category === 'security' && product.color === 'blue',
+                      'text-yellow-400 font-extrabold': product.brand === 'NM Solar' && product.color === 'yellow',
+                      'text-green-600 font-bold': product.category !== 'package' && product.category !== 'monitoring' && !(product.category === 'security' && product.color === 'blue') && !(product.brand === 'NM Solar' && product.color === 'yellow')
+                    }">
                     {{ product.name }}
                   </h2>
+
                   <p class="text-gray-400 mt-2">{{ product.description }}</p>
 
-                  <!-- Features -->
                   <div class="mt-3 flex flex-wrap gap-2">
-                    <span
-                      v-for="feature in product.features.slice(
-                        0,
-                        product.category === 'package' ? 3 : 2
-                      )"
-                      :key="feature"
-                      class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
-                    >
-                      {{ feature }}
-                    </span>
-                    <span
-                      v-if="
-                        product.features.length > (product.category === 'package' ? 3 : 2)
-                      "
-                      class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md"
-                    >
-                      +{{
-                        product.features.length - (product.category === "package" ? 3 : 2)
-                      }}
-                      more
-                    </span>
+                    <span v-for="feature in product.features.slice(0, product.category === 'package' ? 3 : 2)" :key="feature" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md">{{ feature }}</span>
+                    <span v-if="product.features.length > (product.category === 'package' ? 3 : 2)" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded-md">+{{ product.features.length - (product.category === 'package' ? 3 : 2) }} more</span>
                   </div>
 
                   <div class="flex items-center mt-4">
-                    <span
-                      :class="[
-                        'font-bold',
-                        product.category === 'package'
-                          ? 'text-xl text-green-500'
-                          : product.category === 'monitoring'
-                          ? 'text-xl text-purple-500'
-                          : product.category === 'security' && product.color === 'blue'
-                          ? 'text-xl text-blue-500'
-                          : product.brand === 'NM Solar' && product.color === 'yellow'
-                          ? 'text-xl text-yellow-500'
-                          : 'text-lg text-green-600',
-                      ]"
-                    >
-                      {{
-                        product.price
-                          ? `$${product.price.toFixed(2)}${
-                              product.recurring ? "/mo" : ""
-                            }`
-                          : "Call For Price"
-                      }}
-                    </span>
-                    <span
-                      v-if="product.recurring"
-                      class="ml-2 bg-purple-600/20 text-purple-400 text-xs px-2 py-0.5 rounded-full"
-                    >
-                      MONTHLY
-                    </span>
+                    <span :class="['font-bold', product.category === 'package' ? 'text-xl text-green-500' : product.category === 'monitoring' ? 'text-xl text-purple-500' : product.category === 'security' && product.color === 'blue' ? 'text-xl text-blue-500' : product.brand === 'NM Solar' && product.color === 'yellow' ? 'text-xl text-yellow-500' : 'text-lg text-green-600']">{{ product.price ? `$${product.price.toFixed(2)}${product.recurring ? '/mo' : ''}` : 'Call For Price' }}</span>
+                    <span v-if="product.recurring" class="ml-2 bg-purple-600/20 text-purple-400 text-xs px-2 py-0.5 rounded-full">MONTHLY</span>
                   </div>
 
-                  <div
-                    v-if="product.category === 'package'"
-                    class="mt-2 text-xs text-gray-400"
-                  >
-                    {{ product.specs?.cameraCount || "" }} cameras ·
-                    {{ product.specs?.resolution || "" }}
-                  </div>
-                  <div
-                    v-if="product.category === 'monitoring'"
-                    class="mt-2 text-xs text-gray-400"
-                  >
-                    {{ product.specs?.doorContacts || "" }} door contacts ·
-                    {{ product.specs?.windowSensors || "" }}
-                    window sensors
-                  </div>
+                  <div v-if="product.category === 'package'" class="mt-2 text-xs text-gray-400">{{ product.specs?.cameraCount || '' }} cameras · {{ product.specs?.resolution || '' }}</div>
+                  <div v-if="product.category === 'monitoring'" class="mt-2 text-xs text-gray-400">{{ product.specs?.doorContacts || '' }} door contacts · {{ product.specs?.windowSensors || '' }} window sensors</div>
+
                   <div class="flex gap-2 mt-4">
-                    <button
-                      @click.stop="addToCart(product)"
-                      :class="[
-                        'flex-1 py-3 rounded-lg text-white font-semibold transition-all duration-300 flex items-center justify-center shadow-lg transform hover:scale-105',
-                        product.category === 'package'
-                          ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-green-500/30'
-                          : product.category === 'monitoring'
-                          ? 'bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-purple-500/30'
-                          : product.category === 'security' && product.color === 'blue'
-                          ? 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30'
-                          : product.brand === 'NM Solar' && product.color === 'yellow'
-                          ? 'bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 shadow-yellow-500/30'
-                          : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30',
-                      ]"
-                    >
-                      <span v-if="product.category === 'package'" class="mr-1">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </span>
-                      {{
-                        product.category === "monitoring"
-                          ? "Subscribe"
-                          : "Add to Quote Cart"
-                      }}
-                    </button>
-                    <button
-                      @click.stop="showProductDetails(product)"
-                      :class="[
-                        'px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer border transform hover:scale-105',
-                        product.category === 'package'
-                          ? 'border-green-500/50 hover:border-green-400 text-green-400 hover:text-green-300 hover:bg-green-900/20'
-                          : product.category === 'monitoring'
-                          ? 'border-purple-500/50 hover:border-purple-400 text-purple-400 hover:text-purple-300 hover:bg-purple-900/20'
-                          : product.category === 'security' && product.color === 'blue'
-                          ? 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20'
-                          : product.brand === 'NM Solar' && product.color === 'yellow'
-                          ? 'border-yellow-500/50 hover:border-yellow-400 text-yellow-400 hover:text-yellow-300 hover:bg-yellow-900/20'
-                          : 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20',
-                      ]"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        />
-                      </svg>
-                    </button>
+                    <button @click.stop="addToCart(product)" :class="['flex-1 py-3 rounded-lg text-white font-semibold transition-all duration-300 flex items-center justify-center shadow-lg transform hover:scale-105', product.category === 'package' ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 shadow-green-500/30' : product.category === 'monitoring' ? 'bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 shadow-purple-500/30' : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-blue-500/30']">{{ product.category === 'monitoring' ? 'Subscribe' : 'Add to Quote Cart' }}</button>
+                    <button @click.stop="showProductDetails(product)" :class="['px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer border transform hover:scale-105', product.category === 'package' ? 'border-green-500/50 hover:border-green-400 text-green-400 hover:text-green-300 hover:bg-green-900/20' : product.category === 'monitoring' ? 'border-purple-500/50 hover:border-purple-400 text-purple-400 hover:text-purple-300 hover:bg-purple-900/20' : 'border-blue-500/50 hover:border-blue-400 text-blue-400 hover:text-blue-300 hover:bg-blue-900/20']"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></button>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
