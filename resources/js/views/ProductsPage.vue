@@ -562,11 +562,21 @@ export default {
   },
   setup() {
     const cartItemCount = computed(() => cartStore.getItemCount.value);
+    
+    // DEBUG: Log product data loading
+    console.log('ProductsPage setup - cameraProducts:', cameraProducts);
+    console.log('ProductsPage setup - cameraProducts is array?', Array.isArray(cameraProducts));
+    console.log('ProductsPage setup - cameraProducts length:', cameraProducts?.length);
+    
     // Ensure we have valid product data or use an empty array as fallback
     const allProducts = ref(Array.isArray(cameraProducts) ? cameraProducts : []);
     const filteredProducts = ref(
       Array.isArray(cameraProducts) ? [...cameraProducts] : []
     );
+    
+    console.log('ProductsPage setup - allProducts.value length:', allProducts.value.length);
+    console.log('ProductsPage setup - filteredProducts.value length:', filteredProducts.value.length);
+    
     const activeCategory = ref("all");
     const productDetailsOpen = ref(false);
     const selectedProduct = ref(null);
@@ -717,6 +727,9 @@ export default {
     const groupedProducts = computed(() => {
       // Start with an empty object
       const grouped = {};
+      
+      console.log('groupedProducts computed - filteredProducts.value:', filteredProducts.value);
+      console.log('groupedProducts computed - filteredProducts.value length:', filteredProducts.value?.length);
 
       try {
         // Make sure filteredProducts.value is an array before processing
