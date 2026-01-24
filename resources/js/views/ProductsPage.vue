@@ -536,7 +536,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, inject } from "vue";
 import { useRouter } from "vue-router";
 import CartModal from "../components/CartModal.vue";
 import ProductFilter from "../components/ProductFilter.vue";
