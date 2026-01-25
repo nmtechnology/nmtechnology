@@ -906,6 +906,8 @@ export default {
 
     return {
       cartItemCount,
+      allProducts,
+      filteredProducts,
       groupedProducts,
       activeCategory,
       productDetailsOpen,
