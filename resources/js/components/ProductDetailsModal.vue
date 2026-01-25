@@ -384,7 +384,7 @@ export default {
     // When modal becomes visible, inspect the DOM to ensure panel is rendered and visible
     const closeBtnRef = ref(null);
     const previousActiveElement = ref(null);
-    
+
     const handleKeydown = (e) => {
       if (!isVisible.value) return;
       const key = e.key;
@@ -623,6 +623,7 @@ export default {
       panelRef,
       themeColor,
       categoryName,
+      imageList,
       currentImageIndex,
       close,
       addToCartAndClose,
