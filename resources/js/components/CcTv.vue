@@ -228,11 +228,14 @@
   </template>
 
   <script setup>
-  import { inject, onMounted } from "vue";
+  import { inject, onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
   import { useAISEO } from "../composables/useAISEO";
+  import RelatedProducts from "./RelatedProducts.vue";
 
   const router = useRouter();
+  const selectedProduct = ref(null);
+  const productDetailsOpen = ref(false);
   const { setCCTVPageSEO } = useAISEO();
 
   // Set AI-optimized SEO on page load
@@ -252,6 +255,14 @@
 
   const getQuote = () => {
     router.push("/products");
+  };
+
+  const handleProductClick = (product) => {
+    // Navigate to products page with the product selected
+    router.push({ 
+      path: '/products',
+      query: { productId: product.id }
+    });
   };
 
   const services = [
