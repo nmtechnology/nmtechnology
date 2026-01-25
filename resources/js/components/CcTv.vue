@@ -187,6 +187,16 @@
         </div>
       </section>
 
+      <!-- Related Products Section -->
+      <RelatedProducts
+        :category="['camera', 'recorder']"
+        title="CCTV Cameras & Recorders"
+        subtitle="Professional surveillance equipment for your security needs"
+        theme="blue"
+        :max-products="8"
+        @product-clicked="handleProductClick"
+      />
+
       <!-- CTA -->
       <section class="mt-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">

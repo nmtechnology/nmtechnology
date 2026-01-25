@@ -187,6 +187,16 @@
         </div>
       </section>
 
+      <!-- Related Products Section -->
+      <RelatedProducts
+        category="security"
+        title="Security Alarm Systems"
+        subtitle="Advanced alarm systems and sensors for comprehensive protection"
+        theme="green"
+        :max-products="8"
+        @product-clicked="handleProductClick"
+      />
+
       <!-- CTA -->
       <section class="mt-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -231,6 +241,7 @@
   import { inject, onMounted } from "vue";
   import { useRouter } from "vue-router";
   import { useAISEO } from "../composables/useAISEO";
+  import RelatedProducts from "./RelatedProducts.vue";
 
   const { setSecurityAlarmPageSEO } = useAISEO();
 
@@ -253,6 +264,13 @@
 
   const getQuote = () => {
     router.push("/products");
+  };
+
+  const handleProductClick = (product) => {
+    router.push({ 
+      path: '/products',
+      query: { productId: product.id }
+    });
   };
 
   const services = [
