@@ -289,11 +289,6 @@
     selectedProduct.value = null;
   };
 
-  const closeProductDetails = () => {
-    productDetailsOpen.value = false;
-    selectedProduct.value = null;
-  };
-
   const services = [
     {
       title: "Card access systems",
