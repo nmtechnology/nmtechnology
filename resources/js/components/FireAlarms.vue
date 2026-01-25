@@ -242,13 +242,21 @@
         </div>
       </section>
     </main>
+
+    <!-- Product Details Modal -->
+    <ProductDetailsModal
+      :is-open="productDetailsOpen"
+      :product="selectedProduct"
+      @close="closeProductDetails"
+    />
   </template>
 
   <script setup>
-  import { inject, onMounted } from "vue";
+  import { inject, onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
   import { useAISEO } from "../composables/useAISEO";
   import RelatedProducts from "./RelatedProducts.vue";
+  import ProductDetailsModal from "./ProductDetailsModal.vue";
 
   const { setFireAlarmPageSEO } = useAISEO();
 
@@ -261,6 +269,8 @@
 
   const router = useRouter();
   const openContactModal = inject("openContactModal", null);
+  const selectedProduct = ref(null);
+  const productDetailsOpen = ref(false);
 
   const contactUs = () => {
     if (typeof openContactModal === "function") {
@@ -276,10 +286,13 @@
   };
 
   const handleProductClick = (product) => {
-    router.push({ 
-      path: '/products',
-      query: { productId: product.id }
-    });
+    selectedProduct.value = product;
+    productDetailsOpen.value = true;
+  };
+
+  const closeProductDetails = () => {
+    productDetailsOpen.value = false;
+    selectedProduct.value = null;
   };
 
   const services = [

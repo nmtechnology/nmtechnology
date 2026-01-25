@@ -235,6 +235,13 @@
         </div>
       </section>
     </main>
+
+    <!-- Product Details Modal -->
+    <ProductDetailsModal
+      :is-open="productDetailsOpen"
+      :product="selectedProduct"
+      @close="closeProductDetails"
+    />
   </template>
 
   <script setup>
@@ -242,6 +249,7 @@
   import { useRouter } from "vue-router";
   import { useAISEO } from "../composables/useAISEO";
   import RelatedProducts from "./RelatedProducts.vue";
+  import ProductDetailsModal from "./ProductDetailsModal.vue";
 
   const router = useRouter();
   const selectedProduct = ref(null);
