@@ -276,11 +276,13 @@
   };
 
   const handleProductClick = (product) => {
-    // Navigate to products page with the product selected
-    router.push({ 
-      path: '/products',
-      query: { productId: product.id }
-    });
+    selectedProduct.value = product;
+    productDetailsOpen.value = true;
+  };
+
+  const closeProductDetails = () => {
+    productDetailsOpen.value = false;
+    selectedProduct.value = null;
   };
 
   const services = [
