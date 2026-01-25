@@ -275,8 +275,14 @@ onMounted(() => {
 
 const openContactModal = inject("openContactModal");
 
-const generateQuote = () => {
-  router.push("/products");
+const generateQuote = async () => {
+  console.log('Build Quote button clicked');
+  try {
+    await router.push("/products");
+    console.log('Navigation to /products successful');
+  } catch (error) {
+    console.error('Navigation error:', error);
+  }
 };
 </script>
 
