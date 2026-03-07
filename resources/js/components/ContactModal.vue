@@ -546,6 +546,182 @@
                   </div>
                 </div>
 
+                <!-- Address Fields -->
+                <div class="md:col-span-2">
+                  <label
+                    for="address"
+                    class="flex items-center text-sm font-semibold leading-6 text-white mb-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-2 text-green-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Street Address
+                  </label>
+                  <input
+                    type="text"
+                    v-model="form.address"
+                    id="address"
+                    autocomplete="street-address"
+                    class="block w-full rounded-md border-0 bg-white/5 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 hover:ring-green-500/50 focus:ring-2 focus:ring-inset focus:ring-green-500 text-base leading-6 transition-all duration-200"
+                    placeholder="123 Main St"
+                  />
+                  <div
+                    v-if="validationErrors.address"
+                    class="text-sm text-red-500 mt-1 flex items-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    {{ validationErrors.address[0] }}
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label
+                      for="city"
+                      class="flex items-center text-sm font-semibold leading-6 text-white mb-2"
+                    >
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      v-model="form.city"
+                      id="city"
+                      autocomplete="address-level2"
+                      class="block w-full rounded-md border-0 bg-white/5 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 hover:ring-green-500/50 focus:ring-2 focus:ring-inset focus:ring-green-500 text-base leading-6 transition-all duration-200"
+                      placeholder="Albuquerque"
+                    />
+                    <div
+                      v-if="validationErrors.city"
+                      class="text-sm text-red-500 mt-1 flex items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                      </svg>
+                      {{ validationErrors.city[0] }}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      for="state"
+                      class="flex items-center text-sm font-semibold leading-6 text-white mb-2"
+                    >
+                      State
+                    </label>
+                    <select
+                      v-model="form.state"
+                      id="state"
+                      autocomplete="address-level1"
+                      class="block w-full rounded-md border-0 bg-white/5 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 hover:ring-green-500/50 focus:ring-2 focus:ring-inset focus:ring-green-500 text-base leading-6 transition-all duration-200"
+                    >
+                      <option value="" disabled>Select state</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="TX">Texas</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="CO">Colorado</option>
+                    </select>
+                    <div
+                      v-if="validationErrors.state"
+                      class="text-sm text-red-500 mt-1 flex items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                      </svg>
+                      {{ validationErrors.state[0] }}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      for="zipCode"
+                      class="flex items-center text-sm font-semibold leading-6 text-white mb-2"
+                    >
+                      ZIP Code
+                    </label>
+                    <input
+                      type="text"
+                      v-model="form.zipCode"
+                      id="zipCode"
+                      autocomplete="postal-code"
+                      class="block w-full rounded-md border-0 bg-white/5 px-3 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 hover:ring-green-500/50 focus:ring-2 focus:ring-inset focus:ring-green-500 text-base leading-6 transition-all duration-200"
+                      placeholder="87101"
+                      maxlength="10"
+                    />
+                    <div
+                      v-if="validationErrors.zipCode"
+                      class="text-sm text-red-500 mt-1 flex items-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                      </svg>
+                      {{ validationErrors.zipCode[0] }}
+                    </div>
+                  </div>
+                </div>
+
                 <div class="md:col-span-2">
                   <label
                     for="message"
@@ -924,6 +1100,10 @@ export default {
       lastName: "",
       email: "",
       phoneNumber: "",
+      address: "",
+      city: "",
+      state: "NM",
+      zipCode: "",
       message: "",
       blueprintFile: null,
       blueprintFileId: null,
@@ -989,6 +1169,10 @@ export default {
       form.lastName = "";
       form.email = "";
       form.phoneNumber = "";
+      form.address = "";
+      form.city = "";
+      form.state = "NM";
+      form.zipCode = "";
       form.message = "";
       form.blueprintFile = null;
       form.blueprintFileId = null;
