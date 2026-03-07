@@ -1103,13 +1103,13 @@ export default {
         formData.append("userMathAnswer", mathAnswer.value);
         formData.append("mathProblemAnswer", correctAnswer.value);
 
-        const response = await axios.post("/api/contact", formData, {
+        const response = await axios.post("https://tekdash.nmtechnology.us/api/contact", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
 
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
           showConfirmationScreen.value = true;
         }
       } catch (error) {
