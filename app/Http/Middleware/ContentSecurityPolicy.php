@@ -28,11 +28,11 @@ class ContentSecurityPolicy
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "font-src 'self' https://fonts.gstatic.com data:",
             "img-src 'self' data: https: http:",
-            "connect-src 'self' https://www.google.com https://www.googletagmanager.com",
+            "connect-src 'self' https://tekdash.nmtechnology.us https://www.google.com https://www.googletagmanager.com",
             "frame-src 'self' https://www.google.com",
             "object-src 'none'",
             "base-uri 'self'",
-            "form-action 'self'",
+            "form-action 'self' https://tekdash.nmtechnology.us",
             "frame-ancestors 'none'",
             "upgrade-insecure-requests"
         ];
@@ -40,7 +40,7 @@ class ContentSecurityPolicy
         // In development, allow eval for Vite HMR
         if (config('app.debug')) {
             $csp[1] = "script-src 'self' 'nonce-{$nonce}' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com";
-            $csp[] = "connect-src 'self' ws://localhost:* http://localhost:* https://www.google.com https://www.googletagmanager.com";
+            $csp[] = "connect-src 'self' https://tekdash.nmtechnology.us ws://localhost:* http://localhost:* https://www.google.com https://www.googletagmanager.com";
         }
 
         $response->headers->set('Content-Security-Policy', implode('; ', $csp));

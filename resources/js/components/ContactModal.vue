@@ -343,7 +343,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
-                      for="firstName"
+                      for="first-name"
                       class="flex items-center text-sm font-semibold leading-6 text-white mb-2"
                     >
                       <svg

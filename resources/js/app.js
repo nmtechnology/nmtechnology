@@ -1,5 +1,6 @@
 import './bootstrap'
 import { createApp } from 'vue'
+import { createHead } from '@unhead/vue/client'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import HomePage from './views/HomePage.vue'
@@ -70,6 +71,8 @@ const app = createApp(App)
 app.directive('touch', vTouch)
 
 // Mount the app
+const head = createHead()
+app.use(head)
 app.use(router).mount('#app')
 
 const instance = axios.create({

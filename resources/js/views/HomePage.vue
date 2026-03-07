@@ -268,10 +268,8 @@ import ziaSymbol from "../../images/zia-symbol.webp";
 const router = useRouter();
 const { setHomePageSEO } = useAISEO();
 
-// Set AI-optimized SEO on page load
-onMounted(() => {
-  setHomePageSEO();
-});
+// Set AI-optimized SEO (called in setup scope for useHead context)
+setHomePageSEO();
 
 const openContactModal = inject("openContactModal");
 
