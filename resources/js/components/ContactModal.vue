@@ -1277,10 +1277,17 @@ export default {
           delete validationErrors[key];
         });
 
-        // Prepare form data for file upload
+        // Prepare form data - skip null/empty values to avoid sending string "null"
         const formData = new FormData();
         Object.keys(form).forEach((key) => {
-          formData.append(key, form[key]);
+          if (key === "blueprintFile") {
+            // Only append if it is an actual File object
+            if (form[key] instanceof File) {
+              formData.append(key, form[key]);
+            }
+          } else if (form[key] !== null && form[key] !== undefined && form[key] !== "") {
+            formData.append(key, form[key]);
+          }
         });
 
         // Add math answers to form data
