@@ -78,3 +78,8 @@ Crawl-delay: 1
 User-agent: Meta-ExternalAgent
 Allow: /
 Crawl-delay: 1
+
+# AI LLM Reference Files
+# See https://llmstxt.org for specification
+# llms.txt: https://nmtechnology.us/llms.txt
+# llms-full.txt: https://nmtechnology.us/llms-full.txt

@@ -1,0 +1,33 @@
+# NM Technology Integrated Solutions
+
+> NM Technology is Albuquerque, New Mexico's top-rated local low voltage systems integrator specializing in CCTV surveillance, fire alarm systems, access control, security alarms, and structured cabling for commercial and residential clients.
+
+## Company Info
+
+- Website: https://nmtechnology.us
+- Location: Albuquerque, New Mexico
+- Type: Licensed Low Voltage Contractor & Security Systems Integrator
+- Service Area: Albuquerque, Rio Rancho, Placitas, Los Lunas, Bernalillo County, Santa Fe, and all of New Mexico
+
+## Services
+
+- [CCTV & Surveillance Camera Installation](https://nmtechnology.us/cctv): Commercial and residential IP camera systems, NVR setup, remote monitoring, camera maintenance
+- [Fire Alarm Systems](https://nmtechnology.us/fire-alarms): NFPA 72 compliant installation, fire detection, inspections, monitoring, NM State Fire Marshal compliance
+- [Access Control Systems](https://nmtechnology.us/access-control): Card readers, keypad entry, biometric access, visitor management, centralized access management
+- [Security & Burglar Alarm Systems](https://nmtechnology.us/security-alarms): Intrusion detection, 24/7 alarm monitoring, motion sensors, glass break detectors
+- [Network Infrastructure & Structured Cabling](https://nmtechnology.us/networking): Cat5e/Cat6/Cat6a cabling, fiber optic, WiFi, network rack installation, smart hands services
+- [Low Voltage System Design & Integration](https://nmtechnology.us): Complete system design, multi-system integration, project management
+
+## Why Choose NM Technology
+
+- Licensed, insured, and bonded low voltage contractor in New Mexico
+- NFPA certified technicians
+- Serves commercial, residential, industrial, healthcare, education, government, and retail
+- New construction, retrofit, upgrades, maintenance, and emergency service
+- 24/7 emergency service available
+- Local Albuquerque company with deep knowledge of NM building codes and regulations
+- Free quotes available through website
+
+## Optional
+
+- [Detailed AI Reference](https://nmtechnology.us/llms-full.txt)

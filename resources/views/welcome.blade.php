@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/webp" href="{{ asset('images/NM-logo-only.webp') }}" class=".brand-logo">
     <link rel="canonical" href="https://nmtechnology.us/">
+    <link rel="help" type="text/plain" href="https://nmtechnology.us/llms.txt" title="LLM Reference">
 
     <!-- Primary SEO Meta Tags -->
     <title>NM Technology | CCTV, Access Control, Network, Burglar & Fire Alarm Installation | 505-659-5097</title>
