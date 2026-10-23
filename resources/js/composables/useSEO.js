@@ -48,9 +48,9 @@ export const pageSEOConfigs = {
         path: '/access-control'
     },
     fireAlarms: {
-        title: 'Fire Alarm Systems 87123 | Installation & Inspection Albuquerque | NM Technology',
-        description: 'NFPA-compliant fire alarm systems in Albuquerque ZIP 87123. Professional installation, annual inspections, and 24/7 monitoring. Fire alarm technician services.',
-        keywords: 'fire alarm systems 87123, fire alarm technician Albuquerque, fire alarm installation Albuquerque, NFPA fire alarm inspection NM',
+        title: 'Kidde Fire Alarm Installation Albuquerque | NM Technology',
+        description: 'Kidde fire alarm system installation and service in Albuquerque, Rio Rancho, and across New Mexico. NFPA-compliant design, inspections, and monitoring for commercial buildings.',
+        keywords: 'Kidde fire alarm installation Albuquerque, Kidde fire alarm installer Albuquerque NM, Kidde fire alarm service New Mexico, fire alarm systems 87123, fire alarm technician Albuquerque, NFPA fire alarm inspection NM',
         path: '/fire-alarms'
     },
     network: {

@@ -226,8 +226,8 @@ export function useAISEO() {
    */
   const setFireAlarmPageSEO = () => {
     const schema = getServiceSchema(
-      'Fire Alarm System Installation',
-      'NFPA-compliant fire alarm system design, installation, and inspection services in Albuquerque and surrounding areas. Commercial fire detection and notification systems.',
+      'Kidde Fire Alarm System Installation',
+      'NFPA-compliant fire alarm system design, installation, and inspection services, including Kidde fire alarm systems, in Albuquerque and surrounding areas. Commercial fire detection and notification systems.',
       {
         serviceOutput: 'Fire alarm system installation and monitoring',
         additionalType: 'FireAlarmInstallation'
@@ -235,9 +235,9 @@ export function useAISEO() {
     )
 
     setPageMeta({
-      title: 'Fire Alarm Systems - NFPA Compliant Installation',
-      description: 'Professional fire alarm installation in Albuquerque, Rio Rancho, and Los Lunas. NFPA 72 compliant systems, inspections, and monitoring for commercial buildings.',
-      keywords: 'fire alarm installation Albuquerque, NFPA 72 compliance, fire detection systems Rio Rancho, commercial fire alarms New Mexico',
+      title: 'Kidde Fire Alarm Installation - Albuquerque & Rio Rancho',
+      description: 'Looking for Kidde fire alarm installation in Albuquerque or Rio Rancho? NM Technology installs and services Kidde fire alarm systems, with NFPA 72-compliant design, inspections, and monitoring for commercial buildings.',
+      keywords: 'Kidde fire alarm installation Albuquerque, Kidde fire alarm installer Albuquerque NM, Kidde fire alarm systems Rio Rancho, Kidde fire alarm service New Mexico, fire alarm installation Albuquerque, NFPA 72 compliance, commercial fire alarms New Mexico',
       canonical: `${baseUrl}/fire-alarms`,
       schema: [getLocalBusinessSchema(), schema]
     })

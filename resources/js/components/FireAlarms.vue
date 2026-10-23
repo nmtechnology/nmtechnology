@@ -120,6 +120,10 @@
               From small tenant improvements to large commercial buildings, we handle fire alarm 
               design, installation, inspection, and service — ensuring code compliance and reliable life safety protection.
             </p>
+            <p class="mt-3 text-gray-300">
+              We install and service Kidde fire alarm systems for commercial properties, with system design and work
+              coordinated to applicable codes and local requirements.
+            </p>
           </div>
 
           <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
